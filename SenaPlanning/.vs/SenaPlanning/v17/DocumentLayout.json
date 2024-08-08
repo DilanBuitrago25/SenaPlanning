@@ -1,12 +1,65 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\RepositiveGitHub\\SenaPlanning\\SenaPlanning\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\GitHub\\SenaPlanning\\SenaPlanning\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{842BC86A-E21C-4E9D-9564-5B5D95461B0E}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\lenovo\\onedrive\\documentos\\github\\senaplanning\\senaplanning\\senaplanning\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{842BC86A-E21C-4E9D-9564-5B5D95461B0E}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 304,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-08T19:27:50.75Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -84,3 +84,7 @@ C:\RepositiveGitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlannin
 C:\RepositiveGitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlan.7DAA9E38.Up2Date
 C:\RepositiveGitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.dll
 C:\RepositiveGitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.pdb
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.csproj.AssemblyReference.cache
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.dll
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.pdb
