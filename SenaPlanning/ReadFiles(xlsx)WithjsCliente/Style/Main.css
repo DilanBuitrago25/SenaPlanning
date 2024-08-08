@@ -22,8 +22,7 @@ h3 {
     --ColorComplementary1: #385C57;
     --ColorComplementary2: #CB7766;
     --ColorFirst1: #00324D;
-    --ColorFirst3: #FBFBE2;
-    --ColorNeutral: #ffffff;
+    --ColorFirst3: #FBFBE2;    --ColorNeutral: #ffffff;
     --ColorRed: #dc2626;
     --ColorGreen: #39A900;
     --ColorGreyLight: #e1e1e4;
@@ -93,8 +92,10 @@ h3 {
     scale: 1.1;
 }
 
-.Form-RegisterByFiles h3 {
+.Form-RegisterByFiles h4 {
     color: var(--ColorCorporate);
+    font-size: 18px;
+
 }
 
 .Form-RegisterByFiles .container-progress-bar {
@@ -119,10 +120,13 @@ h3 {
     height: 10px;
 }
 
-.Form-RegisterByFiles .container-progress-bar button {
+.Form-RegisterByFiles button {
     max-width: 150px;
     margin-left: auto;
     padding: 4px 15px;
+    border: 1px solid var(--ColorComplementary1);
+    border-radius: 5px;
+    background-color: var(--ColorNeutral);
 }
 
 .Form-RegisterByFiles p {

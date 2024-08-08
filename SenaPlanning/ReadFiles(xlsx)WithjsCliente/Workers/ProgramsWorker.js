@@ -3,7 +3,7 @@ try {
 } catch (e) {
     console.log(e);
 }
-let data = [];//Se almace los dataos
+let data = [];//Se almacena los dataos
 let totalForRegister = 0; //Se almacena el total de los registro para registrar
 let count = 0; //Conste de los registrados
 let totalData = 0;
@@ -12,6 +12,8 @@ try {
     onmessage = async (e) => {
         if (e.data.type === "read-files") {
             data = [];
+            totalForRegister = 0;
+            count = 0;
             let files = e.data.value;
             let file = null;
             for (file of files) {
@@ -19,7 +21,6 @@ try {
             }
 
             for (const file of files) {
-                console.log(file);
                 const reader = new FileReader();
                 const promise = new Promise((resolve, reject) => {
                     reader.onload = async (e) => {
@@ -47,16 +48,28 @@ try {
             }
             if (totalForRegister === count) {
                 postMessage({ type: "ok_read_files" });
-                console.log(data)
             }
+        }
+        if (e.data.type === "register") {
+            console.log(data)
+            data.forEach(element => {
+                postMessage({
+                    type: "loading_read_files",
+                    value: {
+                        porcentage: calculatePorcentage(count, totalForRegister),
+                        textValue: `${count} de ${totalForRegister} ${totalForRegister === 1 ? "archivo" : "archivos"}`
+                    }
+                });
+                console.table(element)
+            })
         }
     }
 } catch (e) {
-
+    console.log(e)
 }
 
 
-//Se calcula el porcentage el progreso 
+//Se calcular el porcentage el progreso 
 function calculatePorcentage(number, maxLenght) {
     return Math.trunc((number / maxLenght) * 100)
 }

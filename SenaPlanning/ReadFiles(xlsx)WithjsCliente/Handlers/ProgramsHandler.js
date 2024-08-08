@@ -1,4 +1,6 @@
-const workerPrograms = new Worker("/Workers/ProgramsWorker.js");
+const workerPrograms = new Worker("/Workers/ProgramsWorker.js",{
+    
+});
 
 let container_progress_bar_programs = document.getElementById("container-progress-bar_programs");
 let text_progressBar_files_programs = document.getElementById("text-progressBar-files_programs");
@@ -18,8 +20,7 @@ workerPrograms.onmessage = async (e) => {
         buttom_progressBar_files_programs.style.display = "none";
         return
     }
-    if(e.data.type === "ok_read_files"){
-        console.log(2)
+    if (e.data.type === "ok_read_files") {
         porcentage_progressBar_files_programs.style.display = "none";
         buttom_progressBar_files_programs.style.display = "";
         text_progressBar_files_programs.innerHTML = "¡Lectura exitosa!";
@@ -31,4 +32,9 @@ document.getElementById("inputFile-programs").addEventListener('change', async (
     workerPrograms.postMessage({ type: "read-files", value: event.target.files });
     buttom_progressBar_files_programs.style.display = "none";
     message_progressBar_files_programs.style.display = "none";
+    event.target.value = "";
+})
+
+buttom_progressBar_files_programs.addEventListener("click", () => {
+    workerPrograms.postMessage({ type: "register"});
 })
