@@ -1,48 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ClaseModelo;
 
 namespace SenaPlanning.Controllers
 {
     public class LoginController : Controller
     {
+        private SenaPlanningEntities db = new SenaPlanningEntities();
+
         // GET: Login
         public ActionResult Index()
         {
-            return View();
+            return View(db.Usuario.ToList());
         }
 
-        // POST: Auth/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(string correo, string contrasena)
+        public ActionResult Index(int documento, string contrasena)
         {
-            var usuario = db.Usuario.FirstOrDefault(u => u.Correo_usuario == correo && u.Contrasena_usuario == contrasena);
+            var usuario = db.Usuario.FirstOrDefault(u => u.DocumentoUsuario == documento && u.ConstraseñaUsuario == contrasena);
 
             if (usuario != null)
             {
-                Session["Idusuario"] = usuario.Id_usuario; // Almacenar el ID en sesión
-                Session["TipoUsuario"] = usuario.Tipo_usuario;
-                Session["CorreoUsuario"] = usuario.Correo_usuario;
-                Session["NombreUsuario"] = usuario.Nombre_usuario + " " + usuario.Apellido_usuario;
-                ViewBag.TipoUsuario = usuario.Tipo_usuario;
+                Session["Idusuario"] = usuario.IdUsuario; // Almacenar el ID en sesión
+                Session["TipoUsuario"] = usuario.TipoUsuario;
+                Session["NombreUsuario"] = usuario.NombreUsuario + " " + usuario.ApellidoUsuario;
+                ViewBag.TipoUsuario = usuario.TipoUsuario;
 
-                if (TempData["ReturnUrl"] != null)
+                if (usuario.TipoUsuario == "Administrador")
                 {
-                    string returnUrl = TempData["ReturnUrl"].ToString();
-                    TempData.Remove("ReturnUrl"); // Eliminar el valor de TempData
-                    return Redirect(returnUrl);
+                    return RedirectToAction("Index", "Home"); // Vista para Administradores
                 }
-
-                if (usuario.Tipo_usuario == "Administrador" && usuario.Estado_Usuario == true)
+                else if (usuario.TipoUsuario == "Coordinador")
                 {
-                    return RedirectToAction("Index", "Administrador"); // Vista para aprendices
-                }
-                else if (usuario.Tipo_usuario == "Coordinador" && usuario.Estado_Usuario == true)
-                {
-                    return RedirectToAction("Index", "Coordinador"); // Vista para instructores
+                    return RedirectToAction("Contact", "Home"); // Vista para Coordinadores
                 }
             }
             if (usuario == null)
@@ -54,18 +51,11 @@ namespace SenaPlanning.Controllers
                 ViewData["Mensaje"] = "Usuario no Activo";
             }
 
-
-
-
             ModelState.AddModelError("", "Credenciales inválidas.");
             return View();
 
-
-
-
         }
 
-        // GET: Auth/Logout
         public ActionResult Logout()
         {
             Session.Abandon(); // Cerrar sesión
@@ -91,20 +81,20 @@ namespace SenaPlanning.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AutorizarTipoUsuario("Administrador", "Coordinador")]
-        public ActionResult EditarPerfil([Bind(Include = "Id_usuario,Tipo_Documento_usuario,Documento_usuario,Nombre_usuario,Apellido_usuario,Telefono_usuario,Correo_usuario,Contrasena_usuario,Tipo_usuario,Tipo_instructor,Id_ficha,Estado_usuario")] Usuario usuario, Ficha_has_Usuario ficha_Has_Usuario)
+        public ActionResult EditarPerfil([Bind(Include = "Id_usuario,Tipo_Documento_usuario,Documento_usuario,Nombre_usuario,Apellido_usuario,Telefono_usuario,Correo_usuario,Contrasena_usuario,Tipo_usuario,Tipo_instructor,Id_ficha,Estado_usuario")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
 
-                if (usuario.Tipo_usuario == "Administrador")
+                if (usuario.TipoUsuario == "Administrador")
                 {
-                    return RedirectToAction("Index", "Administrador"); // Redirigir al controlador Aprendizs
+                    return RedirectToAction("Index", "Administrador");
                 }
-                else if (usuario.Tipo_usuario == "Coordinador")
+                else if (usuario.TipoUsuario == "Coordinador")
                 {
-                    return RedirectToAction("Index", "Coordinador"); // Redirigir al controlador Instructors
+                    return RedirectToAction("Index", "Coordinador");
                 }
                 else
                 {
@@ -139,6 +129,15 @@ namespace SenaPlanning.Controllers
                 var url = urlHelper.Action("Error401", "Home");
                 filterContext.Result = new RedirectResult(url);
             }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

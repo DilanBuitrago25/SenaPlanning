@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SenaPlanningModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ambiente">
+    <Key>
+      <PropertyRef Name="IdAmbiente" />
+    </Key>
+    <Property Name="IdAmbiente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreAmbiente" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Area_Conocimiento">
+    <Key>
+      <PropertyRef Name="IdArea" />
+    </Key>
+    <Property Name="IdArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoArea" Type="int" Nullable="false" />
+    <Property Name="NombreArea" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IdRed" Type="int" />
+  </EntityType>
+  <EntityType Name="Area_conocimiento_has_Instructor">
+    <Key>
+      <PropertyRef Name="IdInstructor" />
+      <PropertyRef Name="IdArea" />
+    </Key>
+    <Property Name="IdInstructor" Type="int" Nullable="false" />
+    <Property Name="IdArea" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ficha">
+    <Key>
+      <PropertyRef Name="IdFicha" />
+    </Key>
+    <Property Name="IdFicha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoFicha" Type="int" />
+    <Property Name="FechaInFicha" Type="date" />
+    <Property Name="FechaFinFicha" Type="date" />
+    <Property Name="NumAprenFicha" Type="int" />
+    <Property Name="TrimestreFicha" Type="varchar" MaxLength="25" />
+    <Property Name="JornadaFicha" Type="varchar" MaxLength="100" />
+    <Property Name="IdPrograma" Type="int" />
+    <Property Name="IdOferta" Type="int" />
+  </EntityType>
+  <EntityType Name="Ficha_has_Ambiente">
+    <Key>
+      <PropertyRef Name="IdFicha" />
+      <PropertyRef Name="IdAmbiente" />
+    </Key>
+    <Property Name="IdFicha" Type="int" Nullable="false" />
+    <Property Name="IdAmbiente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="IdInstructor" />
+    </Key>
+    <Property Name="IdInstructor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentoInstructor" Type="int" />
+    <Property Name="NombreCompletoInstructor" Type="varchar" MaxLength="300" />
+    <Property Name="CodRegionalInstructor" Type="int" />
+    <Property Name="RegionalInstructor" Type="varchar" MaxLength="255" />
+    <Property Name="CodCCOS" Type="int" />
+    <Property Name="DependenciaInstructor" Type="varchar" MaxLength="255" />
+    <Property Name="CargoInstructor" Type="varchar" MaxLength="150" />
+    <Property Name="TipoCargoInstructor" Type="varchar" MaxLength="255" />
+    <Property Name="CorreoSENAInstructor" Type="varchar" MaxLength="255" />
+    <Property Name="RedInstructor" Type="varchar" MaxLength="150" />
+    <Property Name="AreaInstructor" Type="varchar" MaxLength="150" />
+    <Property Name="RutaInstructor" Type="varchar" MaxLength="150" />
+    <Property Name="CodMunicipioInstructor" Type="int" />
+    <Property Name="MunicipioInstructor" Type="varchar" MaxLength="150" />
+    <Property Name="FechaNacimientoInstructor" Type="date" />
+    <Property Name="FechaIngreso" Type="date" />
+    <Property Name="SexoInstructor" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Meta">
+    <Key>
+      <PropertyRef Name="IdMeta" />
+    </Key>
+    <Property Name="IdMeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MetaFormacion" Type="float" />
+    <Property Name="MetaTecnologia" Type="float" />
+    <Property Name="MetaTecnico" Type="float" />
+    <Property Name="MetaET" Type="float" />
+    <Property Name="MetaOtros" Type="float" />
+  </EntityType>
+  <EntityType Name="Oferta">
+    <Key>
+      <PropertyRef Name="IdOferta" />
+    </Key>
+    <Property Name="IdOferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoOferta" Type="int" />
+    <Property Name="HoraReqTrimIOferta" Type="int" />
+    <Property Name="HoraReqTrimIIOferta" Type="int" />
+    <Property Name="HoraReqTrimIIIOferta" Type="int" />
+    <Property Name="HoraReqTrimIVOferta" Type="int" />
+    <Property Name="CanInstPlantaOferta" Type="int" />
+    <Property Name="HorasContTrimIOferta" Type="int" />
+    <Property Name="HorasContTrimIIOferta" Type="int" />
+    <Property Name="HorasContTrimIIIOferta" Type="int" />
+    <Property Name="HorasContTrimIVOferta" Type="int" />
+    <Property Name="CantidadInstContratoTrimIOferta" Type="int" />
+    <Property Name="CantidadInstContratoTrimIIOferta" Type="int" />
+    <Property Name="CantidadInstContratoTrimIIIOferta" Type="int" />
+    <Property Name="CantidadInstContratoTrimIVOferta" Type="int" />
+    <Property Name="TrimestreProgramadosOferta" Type="int" />
+    <Property Name="TotalAprendicesOferta" Type="int" />
+    <Property Name="TotalCursosNuevosOferta" Type="int" />
+    <Property Name="TotalCursosEPtrimestreOferta" Type="int" />
+    <Property Name="TotalCursosCursosNuevosOferta" Type="int" />
+    <Property Name="TotalCursosOferta" Type="int" />
+    <Property Name="CantidadTrimProgramadosOferta" Type="int" />
+    <Property Name="CantidadTrimEPOferta" Type="int" />
+    <Property Name="TotalInstaContratarOferta" Type="int" />
+    <Property Name="AprenPasanOferta" Type="int" />
+    <Property Name="AprenProgOferta" Type="int" />
+    <Property Name="CursoOferta" Type="float" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="IdMetas" Type="int" />
+  </EntityType>
+  <EntityType Name="Programa_Formacion">
+    <Key>
+      <PropertyRef Name="IdPrograma" />
+    </Key>
+    <Property Name="IdPrograma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DenominacionPrograma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VersionPrograma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NivelPrograma" Type="varchar" MaxLength="100" />
+    <Property Name="IdArea" Type="int" />
+  </EntityType>
+  <EntityType Name="Red_Conocimiento">
+    <Key>
+      <PropertyRef Name="IdRed" />
+    </Key>
+    <Property Name="IdRed" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreRed" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="CodigoRed" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoDocumentoUsuario" Type="varchar" MaxLength="100" />
+    <Property Name="DocumentoUsuario" Type="int" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="255" />
+    <Property Name="ApellidoUsuario" Type="varchar" MaxLength="255" />
+    <Property Name="TelefonoUsuario" Type="int" />
+    <Property Name="ConstraseñaUsuario" Type="varchar" MaxLength="255" />
+    <Property Name="TipoUsuario" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__Area_Cono__IdRed__2A4B4B5E">
+    <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
+    <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Red_Conocimiento">
+        <PropertyRef Name="IdRed" />
+      </Principal>
+      <Dependent Role="Area_Conocimiento">
+        <PropertyRef Name="IdRed" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ficha__IdOferta__3A81B327">
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
+    <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oferta">
+        <PropertyRef Name="IdOferta" />
+      </Principal>
+      <Dependent Role="Ficha">
+        <PropertyRef Name="IdOferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ficha__IdProgram__398D8EEE">
+    <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="0..1" />
+    <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programa_Formacion">
+        <PropertyRef Name="IdPrograma" />
+      </Principal>
+      <Dependent Role="Ficha">
+        <PropertyRef Name="IdPrograma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta__IdMetas__30F848ED">
+    <End Role="Meta" Type="Self.Meta" Multiplicity="0..1" />
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meta">
+        <PropertyRef Name="IdMeta" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="IdMetas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta__IdUsuari__300424B4">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Programa___IdAre__2D27B809">
+    <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
+    <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area_Conocimiento">
+        <PropertyRef Name="IdArea" />
+      </Principal>
+      <Dependent Role="Programa_Formacion">
+        <PropertyRef Name="IdArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Area_conocimiento_has_Instructor_IdArea">
+    <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="1" />
+    <End Role="Area_conocimiento_has_Instructor" Type="Self.Area_conocimiento_has_Instructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area_Conocimiento">
+        <PropertyRef Name="IdArea" />
+      </Principal>
+      <Dependent Role="Area_conocimiento_has_Instructor">
+        <PropertyRef Name="IdArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Area_conocimiento_has_Instructor_IdInstructor">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="Area_conocimiento_has_Instructor" Type="Self.Area_conocimiento_has_Instructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="IdInstructor" />
+      </Principal>
+      <Dependent Role="Area_conocimiento_has_Instructor">
+        <PropertyRef Name="IdInstructor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ficha_has_Ambiente_IdAmbiente">
+    <End Role="Ambiente" Type="Self.Ambiente" Multiplicity="1" />
+    <End Role="Ficha_has_Ambiente" Type="Self.Ficha_has_Ambiente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ambiente">
+        <PropertyRef Name="IdAmbiente" />
+      </Principal>
+      <Dependent Role="Ficha_has_Ambiente">
+        <PropertyRef Name="IdAmbiente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ficha_has_Ambiente_IdFicha">
+    <End Role="Ficha" Type="Self.Ficha" Multiplicity="1" />
+    <End Role="Ficha_has_Ambiente" Type="Self.Ficha_has_Ambiente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ficha">
+        <PropertyRef Name="IdFicha" />
+      </Principal>
+      <Dependent Role="Ficha_has_Ambiente">
+        <PropertyRef Name="IdFicha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SenaPlanningModelStoreContainer">
+    <EntitySet Name="Ambiente" EntityType="Self.Ambiente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Area_Conocimiento" EntityType="Self.Area_Conocimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Area_conocimiento_has_Instructor" EntityType="Self.Area_conocimiento_has_Instructor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ficha" EntityType="Self.Ficha" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ficha_has_Ambiente" EntityType="Self.Ficha_has_Ambiente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Meta" EntityType="Self.Meta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oferta" EntityType="Self.Oferta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Programa_Formacion" EntityType="Self.Programa_Formacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Red_Conocimiento" EntityType="Self.Red_Conocimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Area_Cono__IdRed__2A4B4B5E" Association="Self.FK__Area_Cono__IdRed__2A4B4B5E">
+      <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
+      <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ficha__IdOferta__3A81B327" Association="Self.FK__Ficha__IdOferta__3A81B327">
+      <End Role="Oferta" EntitySet="Oferta" />
+      <End Role="Ficha" EntitySet="Ficha" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ficha__IdProgram__398D8EEE" Association="Self.FK__Ficha__IdProgram__398D8EEE">
+      <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
+      <End Role="Ficha" EntitySet="Ficha" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta__IdMetas__30F848ED" Association="Self.FK__Oferta__IdMetas__30F848ED">
+      <End Role="Meta" EntitySet="Meta" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta__IdUsuari__300424B4" Association="Self.FK__Oferta__IdUsuari__300424B4">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Programa___IdAre__2D27B809" Association="Self.FK__Programa___IdAre__2D27B809">
+      <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
+      <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Area_conocimiento_has_Instructor_IdArea" Association="Self.FK_Area_conocimiento_has_Instructor_IdArea">
+      <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
+      <End Role="Area_conocimiento_has_Instructor" EntitySet="Area_conocimiento_has_Instructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Area_conocimiento_has_Instructor_IdInstructor" Association="Self.FK_Area_conocimiento_has_Instructor_IdInstructor">
+      <End Role="Instructor" EntitySet="Instructor" />
+      <End Role="Area_conocimiento_has_Instructor" EntitySet="Area_conocimiento_has_Instructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ficha_has_Ambiente_IdAmbiente" Association="Self.FK_Ficha_has_Ambiente_IdAmbiente">
+      <End Role="Ambiente" EntitySet="Ambiente" />
+      <End Role="Ficha_has_Ambiente" EntitySet="Ficha_has_Ambiente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ficha_has_Ambiente_IdFicha" Association="Self.FK_Ficha_has_Ambiente_IdFicha">
+      <End Role="Ficha" EntitySet="Ficha" />
+      <End Role="Ficha_has_Ambiente" EntitySet="Ficha_has_Ambiente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

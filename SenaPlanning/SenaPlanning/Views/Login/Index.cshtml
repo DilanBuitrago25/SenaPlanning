@@ -1,0 +1,112 @@
+﻿@model IEnumerable<ClaseModelo.Usuario>
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>SenaPlanning</title>
+
+    
+ 
+    <link rel="shortcut icon" href="~assets/media/favicons/svgLogo.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/media/favicons/svgLogo.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/media/favicons/svgLogo.svg">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" id="css-main" href="~/assets/css/oneui.min.css">
+
+
+</head>
+<body>
+    <div id="page-container">
+
+        <main id="main-container">
+
+            <div class="hero-static d-flex align-items-center">
+                <div class="w-100">
+
+                    <div class="bg-body-light">
+                        <div class="content content-full">
+                            <div class="row g-0 justify-content-center">
+                                <div class="col-md-8 col-lg-6 col-xl-4 py-4 px-4 px-lg-5">
+
+
+                                    <div class="text-center">
+                                        <p class="mb-2">
+                                            <img src="~/assets/media/favicons/svgLogo.svg" style="width: 80px;">
+                                        </p>
+                                        <h1 class="h4 mb-1">
+                                            Iniciar Sesión
+                                        </h1>
+                                        <p class="fw-medium text-muted mb-3">
+                                            Planeación de oferta anual
+                                            </h2>
+                                    </div>
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <form class="js-validation-signin" action="be_pages_auth_all.html" method="POST">
+                                            <div class="py-3">
+                                                <div class="mb-4">
+                                                    <input type="text" class="form-control form-control-lg form-control-alt" id="documento" name="documento" placeholder="Numero de Documento">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="contrasena" name="contrasena" placeholder="Contraseña">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <div class="d-md-flex align-items-md-center justify-content-md-between">
+
+                                                        <div class="py-2">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-6 col-xxl-5">
+                                                    <button type="submit" class="btn w-100 btn-alt-primary">
+                                                        <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Iniciar Sesión
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="fs-sm text-center text-muted py-3">
+                        <strong>SenaPlanning</strong> <span data-toggle="year-copy"></span>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+
+    </div>
+   
+    <script src="~/assets/js/oneui.app.min.js"></script>
+
+   
+    <script src="~/assets/js/lib/jquery.min.js"></script>
+
+   
+    <script src="~/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+
+  
+    <script src="~/assets/js/pages/op_auth_signin.min.js"></script>
+</body>
+</html>
+

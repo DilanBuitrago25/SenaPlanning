@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SenaPlanningModelStoreContainer" CdmEntityContainer="SenaPlanningEntities">
+    <EntitySetMapping Name="Ambiente">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Ambiente">
+        <MappingFragment StoreEntitySet="Ambiente">
+          <ScalarProperty Name="IdAmbiente" ColumnName="IdAmbiente" />
+          <ScalarProperty Name="NombreAmbiente" ColumnName="NombreAmbiente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area_Conocimiento">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Area_Conocimiento">
+        <MappingFragment StoreEntitySet="Area_Conocimiento">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="CodigoArea" ColumnName="CodigoArea" />
+          <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
+          <ScalarProperty Name="IdRed" ColumnName="IdRed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ficha">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Ficha">
+        <MappingFragment StoreEntitySet="Ficha">
+          <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
+          <ScalarProperty Name="CodigoFicha" ColumnName="CodigoFicha" />
+          <ScalarProperty Name="FechaInFicha" ColumnName="FechaInFicha" />
+          <ScalarProperty Name="FechaFinFicha" ColumnName="FechaFinFicha" />
+          <ScalarProperty Name="NumAprenFicha" ColumnName="NumAprenFicha" />
+          <ScalarProperty Name="TrimestreFicha" ColumnName="TrimestreFicha" />
+          <ScalarProperty Name="JornadaFicha" ColumnName="JornadaFicha" />
+          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
+          <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructor">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="IdInstructor" ColumnName="IdInstructor" />
+          <ScalarProperty Name="DocumentoInstructor" ColumnName="DocumentoInstructor" />
+          <ScalarProperty Name="NombreCompletoInstructor" ColumnName="NombreCompletoInstructor" />
+          <ScalarProperty Name="CodRegionalInstructor" ColumnName="CodRegionalInstructor" />
+          <ScalarProperty Name="RegionalInstructor" ColumnName="RegionalInstructor" />
+          <ScalarProperty Name="CodCCOS" ColumnName="CodCCOS" />
+          <ScalarProperty Name="DependenciaInstructor" ColumnName="DependenciaInstructor" />
+          <ScalarProperty Name="CargoInstructor" ColumnName="CargoInstructor" />
+          <ScalarProperty Name="TipoCargoInstructor" ColumnName="TipoCargoInstructor" />
+          <ScalarProperty Name="CorreoSENAInstructor" ColumnName="CorreoSENAInstructor" />
+          <ScalarProperty Name="RedInstructor" ColumnName="RedInstructor" />
+          <ScalarProperty Name="AreaInstructor" ColumnName="AreaInstructor" />
+          <ScalarProperty Name="RutaInstructor" ColumnName="RutaInstructor" />
+          <ScalarProperty Name="CodMunicipioInstructor" ColumnName="CodMunicipioInstructor" />
+          <ScalarProperty Name="MunicipioInstructor" ColumnName="MunicipioInstructor" />
+          <ScalarProperty Name="FechaNacimientoInstructor" ColumnName="FechaNacimientoInstructor" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="SexoInstructor" ColumnName="SexoInstructor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meta">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Meta">
+        <MappingFragment StoreEntitySet="Meta">
+          <ScalarProperty Name="IdMeta" ColumnName="IdMeta" />
+          <ScalarProperty Name="MetaFormacion" ColumnName="MetaFormacion" />
+          <ScalarProperty Name="MetaTecnologia" ColumnName="MetaTecnologia" />
+          <ScalarProperty Name="MetaTecnico" ColumnName="MetaTecnico" />
+          <ScalarProperty Name="MetaET" ColumnName="MetaET" />
+          <ScalarProperty Name="MetaOtros" ColumnName="MetaOtros" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oferta">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Oferta">
+        <MappingFragment StoreEntitySet="Oferta">
+          <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
+          <ScalarProperty Name="CodigoOferta" ColumnName="CodigoOferta" />
+          <ScalarProperty Name="HoraReqTrimIOferta" ColumnName="HoraReqTrimIOferta" />
+          <ScalarProperty Name="HoraReqTrimIIOferta" ColumnName="HoraReqTrimIIOferta" />
+          <ScalarProperty Name="HoraReqTrimIIIOferta" ColumnName="HoraReqTrimIIIOferta" />
+          <ScalarProperty Name="HoraReqTrimIVOferta" ColumnName="HoraReqTrimIVOferta" />
+          <ScalarProperty Name="CanInstPlantaOferta" ColumnName="CanInstPlantaOferta" />
+          <ScalarProperty Name="HorasContTrimIOferta" ColumnName="HorasContTrimIOferta" />
+          <ScalarProperty Name="HorasContTrimIIOferta" ColumnName="HorasContTrimIIOferta" />
+          <ScalarProperty Name="HorasContTrimIIIOferta" ColumnName="HorasContTrimIIIOferta" />
+          <ScalarProperty Name="HorasContTrimIVOferta" ColumnName="HorasContTrimIVOferta" />
+          <ScalarProperty Name="CantidadInstContratoTrimIOferta" ColumnName="CantidadInstContratoTrimIOferta" />
+          <ScalarProperty Name="CantidadInstContratoTrimIIOferta" ColumnName="CantidadInstContratoTrimIIOferta" />
+          <ScalarProperty Name="CantidadInstContratoTrimIIIOferta" ColumnName="CantidadInstContratoTrimIIIOferta" />
+          <ScalarProperty Name="CantidadInstContratoTrimIVOferta" ColumnName="CantidadInstContratoTrimIVOferta" />
+          <ScalarProperty Name="TrimestreProgramadosOferta" ColumnName="TrimestreProgramadosOferta" />
+          <ScalarProperty Name="TotalAprendicesOferta" ColumnName="TotalAprendicesOferta" />
+          <ScalarProperty Name="TotalCursosNuevosOferta" ColumnName="TotalCursosNuevosOferta" />
+          <ScalarProperty Name="TotalCursosEPtrimestreOferta" ColumnName="TotalCursosEPtrimestreOferta" />
+          <ScalarProperty Name="TotalCursosCursosNuevosOferta" ColumnName="TotalCursosCursosNuevosOferta" />
+          <ScalarProperty Name="TotalCursosOferta" ColumnName="TotalCursosOferta" />
+          <ScalarProperty Name="CantidadTrimProgramadosOferta" ColumnName="CantidadTrimProgramadosOferta" />
+          <ScalarProperty Name="CantidadTrimEPOferta" ColumnName="CantidadTrimEPOferta" />
+          <ScalarProperty Name="TotalInstaContratarOferta" ColumnName="TotalInstaContratarOferta" />
+          <ScalarProperty Name="AprenPasanOferta" ColumnName="AprenPasanOferta" />
+          <ScalarProperty Name="AprenProgOferta" ColumnName="AprenProgOferta" />
+          <ScalarProperty Name="CursoOferta" ColumnName="CursoOferta" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdMetas" ColumnName="IdMetas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programa_Formacion">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
+        <MappingFragment StoreEntitySet="Programa_Formacion">
+          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
+          <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
+          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
+          <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Red_Conocimiento">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Red_Conocimiento">
+        <MappingFragment StoreEntitySet="Red_Conocimiento">
+          <ScalarProperty Name="IdRed" ColumnName="IdRed" />
+          <ScalarProperty Name="NombreRed" ColumnName="NombreRed" />
+          <ScalarProperty Name="CodigoRed" ColumnName="CodigoRed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="TipoDocumentoUsuario" ColumnName="TipoDocumentoUsuario" />
+          <ScalarProperty Name="DocumentoUsuario" ColumnName="DocumentoUsuario" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="ApellidoUsuario" ColumnName="ApellidoUsuario" />
+          <ScalarProperty Name="TelefonoUsuario" ColumnName="TelefonoUsuario" />
+          <ScalarProperty Name="ConstraseñaUsuario" ColumnName="ConstraseñaUsuario" />
+          <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Area_conocimiento_has_Instructor" TypeName="SenaPlanningModel.Area_conocimiento_has_Instructor" StoreEntitySet="Area_conocimiento_has_Instructor">
+      <EndProperty Name="Area_Conocimiento">
+        <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+      </EndProperty>
+      <EndProperty Name="Instructor">
+        <ScalarProperty Name="IdInstructor" ColumnName="IdInstructor" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Ficha_has_Ambiente" TypeName="SenaPlanningModel.Ficha_has_Ambiente" StoreEntitySet="Ficha_has_Ambiente">
+      <EndProperty Name="Ambiente">
+        <ScalarProperty Name="IdAmbiente" ColumnName="IdAmbiente" />
+      </EndProperty>
+      <EndProperty Name="Ficha">
+        <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
