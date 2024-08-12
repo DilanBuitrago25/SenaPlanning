@@ -1,0 +1,64 @@
+﻿@model ClaseModelo.Programa_Formacion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Programa_Formacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DenominacionPrograma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DenominacionPrograma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VersionPrograma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VersionPrograma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelPrograma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelPrograma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoPrograma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoPrograma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area_Conocimiento.NombreArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area_Conocimiento.NombreArea)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

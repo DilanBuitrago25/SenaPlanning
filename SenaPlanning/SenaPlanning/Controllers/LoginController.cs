@@ -17,7 +17,7 @@ namespace SenaPlanning.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            return View(db.Usuario.ToList());
+            return View();
         }
 
         [HttpPost]
@@ -30,14 +30,15 @@ namespace SenaPlanning.Controllers
             {
                 Session["Idusuario"] = usuario.IdUsuario; // Almacenar el ID en sesión
                 Session["TipoUsuario"] = usuario.TipoUsuario;
-                Session["NombreUsuario"] = usuario.NombreUsuario + " " + usuario.ApellidoUsuario;
+                Session["NombreCompletoUsuario"] = usuario.NombreUsuario + " " + usuario.ApellidoUsuario;
+                Session["NombreUsuario"] = usuario.NombreUsuario;
                 ViewBag.TipoUsuario = usuario.TipoUsuario;
 
-                if (usuario.TipoUsuario == "Administrador")
+                if (usuario.TipoUsuario == "Administrador" && usuario.EstadoUsuario == true)
                 {
                     return RedirectToAction("Index", "Home"); // Vista para Administradores
                 }
-                else if (usuario.TipoUsuario == "Coordinador")
+                else if (usuario.TipoUsuario == "Coordinador" && usuario.EstadoUsuario == true)
                 {
                     return RedirectToAction("Contact", "Home"); // Vista para Coordinadores
                 }

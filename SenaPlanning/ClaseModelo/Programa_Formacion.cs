@@ -25,6 +25,7 @@ namespace ClaseModelo
         public string VersionPrograma { get; set; }
         public string NivelPrograma { get; set; }
         public Nullable<int> IdArea { get; set; }
+        public bool EstadoPrograma { get; set; }
     
         public virtual Area_Conocimiento Area_Conocimiento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

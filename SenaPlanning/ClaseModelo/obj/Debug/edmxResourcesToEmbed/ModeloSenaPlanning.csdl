@@ -7,6 +7,7 @@
     <Property Name="IdAmbiente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NombreAmbiente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Ficha" Relationship="Self.Ficha_has_Ambiente" FromRole="Ambiente" ToRole="Ficha" />
+    <Property Name="EstadoAmbiente" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Area_Conocimiento">
     <Key>
@@ -19,6 +20,7 @@
     <NavigationProperty Name="Red_Conocimiento" Relationship="Self.FK__Area_Cono__IdRed__2A4B4B5E" FromRole="Area_Conocimiento" ToRole="Red_Conocimiento" />
     <NavigationProperty Name="Programa_Formacion" Relationship="Self.FK__Programa___IdAre__2D27B809" FromRole="Area_Conocimiento" ToRole="Programa_Formacion" />
     <NavigationProperty Name="Instructor" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Area_Conocimiento" ToRole="Instructor" />
+    <Property Name="EstadoArea" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Ficha">
     <Key>
@@ -36,6 +38,7 @@
     <NavigationProperty Name="Oferta" Relationship="Self.FK__Ficha__IdOferta__3A81B327" FromRole="Ficha" ToRole="Oferta" />
     <NavigationProperty Name="Programa_Formacion" Relationship="Self.FK__Ficha__IdProgram__398D8EEE" FromRole="Ficha" ToRole="Programa_Formacion" />
     <NavigationProperty Name="Ambiente" Relationship="Self.Ficha_has_Ambiente" FromRole="Ficha" ToRole="Ambiente" />
+    <Property Name="EstadoFicha" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Instructor">
     <Key>
@@ -60,6 +63,7 @@
     <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
     <Property Name="SexoInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Area_Conocimiento" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Instructor" ToRole="Area_Conocimiento" />
+    <Property Name="EstadoInstructor" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Meta">
     <Key>
@@ -72,6 +76,7 @@
     <Property Name="MetaET" Type="Double" />
     <Property Name="MetaOtros" Type="Double" />
     <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdMetas__30F848ED" FromRole="Meta" ToRole="Oferta" />
+    <Property Name="EstadoMeta" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Oferta">
     <Key>
@@ -109,6 +114,7 @@
     <NavigationProperty Name="Ficha" Relationship="Self.FK__Ficha__IdOferta__3A81B327" FromRole="Oferta" ToRole="Ficha" />
     <NavigationProperty Name="Meta" Relationship="Self.FK__Oferta__IdMetas__30F848ED" FromRole="Oferta" ToRole="Meta" />
     <NavigationProperty Name="Usuario" Relationship="Self.FK__Oferta__IdUsuari__300424B4" FromRole="Oferta" ToRole="Usuario" />
+    <Property Name="EstadoOferta" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Programa_Formacion">
     <Key>
@@ -121,6 +127,7 @@
     <Property Name="IdArea" Type="Int32" />
     <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Programa___IdAre__2D27B809" FromRole="Programa_Formacion" ToRole="Area_Conocimiento" />
     <NavigationProperty Name="Ficha" Relationship="Self.FK__Ficha__IdProgram__398D8EEE" FromRole="Programa_Formacion" ToRole="Ficha" />
+    <Property Name="EstadoPrograma" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Red_Conocimiento">
     <Key>
@@ -130,6 +137,7 @@
     <Property Name="NombreRed" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CodigoRed" Type="Int32" />
     <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Area_Cono__IdRed__2A4B4B5E" FromRole="Red_Conocimiento" ToRole="Area_Conocimiento" />
+    <Property Name="EstadoRed" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -144,6 +152,7 @@
     <Property Name="ConstraseñaUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="TipoUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdUsuari__300424B4" FromRole="Usuario" ToRole="Oferta" />
+    <Property Name="EstadoUsuario" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="FK__Area_Cono__IdRed__2A4B4B5E">
     <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />

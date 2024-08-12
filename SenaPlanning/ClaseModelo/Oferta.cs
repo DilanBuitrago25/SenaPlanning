@@ -49,6 +49,7 @@ namespace ClaseModelo
         public Nullable<double> CursoOferta { get; set; }
         public Nullable<int> IdUsuario { get; set; }
         public Nullable<int> IdMetas { get; set; }
+        public bool EstadoOferta { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ficha> Ficha { get; set; }

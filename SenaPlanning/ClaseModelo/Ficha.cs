@@ -29,6 +29,7 @@ namespace ClaseModelo
         public string JornadaFicha { get; set; }
         public Nullable<int> IdPrograma { get; set; }
         public Nullable<int> IdOferta { get; set; }
+        public bool EstadoFicha { get; set; }
     
         public virtual Oferta Oferta { get; set; }
         public virtual Programa_Formacion Programa_Formacion { get; set; }

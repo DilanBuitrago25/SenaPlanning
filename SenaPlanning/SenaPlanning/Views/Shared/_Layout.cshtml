@@ -1,40 +1,266 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>SenaPlanning</title>
+
+    <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+
+
+    <meta property="og:title" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework">
+    <meta property="og:site_name" content="OneUI">
+    <meta property="og:description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/media/favicons/apple-touch-icon-180x180.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" id="css-main" href="~/assets/css/oneui.min.css">
+
+    @Styles.Render("~/Content/assets")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+
+    <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
+
+        <aside id="side-overlay">
+
+
+
+            <div class="content-side">
+
+                <div class="block block-transparent pull-x pull-t">
+
+                    <div class="block-content tab-content overflow-hidden">
+
+                        <div class="tab-pane pull-x fade fade-right" id="so-sales" role="tabpanel" aria-labelledby="so-sales-tab">
+                            <div class="block block-transparent mb-0">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </aside>
+
+        <nav id="sidebar" aria-label="Main Navigation">
+            <div class="content-header">
+                <a class="fw-semibold text-dual" href="index.html">
+                    <img src="~/assets/media/favicons/svgLogoSenaBlanco.svg" style="width: 40px;">
+                </a>
+
+                <div>
+
+                    <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="dark_mode_toggle">
+                        <i class="far fa-moon"></i>
+                    </button>
+
+                    <div class="dropdown d-inline-block ms-1">
+
+                        <div class="dropdown-menu dropdown-menu-end fs-sm smini-hide border-0" aria-labelledby="sidebar-themes-dropdown">
+
+
+
+                        </div>
+                    </div>
+
+                    <a class="d-lg-none btn btn-sm btn-alt-secondary ms-1" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-times"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="js-sidebar-scroll">
+                <div class="content-side">
+                    <ul class="nav-main">
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="be_pages_dashboard.html">
+                                <i class="nav-main-link-icon si si-speedometer"></i>
+                                <span class="nav-main-link-name">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Red_Conocimiento")">
+                                <i class="nav-main-link-icon si si-layers"></i>
+                                <span class="nav-main-link-name">Planeación</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Gestionar Datos</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Red_Conocimiento")">
+                                <i class="nav-main-link-icon si si-globe"></i>
+                                <span class="nav-main-link-name">Red de Conocimiento</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Area_Conocimiento")">
+                                <i class="nav-main-link-icon si si-energy"></i>
+                                <span class="nav-main-link-name">Area de Conocimiento</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Programa_Formacion")">
+                                <i class="nav-main-link-icon si si-grid"></i>
+                                <span class="nav-main-link-name">Programa de Formación</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Red_Conocimiento")">
+                                <i class="nav-main-link-icon fa fa-dice-d6"></i>
+                                <span class="nav-main-link-name">Ficha</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Red_Conocimiento")">
+                                <i class="nav-main-link-icon fa fa-user-tie"></i>
+                                <span class="nav-main-link-name">Perfil</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Red_Conocimiento")">
+                                <i class="nav-main-link-icon fa fa-user-group"></i>
+                                <span class="nav-main-link-name">Instructor</span>
+                            </a>
+                        </li>
+                </div>
+            </div>
+        </nav>
+
+        <header id="page-header">
+            <div class="content-header" style="width: 100%">
+
+                <div class="d-flex align-items-center">
+
+                    <button type="button" class="btn btn-sm btn-alt-secondary me-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-sm btn-alt-secondary me-10 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
+                        <i class="fa fa-fw fa-ellipsis-v"></i>
+                    </button>
+
+                 
+
+                  
+
+                </div>
+
+                <div class="d-flex align-items-center">
+
+                    <div class="dropdown d-inline-block ms-2">
+                        <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle" src="~/assets/media/avatars/avatar10.jpg" alt="Header Avatar" style="width: 21px;">
+                            <span class="d-none d-sm-inline-block ms-2">@Session["NombreUsuario"].ToString()</span>
+                            <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block opacity-50 ms-1 mt-1"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
+                            <div class="p-3 text-center bg-body-light border-bottom rounded-top">
+                                <img class="img-avatar img-avatar48 img-avatar-thumb" src="assets/media/avatars/avatar10.jpg" alt="">
+                                <p class="mt-2 mb-0 fw-medium">@Session["NombreCompletoUsuario"].ToString()</p>
+                                <p class="mb-0 text-muted fs-sm fw-medium">@Session["TipoUsuario"].ToString()</p>
+                            </div>
+                            <div class="p-2">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="@Url.Action("Index", "")">
+                                    <span class="fs-sm fw-medium">Inbox</span>
+                                    <span class="badge rounded-pill bg-primary ms-2">3</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_profile.html">
+                                    <span class="fs-sm fw-medium">Profile</span>
+                                    <span class="badge rounded-pill bg-primary ms-2">1</span>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                                    <span class="fs-sm fw-medium">Settings</span>
+                                </a>
+                            </div>
+                            <div role="separator" class="dropdown-divider m-0"></div>
+                            <div class="p-2">
+
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="@Html.ActionLink("Cerrar Sesión", "Logout", "Login")"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="page-header-search" class="overlay-header bg-body-extra-light">
+                <div class="content-header">
+                    <form class="w-100" action="be_pages_generic_search.html" method="POST">
+                        <div class="input-group">
+
+                            <button type="button" class="btn btn-alt-danger" data-toggle="layout" data-action="header_search_off">
+                                <i class="fa fa-fw fa-times-circle"></i>
+                            </button>
+                            <input type="text" class="form-control" placeholder="Search or hit ESC.." id="page-header-search-input" name="page-header-search-input">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="page-header-loader" class="overlay-header bg-body-extra-light">
+                <div class="content-header">
+                    <div class="w-100 text-center">
+                        <i class="fa fa-fw fa-circle-notch fa-spin"></i>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <main id="main-container">
+            @RenderBody()
+        </main>
+
+        <footer id="page-footer" class="bg-body-light">
+            <div class="content py-3">
+                <div class="row fs-sm">
+                    <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
+                        <a class="fw-semibold" href="#" target="_blank">SenaPlanning</a> <span data-toggle="year-copy"></span>
+                    </div>
+                    <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
+    @Scripts.Render("~/bundles/assets")
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+    <script>
+    var timeout = @(Session.Timeout * 180000); // Convertir minutos a milisegundos
+    var timer;
+
+    function resetTimer() {
+        clearTimeout(timer);
+        timer = setTimeout(logout, timeout);
+    }
+
+    function logout() {
+        window.location.href = '@Url.Action("Logout", "Login")';
+    }
+
+    $(document).ready(function () {
+        resetTimer();
+        $(document).on('mousemove keydown click', resetTimer); // Reiniciar el temporizador con cualquier actividad
+    });
+    </script>
 </body>
 </html>
+
+@*
+        @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+       @Scripts.Render("~/bundles/jquery")
+       @Scripts.Render("~/bundles/bootstrap")
+       @RenderSection("scripts", required: false)*@

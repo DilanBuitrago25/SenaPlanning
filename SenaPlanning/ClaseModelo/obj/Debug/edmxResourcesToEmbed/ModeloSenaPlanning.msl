@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Ambiente">
       <EntityTypeMapping TypeName="SenaPlanningModel.Ambiente">
         <MappingFragment StoreEntitySet="Ambiente">
+          <ScalarProperty Name="EstadoAmbiente" ColumnName="EstadoAmbiente" />
           <ScalarProperty Name="IdAmbiente" ColumnName="IdAmbiente" />
           <ScalarProperty Name="NombreAmbiente" ColumnName="NombreAmbiente" />
         </MappingFragment>
@@ -12,6 +13,7 @@
     <EntitySetMapping Name="Area_Conocimiento">
       <EntityTypeMapping TypeName="SenaPlanningModel.Area_Conocimiento">
         <MappingFragment StoreEntitySet="Area_Conocimiento">
+          <ScalarProperty Name="EstadoArea" ColumnName="EstadoArea" />
           <ScalarProperty Name="IdArea" ColumnName="IdArea" />
           <ScalarProperty Name="CodigoArea" ColumnName="CodigoArea" />
           <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
@@ -22,6 +24,7 @@
     <EntitySetMapping Name="Ficha">
       <EntityTypeMapping TypeName="SenaPlanningModel.Ficha">
         <MappingFragment StoreEntitySet="Ficha">
+          <ScalarProperty Name="EstadoFicha" ColumnName="EstadoFicha" />
           <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
           <ScalarProperty Name="CodigoFicha" ColumnName="CodigoFicha" />
           <ScalarProperty Name="FechaInFicha" ColumnName="FechaInFicha" />
@@ -37,6 +40,7 @@
     <EntitySetMapping Name="Instructor">
       <EntityTypeMapping TypeName="SenaPlanningModel.Instructor">
         <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="EstadoInstructor" ColumnName="EstadoInstructor" />
           <ScalarProperty Name="IdInstructor" ColumnName="IdInstructor" />
           <ScalarProperty Name="DocumentoInstructor" ColumnName="DocumentoInstructor" />
           <ScalarProperty Name="NombreCompletoInstructor" ColumnName="NombreCompletoInstructor" />
@@ -61,6 +65,7 @@
     <EntitySetMapping Name="Meta">
       <EntityTypeMapping TypeName="SenaPlanningModel.Meta">
         <MappingFragment StoreEntitySet="Meta">
+          <ScalarProperty Name="EstadoMeta" ColumnName="EstadoMeta" />
           <ScalarProperty Name="IdMeta" ColumnName="IdMeta" />
           <ScalarProperty Name="MetaFormacion" ColumnName="MetaFormacion" />
           <ScalarProperty Name="MetaTecnologia" ColumnName="MetaTecnologia" />
@@ -73,6 +78,7 @@
     <EntitySetMapping Name="Oferta">
       <EntityTypeMapping TypeName="SenaPlanningModel.Oferta">
         <MappingFragment StoreEntitySet="Oferta">
+          <ScalarProperty Name="EstadoOferta" ColumnName="EstadoOferta" />
           <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
           <ScalarProperty Name="CodigoOferta" ColumnName="CodigoOferta" />
           <ScalarProperty Name="HoraReqTrimIOferta" ColumnName="HoraReqTrimIOferta" />
@@ -108,6 +114,7 @@
     <EntitySetMapping Name="Programa_Formacion">
       <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
         <MappingFragment StoreEntitySet="Programa_Formacion">
+          <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
           <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
           <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
           <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
@@ -119,6 +126,7 @@
     <EntitySetMapping Name="Red_Conocimiento">
       <EntityTypeMapping TypeName="SenaPlanningModel.Red_Conocimiento">
         <MappingFragment StoreEntitySet="Red_Conocimiento">
+          <ScalarProperty Name="EstadoRed" ColumnName="EstadoRed" />
           <ScalarProperty Name="IdRed" ColumnName="IdRed" />
           <ScalarProperty Name="NombreRed" ColumnName="NombreRed" />
           <ScalarProperty Name="CodigoRed" ColumnName="CodigoRed" />
@@ -128,6 +136,7 @@
     <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="SenaPlanningModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="EstadoUsuario" ColumnName="EstadoUsuario" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="TipoDocumentoUsuario" ColumnName="TipoDocumentoUsuario" />
           <ScalarProperty Name="DocumentoUsuario" ColumnName="DocumentoUsuario" />

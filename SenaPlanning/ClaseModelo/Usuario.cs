@@ -28,6 +28,7 @@ namespace ClaseModelo
         public Nullable<int> TelefonoUsuario { get; set; }
         public string ConstraseñaUsuario { get; set; }
         public string TipoUsuario { get; set; }
+        public bool EstadoUsuario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }

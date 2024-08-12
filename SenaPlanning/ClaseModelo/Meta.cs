@@ -26,6 +26,7 @@ namespace ClaseModelo
         public Nullable<double> MetaTecnico { get; set; }
         public Nullable<double> MetaET { get; set; }
         public Nullable<double> MetaOtros { get; set; }
+        public bool EstadoMeta { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }

@@ -23,6 +23,7 @@ namespace ClaseModelo
         public int IdRed { get; set; }
         public string NombreRed { get; set; }
         public Nullable<int> CodigoRed { get; set; }
+        public bool EstadoRed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Area_Conocimiento> Area_Conocimiento { get; set; }

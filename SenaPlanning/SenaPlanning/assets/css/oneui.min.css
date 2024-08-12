@@ -15743,7 +15743,7 @@ small {
 
 #side-overlay .content-header,
 #sidebar .content-header {
-    padding-left: 1.25rem;
+    padding-left: 0.5rem;
     padding-right: 1.25rem
 }
 
@@ -16035,11 +16035,11 @@ small {
 
 #page-container.sidebar-dark #sidebar {
     color: #e9ecef;
-    background-color: #1f2937
+    background-color: #00324D
 }
 
 #page-container.sidebar-dark #sidebar>.content-header {
-    background-color: #232e3e
+    background-color: #39a900
 }
 
 #page-container.side-scroll #side-overlay,

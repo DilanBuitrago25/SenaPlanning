@@ -22,6 +22,7 @@ namespace ClaseModelo
     
         public int IdAmbiente { get; set; }
         public string NombreAmbiente { get; set; }
+        public bool EstadoAmbiente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ficha> Ficha { get; set; }

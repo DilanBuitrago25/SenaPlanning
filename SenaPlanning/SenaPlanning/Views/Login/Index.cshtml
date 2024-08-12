@@ -54,7 +54,7 @@
                                         <form class="js-validation-signin" action="be_pages_auth_all.html" method="POST">
                                             <div class="py-3">
                                                 <div class="mb-4">
-                                                    <input type="text" class="form-control form-control-lg form-control-alt" id="documento" name="documento" placeholder="Numero de Documento">
+                                                    <input type="number" class="form-control form-control-lg form-control-alt" id="documento" name="documento" placeholder="Numero de Documento">
                                                 </div>
                                                 <div class="mb-4">
                                                     <input type="password" class="form-control form-control-lg form-control-alt" id="contrasena" name="contrasena" placeholder="Contraseña">
@@ -73,8 +73,14 @@
                                                     <button type="submit" class="btn w-100 btn-alt-primary">
                                                         <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Iniciar Sesión
                                                     </button>
+                                                    @if (ViewData["Mensaje"] != null)
+                                                    {
+                                                        <p>@ViewData["Mensaje"]</p>
+                                                    }
                                                 </div>
+                                                
                                             </div>
+
                                         </form>
 
                                     }

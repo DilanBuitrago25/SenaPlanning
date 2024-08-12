@@ -1,0 +1,34 @@
+﻿@model ClaseModelo.Red_Conocimiento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Red_Conocimiento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreRed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreRed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoRed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoRed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdRed }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
