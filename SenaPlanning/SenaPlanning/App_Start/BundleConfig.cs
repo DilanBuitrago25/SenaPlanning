@@ -17,6 +17,7 @@ namespace SenaPlanning
             bundles.Add(new Bundle("~/bundles/assets").Include(
             "~/assets/js/oneui.app.min.js",
             "~/assets/js/plugins/chart.js/chart.min.js",
+            "~/assets/js/pages/be_comp_charts.min.js",
             "~/assets/js/pages/be_pages_dashboard.min.js",
             "~/assets/js/lib/jquery.min.js",
             "~/assets/js/plugins/datatables/jquery.dataTables.min.js",

@@ -10,107 +10,107 @@ using ClaseModelo;
 
 namespace SenaPlanning.Controllers
 {
-    public class Red_ConocimientoController : Controller
+    public class AmbientesController : Controller
     {
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
-        // GET: Red_Conocimiento
+        // GET: Ambientes
         public ActionResult Index()
         {
-            return View(db.Red_Conocimiento.ToList());
+            return View(db.Ambiente.ToList());
         }
 
-        // GET: Red_Conocimiento/Details/5
+        // GET: Ambientes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            if (red_Conocimiento == null)
+            Ambiente ambiente = db.Ambiente.Find(id);
+            if (ambiente == null)
             {
                 return HttpNotFound();
             }
-            return View(red_Conocimiento);
+            return View(ambiente);
         }
 
-        // GET: Red_Conocimiento/Create
+        // GET: Ambientes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Red_Conocimiento/Create
+        // POST: Ambientes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdRed,NombreRed,CodigoRed,EstadoRed")] Red_Conocimiento red_Conocimiento)
+        public ActionResult Create([Bind(Include = "IdAmbiente,NombreAmbiente,EstadoAmbiente")] Ambiente ambiente)
         {
             if (ModelState.IsValid)
             {
-                db.Red_Conocimiento.Add(red_Conocimiento);
+                db.Ambiente.Add(ambiente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(red_Conocimiento);
+            return View(ambiente);
         }
 
-        // GET: Red_Conocimiento/Edit/5
+        // GET: Ambientes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            if (red_Conocimiento == null)
+            Ambiente ambiente = db.Ambiente.Find(id);
+            if (ambiente == null)
             {
                 return HttpNotFound();
             }
-            return View(red_Conocimiento);
+            return View(ambiente);
         }
 
-        // POST: Red_Conocimiento/Edit/5
+        // POST: Ambientes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdRed,NombreRed,CodigoRed")] Red_Conocimiento red_Conocimiento)
+        public ActionResult Edit([Bind(Include = "IdAmbiente,NombreAmbiente,EstadoAmbiente")] Ambiente ambiente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(red_Conocimiento).State = EntityState.Modified;
+                db.Entry(ambiente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(red_Conocimiento);
+            return View(ambiente);
         }
 
-        // GET: Red_Conocimiento/Delete/5
+        // GET: Ambientes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            if (red_Conocimiento == null)
+            Ambiente ambiente = db.Ambiente.Find(id);
+            if (ambiente == null)
             {
                 return HttpNotFound();
             }
-            return View(red_Conocimiento);
+            return View(ambiente);
         }
 
-        // POST: Red_Conocimiento/Delete/5
+        // POST: Ambientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            db.Red_Conocimiento.Remove(red_Conocimiento);
+            Ambiente ambiente = db.Ambiente.Find(id);
+            db.Ambiente.Remove(ambiente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,90 @@
+﻿@model ClaseModelo.Ficha
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ficha</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoFicha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoFicha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInFicha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInFicha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFinFicha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFinFicha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumAprenFicha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumAprenFicha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrimestreFicha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrimestreFicha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JornadaFicha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JornadaFicha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoFicha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoFicha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oferta.IdOferta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oferta.IdOferta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Programa_Formacion.DenominacionPrograma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Programa_Formacion.DenominacionPrograma)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFicha }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

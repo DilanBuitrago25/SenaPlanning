@@ -34,7 +34,7 @@
                 <br />
                 <h5 >Tabla de Redes de Conocimientos</h5>
                 <br />
-                @using (Html.BeginForm("Index", "UsuariosAprendiz", FormMethod.Get))
+                @using (Html.BeginForm("Index", "Red_Conocimiento", FormMethod.Get))
                 {
                     <div class="d-flex align-items-center">
                         <label for="estadoFiltro" class="me-2">Estado:</label>
@@ -48,7 +48,7 @@
                 }
             </div>
             <div class="col-sm-8 d-flex justify-content-end">
-                <button class="btn btn-light"><a href="@Url.Action("Create","UsuariosAprendiz")">Crear</a></button>
+                <button class="btn btn-light"><a href="@Url.Action("Create","Red_Conocimiento")">Crear</a></button>
             </div>
         </div>
      

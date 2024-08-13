@@ -118,8 +118,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AmbientesController.cs" />
     <Compile Include="Controllers\Area_ConocimientoController.cs" />
+    <Compile Include="Controllers\FichasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Programa_FormacionController.cs" />
     <Compile Include="Controllers\Red_ConocimientoController.cs" />
@@ -4367,6 +4370,21 @@
     <Content Include="Views\Programa_Formacion\Details.cshtml" />
     <Content Include="Views\Programa_Formacion\Edit.cshtml" />
     <Content Include="Views\Programa_Formacion\Index.cshtml" />
+    <Content Include="Views\Fichas\Create.cshtml" />
+    <Content Include="Views\Fichas\Delete.cshtml" />
+    <Content Include="Views\Fichas\Details.cshtml" />
+    <Content Include="Views\Fichas\Edit.cshtml" />
+    <Content Include="Views\Fichas\Index.cshtml" />
+    <Content Include="Views\Instructors\Create.cshtml" />
+    <Content Include="Views\Instructors\Delete.cshtml" />
+    <Content Include="Views\Instructors\Details.cshtml" />
+    <Content Include="Views\Instructors\Edit.cshtml" />
+    <Content Include="Views\Instructors\Index.cshtml" />
+    <Content Include="Views\Ambientes\Create.cshtml" />
+    <Content Include="Views\Ambientes\Delete.cshtml" />
+    <Content Include="Views\Ambientes\Details.cshtml" />
+    <Content Include="Views\Ambientes\Edit.cshtml" />
+    <Content Include="Views\Ambientes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

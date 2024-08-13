@@ -1,9 +1,8 @@
-﻿@model IEnumerable<ClaseModelo.Programa_Formacion>
+﻿@model IEnumerable<ClaseModelo.Ficha>
 
 @{
     ViewBag.Title = "Index";
 }
-
 
 <br />
 <div class="container-fluid">
@@ -13,7 +12,7 @@
                 <h3>Area de Conocimiento</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="@Url.Action("Index","Aprendizs")">Home</a></li>
-                    <li class="breadcrumb-item">Area</li>
+                    <li class="breadcrumb-item">Ficha</li>
                     <li class="breadcrumb-item">General</li>
                     <li class="breadcrumb-item active">Consultar</li>
                 </ol>
@@ -59,11 +58,12 @@
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Denominación</th>
-                            <th>Versión</th>
-                            <th>Nivel</th>
-                            <th>Area de Conocimiento</th>
+                            <th>Codigo</th>
+                            <th>Fecha Inicio</th>
+                            <th>No Aprendices</th>
+                            <th>Trimestre en curso</th>
+                            <th>Jornada</th>
+                            <th>Programa de Formación</th>
                             <th style="width: 15%;">Acciones</th>
                         </tr>
                     </thead>
@@ -71,23 +71,26 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.IdPrograma)</td>
+                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.CodigoFicha)</td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.DenominacionPrograma)
+                                    @Html.DisplayFor(modelItem => item.FechaInFicha)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.VersionPrograma)
+                                    @Html.DisplayFor(modelItem => item.NumAprenFicha)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.NivelPrograma)
+                                    @Html.DisplayFor(modelItem => item.TrimestreFicha)
                                 </td>
                                 <th>
-                                    @Html.DisplayFor(modelItem => item.Area_Conocimiento.NombreArea)
+                                    @Html.DisplayFor(modelItem => item.JornadaFicha)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.Programa_Formacion.IdPrograma)
                                 </th>
                                 <td>
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdArea }) |
-                                    @Html.ActionLink("Programas", "Programa_Area", new { id = item.IdArea }) |
-                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdArea })
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdFicha }) |
+                                    @Html.ActionLink("Programas", "Programa_Area", new { id = item.IdFicha }) |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdFicha })
                                 </td>
                             </tr>
                         }
@@ -97,5 +100,3 @@
         </div>
     </div>
 </div>
-
-

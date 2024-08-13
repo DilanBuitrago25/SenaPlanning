@@ -4,45 +4,72 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Red_Conocimiento</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.NombreRed, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NombreRed, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NombreRed, "", new { @class = "text-danger" })
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Gestionar Competencias</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item">Red de Conocimiento</li>
+                    <li class="breadcrumb-item">General</li>
+                    <li class="breadcrumb-item active">Registrar</li>
+                </ol>
             </div>
-        </div>
+            <div class="col-sm-6">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CodigoRed, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CodigoRed, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CodigoRed, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+<br />
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h5>Registrar Red de Conocimiento</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+                                @Html.AntiForgeryToken()
+                                <form>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Codigo</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.CodigoRed, new { htmlAttributes = new { @class = "form-control" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.CodigoRed, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Nombre</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.NombreRed, new { htmlAttributes = new { @class = "form-control" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.NombreRed, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    @Html.HiddenFor(model => model.EstadoRed, new { Value = "True" })
+   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
+                        <button class="btn btn-light" type="button"><a href="@Url.Action("Index","Red_Conocimiento")">Cancelar</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }

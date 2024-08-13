@@ -10,107 +10,116 @@ using ClaseModelo;
 
 namespace SenaPlanning.Controllers
 {
-    public class Red_ConocimientoController : Controller
+    public class FichasController : Controller
     {
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
-        // GET: Red_Conocimiento
+        // GET: Fichas
         public ActionResult Index()
         {
-            return View(db.Red_Conocimiento.ToList());
+            var ficha = db.Ficha.Include(f => f.Oferta).Include(f => f.Programa_Formacion);
+            return View(ficha.ToList());
         }
 
-        // GET: Red_Conocimiento/Details/5
+        // GET: Fichas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            if (red_Conocimiento == null)
+            Ficha ficha = db.Ficha.Find(id);
+            if (ficha == null)
             {
                 return HttpNotFound();
             }
-            return View(red_Conocimiento);
+            return View(ficha);
         }
 
-        // GET: Red_Conocimiento/Create
+        // GET: Fichas/Create
         public ActionResult Create()
         {
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta");
+            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
             return View();
         }
 
-        // POST: Red_Conocimiento/Create
+        // POST: Fichas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdRed,NombreRed,CodigoRed,EstadoRed")] Red_Conocimiento red_Conocimiento)
+        public ActionResult Create([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,FechaFinFicha,NumAprenFicha,TrimestreFicha,JornadaFicha,IdPrograma,IdOferta,EstadoFicha")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {
-                db.Red_Conocimiento.Add(red_Conocimiento);
+                db.Ficha.Add(ficha);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(red_Conocimiento);
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
+            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
+            return View(ficha);
         }
 
-        // GET: Red_Conocimiento/Edit/5
+        // GET: Fichas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            if (red_Conocimiento == null)
+            Ficha ficha = db.Ficha.Find(id);
+            if (ficha == null)
             {
                 return HttpNotFound();
             }
-            return View(red_Conocimiento);
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
+            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
+            return View(ficha);
         }
 
-        // POST: Red_Conocimiento/Edit/5
+        // POST: Fichas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdRed,NombreRed,CodigoRed")] Red_Conocimiento red_Conocimiento)
+        public ActionResult Edit([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,FechaFinFicha,NumAprenFicha,TrimestreFicha,JornadaFicha,IdPrograma,IdOferta,EstadoFicha")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(red_Conocimiento).State = EntityState.Modified;
+                db.Entry(ficha).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(red_Conocimiento);
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
+            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
+            return View(ficha);
         }
 
-        // GET: Red_Conocimiento/Delete/5
+        // GET: Fichas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            if (red_Conocimiento == null)
+            Ficha ficha = db.Ficha.Find(id);
+            if (ficha == null)
             {
                 return HttpNotFound();
             }
-            return View(red_Conocimiento);
+            return View(ficha);
         }
 
-        // POST: Red_Conocimiento/Delete/5
+        // POST: Fichas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Red_Conocimiento red_Conocimiento = db.Red_Conocimiento.Find(id);
-            db.Red_Conocimiento.Remove(red_Conocimiento);
+            Ficha ficha = db.Ficha.Find(id);
+            db.Ficha.Remove(ficha);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -4,58 +4,70 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Gestionar Competencias</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item">Area</li>
+                    <li class="breadcrumb-item">General</li>
+                    <li class="breadcrumb-item active">Registrar</li>
+                </ol>
+            </div>
+            <div class="col-sm-6">
 
-@using (Html.BeginForm()) 
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+@using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Area_Conocimiento</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CodigoArea, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CodigoArea, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CodigoArea, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h5>Registrar Area de Conocimiento</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NombreArea, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NombreArea, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NombreArea, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                @Html.AntiForgeryToken()
+                                <form>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Codigo</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.CodigoArea, new { htmlAttributes = new { @class = "form-control" } })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdRed, "IdRed", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdRed", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdRed, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.CodigoArea, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Nombre</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.NombreArea, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.DropDownList("Id_Red", null, "Selecciona una Red de Conocimiento", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.NombreArea, "", new { @class = "text-danger" })
+                                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.EstadoArea, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.EstadoArea)
-                    @Html.ValidationMessageFor(model => model.EstadoArea, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.EstadoArea, new { Value = "True" })
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
+                        <button class="btn btn-light" type="button"><a href="@Url.Action("Index","Red_Conocimiento")">Cancelar</a></button>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

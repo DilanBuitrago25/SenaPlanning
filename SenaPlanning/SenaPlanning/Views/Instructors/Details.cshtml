@@ -1,0 +1,162 @@
+﻿@model ClaseModelo.Instructor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Instructor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentoInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentoInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreCompletoInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreCompletoInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodRegionalInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodRegionalInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionalInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionalInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodCCOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodCCOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DependenciaInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DependenciaInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargoInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargoInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCargoInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCargoInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoSENAInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoSENAInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RedInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RedInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RutaInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RutaInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodMunicipioInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodMunicipioInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipioInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipioInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNacimientoInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNacimientoInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SexoInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SexoInstructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoInstructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoInstructor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdInstructor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

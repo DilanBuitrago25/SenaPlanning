@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ClaseModelo.Programa_Formacion>
+﻿@model IEnumerable<ClaseModelo.Ambiente>
 
 @{
     ViewBag.Title = "Index";
@@ -13,7 +13,7 @@
                 <h3>Area de Conocimiento</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="@Url.Action("Index","Aprendizs")">Home</a></li>
-                    <li class="breadcrumb-item">Area</li>
+                    <li class="breadcrumb-item">Ambiente</li>
                     <li class="breadcrumb-item">General</li>
                     <li class="breadcrumb-item active">Consultar</li>
                 </ol>
@@ -32,7 +32,7 @@
         <div class="card-header d-flex align-items-center">
             <div class="col-sm-4">
                 <br />
-                <h5>Tabla de Redes de Conocimientos</h5>
+                <h5>Tabla de Ambientes</h5>
                 <br />
                 @using (Html.BeginForm("Index", "UsuariosAprendiz", FormMethod.Get))
                 {
@@ -60,34 +60,32 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Denominación</th>
-                            <th>Versión</th>
-                            <th>Nivel</th>
-                            <th>Area de Conocimiento</th>
-                            <th style="width: 15%;">Acciones</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.IdPrograma)</td>
+                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.IdAmbiente)</td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.DenominacionPrograma)
+                                    @Html.DisplayFor(modelItem => item.NombreAmbiente)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.VersionPrograma)
+                                    @if (item.EstadoAmbiente == true)
+                                    {
+                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">Inactivo</span>
+                                    }
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.NivelPrograma)
-                                </td>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.Area_Conocimiento.NombreArea)
-                                </th>
-                                <td>
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdArea }) |
-                                    @Html.ActionLink("Programas", "Programa_Area", new { id = item.IdArea }) |
-                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdArea })
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdAmbiente }) |
+                                    @Html.ActionLink("Asignación", "Programa_Area", new { id = item.IdAmbiente }) |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdAmbiente })
                                 </td>
                             </tr>
                         }
@@ -98,4 +96,37 @@
     </div>
 </div>
 
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreAmbiente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoAmbiente)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreAmbiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoAmbiente)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdAmbiente }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdAmbiente }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdAmbiente })
+            </td>
+        </tr>
+    }
+
+</table>
