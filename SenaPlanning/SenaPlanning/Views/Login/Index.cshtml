@@ -54,32 +54,27 @@
                                         <form class="js-validation-signin" action="be_pages_auth_all.html" method="POST">
                                             <div class="py-3">
                                                 <div class="mb-4">
-                                                    <input type="number" class="form-control form-control-lg form-control-alt" id="documento" name="documento" placeholder="Numero de Documento">
+                                                    <input type="number" class="form-control form-control-lg form-control-alt" id="documento" name="documento" placeholder="Numero de Documento" required>
                                                 </div>
                                                 <div class="mb-4">
-                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="contrasena" name="contrasena" placeholder="Contraseña">
-                                                </div>
-                                                <div class="mb-4">
-                                                    <div class="d-md-flex align-items-md-center justify-content-md-between">
-
-                                                        <div class="py-2">
-
-                                                        </div>
-                                                    </div>
+                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="contrasena" name="contrasena" placeholder="Contraseña" required>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center">
-                                                <div class="col-lg-6 col-xxl-5">
+                                                <div class="col-lg-6 col-xxl-5" style="width:100% !important;">
                                                     <button type="submit" class="btn w-100 btn-alt-primary">
                                                         <i class="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i> Iniciar Sesión
                                                     </button>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4">
+                                                <div style="margin-top: 10px; color: #dc2626;" class="d-md-flex align-items-md-center justify-content-md-between">
                                                     @if (ViewData["Mensaje"] != null)
                                                     {
-                                                        <p>@ViewData["Mensaje"]</p>
+                                                        <p style="font-size:14px;">@ViewData["Mensaje"]</p>
                                                     }
                                                 </div>
-                                                
-                                            </div>
+                                        </div>
 
                                         </form>
 
