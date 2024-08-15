@@ -1,18 +1,36 @@
-﻿@{
+﻿@model IEnumerable<ClaseModelo.Meta>
+@{
+
     ViewBag.Title = "Home Page";
 
-    int META_TGO = 2980;
-    int META_TCO = 1567;
-    int META_ET = 0;
-    int META_OTROS = 205;
+    long META_TGO = 2980;
+    long META_TCO = 1567;
+    long META_ET = 0 ;
+    long META_OTROS = 205;
 
-    int META_TGO_AP_PASAN = 2071;
-    int META_TCO_AP_PASAN = 902;
-    int META_ET_AP_PASAN = 0;
-    int META_OTRO_AP_PASAN = 70;
+    long META_TGO_AP_PASAN = 2071;
+    long META_TCO_AP_PASAN = 902;
+    long META_ET_AP_PASAN = 0;
+    long META_OTRO_AP_PASAN = 70;
 
-    int APRENDICES_POR_CURSOS = 30;
-    int APRENDICES_POR_CURSOS_OTROS = 35;
+    long APRENDICES_POR_CURSOS = 30;
+    long APRENDICES_POR_CURSOS_OTROS = 35;
+
+    foreach (var item in Model)
+    {
+        META_TGO = long.Parse(item.MetaTecnologia.ToString());
+        META_TCO = long.Parse(item.MetaTecnico.ToString());
+        META_ET = long.Parse(item.MetaET.ToString());
+        META_OTROS = long.Parse(item.MetaOtros.ToString());
+
+        META_TGO_AP_PASAN = long.Parse(item.MetaTGOApPasan.ToString());
+        META_TCO_AP_PASAN = long.Parse(item.MetaTCOApPasan.ToString());
+        META_ET_AP_PASAN = long.Parse(item.MetaETApPasan.ToString());
+        META_OTRO_AP_PASAN = long.Parse(item.MetaOTROApPasan.ToString());
+
+        APRENDICES_POR_CURSOS = long.Parse(item.APorCurso.ToString());
+        APRENDICES_POR_CURSOS_OTROS = long.Parse(item.APorCursoOtros.ToString());
+    }
 
     double RESULT_META_TGO_AP_PROG = (META_TGO - META_TGO_AP_PASAN);
     double RESULT_META_TCO_AP_PROG = (META_TCO - META_TCO_AP_PASAN);
@@ -30,11 +48,11 @@
     {
         if (dividendo < 0) return 0;
         if (divisor < 0) return 0;
-        return Math.Round((dividendo / divisor) == 0 ? 0 : (dividendo / divisor),2);
+        return Math.Round((dividendo / divisor) == 0 ? 0 : (dividendo / divisor), 2);
     }
 
-}
 
+}
 
 
 <div class="content">
@@ -148,7 +166,7 @@
             <!-- END Conversion Rate-->
         </div>
     </div>
-    
+
 </div>
 <!-- END Page Content -->
 <div class="content">
@@ -736,4 +754,4 @@
         });
 
 </script>
-        
+
