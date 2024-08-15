@@ -4385,6 +4385,7 @@
     <Content Include="Views\Ambientes\Details.cshtml" />
     <Content Include="Views\Ambientes\Edit.cshtml" />
     <Content Include="Views\Ambientes\Index.cshtml" />
+    <Content Include="Views\Red_Conocimiento\Area_Red.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,6 +38,8 @@ namespace SenaPlanning.Controllers
         // GET: Instructors/Create
         public ActionResult Create()
         {
+            ViewBag.IdRed = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
+            ViewBag.IdArea = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
             return View();
         }
 
@@ -54,7 +56,8 @@ namespace SenaPlanning.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.IdRed = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed", instructor.RedInstructor);
+            ViewBag.IdArea = new SelectList(db.Red_Conocimiento, "IdArea", "NombreArea", instructor.AreaInstructor);
             return View(instructor);
         }
 

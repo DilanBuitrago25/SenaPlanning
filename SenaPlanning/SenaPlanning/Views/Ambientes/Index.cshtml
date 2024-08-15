@@ -48,7 +48,7 @@
                 }
             </div>
             <div class="col-sm-8 d-flex justify-content-end">
-                <button class="btn btn-light"><a href="@Url.Action("Create","UsuariosAprendiz")">Crear</a></button>
+                <button class="btn btn-light"><a href="@Url.Action("Create","Ambientes")">Crear</a></button>
             </div>
         </div>
 
@@ -62,6 +62,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,38 +96,3 @@
         </div>
     </div>
 </div>
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreAmbiente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstadoAmbiente)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreAmbiente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstadoAmbiente)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdAmbiente }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdAmbiente }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdAmbiente })
-            </td>
-        </tr>
-    }
-
-</table>

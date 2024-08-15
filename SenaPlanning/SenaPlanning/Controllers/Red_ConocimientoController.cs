@@ -115,6 +115,17 @@ namespace SenaPlanning.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Area_Red(int id)
+        {
+            var areas = db.Area_Conocimiento
+         .Where(a => a.IdRed == id) // Filtrar por IdRed
+         .ToList();
+
+            ViewBag.RedId = id;
+            ViewBag.NombreRed = db.Red_Conocimiento.Find(id)?.NombreRed;
+            return View(areas); 
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
