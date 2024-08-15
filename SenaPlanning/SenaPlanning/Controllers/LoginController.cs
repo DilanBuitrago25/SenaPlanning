@@ -31,7 +31,7 @@ namespace SenaPlanning.Controllers
                 Session["Idusuario"] = usuario.IdUsuario; // Almacenar el ID en sesión
                 Session["TipoUsuario"] = usuario.TipoUsuario;
                 Session["NombreCompletoUsuario"] = usuario.NombreUsuario + " " + usuario.ApellidoUsuario;
-                Session["NombreUsuario"] = usuario.NombreUsuario;
+                Session["NombreUsuario"] = (usuario.NombreUsuario).Split()[0] + " " + usuario.ApellidoUsuario.Split()[0];
                 ViewBag.TipoUsuario = usuario.TipoUsuario;
 
                 if (usuario.TipoUsuario == "Administrador" && usuario.EstadoUsuario == true)

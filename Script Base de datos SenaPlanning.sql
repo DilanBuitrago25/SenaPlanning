@@ -17,14 +17,16 @@ go
 
 create table Meta(
 IdMeta int identity (1,1) not null,
-MetaFormacion float,
-MetaTecnologia float,
-MetaTecnico float,
-MetaET float,
-MetaOtros float,
+MetaTecnologia bigint,
+MetaTecnico bigint,
+MetaET bigint,
+MetaOtros bigint,
 EstadoMeta bit default (1) not null,
+MetaTGOApPasan bigint,
+MetaTCOApPasan bigint,
+MetaETApPasan bigint,
+MetaOTROApPasan bigint
 primary key (IdMeta));
-
 go
 
 create table Usuario(

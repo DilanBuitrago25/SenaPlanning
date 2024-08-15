@@ -1,6 +1,41 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+    int META_TGO = 2980;
+    int META_TCO = 1567;
+    int META_ET = 0;
+    int META_OTROS = 205;
+
+    int META_TGO_AP_PASAN = 2071;
+    int META_TCO_AP_PASAN = 902;
+    int META_ET_AP_PASAN = 0;
+    int META_OTRO_AP_PASAN = 70;
+
+    int APRENDICES_POR_CURSOS = 30;
+    int APRENDICES_POR_CURSOS_OTROS = 35;
+
+    double RESULT_META_TGO_AP_PROG = (META_TGO - META_TGO_AP_PASAN);
+    double RESULT_META_TCO_AP_PROG = (META_TCO - META_TCO_AP_PASAN);
+    double RESULT_META_ET_AP_PROG = (META_ET - META_ET_AP_PASAN);
+    double RESULT_META_OTROS_AP_PROG = (META_OTROS - META_OTRO_AP_PASAN);
+
+    double CURSO_META_TGO = dividir(RESULT_META_TGO_AP_PROG, APRENDICES_POR_CURSOS);
+    double CURSO_META_TCO = dividir(RESULT_META_TCO_AP_PROG, APRENDICES_POR_CURSOS);
+    double CURSO_META_ET = dividir(RESULT_META_ET_AP_PROG, APRENDICES_POR_CURSOS_OTROS);
+    double CURSO_META_OTROS = dividir(RESULT_META_OTROS_AP_PROG, APRENDICES_POR_CURSOS_OTROS);
+
+    double META_GENERAL = CURSO_META_TGO + CURSO_META_TCO + CURSO_META_ET + CURSO_META_OTROS;
+
+    double dividir(double dividendo, double divisor)
+    {
+        if (dividendo < 0) return 0;
+        if (divisor < 0) return 0;
+        return Math.Round((dividendo / divisor) == 0 ? 0 : (dividendo / divisor),2);
+    }
+
 }
+
+
 
 <div class="content">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-2 text-center text-md-start">
@@ -9,7 +44,7 @@
                 Inicio
             </h1>
             <h2 class="h6 fw-medium fw-medium text-muted mb-0">
-                Bienvenido <a class="fw-semibold" href="be_pages_generic_profile.html">John</a>, un gusto de tenerte de vuelta.
+                Bienvenido <a class="fw-semibold" href="be_pages_generic_profile.html">@Session["NombreUsuario"].ToString().Split()[0]</a>, un gusto de tenerte de vuelta.
             </h2>
         </div>
     </div>
@@ -18,8 +53,8 @@
 <div class="content">
     <h4>Meta general vigente del año <a class="fw-semibold">2024</a></h4>
     <div class="progress push">
-        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 21%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-            <span class="fs-sm fw-semibold">21%</span>
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: @META_GENERAL%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <span class="fs-sm fw-semibold">@META_GENERAL%</span>
         </div>
     </div>
 
@@ -33,7 +68,7 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">32%</dt>
+                        <dt class="fs-3 fw-bold">@CURSO_META_TGO%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Tecnológo</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
@@ -54,7 +89,7 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">90.2%</dt>
+                        <dt class="fs-3 fw-bold">@CURSO_META_TCO%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Técnico</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
@@ -75,7 +110,7 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">45%</dt>
+                        <dt class="fs-3 fw-bold">@CURSO_META_ET%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Expecialista Técnico</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
@@ -96,7 +131,7 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">4.5%</dt>
+                        <dt class="fs-3 fw-bold">@CURSO_META_OTROS%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Otros</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
@@ -671,3 +706,34 @@
     </div>
     <!-- END Recent Orders -->
 </div>
+
+
+<script>
+        window.addEventListener('load', function () {
+            // Código a ejecutar cuando se cargan todos los scripts
+            console.log([@CURSO_META_TGO,@CURSO_META_TCO,@CURSO_META_ET,@CURSO_META_OTROS]);
+            Data = {
+                labels: ["META TGO", "META TCO", "META ET", "META OTROS"],
+                datasets: [
+                    {
+                        data: [@CURSO_META_TGO,@CURSO_META_TCO,@CURSO_META_ET,@CURSO_META_OTROS],
+                        backgroundColor: [
+                            "rgb(57, 169, 0,1)",
+                            "rgb(0, 50, 77,1)",
+                            "rgb(203, 119, 102,1)",
+                            "rgb(106, 106, 106,1)",
+                        ],
+                        hoverBackgroundColor: [
+                            "rgb(57, 169, 0,.75)",
+                            "rgb(0, 50, 77,.75)",
+                            "rgb(203, 119, 102,.75)",
+                            "rgb(106, 106, 106,.75)",
+                        ],
+                    },
+                ],
+            };
+            loadChartsOnHome();
+        });
+
+</script>
+        
