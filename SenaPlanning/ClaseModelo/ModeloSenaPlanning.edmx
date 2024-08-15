@@ -83,12 +83,17 @@
             <PropertyRef Name="IdMeta" />
           </Key>
           <Property Name="IdMeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MetaFormacion" Type="float" />
-          <Property Name="MetaTecnologia" Type="float" />
           <Property Name="MetaTecnico" Type="float" />
           <Property Name="MetaET" Type="float" />
           <Property Name="MetaOtros" Type="float" />
           <Property Name="EstadoMeta" Type="bit" Nullable="false" />
+          <Property Name="MetaTGOApPasan" Type="bigint" />
+          <Property Name="MetaTCOApPasan" Type="bigint" />
+          <Property Name="MetaETApPasan" Type="bigint" />
+          <Property Name="MetaOTROApPasan" Type="bigint" />
+          <Property Name="MetaTecnologia" Type="bigint" />
+          <Property Name="APorCurso" Type="int" Nullable="false" />
+          <Property Name="APorCursoOtros" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Oferta">
           <Key>
@@ -159,7 +164,7 @@
           <Property Name="TipoUsuario" Type="varchar" MaxLength="255" />
           <Property Name="EstadoUsuario" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Area_Cono__IdRed__412EB0B6">
+        <Association Name="FK__Area_Cono__IdRed__534D60F1">
           <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -171,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdOferta__5535A963">
+        <Association Name="FK__Ficha__IdOferta__5629CD9C">
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -183,7 +188,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdProgram__5441852A">
+        <Association Name="FK__Ficha__IdProgram__571DF1D5">
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -195,7 +200,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdMetas__49C3F6B7">
+        <Association Name="FK__Oferta__IdMetas__59FA5E80">
           <End Role="Meta" Type="Self.Meta" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -207,7 +212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdUsuari__48CFD27E">
+        <Association Name="FK__Oferta__IdUsuari__5AEE82B9">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -219,7 +224,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Programa___IdAre__44FF419A">
+        <Association Name="FK__Programa___IdAre__5BE2A6F2">
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -291,27 +296,27 @@
           <EntitySet Name="Programa_Formacion" EntityType="Self.Programa_Formacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Red_Conocimiento" EntityType="Self.Red_Conocimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Area_Cono__IdRed__412EB0B6" Association="Self.FK__Area_Cono__IdRed__412EB0B6">
+          <AssociationSet Name="FK__Area_Cono__IdRed__534D60F1" Association="Self.FK__Area_Cono__IdRed__534D60F1">
             <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdOferta__5535A963" Association="Self.FK__Ficha__IdOferta__5535A963">
+          <AssociationSet Name="FK__Ficha__IdOferta__5629CD9C" Association="Self.FK__Ficha__IdOferta__5629CD9C">
             <End Role="Oferta" EntitySet="Oferta" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdProgram__5441852A" Association="Self.FK__Ficha__IdProgram__5441852A">
+          <AssociationSet Name="FK__Ficha__IdProgram__571DF1D5" Association="Self.FK__Ficha__IdProgram__571DF1D5">
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdMetas__49C3F6B7" Association="Self.FK__Oferta__IdMetas__49C3F6B7">
+          <AssociationSet Name="FK__Oferta__IdMetas__59FA5E80" Association="Self.FK__Oferta__IdMetas__59FA5E80">
             <End Role="Meta" EntitySet="Meta" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdUsuari__48CFD27E" Association="Self.FK__Oferta__IdUsuari__48CFD27E">
+          <AssociationSet Name="FK__Oferta__IdUsuari__5AEE82B9" Association="Self.FK__Oferta__IdUsuari__5AEE82B9">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Programa___IdAre__44FF419A" Association="Self.FK__Programa___IdAre__44FF419A">
+          <AssociationSet Name="FK__Programa___IdAre__5BE2A6F2" Association="Self.FK__Programa___IdAre__5BE2A6F2">
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
           </AssociationSet>
@@ -406,13 +411,18 @@
             <PropertyRef Name="IdMeta" />
           </Key>
           <Property Name="IdMeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MetaFormacion" Type="Double" />
-          <Property Name="MetaTecnologia" Type="Double" />
+          <Property Name="MetaTecnologia" Type="Int64" />
           <Property Name="MetaTecnico" Type="Double" />
           <Property Name="MetaET" Type="Double" />
           <Property Name="MetaOtros" Type="Double" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdMetas__30F848ED" FromRole="Meta" ToRole="Oferta" />
           <Property Name="EstadoMeta" Type="Boolean" Nullable="false" />
+          <Property Name="MetaTGOApPasan" Type="Int64" />
+          <Property Name="MetaTCOApPasan" Type="Int64" />
+          <Property Name="MetaETApPasan" Type="Int64" />
+          <Property Name="MetaOTROApPasan" Type="Int64" />
+          <Property Name="APorCurso" Type="Int32" Nullable="false" />
+          <Property Name="APorCursoOtros" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Oferta">
           <Key>
@@ -683,9 +693,14 @@
           <EntitySetMapping Name="Meta">
             <EntityTypeMapping TypeName="SenaPlanningModel.Meta">
               <MappingFragment StoreEntitySet="Meta">
+                <ScalarProperty Name="APorCursoOtros" ColumnName="APorCursoOtros" />
+                <ScalarProperty Name="APorCurso" ColumnName="APorCurso" />
+                <ScalarProperty Name="MetaOTROApPasan" ColumnName="MetaOTROApPasan" />
+                <ScalarProperty Name="MetaETApPasan" ColumnName="MetaETApPasan" />
+                <ScalarProperty Name="MetaTCOApPasan" ColumnName="MetaTCOApPasan" />
+                <ScalarProperty Name="MetaTGOApPasan" ColumnName="MetaTGOApPasan" />
                 <ScalarProperty Name="EstadoMeta" ColumnName="EstadoMeta" />
                 <ScalarProperty Name="IdMeta" ColumnName="IdMeta" />
-                <ScalarProperty Name="MetaFormacion" ColumnName="MetaFormacion" />
                 <ScalarProperty Name="MetaTecnologia" ColumnName="MetaTecnologia" />
                 <ScalarProperty Name="MetaTecnico" ColumnName="MetaTecnico" />
                 <ScalarProperty Name="MetaET" ColumnName="MetaET" />

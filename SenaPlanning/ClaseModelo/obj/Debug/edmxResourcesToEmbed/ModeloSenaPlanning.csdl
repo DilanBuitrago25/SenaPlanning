@@ -70,13 +70,18 @@
       <PropertyRef Name="IdMeta" />
     </Key>
     <Property Name="IdMeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MetaFormacion" Type="Double" />
-    <Property Name="MetaTecnologia" Type="Double" />
+    <Property Name="MetaTecnologia" Type="Int64" />
     <Property Name="MetaTecnico" Type="Double" />
     <Property Name="MetaET" Type="Double" />
     <Property Name="MetaOtros" Type="Double" />
     <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdMetas__30F848ED" FromRole="Meta" ToRole="Oferta" />
     <Property Name="EstadoMeta" Type="Boolean" Nullable="false" />
+    <Property Name="MetaTGOApPasan" Type="Int64" />
+    <Property Name="MetaTCOApPasan" Type="Int64" />
+    <Property Name="MetaETApPasan" Type="Int64" />
+    <Property Name="MetaOTROApPasan" Type="Int64" />
+    <Property Name="APorCurso" Type="Int32" Nullable="false" />
+    <Property Name="APorCursoOtros" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Oferta">
     <Key>

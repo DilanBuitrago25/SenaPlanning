@@ -65,9 +65,14 @@
     <EntitySetMapping Name="Meta">
       <EntityTypeMapping TypeName="SenaPlanningModel.Meta">
         <MappingFragment StoreEntitySet="Meta">
+          <ScalarProperty Name="APorCursoOtros" ColumnName="APorCursoOtros" />
+          <ScalarProperty Name="APorCurso" ColumnName="APorCurso" />
+          <ScalarProperty Name="MetaOTROApPasan" ColumnName="MetaOTROApPasan" />
+          <ScalarProperty Name="MetaETApPasan" ColumnName="MetaETApPasan" />
+          <ScalarProperty Name="MetaTCOApPasan" ColumnName="MetaTCOApPasan" />
+          <ScalarProperty Name="MetaTGOApPasan" ColumnName="MetaTGOApPasan" />
           <ScalarProperty Name="EstadoMeta" ColumnName="EstadoMeta" />
           <ScalarProperty Name="IdMeta" ColumnName="IdMeta" />
-          <ScalarProperty Name="MetaFormacion" ColumnName="MetaFormacion" />
           <ScalarProperty Name="MetaTecnologia" ColumnName="MetaTecnologia" />
           <ScalarProperty Name="MetaTecnico" ColumnName="MetaTecnico" />
           <ScalarProperty Name="MetaET" ColumnName="MetaET" />
