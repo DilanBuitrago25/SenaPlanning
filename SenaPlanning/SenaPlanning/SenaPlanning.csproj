@@ -4386,6 +4386,11 @@
     <Content Include="Views\Ambientes\Edit.cshtml" />
     <Content Include="Views\Ambientes\Index.cshtml" />
     <Content Include="Views\Red_Conocimiento\Area_Red.cshtml" />
+    <Content Include="Views\Red_Conocimiento\Programa_Area_Red.cshtml" />
+    <Content Include="Views\Red_Conocimiento\Ficha_Programa_Area_Red.cshtml" />
+    <Content Include="Views\Area_Conocimiento\Programa_Area.cshtml" />
+    <Content Include="Views\Area_Conocimiento\Ficha_Programa_Area.cshtml" />
+    <Content Include="Views\Programa_Formacion\Ficha_Programa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

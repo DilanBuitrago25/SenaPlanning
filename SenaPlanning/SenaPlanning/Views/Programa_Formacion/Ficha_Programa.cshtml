@@ -1,19 +1,20 @@
-﻿@model IEnumerable<ClaseModelo.Area_Conocimiento>
+﻿@model IEnumerable<ClaseModelo.Ficha>
 @{
-    ViewBag.Title = "Area_Red";
+    ViewBag.Title = "Ficha_Programa";
 }
+
 
 <br />
 <div class="container-fluid">
     <div class="page-header">
         <div class="row">
             <div class="col-sm-6">
-                <h3>Areas Asociadas a la Red: @ViewBag.NombreRed</h3>
+                <h3>Programas Asociadas al Area: @ViewBag.NombrePrograma</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li class="breadcrumb-item">Red de Conocimiento</li>
-                    <li class="breadcrumb-item">@ViewBag.NombreRed</li>
-                    <li class="breadcrumb-item active">Consultar Areas</li>
+                    <li class="breadcrumb-item">Orograma de Formación</li>
+                    <li class="breadcrumb-item">@ViewBag.NombrePrograma</li>
+                    <li class="breadcrumb-item active">Consultar Fichas</li>
                 </ol>
             </div>
             <div class="col-sm-6">
@@ -63,11 +64,12 @@
                 <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>Estado</th>
-                            <th>Red de Conocimiento</th>
+                            <th>Fecha Inicio</th>
+                            <th>No Aprendices</th>
+                            <th>Trimestre en curso</th>
+                            <th>Jornada</th>
+                            <th>Programa de Formación</th>
                             <th style="width: 15%;">Acciones</th>
                         </tr>
                     </thead>
@@ -75,30 +77,26 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.IdRed)</td>
+                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.CodigoFicha)</td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.CodigoArea)
+                                    @Html.DisplayFor(modelItem => item.FechaInFicha)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.NombreArea)
+                                    @Html.DisplayFor(modelItem => item.NumAprenFicha)
                                 </td>
                                 <td>
-                                    @if (item.EstadoArea == true)
-                                    {
-                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">Activo</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">Inactivo</span>
-                                    }
+                                    @Html.DisplayFor(modelItem => item.TrimestreFicha)
                                 </td>
                                 <th>
-                                    @Html.DisplayFor(modelItem => item.Red_Conocimiento.NombreRed)
+                                    @Html.DisplayFor(modelItem => item.JornadaFicha)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.Programa_Formacion.IdPrograma)
                                 </th>
                                 <td>
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdArea }) |
-                                    @Html.ActionLink("Programas", "Programa_Area_Red", new { id = item.IdArea, idRed = ViewBag.RedId } ) |
-                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdArea })
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdFicha }) |
+                                    @Html.ActionLink("Programas", "Programa_Area", new { id = item.IdPrograma, idRed = ViewBag.RedId, idArea = ViewBag.AreaId }) |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdFicha })
                                 </td>
                             </tr>
                         }
@@ -111,3 +109,4 @@
         </div>
     </div>
 </div>
+

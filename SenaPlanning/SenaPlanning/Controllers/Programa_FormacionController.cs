@@ -120,6 +120,17 @@ namespace SenaPlanning.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Ficha_Programa(int id)
+        {
+            var areas = db.Ficha
+         .Where(a => a.IdPrograma == id)
+         .ToList();
+
+            ViewBag.ProgramaId = id;
+            ViewBag.NombrePrograma = db.Programa_Formacion.Find(id)?.DenominacionPrograma;
+            return View(areas);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

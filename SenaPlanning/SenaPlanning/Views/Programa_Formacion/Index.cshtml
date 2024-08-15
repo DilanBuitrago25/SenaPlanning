@@ -10,7 +10,7 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-6">
-                <h3>Area de Conocimiento</h3>
+                <h3>Programa de Formación</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="@Url.Action("Index","Aprendizs")">Home</a></li>
                     <li class="breadcrumb-item">Area</li>
@@ -86,7 +86,7 @@
                                 </th>
                                 <td>
                                     @Html.ActionLink("Editar", "Edit", new { id = item.IdArea }) |
-                                    @Html.ActionLink("Programas", "Programa_Area", new { id = item.IdArea }) |
+                                    @Html.ActionLink("Fichas", "Ficha_Programa", new { id = item.IdArea }) |
                                     @Html.ActionLink("Eliminar", "Delete", new { id = item.IdArea })
                                 </td>
                             </tr>

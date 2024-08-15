@@ -120,6 +120,30 @@ namespace SenaPlanning.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Programa_Area(int id)
+        {
+            var areas = db.Programa_Formacion
+         .Where(a => a.IdArea == id)
+         .ToList();
+
+            ViewBag.AreaId = id;
+            ViewBag.NombreArea = db.Area_Conocimiento.Find(id)?.NombreArea;
+            return View(areas);
+        }
+
+        public ActionResult Ficha_Programa_Area(int idArea, int id)
+        {
+            var areas = db.Ficha
+         .Where(a => a.Programa_Formacion.IdArea == idArea && a.IdPrograma == id) 
+         .ToList();
+
+            ViewBag.AreaId = idArea;
+            ViewBag.ProgramaId = id;
+            ViewBag.NombreArea = db.Area_Conocimiento.Find(id)?.NombreArea;
+            ViewBag.NombrePrograma = db.Programa_Formacion.Find(id)?.DenominacionPrograma;
+            return View(areas);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
