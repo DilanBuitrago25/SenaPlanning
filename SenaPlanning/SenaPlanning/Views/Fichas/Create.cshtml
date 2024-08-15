@@ -4,98 +4,88 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Gestionar Fichas</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item">Fichas</li>
+                    <li class="breadcrumb-item">General</li>
+                    <li class="breadcrumb-item active">Registrar</li>
+                </ol>
+            </div>
+            <div class="col-sm-6">
 
-@using (Html.BeginForm()) 
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+@using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Ficha</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CodigoFicha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CodigoFicha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CodigoFicha, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h5>Registrar Fichas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaInFicha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaInFicha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FechaInFicha, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                @Html.AntiForgeryToken()
+                                <form>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Codigo</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.CodigoFicha, new { htmlAttributes = new { @class = "form-control" } })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaFinFicha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaFinFicha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FechaFinFicha, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.CodigoFicha, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Fecha Inicio</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.FechaInFicha, new { htmlAttributes = new { @class = "form-control" } })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumAprenFicha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumAprenFicha, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.FechaInFicha, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Jornada</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.JornadaFicha, new { htmlAttributes = new { @class = "form-control" } })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TrimestreFicha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TrimestreFicha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TrimestreFicha, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.JornadaFicha, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Programa de Formacion</label>
+                                        <div class="input-group">
+                                            @Html.DropDownList("IdPrograma", null, "Selecciona un Programa de Formacion", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.IdPrograma, "", new { @class = "text-danger" })
+                                    </div>
+                                   
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.JornadaFicha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.JornadaFicha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.JornadaFicha, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                    @Html.HiddenFor(model => model.EstadoFicha, new { Value = "True" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdPrograma, "IdPrograma", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdPrograma", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdPrograma, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdOferta, "IdOferta", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("IdOferta", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.IdOferta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EstadoFicha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.EstadoFicha)
-                    @Html.ValidationMessageFor(model => model.EstadoFicha, "", new { @class = "text-danger" })
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
+                        <button class="btn btn-light" type="button"><a href="@Url.Action("Index","Fichas")">Cancelar</a></button>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

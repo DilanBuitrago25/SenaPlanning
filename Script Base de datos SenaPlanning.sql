@@ -43,6 +43,11 @@ primary key (IdUsuario));
 
 go
 
+Insert into Usuario (TipoDocumentoUsuario, DocumentoUsuario, NombreUsuario, ApellidoUsuario, TelefonoUsuario ,ConstraseñaUsuario, TipoUsuario) values
+('C.C', '000000', 'Admin', 'Soy Sena',123456,'admin123' ,'Administrador');
+
+go
+
 create table Area_Conocimiento(
 IdArea int identity (1,1) not null,
 CodigoArea int not null,
