@@ -29,6 +29,7 @@ MetaOTROApPasan bigint
 primary key (IdMeta));
 go
 
+
 create table Usuario(
 IdUsuario int identity (1,1) not null,
 TipoDocumentoUsuario Varchar (100),
