@@ -39,6 +39,9 @@ namespace SenaPlanning.Controllers
         // GET: Planeacion/Create
         public ActionResult Create()
         {
+            ViewBag.Programa = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
+            ViewBag.Area = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
+            ViewBag.Red = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
             ViewBag.IdMetas = new SelectList(db.Meta, "IdMeta", "IdMeta");
             ViewBag.IdUsuario = new SelectList(db.Usuario, "IdUsuario", "TipoDocumentoUsuario");
             return View();
