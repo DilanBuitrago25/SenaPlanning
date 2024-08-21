@@ -23,30 +23,6 @@
     </div>
 </div>
 <br />
-
-
-
-<div class="row">
-    <div class="col-md-4">
-        <label class="form-label" for="example-flatpickr-custom">Programa de Formación</label>
-        <select class="js-select2 form-select js-select2-enabled select2-hidden-accessible" id="example-select2" name="example-select2" style="width: 100%;" data-placeholder="Choose one.." data-select2-id="example-select2" tabindex="-1" aria-hidden="true">
-            <option data-select2-id="2"></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
-            <option value="1" data-select2-id="11">HTML</option>
-        </select>
-    </div>
-    <div class="col-md-4">
-        <label class="form-label" for="example-flatpickr-custom">Area de Conocimiento</label>
-        <select class="js-select2 form-select js-select2-enabled select2-hidden-accessible" id="example-select2" name="example-select2" style="width: 100%;" data-placeholder="Choose one.." data-select2-id="example-select2" tabindex="-1" aria-hidden="true">
-            <option data-select2-id="2"></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
-            <option value="1" data-select2-id="11">HTML</option>
-        </select>
-        @*<span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-example-select2-container"><span class="select2-selection__rendered" id="select2-example-select2-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">Choose one..</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>*@
-    </div>
-    <div class="col-md-4">
-    </div>
-</div>
-
-
 <!--<div class="row">
     <div class="col-md-7">
     </div>
@@ -61,66 +37,89 @@
 </div>-->
 
 <br />
-
-<div class="block block-rounded">
-    <div class="block-header block-header-default">
-        <div class="block-option">
-            <h3 class="block-title">Trimestres programados:</h3>
-            <small>28</small>
-        </div>
-        <div class="block-option">
-            <h3 class="block-title">INFORMATICA, DISEÑO Y DESARROLLO DE SOFWARE</h3><small>ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION</small>
+<div class="content">
+    <div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="form-label" for="example-flatpickr-custom">Programa de Formación</label>
+                <select class="js-select2 form-select js-select2-enabled select2-hidden-accessible" id="example-select2" name="example-select2" style="width: 100%;" data-placeholder="Choose one.." data-select2-id="example-select2" tabindex="-1" aria-hidden="true">
+                    <option data-select2-id="2"></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                    <option value="1" data-select2-id="11">HTML</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" for="example-flatpickr-custom">Area de Conocimiento</label>
+                <select class="js-select2 form-select js-select2-enabled select2-hidden-accessible" id="example-select2" name="example-select2" style="width: 100%;" data-placeholder="Choose one.." data-select2-id="example-select2" tabindex="-1" aria-hidden="true">
+                    <option data-select2-id="2"></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                    <option value="1" data-select2-id="11">HTML</option>
+                </select>
+                @*<span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-example-select2-container"><span class="select2-selection__rendered" id="select2-example-select2-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">Choose one..</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>*@
+            </div>
+            <div class="col-md-4">
+            </div>
         </div>
     </div>
-    <div class="block-content block-content-full">
-        <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
-        <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
-            <thead>
-                <tr>
-                    <th>Ficha</th>
-                    <th>Nombre del programa</th>
-                    <th>Jornada</th>
-                    <th>Nivel</th>
-                    <th>Version</th>
-                    <th>Trimestre III</th>
-                    <th>Fecha inicio</th>
-                    <th>Fecha fin</th>
-                    <th>No. Aprendices</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-center fs-sm">2693606</td>
-                    <td class="fw-semibold fs-sm">ANALISIS Y DESARROLLO DE SOFTWARE</td>
-                    <td class="fs-sm">Mixta</td>
-                    <td>
-                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">TGO</span>
-                    </td>
-                    <td>
-                        <span class="text-muted fs-sm">1</span>
-                    </td>
-                    <td>
-                        <span class="text-muted fs-sm">7/7</span>
-                    </td>
-                    <td>
-                        23/01/2023
-                    </td>
-                    <td>
-                        23/03/2025
-                    </td>
-                    <td>
-                        <span class="text-muted fs-sm">16</span>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="7"></td>
-                    <td class="fw-semibold" colspan="1">No. Aprendices:</td>
-                    <td>16</td>
-                </tr>
-            </tfoot>
-        </table>
+
+    <div class="block block-rounded">
+        <div class="block-header block-header-default">
+            <div class="block-option">
+                <h3 class="block-title">Trimestres programados:</h3>
+                <small>28</small>
+            </div>
+            <div class="block-option">
+                <h3 class="block-title">INFORMATICA, DISEÑO Y DESARROLLO DE SOFWARE</h3><small>ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION</small>
+            </div>
+        </div>
+        <div class="block-content block-content-full">
+            <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
+            <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                <thead>
+                    <tr>
+                        <th>Ficha</th>
+                        <th>Nombre del programa</th>
+                        <th>Jornada</th>
+                        <th>Nivel</th>
+                        <th>Version</th>
+                        <th>Trimestre III</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha fin</th>
+                        <th>No. Aprendices</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center fs-sm">2693606</td>
+                        <td class="fw-semibold fs-sm">ANALISIS Y DESARROLLO DE SOFTWARE</td>
+                        <td class="fs-sm">Mixta</td>
+                        <td>
+                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">TGO</span>
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">1</span>
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">7/7</span>
+                        </td>
+                        <td>
+                            23/01/2023
+                        </td>
+                        <td>
+                            23/03/2025
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">16</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7"></td>
+                        <td class="fw-semibold" colspan="1">No. Aprendices:</td>
+                        <td>16</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>
 <!-- Dynamic Table Responsive -->
