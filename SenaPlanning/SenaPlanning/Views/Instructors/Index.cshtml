@@ -25,95 +25,94 @@
     </div>
 </div>
 <br />
-<div class="col-sm-12">
-    <div class="card">
+<div class="card-body">
+    <div class="block block-rounded">
+    <div class="col-sm-12">
 
-        <div class="card-header d-flex align-items-center">
-            <div class="col-sm-4">
-                <br />
-                <h5>Tabla de Instructores</h5>
-                <br />
-                @using (Html.BeginForm("Index", "UsuariosAprendiz", FormMethod.Get))
-                {
-                    <div class="d-flex align-items-center">
-                        <label for="estadoFiltro" class="me-2">Estado:</label>
-                        <select class="form-select me-2" id="estadoFiltro" name="estadoFiltro">
-                            <option value="" @(ViewBag.EstadoFiltro == "" ? "selected" : "")>Todos</option>
-                            <option value="true" @(ViewBag.EstadoFiltro == "true" ? "selected" : "")>Activo</option>
-                            <option value="false" @(ViewBag.EstadoFiltro == "false" ? "selected" : "")>No Activo</option>
-                        </select>
-                        <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
-                    </div>
-                }
+            <div class="block-header block-header-default d-flex align-items-center">
+                <div class="col-sm-4">
+                    <br />
+                    <h5>Tabla de Instructores</h5>
+                    <br />
+                    @using (Html.BeginForm("Index", "UsuariosAprendiz", FormMethod.Get))
+                    {
+                        <div class="d-flex align-items-center">
+                            <label for="estadoFiltro" class="me-2">Estado:</label>
+                            <select class="form-select me-2" id="estadoFiltro" name="estadoFiltro">
+                                <option value="" @(ViewBag.EstadoFiltro == "" ? "selected" : "")>Todos</option>
+                                <option value="true" @(ViewBag.EstadoFiltro == "true" ? "selected" : "")>Activo</option>
+                                <option value="false" @(ViewBag.EstadoFiltro == "false" ? "selected" : "")>No Activo</option>
+                            </select>
+                            <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
+                        </div>
+                    }
+                </div>
+                <div class="col-sm-8 d-flex justify-content-end">
+                    <button class="btn btn-light"><a href="@Url.Action("Create","Instructors")">Crear</a></button>
+                </div>
             </div>
-            <div class="col-sm-8 d-flex justify-content-end">
-                <button class="btn btn-light"><a href="@Url.Action("Create","Instructors")">Crear</a></button>
-            </div>
-        </div>
 
+            <br />
 
-        <div class="card-body">
-
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
-                    <thead>
-                        <tr>
-                            <th>Documento</th>
-                            <th>Nombre Completo</th>
-                            <th>Cod Regional</th>
-                            <th>Regional</th>
-                            <th>Cod CCOS</th>
-                            <th>Dependencia</th>
-                            <th>Cargo</th>
-                            <th>Tipo Cargo</th>
-                            <th>Correo SENA</th>
-                            <th>Red de Conocimiento</th>
-                            <th style="width: 15%;">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                        <thead>
                             <tr>
-                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.DocumentoInstructor)</td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NombreCompletoInstructor)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CodRegionalInstructor)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.RegionalInstructor)
-                                </td>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.CodCCOS)
-                                </th>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.DependenciaInstructor)
-                                </th>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.CargoInstructor)
-                                </th>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.TipoCargoInstructor)
-                                </th>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.CorreoSENAInstructor)
-                                </th>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.RedInstructor)
-                                </th>
-                                <td>
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdInstructor }) |
-                                    @Html.ActionLink("Programas", "Programa_Area", new { id = item.IdInstructor }) |
-                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdInstructor })
-                                </td>
+                                <th>Documento</th>
+                                <th>Nombre Completo</th>
+                                <th>Cod Regional</th>
+                                <th>Regional</th>
+                                <th>Cod CCOS</th>
+                                <th>Dependencia</th>
+                                <th>Cargo</th>
+                                <th>Tipo Cargo</th>
+                                <th>Correo SENA</th>
+                                <th>Red de Conocimiento</th>
+                                <th style="width: 15%;">Acciones</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fs-sm">@Html.DisplayFor(modelItem => item.DocumentoInstructor)</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NombreCompletoInstructor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CodRegionalInstructor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RegionalInstructor)
+                                    </td>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.CodCCOS)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.DependenciaInstructor)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.CargoInstructor)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.TipoCargoInstructor)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.CorreoSENAInstructor)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.RedInstructor)
+                                    </th>
+                                    <td>
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.IdInstructor }) |
+                                        @Html.ActionLink("Programas", "Programa_Area", new { id = item.IdInstructor }) |
+                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdInstructor })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 </div>
-

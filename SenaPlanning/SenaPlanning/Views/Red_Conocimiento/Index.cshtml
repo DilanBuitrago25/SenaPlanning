@@ -27,79 +27,74 @@
 </div>
 <br />
 <div class="card-body">
-    <div class="col-sm-12">
-        <div class="card">
-
-            <div class="card-header d-flex align-items-center">
-                <div class="col-sm-4">
-                    <br />
-                    <h5>Tabla de Redes de Conocimientos</h5>
-                    <br />
-                    @using (Html.BeginForm("Index", "Red_Conocimiento", FormMethod.Get))
-                    {
-                        <div class="d-flex align-items-center">
-                            <label for="estadoFiltro" class="me-2">Estado:</label>
-                            <select class="form-select me-2" id="estadoFiltro" name="estadoFiltro">
-                                <option value="" @(ViewBag.EstadoFiltro == "" ? "selected" : "")>Todos</option>
-                                <option value="true" @(ViewBag.EstadoFiltro == "true" ? "selected" : "")>Activo</option>
-                                <option value="false" @(ViewBag.EstadoFiltro == "false" ? "selected" : "")>No Activo</option>
-                            </select>
-                            <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
-                        </div>
-                    }
-                </div>
-                <div class="col-sm-8 d-flex justify-content-end">
-                    <button class="btn btn-light"><a href="@Url.Action("Create","Red_Conocimiento")">Crear</a></button>
-                </div>
+    <div class="block block-rounded">
+        <div class="block-header block-header-default d-flex align-items-center">
+            <div class="col-sm-4">
+                <br />
+                <h2 class="content-heading">Tabla de Redes de Conocimientos</h2>
+                <br />
+                @using (Html.BeginForm("Index", "Red_Conocimiento", FormMethod.Get))
+                {
+                    <div class="d-flex align-items-center">
+                        <label for="estadoFiltro" class="me-2">Estado:</label>
+                        <select class="form-select me-2" id="estadoFiltro" name="estadoFiltro">
+                            <option value="" @(ViewBag.EstadoFiltro == "" ? "selected" : "")>Todos</option>
+                            <option value="true" @(ViewBag.EstadoFiltro == "true" ? "selected" : "")>Activo</option>
+                            <option value="false" @(ViewBag.EstadoFiltro == "false" ? "selected" : "")>No Activo</option>
+                        </select>
+                        <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
+                    </div>
+                }
             </div>
-
-
-            <div class="card-body">
-
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
-                        <thead>
+            <div class="col-sm-8 d-flex justify-content-end">
+                <button class="btn btn-light"><a href="@Url.Action("Create","Red_Conocimiento")">Crear</a></button>
+            </div>
+        </div>
+        <br />
+        <div class="block-content block-content-full">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th style="width: 15%;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
                             <tr>
-                                <th>ID</th>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Estado</th>
-                                <th style="width: 15%;">Acciones</th>
+                                <td class="fs-sm">@Html.DisplayFor(modelItem => item.IdRed)</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CodigoRed)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreRed)
+                                </td>
+                                <td>
+                                    @if (item.EstadoRed == true)
+                                    {
+                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">Inactivo</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdRed }) |
+                                    @Html.ActionLink("Areas", "Area_Red", new { id = item.IdRed }) |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdRed })
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td class="fs-sm">@Html.DisplayFor(modelItem => item.IdRed)</td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CodigoRed)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NombreRed)
-                                    </td>
-                                    <td>
-                                        @if (item.EstadoRed == true)
-                                        {
-                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">Activo</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">Inactivo</span>
-                                        }
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.IdRed }) |
-                                        @Html.ActionLink("Areas", "Area_Red", new { id = item.IdRed }) |
-                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdRed })
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
 
+</div>

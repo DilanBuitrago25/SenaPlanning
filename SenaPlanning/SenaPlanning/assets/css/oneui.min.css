@@ -265,7 +265,6 @@ a {
 }
 
 a:hover {
-    color: #38a90094;
     text-decoration: none
 }
 
@@ -3473,8 +3472,8 @@ textarea.form-control-lg {
 }
 
 .btn:hover {
-    color: #ffffff !important;
-    background-color: #39a900 !important;
+    color: #38a900 !important;
+    background-color: #ffffff !important;
     
 }
 
@@ -3768,7 +3767,7 @@ fieldset:disabled .btn {
 }
 
 .btn-light:hover {
-    color: #000;
+    color: #fff !important;
     background-color: #eff1f5;
     border-color: #eef1f4
 }
@@ -16745,13 +16744,13 @@ a.block.block-themed .btn-block-option:focus {
 .nav-main-link:focus,
 .nav-main-link:hover {
     color: #334155;
-    background-color: #f6f7f9;
+    background-color: #00283E;
     outline: 0 !important
 }
 
 .nav-main-link:focus>.nav-main-link-icon,
 .nav-main-link:hover>.nav-main-link-icon {
-    color: #000
+    color: #fff
 }
 
 .nav-main-link.active {
@@ -16824,7 +16823,7 @@ a.block.block-themed .btn-block-option:focus {
 .nav-main-submenu .nav-main-link.active,
 .nav-main-submenu .nav-main-link:focus,
 .nav-main-submenu .nav-main-link:hover {
-    color: #000;
+    color: #fff;
     background-color: transparent
 }
 
@@ -33737,8 +33736,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     color: #9faec1
 }
 
-.dark-mode a:not(.badge):not(.btn):not(.btn-block-option):not(.block):not(.dropdown-item):not(.nav-link):not(.page-link):not(.alert-link):not(.nav-main-link):not(.list-group-item-action):not(.close):not(.fc-event):not(.text-success-light):not(.text-danger-light):not(.text-warning-light):not(.text-info-light) {
-    color: #6188e1
+.dark-mode a:not(.badge):not(.btn-block-option):not(.block):not(.dropdown-item):not(.nav-link):not(.page-link):not(.alert-link):not(.nav-main-link):not(.list-group-item-action):not(.close):not(.fc-event):not(.text-success-light):not(.text-danger-light):not(.text-warning-light):not(.text-info-light) {
+    color: #39a900
 }
 
 .dark-mode a:not(.badge):not(.btn):not(.btn-block-option):not(.block):not(.dropdown-item):not(.nav-link):not(.page-link):not(.alert-link):not(.nav-main-link):not(.list-group-item-action):not(.close):not(.fc-event):not(.text-success-light):not(.text-danger-light):not(.text-warning-light):not(.text-info-light).link-fx::before {
@@ -33746,7 +33745,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .dark-mode a:not(.badge):not(.btn):not(.btn-block-option):not(.block):not(.dropdown-item):not(.nav-link):not(.page-link):not(.alert-link):not(.nav-main-link):not(.list-group-item-action):not(.close):not(.fc-event):not(.text-success-light):not(.text-danger-light):not(.text-warning-light):not(.text-info-light):hover {
-    color: #4c78dd
+    color: #38a900 !important
 }
 
 .dark-mode .bg-body {
