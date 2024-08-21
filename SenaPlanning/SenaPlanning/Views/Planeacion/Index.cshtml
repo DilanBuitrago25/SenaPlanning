@@ -4,198 +4,298 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CodigoOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraReqTrimIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraReqTrimIIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraReqTrimIIIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraReqTrimIVOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CanInstPlantaOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorasContTrimIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorasContTrimIIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorasContTrimIIIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HorasContTrimIVOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIIIOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIVOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TrimestreProgramadosOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalAprendicesOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCursosNuevosOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCursosEPtrimestreOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCursosCursosNuevosOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCursosOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidadTrimProgramadosOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidadTrimEPOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalInstaContratarOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AprenPasanOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AprenProgOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CursoOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstadoOferta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Meta.IdMeta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario.TipoDocumentoUsuario)
-        </th>
-        <th></th>
-    </tr>
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Planeación</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Aprendizs")">Home</a></li>
+                    <li class="breadcrumb-item active">Planeación</li>
+                    <li class="breadcrumb-item active">Consultar</li>
+                </ol>
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodigoOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraReqTrimIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraReqTrimIIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraReqTrimIIIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraReqTrimIVOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CanInstPlantaOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorasContTrimIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorasContTrimIIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorasContTrimIIIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HorasContTrimIVOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIIIOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIVOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrimestreProgramadosOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAprendicesOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCursosNuevosOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCursosEPtrimestreOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCursosCursosNuevosOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCursosOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadTrimProgramadosOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadTrimEPOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalInstaContratarOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AprenPasanOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AprenProgOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CursoOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EstadoOferta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Meta.IdMeta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario.TipoDocumentoUsuario)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdOferta }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdOferta }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdOferta })
-        </td>
-    </tr>
-}
 
-</table>
+
+<div class="row">
+    <div class="col-md-7">
+    </div>
+    <div class="col-md-5">
+        <label class="form-label" for="example-flatpickr-custom">Area de Conocimiento</label>
+        <select class="js-select2 form-select js-select2-enabled select2-hidden-accessible" id="example-select2" name="example-select2" style="width: 100%;" data-placeholder="Choose one.." data-select2-id="example-select2" tabindex="-1" aria-hidden="true">
+            <option data-select2-id="2"></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+            <option value="1" data-select2-id="11">HTML</option>
+        </select>
+        @*<span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-example-select2-container"><span class="select2-selection__rendered" id="select2-example-select2-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">Choose one..</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>*@
+    </div>
+</div>
+
+<br />
+
+<div class="block block-rounded">
+    <div class="block-header block-header-default">
+        <div class="block-option">
+            <h3 class="block-title">Trimestres programados:</h3>
+            <small>28</small>
+        </div>
+        <div class="block-option">
+            <h3 class="block-title">INFORMATICA, DISEÑO Y DESARROLLO DE SOFWARE</h3><small>ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION</small>
+        </div>
+    </div>
+    <div class="block-content block-content-full">
+        <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
+        <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+            <thead>
+                <tr>
+                    <th>Ficha</th>
+                    <th>Nombre del programa</th>
+                    <th>Jornada</th>
+                    <th>Nivel</th>
+                    <th>Version</th>
+                    <th>Trimestre III</th>
+                    <th>Fecha inicio</th>
+                    <th>Fecha fin</th>
+                    <th>No. Aprendices</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center fs-sm">2693606</td>
+                    <td class="fw-semibold fs-sm">ANALISIS Y DESARROLLO DE SOFTWARE</td>
+                    <td class="fs-sm">Mixta</td>
+                    <td>
+                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">TGO</span>
+                    </td>
+                    <td>
+                        <span class="text-muted fs-sm">1</span>
+                    </td>
+                    <td>
+                        <span class="text-muted fs-sm">7/7</span>
+                    </td>
+                    <td>
+                        23/01/2023
+                    </td>
+                    <td>
+                        23/03/2025
+                    </td>
+                    <td>
+                        <span class="text-muted fs-sm">16</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7"></td>
+                    <td class="fw-semibold" colspan="1">No. Aprendices:</td>
+                    <td>16</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<!-- Dynamic Table Responsive -->
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraReqTrimIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraReqTrimIIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraReqTrimIIIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraReqTrimIVOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CanInstPlantaOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorasContTrimIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorasContTrimIIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorasContTrimIIIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorasContTrimIVOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIIIOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadInstContratoTrimIVOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrimestreProgramadosOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAprendicesOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCursosNuevosOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCursosEPtrimestreOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCursosCursosNuevosOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCursosOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadTrimProgramadosOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadTrimEPOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalInstaContratarOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AprenPasanOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AprenProgOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CursoOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoOferta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meta.IdMeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.TipoDocumentoUsuario)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraReqTrimIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraReqTrimIIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraReqTrimIIIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraReqTrimIVOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CanInstPlantaOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HorasContTrimIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HorasContTrimIIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HorasContTrimIIIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HorasContTrimIVOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIIIOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadInstContratoTrimIVOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrimestreProgramadosOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAprendicesOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCursosNuevosOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCursosEPtrimestreOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCursosCursosNuevosOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCursosOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadTrimProgramadosOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadTrimEPOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalInstaContratarOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AprenPasanOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AprenProgOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CursoOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoOferta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meta.IdMeta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.TipoDocumentoUsuario)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdOferta }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdOferta }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdOferta })
+                </td>
+            </tr>
+        }
+
+    </table>*@

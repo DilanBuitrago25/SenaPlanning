@@ -7,7 +7,7 @@
       <Diagram DiagramId="903db46694c044d2ad4e2bd57cab438d" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="SenaPlanningModel.Ambiente" Width="1.5" PointX="8.5" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Area_Conocimiento" Width="1.5" PointX="6.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenaPlanningModel.Ficha" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Ficha" Width="1.5" PointX="5.625" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Instructor" Width="1.5" PointX="13.125" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Meta" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Oferta" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
