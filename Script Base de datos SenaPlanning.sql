@@ -17,6 +17,7 @@ go
 
 create table Meta(
 IdMeta int identity (1,1) not null,
+MetaFormacion bigint,
 MetaTecnologia bigint,
 MetaTecnico bigint,
 MetaET bigint,
@@ -73,11 +74,6 @@ go
 create table Oferta(
 IdOferta int identity (1,1) not null,
 CodigoOferta int,
-HoraReqTrimIOferta int,
-HoraReqTrimIIOferta int,
-HoraReqTrimIIIOferta int,
-HoraReqTrimIVOferta int,
-CanInstPlantaOferta int,
 HorasContTrimIOferta int,
 HorasContTrimIIOferta int,
 HorasContTrimIIIOferta int,
@@ -86,22 +82,11 @@ CantidadInstContratoTrimIOferta int,
 CantidadInstContratoTrimIIOferta int,
 CantidadInstContratoTrimIIIOferta int,
 CantidadInstContratoTrimIVOferta int,
-TrimestreProgramadosOferta int,
-TotalAprendicesOferta int,
-TotalCursosNuevosOferta int,
-TotalCursosEPtrimestreOferta int,
-TotalCursosCursosNuevosOferta int,
-TotalCursosOferta int,
-CantidadTrimProgramadosOferta int,
-CantidadTrimEPOferta int,
-TotalInstaContratarOferta int,
-AprenPasanOferta int,
-AprenProgOferta int,
-CursoOferta float,
 EstadoOferta bit default (1) not null,
 primary key (IdOferta),
 IdUsuario int references Usuario(IdUsuario),
-IdMetas int references Meta(IdMeta));
+IdMetas int references Meta(IdMeta),
+IdArea int references Area_Conocimiento(IdArea));
 
 go
 
@@ -145,7 +130,6 @@ CodigoFicha int,
 FechaInFicha date,
 FechaFinFicha date,
 NumAprenFicha int,
-TrimestreFicha Varchar (25),
 JornadaFicha Varchar (100),
 primary key (IdFicha),
 EstadoFicha bit default (1) not null,
@@ -157,6 +141,10 @@ go
 create table Ambiente(
 IdAmbiente int identity (1,1) not null,
 NombreAmbiente Varchar (150),
+ResponsableAmbiente Varchar (250),
+MananaAmbiente Varchar (150),
+TardeAmbiente Varchar (150),
+NocheAmbiente Varchar (150),
 EstadoAmbiente bit default (1) not null,
 primary key (IdAmbiente));
 
