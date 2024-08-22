@@ -55,6 +55,7 @@
 }
 
 
+
 <div class="content">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-2 text-center text-md-start">
         <div class="flex-grow-1 mb-1 mb-md-0">
@@ -345,7 +346,6 @@
 <script>
         window.addEventListener('load', function () {
             // Código a ejecutar cuando se cargan todos los scripts
-            console.log([@CURSO_META_TGO,@CURSO_META_TCO,@CURSO_META_ET,@CURSO_META_OTROS]);
             Data = {
                 labels: ["META TGO", "META TCO", "META ET", "META OTROS"],
                 datasets: [
@@ -367,6 +367,17 @@
                 ],
             };
             loadChartsOnHome();
+
+            fetch("/Programa_Formacion", {
+                method: "get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": 'application/json',
+                }
+            }).then(res => {
+                console.log(res)
+            })
+
         });
 
 </script>
