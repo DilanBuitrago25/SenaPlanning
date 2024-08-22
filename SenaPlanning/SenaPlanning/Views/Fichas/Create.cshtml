@@ -31,61 +31,114 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5>Registrar Fichas</h5>
+                        <h5>Registrar Oferta</h5>
                     </div>
+
                     <div class="card-body">
+                        @Html.AntiForgeryToken()
+
                         <div class="row">
-                            <div class="col">
-
-                                @Html.AntiForgeryToken()
-                                <form>
-                                    <div class="mb-3 m-form__group">
-                                        <label class="form-label">Codigo</label>
-                                        <div class="input-group">
-                                            @Html.EditorFor(model => model.CodigoFicha, new { htmlAttributes = new { @class = "form-control" } })
-
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.CodigoFicha, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="mb-3 m-form__group">
-                                        <label class="form-label">Fecha Inicio</label>
-                                        <div class="input-group">
-                                            @Html.EditorFor(model => model.FechaInFicha, new { htmlAttributes = new { @class = "form-control" } })
-
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.FechaInFicha, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="mb-3 m-form__group">
-                                        <label class="form-label">Jornada</label>
-                                        <div class="input-group">
-                                            @Html.EditorFor(model => model.JornadaFicha, new { htmlAttributes = new { @class = "form-control" } })
-
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.JornadaFicha, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="mb-3 m-form__group">
-                                        <label class="form-label">Programa de Formacion</label>
-                                        <div class="input-group">
-                                            @Html.DropDownList("IdPrograma", null, "Selecciona un Programa de Formacion", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.IdPrograma, "", new { @class = "text-danger" })
-                                    </div>
-                                   
-
-                                    @Html.HiddenFor(model => model.EstadoFicha, new { Value = "True" })
-
-                                </form>
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Red de Conocimiento</label>
+                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12",  @id = "example-select2", @name = "example-select2" })
+                                <br />
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Area de Conocimiento</label>
+                                @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                <br />
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Programa de Formación</label>
+                                @Html.DropDownList("Programa", null, "Selecciona un Programa", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label">Nivel Programa</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="Tecnología">
+                                <br />
+                            </div>
+                            @Html.HiddenFor(model => model.EstadoFicha, new { Value = "True" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
+                                <input type="text" class="js-flatpickr form-control" id="example-flatpickr-custom" name="example-flatpickr-custom" placeholder="d-m-Y" data-date-format="d-m-Y">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label" for="example-flatpickr-custom">Fecha Fin</label>
+                                <input type="text" class="js-flatpickr form-control" id="example-flatpickr-custom" name="example-flatpickr-custom" placeholder="d-m-Y" data-date-format="d-m-Y">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">No Aprendices</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="30">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Codigo Programa</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="1001">
+                                <br />
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="form-label">Cantidad de Horas Programa</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="3089 Horas">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Codigo Ficha</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control" id="example-text-input" name="example-text-input" placeholder="2693606">
+                                <br />
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <label class="form-label">Trim I</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="0">
+                            </div>
+                            <div class="col-md-1">
+                                <label class="form-label">Trim II</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="0">
+                            </div>
+                            <div class="col-md-1">
+                                <label class="form-label">Trim III</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="1/6">
+                            </div>
+                            <div class="col-md-1">
+                                <label class="form-label">Trim VI</label>
+                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="2/6">
+                            </div>
+
+
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
-                        <button class="btn btn-light" type="button"><a href="@Url.Action("Index","Fichas")">Cancelar</a></button>
-                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
+                    <button class="btn btn-light" type="button">
+                        <a href="@Url.Action("Index","Programa_formacion")">Cancelar</a>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
 }
 
 

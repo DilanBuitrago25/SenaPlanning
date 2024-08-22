@@ -11,6 +11,10 @@
           </Key>
           <Property Name="IdAmbiente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreAmbiente" Type="varchar" MaxLength="150" />
+          <Property Name="ResponsableAmbiente" Type="varchar" MaxLength="250" />
+          <Property Name="MananaAmbiente" Type="varchar" MaxLength="150" />
+          <Property Name="TardeAmbiente" Type="varchar" MaxLength="150" />
+          <Property Name="NocheAmbiente" Type="varchar" MaxLength="150" />
           <Property Name="EstadoAmbiente" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Area_Conocimiento">
@@ -40,7 +44,6 @@
           <Property Name="FechaInFicha" Type="date" />
           <Property Name="FechaFinFicha" Type="date" />
           <Property Name="NumAprenFicha" Type="int" />
-          <Property Name="TrimestreFicha" Type="varchar" MaxLength="25" />
           <Property Name="JornadaFicha" Type="varchar" MaxLength="100" />
           <Property Name="EstadoFicha" Type="bit" Nullable="false" />
           <Property Name="IdPrograma" Type="int" />
@@ -83,17 +86,16 @@
             <PropertyRef Name="IdMeta" />
           </Key>
           <Property Name="IdMeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MetaTecnico" Type="float" />
-          <Property Name="MetaET" Type="float" />
-          <Property Name="MetaOtros" Type="float" />
+          <Property Name="MetaFormacion" Type="bigint" />
+          <Property Name="MetaTecnologia" Type="bigint" />
+          <Property Name="MetaTecnico" Type="bigint" />
+          <Property Name="MetaET" Type="bigint" />
+          <Property Name="MetaOtros" Type="bigint" />
           <Property Name="EstadoMeta" Type="bit" Nullable="false" />
           <Property Name="MetaTGOApPasan" Type="bigint" />
           <Property Name="MetaTCOApPasan" Type="bigint" />
           <Property Name="MetaETApPasan" Type="bigint" />
           <Property Name="MetaOTROApPasan" Type="bigint" />
-          <Property Name="MetaTecnologia" Type="bigint" />
-          <Property Name="APorCurso" Type="int" Nullable="false" />
-          <Property Name="APorCursoOtros" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Oferta">
           <Key>
@@ -101,11 +103,6 @@
           </Key>
           <Property Name="IdOferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CodigoOferta" Type="int" />
-          <Property Name="HoraReqTrimIOferta" Type="int" />
-          <Property Name="HoraReqTrimIIOferta" Type="int" />
-          <Property Name="HoraReqTrimIIIOferta" Type="int" />
-          <Property Name="HoraReqTrimIVOferta" Type="int" />
-          <Property Name="CanInstPlantaOferta" Type="int" />
           <Property Name="HorasContTrimIOferta" Type="int" />
           <Property Name="HorasContTrimIIOferta" Type="int" />
           <Property Name="HorasContTrimIIIOferta" Type="int" />
@@ -114,21 +111,10 @@
           <Property Name="CantidadInstContratoTrimIIOferta" Type="int" />
           <Property Name="CantidadInstContratoTrimIIIOferta" Type="int" />
           <Property Name="CantidadInstContratoTrimIVOferta" Type="int" />
-          <Property Name="TrimestreProgramadosOferta" Type="int" />
-          <Property Name="TotalAprendicesOferta" Type="int" />
-          <Property Name="TotalCursosNuevosOferta" Type="int" />
-          <Property Name="TotalCursosEPtrimestreOferta" Type="int" />
-          <Property Name="TotalCursosCursosNuevosOferta" Type="int" />
-          <Property Name="TotalCursosOferta" Type="int" />
-          <Property Name="CantidadTrimProgramadosOferta" Type="int" />
-          <Property Name="CantidadTrimEPOferta" Type="int" />
-          <Property Name="TotalInstaContratarOferta" Type="int" />
-          <Property Name="AprenPasanOferta" Type="int" />
-          <Property Name="AprenProgOferta" Type="int" />
-          <Property Name="CursoOferta" Type="float" />
           <Property Name="EstadoOferta" Type="bit" Nullable="false" />
           <Property Name="IdUsuario" Type="int" />
           <Property Name="IdMetas" Type="int" />
+          <Property Name="IdArea" Type="int" />
         </EntityType>
         <EntityType Name="Programa_Formacion">
           <Key>
@@ -164,7 +150,7 @@
           <Property Name="TipoUsuario" Type="varchar" MaxLength="255" />
           <Property Name="EstadoUsuario" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Area_Cono__IdRed__534D60F1">
+        <Association Name="FK__Area_Cono__IdRed__2E1BDC42">
           <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +162,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdOferta__5629CD9C">
+        <Association Name="FK__Ficha__IdOferta__4316F928">
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -188,7 +174,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdProgram__571DF1D5">
+        <Association Name="FK__Ficha__IdProgram__4222D4EF">
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -200,7 +186,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdMetas__59FA5E80">
+        <Association Name="FK__Oferta__IdArea__37A5467C">
+          <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area_Conocimiento">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="Oferta">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Oferta__IdMetas__36B12243">
           <End Role="Meta" Type="Self.Meta" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -212,7 +210,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdUsuari__5AEE82B9">
+        <Association Name="FK__Oferta__IdUsuari__35BCFE0A">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -224,7 +222,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Programa___IdAre__5BE2A6F2">
+        <Association Name="FK__Programa___IdAre__31EC6D26">
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -296,27 +294,31 @@
           <EntitySet Name="Programa_Formacion" EntityType="Self.Programa_Formacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Red_Conocimiento" EntityType="Self.Red_Conocimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Area_Cono__IdRed__534D60F1" Association="Self.FK__Area_Cono__IdRed__534D60F1">
+          <AssociationSet Name="FK__Area_Cono__IdRed__2E1BDC42" Association="Self.FK__Area_Cono__IdRed__2E1BDC42">
             <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdOferta__5629CD9C" Association="Self.FK__Ficha__IdOferta__5629CD9C">
+          <AssociationSet Name="FK__Ficha__IdOferta__4316F928" Association="Self.FK__Ficha__IdOferta__4316F928">
             <End Role="Oferta" EntitySet="Oferta" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdProgram__571DF1D5" Association="Self.FK__Ficha__IdProgram__571DF1D5">
+          <AssociationSet Name="FK__Ficha__IdProgram__4222D4EF" Association="Self.FK__Ficha__IdProgram__4222D4EF">
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdMetas__59FA5E80" Association="Self.FK__Oferta__IdMetas__59FA5E80">
+          <AssociationSet Name="FK__Oferta__IdArea__37A5467C" Association="Self.FK__Oferta__IdArea__37A5467C">
+            <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
+            <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oferta__IdMetas__36B12243" Association="Self.FK__Oferta__IdMetas__36B12243">
             <End Role="Meta" EntitySet="Meta" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdUsuari__5AEE82B9" Association="Self.FK__Oferta__IdUsuari__5AEE82B9">
+          <AssociationSet Name="FK__Oferta__IdUsuari__35BCFE0A" Association="Self.FK__Oferta__IdUsuari__35BCFE0A">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Programa___IdAre__5BE2A6F2" Association="Self.FK__Programa___IdAre__5BE2A6F2">
+          <AssociationSet Name="FK__Programa___IdAre__31EC6D26" Association="Self.FK__Programa___IdAre__31EC6D26">
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
           </AssociationSet>
@@ -347,8 +349,12 @@
           </Key>
           <Property Name="IdAmbiente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreAmbiente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Ficha" Relationship="Self.Ficha_has_Ambiente" FromRole="Ambiente" ToRole="Ficha" />
+          <Property Name="ResponsableAmbiente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MananaAmbiente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TardeAmbiente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NocheAmbiente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="EstadoAmbiente" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ficha" Relationship="Self.Ficha_has_Ambiente" FromRole="Ambiente" ToRole="Ficha" />
         </EntityType>
         <EntityType Name="Area_Conocimiento">
           <Key>
@@ -357,11 +363,12 @@
           <Property Name="IdArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CodigoArea" Type="Int32" Nullable="false" />
           <Property Name="NombreArea" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IdRed" Type="Int32" />
-          <NavigationProperty Name="Red_Conocimiento" Relationship="Self.FK__Area_Cono__IdRed__2A4B4B5E" FromRole="Area_Conocimiento" ToRole="Red_Conocimiento" />
-          <NavigationProperty Name="Programa_Formacion" Relationship="Self.FK__Programa___IdAre__2D27B809" FromRole="Area_Conocimiento" ToRole="Programa_Formacion" />
-          <NavigationProperty Name="Instructor" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Area_Conocimiento" ToRole="Instructor" />
           <Property Name="EstadoArea" Type="Boolean" Nullable="false" />
+          <Property Name="IdRed" Type="Int32" />
+          <NavigationProperty Name="Red_Conocimiento" Relationship="Self.FK__Area_Cono__IdRed__2E1BDC42" FromRole="Area_Conocimiento" ToRole="Red_Conocimiento" />
+          <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdArea__37A5467C" FromRole="Area_Conocimiento" ToRole="Oferta" />
+          <NavigationProperty Name="Programa_Formacion" Relationship="Self.FK__Programa___IdAre__31EC6D26" FromRole="Area_Conocimiento" ToRole="Programa_Formacion" />
+          <NavigationProperty Name="Instructor" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Area_Conocimiento" ToRole="Instructor" />
         </EntityType>
         <EntityType Name="Ficha">
           <Key>
@@ -372,14 +379,13 @@
           <Property Name="FechaInFicha" Type="DateTime" Precision="0" />
           <Property Name="FechaFinFicha" Type="DateTime" Precision="0" />
           <Property Name="NumAprenFicha" Type="Int32" />
-          <Property Name="TrimestreFicha" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="JornadaFicha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoFicha" Type="Boolean" Nullable="false" />
           <Property Name="IdPrograma" Type="Int32" />
           <Property Name="IdOferta" Type="Int32" />
-          <NavigationProperty Name="Oferta" Relationship="Self.FK__Ficha__IdOferta__3A81B327" FromRole="Ficha" ToRole="Oferta" />
-          <NavigationProperty Name="Programa_Formacion" Relationship="Self.FK__Ficha__IdProgram__398D8EEE" FromRole="Ficha" ToRole="Programa_Formacion" />
+          <NavigationProperty Name="Oferta" Relationship="Self.FK__Ficha__IdOferta__4316F928" FromRole="Ficha" ToRole="Oferta" />
+          <NavigationProperty Name="Programa_Formacion" Relationship="Self.FK__Ficha__IdProgram__4222D4EF" FromRole="Ficha" ToRole="Programa_Formacion" />
           <NavigationProperty Name="Ambiente" Relationship="Self.Ficha_has_Ambiente" FromRole="Ficha" ToRole="Ambiente" />
-          <Property Name="EstadoFicha" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Instructor">
           <Key>
@@ -403,26 +409,25 @@
           <Property Name="FechaNacimientoInstructor" Type="DateTime" Precision="0" />
           <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
           <Property Name="SexoInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Area_Conocimiento" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Instructor" ToRole="Area_Conocimiento" />
           <Property Name="EstadoInstructor" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Area_Conocimiento" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Instructor" ToRole="Area_Conocimiento" />
         </EntityType>
         <EntityType Name="Meta">
           <Key>
             <PropertyRef Name="IdMeta" />
           </Key>
           <Property Name="IdMeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MetaFormacion" Type="Int64" />
           <Property Name="MetaTecnologia" Type="Int64" />
-          <Property Name="MetaTecnico" Type="Double" />
-          <Property Name="MetaET" Type="Double" />
-          <Property Name="MetaOtros" Type="Double" />
-          <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdMetas__30F848ED" FromRole="Meta" ToRole="Oferta" />
+          <Property Name="MetaTecnico" Type="Int64" />
+          <Property Name="MetaET" Type="Int64" />
+          <Property Name="MetaOtros" Type="Int64" />
           <Property Name="EstadoMeta" Type="Boolean" Nullable="false" />
           <Property Name="MetaTGOApPasan" Type="Int64" />
           <Property Name="MetaTCOApPasan" Type="Int64" />
           <Property Name="MetaETApPasan" Type="Int64" />
           <Property Name="MetaOTROApPasan" Type="Int64" />
-          <Property Name="APorCurso" Type="Int32" Nullable="false" />
-          <Property Name="APorCursoOtros" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdMetas__36B12243" FromRole="Meta" ToRole="Oferta" />
         </EntityType>
         <EntityType Name="Oferta">
           <Key>
@@ -430,11 +435,6 @@
           </Key>
           <Property Name="IdOferta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CodigoOferta" Type="Int32" />
-          <Property Name="HoraReqTrimIOferta" Type="Int32" />
-          <Property Name="HoraReqTrimIIOferta" Type="Int32" />
-          <Property Name="HoraReqTrimIIIOferta" Type="Int32" />
-          <Property Name="HoraReqTrimIVOferta" Type="Int32" />
-          <Property Name="CanInstPlantaOferta" Type="Int32" />
           <Property Name="HorasContTrimIOferta" Type="Int32" />
           <Property Name="HorasContTrimIIOferta" Type="Int32" />
           <Property Name="HorasContTrimIIIOferta" Type="Int32" />
@@ -443,24 +443,14 @@
           <Property Name="CantidadInstContratoTrimIIOferta" Type="Int32" />
           <Property Name="CantidadInstContratoTrimIIIOferta" Type="Int32" />
           <Property Name="CantidadInstContratoTrimIVOferta" Type="Int32" />
-          <Property Name="TrimestreProgramadosOferta" Type="Int32" />
-          <Property Name="TotalAprendicesOferta" Type="Int32" />
-          <Property Name="TotalCursosNuevosOferta" Type="Int32" />
-          <Property Name="TotalCursosEPtrimestreOferta" Type="Int32" />
-          <Property Name="TotalCursosCursosNuevosOferta" Type="Int32" />
-          <Property Name="TotalCursosOferta" Type="Int32" />
-          <Property Name="CantidadTrimProgramadosOferta" Type="Int32" />
-          <Property Name="CantidadTrimEPOferta" Type="Int32" />
-          <Property Name="TotalInstaContratarOferta" Type="Int32" />
-          <Property Name="AprenPasanOferta" Type="Int32" />
-          <Property Name="AprenProgOferta" Type="Int32" />
-          <Property Name="CursoOferta" Type="Double" />
+          <Property Name="EstadoOferta" Type="Boolean" Nullable="false" />
           <Property Name="IdUsuario" Type="Int32" />
           <Property Name="IdMetas" Type="Int32" />
-          <NavigationProperty Name="Ficha" Relationship="Self.FK__Ficha__IdOferta__3A81B327" FromRole="Oferta" ToRole="Ficha" />
-          <NavigationProperty Name="Meta" Relationship="Self.FK__Oferta__IdMetas__30F848ED" FromRole="Oferta" ToRole="Meta" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK__Oferta__IdUsuari__300424B4" FromRole="Oferta" ToRole="Usuario" />
-          <Property Name="EstadoOferta" Type="Boolean" Nullable="false" />
+          <Property Name="IdArea" Type="Int32" />
+          <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Oferta__IdArea__37A5467C" FromRole="Oferta" ToRole="Area_Conocimiento" />
+          <NavigationProperty Name="Ficha" Relationship="Self.FK__Ficha__IdOferta__4316F928" FromRole="Oferta" ToRole="Ficha" />
+          <NavigationProperty Name="Meta" Relationship="Self.FK__Oferta__IdMetas__36B12243" FromRole="Oferta" ToRole="Meta" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Oferta__IdUsuari__35BCFE0A" FromRole="Oferta" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Programa_Formacion">
           <Key>
@@ -470,10 +460,10 @@
           <Property Name="DenominacionPrograma" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VersionPrograma" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NivelPrograma" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IdArea" Type="Int32" />
-          <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Programa___IdAre__2D27B809" FromRole="Programa_Formacion" ToRole="Area_Conocimiento" />
-          <NavigationProperty Name="Ficha" Relationship="Self.FK__Ficha__IdProgram__398D8EEE" FromRole="Programa_Formacion" ToRole="Ficha" />
           <Property Name="EstadoPrograma" Type="Boolean" Nullable="false" />
+          <Property Name="IdArea" Type="Int32" />
+          <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Programa___IdAre__31EC6D26" FromRole="Programa_Formacion" ToRole="Area_Conocimiento" />
+          <NavigationProperty Name="Ficha" Relationship="Self.FK__Ficha__IdProgram__4222D4EF" FromRole="Programa_Formacion" ToRole="Ficha" />
         </EntityType>
         <EntityType Name="Red_Conocimiento">
           <Key>
@@ -482,8 +472,8 @@
           <Property Name="IdRed" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreRed" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CodigoRed" Type="Int32" />
-          <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Area_Cono__IdRed__2A4B4B5E" FromRole="Red_Conocimiento" ToRole="Area_Conocimiento" />
           <Property Name="EstadoRed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Area_Cono__IdRed__2E1BDC42" FromRole="Red_Conocimiento" ToRole="Area_Conocimiento" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -497,10 +487,10 @@
           <Property Name="TelefonoUsuario" Type="Int32" />
           <Property Name="ConstraseñaUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="TipoUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdUsuari__300424B4" FromRole="Usuario" ToRole="Oferta" />
           <Property Name="EstadoUsuario" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdUsuari__35BCFE0A" FromRole="Usuario" ToRole="Oferta" />
         </EntityType>
-        <Association Name="FK__Area_Cono__IdRed__2A4B4B5E">
+        <Association Name="FK__Area_Cono__IdRed__2E1BDC42">
           <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -512,7 +502,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Programa___IdAre__2D27B809">
+        <Association Name="FK__Oferta__IdArea__37A5467C">
+          <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area_Conocimiento">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="Oferta">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Programa___IdAre__31EC6D26">
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -524,7 +526,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdOferta__3A81B327">
+        <Association Name="FK__Ficha__IdOferta__4316F928">
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -536,7 +538,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdProgram__398D8EEE">
+        <Association Name="FK__Ficha__IdProgram__4222D4EF">
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -548,7 +550,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdMetas__30F848ED">
+        <Association Name="FK__Oferta__IdMetas__36B12243">
           <End Role="Meta" Type="Self.Meta" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -560,7 +562,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdUsuari__300424B4">
+        <Association Name="FK__Oferta__IdUsuari__35BCFE0A">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -590,27 +592,31 @@
           <EntitySet Name="Programa_Formacion" EntityType="Self.Programa_Formacion" />
           <EntitySet Name="Red_Conocimiento" EntityType="Self.Red_Conocimiento" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK__Area_Cono__IdRed__2A4B4B5E" Association="Self.FK__Area_Cono__IdRed__2A4B4B5E">
+          <AssociationSet Name="FK__Area_Cono__IdRed__2E1BDC42" Association="Self.FK__Area_Cono__IdRed__2E1BDC42">
             <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Programa___IdAre__2D27B809" Association="Self.FK__Programa___IdAre__2D27B809">
+          <AssociationSet Name="FK__Oferta__IdArea__37A5467C" Association="Self.FK__Oferta__IdArea__37A5467C">
+            <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
+            <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Programa___IdAre__31EC6D26" Association="Self.FK__Programa___IdAre__31EC6D26">
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdOferta__3A81B327" Association="Self.FK__Ficha__IdOferta__3A81B327">
+          <AssociationSet Name="FK__Ficha__IdOferta__4316F928" Association="Self.FK__Ficha__IdOferta__4316F928">
             <End Role="Oferta" EntitySet="Oferta" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdProgram__398D8EEE" Association="Self.FK__Ficha__IdProgram__398D8EEE">
+          <AssociationSet Name="FK__Ficha__IdProgram__4222D4EF" Association="Self.FK__Ficha__IdProgram__4222D4EF">
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdMetas__30F848ED" Association="Self.FK__Oferta__IdMetas__30F848ED">
+          <AssociationSet Name="FK__Oferta__IdMetas__36B12243" Association="Self.FK__Oferta__IdMetas__36B12243">
             <End Role="Meta" EntitySet="Meta" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdUsuari__300424B4" Association="Self.FK__Oferta__IdUsuari__300424B4">
+          <AssociationSet Name="FK__Oferta__IdUsuari__35BCFE0A" Association="Self.FK__Oferta__IdUsuari__35BCFE0A">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
@@ -632,19 +638,23 @@
           <EntitySetMapping Name="Ambiente">
             <EntityTypeMapping TypeName="SenaPlanningModel.Ambiente">
               <MappingFragment StoreEntitySet="Ambiente">
-                <ScalarProperty Name="EstadoAmbiente" ColumnName="EstadoAmbiente" />
                 <ScalarProperty Name="IdAmbiente" ColumnName="IdAmbiente" />
                 <ScalarProperty Name="NombreAmbiente" ColumnName="NombreAmbiente" />
+                <ScalarProperty Name="ResponsableAmbiente" ColumnName="ResponsableAmbiente" />
+                <ScalarProperty Name="MananaAmbiente" ColumnName="MananaAmbiente" />
+                <ScalarProperty Name="TardeAmbiente" ColumnName="TardeAmbiente" />
+                <ScalarProperty Name="NocheAmbiente" ColumnName="NocheAmbiente" />
+                <ScalarProperty Name="EstadoAmbiente" ColumnName="EstadoAmbiente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Area_Conocimiento">
             <EntityTypeMapping TypeName="SenaPlanningModel.Area_Conocimiento">
               <MappingFragment StoreEntitySet="Area_Conocimiento">
-                <ScalarProperty Name="EstadoArea" ColumnName="EstadoArea" />
                 <ScalarProperty Name="IdArea" ColumnName="IdArea" />
                 <ScalarProperty Name="CodigoArea" ColumnName="CodigoArea" />
                 <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
+                <ScalarProperty Name="EstadoArea" ColumnName="EstadoArea" />
                 <ScalarProperty Name="IdRed" ColumnName="IdRed" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -652,14 +662,13 @@
           <EntitySetMapping Name="Ficha">
             <EntityTypeMapping TypeName="SenaPlanningModel.Ficha">
               <MappingFragment StoreEntitySet="Ficha">
-                <ScalarProperty Name="EstadoFicha" ColumnName="EstadoFicha" />
                 <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
                 <ScalarProperty Name="CodigoFicha" ColumnName="CodigoFicha" />
                 <ScalarProperty Name="FechaInFicha" ColumnName="FechaInFicha" />
                 <ScalarProperty Name="FechaFinFicha" ColumnName="FechaFinFicha" />
                 <ScalarProperty Name="NumAprenFicha" ColumnName="NumAprenFicha" />
-                <ScalarProperty Name="TrimestreFicha" ColumnName="TrimestreFicha" />
                 <ScalarProperty Name="JornadaFicha" ColumnName="JornadaFicha" />
+                <ScalarProperty Name="EstadoFicha" ColumnName="EstadoFicha" />
                 <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
                 <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
               </MappingFragment>
@@ -668,7 +677,6 @@
           <EntitySetMapping Name="Instructor">
             <EntityTypeMapping TypeName="SenaPlanningModel.Instructor">
               <MappingFragment StoreEntitySet="Instructor">
-                <ScalarProperty Name="EstadoInstructor" ColumnName="EstadoInstructor" />
                 <ScalarProperty Name="IdInstructor" ColumnName="IdInstructor" />
                 <ScalarProperty Name="DocumentoInstructor" ColumnName="DocumentoInstructor" />
                 <ScalarProperty Name="NombreCompletoInstructor" ColumnName="NombreCompletoInstructor" />
@@ -687,38 +695,32 @@
                 <ScalarProperty Name="FechaNacimientoInstructor" ColumnName="FechaNacimientoInstructor" />
                 <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
                 <ScalarProperty Name="SexoInstructor" ColumnName="SexoInstructor" />
+                <ScalarProperty Name="EstadoInstructor" ColumnName="EstadoInstructor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Meta">
             <EntityTypeMapping TypeName="SenaPlanningModel.Meta">
               <MappingFragment StoreEntitySet="Meta">
-                <ScalarProperty Name="APorCursoOtros" ColumnName="APorCursoOtros" />
-                <ScalarProperty Name="APorCurso" ColumnName="APorCurso" />
-                <ScalarProperty Name="MetaOTROApPasan" ColumnName="MetaOTROApPasan" />
-                <ScalarProperty Name="MetaETApPasan" ColumnName="MetaETApPasan" />
-                <ScalarProperty Name="MetaTCOApPasan" ColumnName="MetaTCOApPasan" />
-                <ScalarProperty Name="MetaTGOApPasan" ColumnName="MetaTGOApPasan" />
-                <ScalarProperty Name="EstadoMeta" ColumnName="EstadoMeta" />
                 <ScalarProperty Name="IdMeta" ColumnName="IdMeta" />
+                <ScalarProperty Name="MetaFormacion" ColumnName="MetaFormacion" />
                 <ScalarProperty Name="MetaTecnologia" ColumnName="MetaTecnologia" />
                 <ScalarProperty Name="MetaTecnico" ColumnName="MetaTecnico" />
                 <ScalarProperty Name="MetaET" ColumnName="MetaET" />
                 <ScalarProperty Name="MetaOtros" ColumnName="MetaOtros" />
+                <ScalarProperty Name="EstadoMeta" ColumnName="EstadoMeta" />
+                <ScalarProperty Name="MetaTGOApPasan" ColumnName="MetaTGOApPasan" />
+                <ScalarProperty Name="MetaTCOApPasan" ColumnName="MetaTCOApPasan" />
+                <ScalarProperty Name="MetaETApPasan" ColumnName="MetaETApPasan" />
+                <ScalarProperty Name="MetaOTROApPasan" ColumnName="MetaOTROApPasan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Oferta">
             <EntityTypeMapping TypeName="SenaPlanningModel.Oferta">
               <MappingFragment StoreEntitySet="Oferta">
-                <ScalarProperty Name="EstadoOferta" ColumnName="EstadoOferta" />
                 <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
                 <ScalarProperty Name="CodigoOferta" ColumnName="CodigoOferta" />
-                <ScalarProperty Name="HoraReqTrimIOferta" ColumnName="HoraReqTrimIOferta" />
-                <ScalarProperty Name="HoraReqTrimIIOferta" ColumnName="HoraReqTrimIIOferta" />
-                <ScalarProperty Name="HoraReqTrimIIIOferta" ColumnName="HoraReqTrimIIIOferta" />
-                <ScalarProperty Name="HoraReqTrimIVOferta" ColumnName="HoraReqTrimIVOferta" />
-                <ScalarProperty Name="CanInstPlantaOferta" ColumnName="CanInstPlantaOferta" />
                 <ScalarProperty Name="HorasContTrimIOferta" ColumnName="HorasContTrimIOferta" />
                 <ScalarProperty Name="HorasContTrimIIOferta" ColumnName="HorasContTrimIIOferta" />
                 <ScalarProperty Name="HorasContTrimIIIOferta" ColumnName="HorasContTrimIIIOferta" />
@@ -727,31 +729,21 @@
                 <ScalarProperty Name="CantidadInstContratoTrimIIOferta" ColumnName="CantidadInstContratoTrimIIOferta" />
                 <ScalarProperty Name="CantidadInstContratoTrimIIIOferta" ColumnName="CantidadInstContratoTrimIIIOferta" />
                 <ScalarProperty Name="CantidadInstContratoTrimIVOferta" ColumnName="CantidadInstContratoTrimIVOferta" />
-                <ScalarProperty Name="TrimestreProgramadosOferta" ColumnName="TrimestreProgramadosOferta" />
-                <ScalarProperty Name="TotalAprendicesOferta" ColumnName="TotalAprendicesOferta" />
-                <ScalarProperty Name="TotalCursosNuevosOferta" ColumnName="TotalCursosNuevosOferta" />
-                <ScalarProperty Name="TotalCursosEPtrimestreOferta" ColumnName="TotalCursosEPtrimestreOferta" />
-                <ScalarProperty Name="TotalCursosCursosNuevosOferta" ColumnName="TotalCursosCursosNuevosOferta" />
-                <ScalarProperty Name="TotalCursosOferta" ColumnName="TotalCursosOferta" />
-                <ScalarProperty Name="CantidadTrimProgramadosOferta" ColumnName="CantidadTrimProgramadosOferta" />
-                <ScalarProperty Name="CantidadTrimEPOferta" ColumnName="CantidadTrimEPOferta" />
-                <ScalarProperty Name="TotalInstaContratarOferta" ColumnName="TotalInstaContratarOferta" />
-                <ScalarProperty Name="AprenPasanOferta" ColumnName="AprenPasanOferta" />
-                <ScalarProperty Name="AprenProgOferta" ColumnName="AprenProgOferta" />
-                <ScalarProperty Name="CursoOferta" ColumnName="CursoOferta" />
+                <ScalarProperty Name="EstadoOferta" ColumnName="EstadoOferta" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="IdMetas" ColumnName="IdMetas" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Programa_Formacion">
             <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
               <MappingFragment StoreEntitySet="Programa_Formacion">
-                <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
                 <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
                 <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
                 <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
                 <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
+                <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
                 <ScalarProperty Name="IdArea" ColumnName="IdArea" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -759,17 +751,16 @@
           <EntitySetMapping Name="Red_Conocimiento">
             <EntityTypeMapping TypeName="SenaPlanningModel.Red_Conocimiento">
               <MappingFragment StoreEntitySet="Red_Conocimiento">
-                <ScalarProperty Name="EstadoRed" ColumnName="EstadoRed" />
                 <ScalarProperty Name="IdRed" ColumnName="IdRed" />
                 <ScalarProperty Name="NombreRed" ColumnName="NombreRed" />
                 <ScalarProperty Name="CodigoRed" ColumnName="CodigoRed" />
+                <ScalarProperty Name="EstadoRed" ColumnName="EstadoRed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="SenaPlanningModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="EstadoUsuario" ColumnName="EstadoUsuario" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="TipoDocumentoUsuario" ColumnName="TipoDocumentoUsuario" />
                 <ScalarProperty Name="DocumentoUsuario" ColumnName="DocumentoUsuario" />
@@ -778,6 +769,7 @@
                 <ScalarProperty Name="TelefonoUsuario" ColumnName="TelefonoUsuario" />
                 <ScalarProperty Name="ConstraseñaUsuario" ColumnName="ConstraseñaUsuario" />
                 <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+                <ScalarProperty Name="EstadoUsuario" ColumnName="EstadoUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

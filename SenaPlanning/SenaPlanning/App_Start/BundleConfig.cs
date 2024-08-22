@@ -31,7 +31,9 @@ namespace SenaPlanning
             "~/assets/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js",
             "~/assets/js/plugins/datatables-buttons/buttons.print.min.js",
             "~/assets/js/plugins/datatables-buttons/buttons.html5.min.js",
-            "~/assets/js/pages/be_tables_datatables.min.js"
+            "~/assets/js/pages/be_tables_datatables.min.js",
+            "~/assets/js/plugins/select2/js/select2.full.min.js",
+            "~/assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
             ));
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
@@ -42,7 +44,9 @@ namespace SenaPlanning
             bundles.Add(new StyleBundle("~/Content/assets").Include(
                       "~/assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css",
                       "~/assets/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css",
-                      "~/assets/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css"
+                      "~/assets/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css",
+                      "~/assets/js/plugins/select2/css/select2.min.css",
+                      "~/assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

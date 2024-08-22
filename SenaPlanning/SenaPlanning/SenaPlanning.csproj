@@ -124,6 +124,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MetasController.cs" />
     <Compile Include="Controllers\PlaneacionController.cs" />
     <Compile Include="Controllers\Programa_FormacionController.cs" />
     <Compile Include="Controllers\Red_ConocimientoController.cs" />
@@ -4397,6 +4398,11 @@
     <Content Include="Views\Planeacion\Details.cshtml" />
     <Content Include="Views\Planeacion\Edit.cshtml" />
     <Content Include="Views\Planeacion\Index.cshtml" />
+    <Content Include="Views\Metas\Create.cshtml" />
+    <Content Include="Views\Metas\Delete.cshtml" />
+    <Content Include="Views\Metas\Details.cshtml" />
+    <Content Include="Views\Metas\Edit.cshtml" />
+    <Content Include="Views\Metas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

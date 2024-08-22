@@ -25,11 +25,10 @@ namespace ClaseModelo
         public Nullable<System.DateTime> FechaInFicha { get; set; }
         public Nullable<System.DateTime> FechaFinFicha { get; set; }
         public Nullable<int> NumAprenFicha { get; set; }
-        public string TrimestreFicha { get; set; }
         public string JornadaFicha { get; set; }
+        public bool EstadoFicha { get; set; }
         public Nullable<int> IdPrograma { get; set; }
         public Nullable<int> IdOferta { get; set; }
-        public bool EstadoFicha { get; set; }
     
         public virtual Oferta Oferta { get; set; }
         public virtual Programa_Formacion Programa_Formacion { get; set; }

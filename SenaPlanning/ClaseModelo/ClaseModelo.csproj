@@ -99,32 +99,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="ModeloSenaPlanning.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloSenaPlanning.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="ModeloSenaPlanning.edmx.diagram">
       <DependentUpon>ModeloSenaPlanning.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModeloSenaPlanning.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModeloSenaPlanning.Context.cs</LastGenOutput>
       <DependentUpon>ModeloSenaPlanning.edmx</DependentUpon>
+      <LastGenOutput>ModeloSenaPlanning.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModeloSenaPlanning.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModeloSenaPlanning.edmx</DependentUpon>
       <LastGenOutput>ModeloSenaPlanning.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

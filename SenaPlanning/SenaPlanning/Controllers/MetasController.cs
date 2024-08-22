@@ -10,119 +10,107 @@ using ClaseModelo;
 
 namespace SenaPlanning.Controllers
 {
-    public class FichasController : Controller
+    public class MetasController : Controller
     {
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
-        // GET: Fichas
+        // GET: Metas
         public ActionResult Index()
         {
-            var ficha = db.Ficha.Include(f => f.Oferta).Include(f => f.Programa_Formacion);
-            return View(ficha.ToList());
+            return View(db.Meta.ToList());
         }
 
-        // GET: Fichas/Details/5
+        // GET: Metas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ficha ficha = db.Ficha.Find(id);
-            if (ficha == null)
+            Meta meta = db.Meta.Find(id);
+            if (meta == null)
             {
                 return HttpNotFound();
             }
-            return View(ficha);
+            return View(meta);
         }
 
-        // GET: Fichas/Create
+        // GET: Metas/Create
         public ActionResult Create()
         {
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta");
-            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
-            ViewBag.Programa = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
-            ViewBag.Area = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
-            ViewBag.Red = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
             return View();
         }
 
-        // POST: Fichas/Create
+        // POST: Metas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,TrimestreFicha,JornadaFicha,IdPrograma,EstadoFicha")] Ficha ficha)
+        public ActionResult Create([Bind(Include = "IdMeta,MetaFormacion,MetaTecnologia,MetaTecnico,MetaET,MetaOtros,EstadoMeta,MetaTGOApPasan,MetaTCOApPasan,MetaETApPasan,MetaOTROApPasan")] Meta meta)
         {
             if (ModelState.IsValid)
             {
-                db.Ficha.Add(ficha);
+                db.Meta.Add(meta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
-            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
-            return View(ficha);
+            return View(meta);
         }
 
-        // GET: Fichas/Edit/5
+        // GET: Metas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ficha ficha = db.Ficha.Find(id);
-            if (ficha == null)
+            Meta meta = db.Meta.Find(id);
+            if (meta == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
-            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
-            return View(ficha);
+            return View(meta);
         }
 
-        // POST: Fichas/Edit/5
+        // POST: Metas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,FechaFinFicha,NumAprenFicha,TrimestreFicha,JornadaFicha,IdPrograma,IdOferta,EstadoFicha")] Ficha ficha)
+        public ActionResult Edit([Bind(Include = "IdMeta,MetaFormacion,MetaTecnologia,MetaTecnico,MetaET,MetaOtros,EstadoMeta,MetaTGOApPasan,MetaTCOApPasan,MetaETApPasan,MetaOTROApPasan")] Meta meta)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ficha).State = EntityState.Modified;
+                db.Entry(meta).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
-            ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
-            return View(ficha);
+            return View(meta);
         }
 
-        // GET: Fichas/Delete/5
+        // GET: Metas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ficha ficha = db.Ficha.Find(id);
-            if (ficha == null)
+            Meta meta = db.Meta.Find(id);
+            if (meta == null)
             {
                 return HttpNotFound();
             }
-            return View(ficha);
+            return View(meta);
         }
 
-        // POST: Fichas/Delete/5
+        // POST: Metas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ficha ficha = db.Ficha.Find(id);
-            db.Ficha.Remove(ficha);
+            Meta meta = db.Meta.Find(id);
+            db.Meta.Remove(meta);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

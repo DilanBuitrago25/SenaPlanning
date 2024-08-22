@@ -91,6 +91,12 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
+                            <a class="nav-main-link active" href="@Url.Action("Index", "Metas")">
+                                <i class="nav-main-link-icon far fa-bookmark"></i>
+                                <span class="nav-main-link-name">Metas</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
                             <a class="nav-main-link active" href="@Url.Action("Index", "Planeacion")">
                                 <i class="nav-main-link-icon si si-layers"></i>
                                 <span class="nav-main-link-name">Planeación</span>
@@ -181,7 +187,7 @@
                             </div>
                             <div role="separator" class="dropdown-divider m-0"></div>
                             <div class="p-2">
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="/Logout/Login" >Cerrar sesión</a>
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="/Logout/Login">Cerrar sesión</a>
                             </div>
                         </div>
                     </div>
@@ -231,6 +237,7 @@
     </div>
     @Scripts.Render("~/bundles/assets");
 
+    <script>One.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-maxlength', 'jq-select2', 'jq-masked-inputs', 'jq-rangeslider', 'jq-colorpicker']);</script>
 
     <script>
     var timeout = @(Session.Timeout * 180000); // Convertir minutos a milisegundos

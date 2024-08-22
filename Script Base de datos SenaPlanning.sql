@@ -17,6 +17,7 @@ go
 
 create table Meta(
 IdMeta int identity (1,1) not null,
+MetaFecha varchar (200),
 MetaFormacion bigint,
 MetaTecnologia bigint,
 MetaTecnico bigint,
@@ -47,6 +48,16 @@ go
 
 Insert into Usuario (TipoDocumentoUsuario, DocumentoUsuario, NombreUsuario, ApellidoUsuario, TelefonoUsuario ,ConstraseñaUsuario, TipoUsuario) values
 ('C.C', '000000', 'Admin', 'Soy Sena',123456,'admin123' ,'Administrador');
+
+Insert into Usuario (TipoDocumentoUsuario, DocumentoUsuario, NombreUsuario, ApellidoUsuario, TelefonoUsuario ,ConstraseñaUsuario, TipoUsuario) values
+('C.C', '1128061463', 'Dilan', 'Buitrago',123456,'123' ,'Administrador');
+
+Insert into Usuario (TipoDocumentoUsuario, DocumentoUsuario, NombreUsuario, ApellidoUsuario, TelefonoUsuario ,ConstraseñaUsuario, TipoUsuario) values
+('C.C', '1041975419', 'Jorge', 'Moreno',123456,'123' ,'Administrador');
+
+Insert into Usuario (TipoDocumentoUsuario, DocumentoUsuario, NombreUsuario, ApellidoUsuario, TelefonoUsuario ,ConstraseñaUsuario, TipoUsuario) values
+('C.C', '1041977174', 'Samuel', 'Angulo',123456,'123' ,'Administrador');
+
 
 go
 

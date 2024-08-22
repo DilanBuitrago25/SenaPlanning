@@ -22,6 +22,10 @@ namespace ClaseModelo
     
         public int IdAmbiente { get; set; }
         public string NombreAmbiente { get; set; }
+        public string ResponsableAmbiente { get; set; }
+        public string MananaAmbiente { get; set; }
+        public string TardeAmbiente { get; set; }
+        public string NocheAmbiente { get; set; }
         public bool EstadoAmbiente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
