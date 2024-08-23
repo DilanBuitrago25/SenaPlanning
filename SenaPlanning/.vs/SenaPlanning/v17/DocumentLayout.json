@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\user\\documents\\github\\senaplanning\\senaplanning\\senaplanning\\views\\metas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\metas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\senaplanning\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C2A307F2-BA68-4B89-B308-D1214A9FB55B}|ClaseModelo\\ClaseModelo.csproj|C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\clasemodelo\\modelosenaplanning.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{C2A307F2-BA68-4B89-B308-D1214A9FB55B}|ClaseModelo\\ClaseModelo.csproj|solutionrelative:clasemodelo\\modelosenaplanning.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\user\\documents\\github\\senaplanning\\senaplanning\\senaplanning\\views\\area_conocimiento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\area_conocimiento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\user\\documents\\github\\senaplanning\\senaplanning\\senaplanning\\views\\programa_formacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\programa_formacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,28 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 304,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ModeloSenaPlanning.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\ClaseModelo\\ModeloSenaPlanning.edmx",
-              "RelativeDocumentMoniker": "ClaseModelo\\ModeloSenaPlanning.edmx",
-              "ToolTip": "C:\\Users\\USER\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\ClaseModelo\\ModeloSenaPlanning.edmx [Diagram1]",
-              "RelativeToolTip": "ClaseModelo\\ModeloSenaPlanning.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2024-08-22T17:42:37.292Z"
+              "DocumentIndex": 0,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Edit.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Edit.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Metas\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwB4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-23T13:05:10.578Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Area_Conocimiento\\Index.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Area_Conocimiento\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Area_Conocimiento\\Index.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Area_Conocimiento\\Index.cshtml",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAADYAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-23T12:57:20.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Programa_Formacion\\Index.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Programa_Formacion\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Programa_Formacion\\Index.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Programa_Formacion\\Index.cshtml",
+              "ViewState": "AQIAACYAAAAAAAAAAAAuwDUAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-23T12:45:34.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Login\\Index.cshtml",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Index.cshtml",
               "RelativeToolTip": "SenaPlanning\\Views\\Login\\Index.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-21T16:17:27.719Z",
               "EditorCaption": ""
