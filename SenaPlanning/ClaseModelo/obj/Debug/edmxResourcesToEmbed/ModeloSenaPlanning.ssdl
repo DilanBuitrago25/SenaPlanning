@@ -123,6 +123,7 @@
     <Property Name="HorasPrograma" Type="varchar" MaxLength="100" />
     <Property Name="EstadoPrograma" Type="bit" Nullable="false" />
     <Property Name="IdArea" Type="int" />
+    <Property Name="codigoPrograma" Type="int" />
   </EntityType>
   <EntityType Name="Red_Conocimiento">
     <Key>

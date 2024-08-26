@@ -58,3 +58,15 @@ C:\GitHub\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.Cor
 C:\GitHub\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseMod.C92F3FEF.Up2Date
 C:\GitHub\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.dll
 C:\GitHub\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.pdb
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\ClaseModelo.dll.config
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\ClaseModelo.dll
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\ClaseModelo.pdb
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.dll
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.xml
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.AssemblyReference.cache
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.CoreCompileInputs.cache
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.CopyComplete
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.dll
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.pdb

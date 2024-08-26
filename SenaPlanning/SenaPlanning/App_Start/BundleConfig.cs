@@ -13,6 +13,9 @@ namespace SenaPlanning
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+            bundles.Add(new Bundle("~/budles/Controllers").Include(
+                        "~/Scripts/Hanblers/ProgramsHambler.js"));
+
 
             bundles.Add(new Bundle("~/bundles/assets").Include(
             "~/assets/js/oneui.app.min.js",
@@ -54,6 +57,7 @@ namespace SenaPlanning
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css"));
+
         }
     }
 }

@@ -139,5 +139,11 @@ namespace SenaPlanning.Controllers
             }
             base.Dispose(disposing);
         }
+        [HttpPost]
+        public ActionResult programRegister([Bind(Include = "IdPrograma,DenominacionPrograma,VersionPrograma,NivelPrograma,CodigoPrograma,HorasPrograma,IdArea,EstadoPrograma")] Programa_Formacion programa_Formacion)
+        {
+            programa_Formacion.IdPrograma = (programa_Formacion.IdPrograma == 1 ? 100 : 0);
+            return Json(new { code = 200, value = programa_Formacion });
+        }
     }
 }
