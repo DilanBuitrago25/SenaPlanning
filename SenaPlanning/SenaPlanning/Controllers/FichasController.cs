@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using ClaseModelo;
 
@@ -42,8 +43,9 @@ namespace SenaPlanning.Controllers
             ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta");
             ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
             ViewBag.Programa = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
-            ViewBag.Area = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
-            ViewBag.Red = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
+            ViewBag.Red = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
+            ViewBag.Area = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
+            ViewBag.Oferta = new SelectList(db.Oferta, "IdOferta", "EstadoOferta");
             return View();
         }
 
@@ -128,6 +130,79 @@ namespace SenaPlanning.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult ObtenerAreasPorRedes(int idRed)
+        {
+            var areas = db.Red_Conocimiento
+                .Where(R => R.IdRed == idRed)
+                .Select(R => new
+                {
+                    Areas = R.Area_Conocimiento.Select(a => new { Value = a.IdArea, Text = a.NombreArea })
+                })
+                .FirstOrDefault()?
+                .Areas;
+
+            return Json(areas, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ObtenerProgramasPorAreas(int idArea)
+        {
+            var programas = db.Area_Conocimiento
+                .Where(A => A.IdArea == idArea)
+                .Select(A => new
+                {
+                    Programas = A.Programa_Formacion.Select(p => new { Value = p.IdPrograma, Text = p.DenominacionPrograma })
+                })
+                .FirstOrDefault()?
+                .Programas;
+
+            return Json(programas, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ObtenerNivelPrograma(int idPrograma)
+        {
+            var nivelPrograma = db.Programa_Formacion
+                .Where(p => p.IdPrograma == idPrograma)
+                .Select(p => p.NivelPrograma)
+                .FirstOrDefault();
+
+            return Json(nivelPrograma, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ObtenerCodigoPrograma(int idPrograma)
+        {
+            var nivelPrograma = db.Programa_Formacion
+                .Where(p => p.IdPrograma == idPrograma)
+                .Select(p => p.NivelPrograma)
+                .FirstOrDefault();
+
+            return Json(nivelPrograma, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ObtenerHorasPrograma(int idPrograma)
+        {
+            var nivelPrograma = db.Programa_Formacion
+                .Where(p => p.IdPrograma == idPrograma)
+                .Select(p => p.NivelPrograma
+                .FirstOrDefault();
+
+            return Json(nivelPrograma, JsonRequestBehavior.AllowGet);
+        }
+
+        //public ActionResult ObtenerCompetenciasPorFicha(int idFicha)
+        //{
+        //    var competencias = db.Ficha
+        //        .Where(f => f.Id_ficha == idFicha)
+        //        .Select(f => new
+        //        {
+        //            Competencias = f.Programa_formacion.Competencia.Select(c => new { Value = c.Id_competencia, Text = c.Nombre_competencia })
+        //        })
+        //        .FirstOrDefault()?
+        //        .Competencias;
+
+        //    return Json(competencias, JsonRequestBehavior.AllowGet);
+        //}
 
         protected override void Dispose(bool disposing)
         {

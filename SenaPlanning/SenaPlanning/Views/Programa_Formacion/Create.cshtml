@@ -59,7 +59,15 @@
                                     <div class="mb-3 m-form__group">
                                         <label class="form-label">Nivel</label>
                                         <div class="input-group">
-                                            @Html.EditorFor(model => model.NivelPrograma, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.DropDownListFor(model => model.NivelPrograma, new List<SelectListItem>
+                                            {
+                                                new SelectListItem { Text = "", Value = "" },
+                                                new SelectListItem { Text = "Tecnologo", Value = "Tecnologo" },
+                                                new SelectListItem { Text = "Tecnico", Value = "Tecnico" },
+                                                new SelectListItem { Text = "Especializacion", Value = "Especializacion" },
+                                                new SelectListItem { Text = "Curso corto", Value = "Curso corto" },
+                                                new SelectListItem { Text = "Curso Complementario", Value = "Curso Complementario" }
+                                            }, new { @class = "form-control" })
 
                                         </div>
                                         @Html.ValidationMessageFor(model => model.NivelPrograma, "", new { @class = "text-danger" })
