@@ -119,6 +119,8 @@
     <Property Name="DenominacionPrograma" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="VersionPrograma" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="NivelPrograma" Type="varchar" MaxLength="100" />
+    <Property Name="CodigoPrograma" Type="int" />
+    <Property Name="HorasPrograma" Type="varchar" MaxLength="100" />
     <Property Name="EstadoPrograma" Type="bit" Nullable="false" />
     <Property Name="IdArea" Type="int" />
   </EntityType>

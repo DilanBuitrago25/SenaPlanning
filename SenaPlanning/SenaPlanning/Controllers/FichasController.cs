@@ -172,22 +172,22 @@ namespace SenaPlanning.Controllers
 
         public ActionResult ObtenerCodigoPrograma(int idPrograma)
         {
-            var nivelPrograma = db.Programa_Formacion
+            var codigoPrograma = db.Programa_Formacion
                 .Where(p => p.IdPrograma == idPrograma)
-                .Select(p => p.NivelPrograma)
+                .Select(p => p.CodigoPrograma)
                 .FirstOrDefault();
 
-            return Json(nivelPrograma, JsonRequestBehavior.AllowGet);
+            return Json(codigoPrograma, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult ObtenerHorasPrograma(int idPrograma)
         {
-            var nivelPrograma = db.Programa_Formacion
+            var horasPrograma = db.Programa_Formacion
                 .Where(p => p.IdPrograma == idPrograma)
-                .Select(p => p.NivelPrograma
-                .FirstOrDefault();
+                .Select(p => p.HorasPrograma
+                .FirstOrDefault());
 
-            return Json(nivelPrograma, JsonRequestBehavior.AllowGet);
+            return Json(horasPrograma, JsonRequestBehavior.AllowGet);
         }
 
         //public ActionResult ObtenerCompetenciasPorFicha(int idFicha)

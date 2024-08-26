@@ -59,7 +59,7 @@
                             <div class="col-md-5">
                                 <label class="form-label">Nivel Programa</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="nivelProgramaInput" name="example-static-input-readonly" value="Tecnología">
+                                <input type="text" readonly class="form-control" id="nivelProgramaInput" name="example-static-input-readonly" value="">
                                 <br />
                             </div>
                             @Html.HiddenFor(model => model.EstadoFicha, new { Value = "True" })
@@ -81,7 +81,7 @@
                             <div class="col-md-2">
                                 <label class="form-label">Codigo Programa</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="example-static-input-readonly" name="example-static-input-readonly" value="1001">
+                                <input type="text" readonly class="form-control" id="codigoProgramaInput"name="example-static-input-readonly" value="0">
                                 <br />
                             </div>
 
@@ -90,7 +90,7 @@
                             <div class="col-md-3">
                                 <label class="form-label">Cantidad de Horas Programa</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="example-static-input-readonly" name="example-static-input-readonly" value="3089 Horas">
+                                <input type="text" readonly class="form-control" id="horasProgramaInput" name="example-static-input-readonly" value="">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Codigo Ficha</label>
@@ -212,14 +212,50 @@
         var selectedProgramaId = $(this).val();
 
         $.ajax({
-            url: '@Url.Action("ObtenerNivelPrograma", "Fichas")', 
+            url: '@Url.Action("ObtenerNivelPrograma", "Fichas")',
             type: 'GET',
             data: { idPrograma: selectedProgramaId },
             success: function (data) {
-                $("#nivelProgramaInput").val(data); 
+                $("#nivelProgramaInput").val(data);
             },
             error: function() {
                 alert("Error al obtener el nivel del programa.");
+            }
+        });
+    });
+    });
+
+        $(document).ready(function() {
+    $("#Programa").change(function() {
+        var selectedProgramaId = $(this).val();
+
+        $.ajax({
+            url: '@Url.Action("ObtenerCodigoPrograma", "Fichas")',
+            type: 'GET',
+            data: { idPrograma: selectedProgramaId },
+            success: function (data) {
+                $("#codigoProgramaInput").val(data);
+            },
+            error: function() {
+                alert("Error al obtener el codigo del programa.");
+            }
+        });
+    });
+        });
+
+            $(document).ready(function() {
+    $("#Programa").change(function() {
+        var selectedProgramaId = $(this).val();
+
+        $.ajax({
+            url: '@Url.Action("ObtenerHorasPrograma", "Fichas")',
+            type: 'GET',
+            data: { idPrograma: selectedProgramaId },
+            success: function (data) {
+                $("#horasProgramaInput").val(data);
+            },
+            error: function() {
+                alert("Error al obtener las horas del programa.");
             }
         });
     });

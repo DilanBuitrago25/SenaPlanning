@@ -48,7 +48,7 @@ namespace SenaPlanning.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdPrograma,DenominacionPrograma,VersionPrograma,NivelPrograma,IdArea,EstadoPrograma,codigoPrograma")] Programa_Formacion programa_Formacion)
+        public ActionResult Create([Bind(Include = "IdPrograma,DenominacionPrograma,VersionPrograma,NivelPrograma,CodigoPrograma,HorasPrograma,IdArea,EstadoPrograma")] Programa_Formacion programa_Formacion)
         {
             if (ModelState.IsValid)
             {

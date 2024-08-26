@@ -102,18 +102,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Programa_Formacion">
-      <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
-        <MappingFragment StoreEntitySet="Programa_Formacion">
-          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
-          <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
-          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
-          <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
-          <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
-          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Red_Conocimiento">
       <EntityTypeMapping TypeName="SenaPlanningModel.Red_Conocimiento">
         <MappingFragment StoreEntitySet="Red_Conocimiento">
@@ -155,5 +143,19 @@
         <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Programa_Formacion">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
+        <MappingFragment StoreEntitySet="Programa_Formacion">
+          <ScalarProperty Name="HorasPrograma" ColumnName="HorasPrograma" />
+          <ScalarProperty Name="CodigoPrograma" ColumnName="CodigoPrograma" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
+          <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
+          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
+          <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
+          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

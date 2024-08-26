@@ -76,6 +76,8 @@ IdPrograma int identity (1,1) not null,
 DenominacionPrograma varchar (100) not null,
 VersionPrograma varchar (100) not null,
 NivelPrograma varchar (100),
+CodigoPrograma int,
+HorasPrograma varchar (100),
 EstadoPrograma bit default (1) not null,
 primary key (IdPrograma),
 IdArea int references Area_Conocimiento(IdArea));

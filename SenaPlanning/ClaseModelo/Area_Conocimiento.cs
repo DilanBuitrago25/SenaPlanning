@@ -18,8 +18,8 @@ namespace ClaseModelo
         public Area_Conocimiento()
         {
             this.Oferta = new HashSet<Oferta>();
-            this.Programa_Formacion = new HashSet<Programa_Formacion>();
             this.Instructor = new HashSet<Instructor>();
+            this.Programa_Formacion = new HashSet<Programa_Formacion>();
         }
     
         public int IdArea { get; set; }
@@ -32,8 +32,8 @@ namespace ClaseModelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Programa_Formacion> Programa_Formacion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Instructor> Instructor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Programa_Formacion> Programa_Formacion { get; set; }
     }
 }

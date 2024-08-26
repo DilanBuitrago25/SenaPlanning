@@ -41,6 +41,14 @@
                                 @Html.AntiForgeryToken()
                                 <form>
                                     <div class="mb-3 m-form__group">
+                                        <label class="form-label">Codigo del Programa</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.CodigoPrograma, new { htmlAttributes = new { @class = "form-control" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.VersionPrograma, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="mb-3 m-form__group">
                                         <label class="form-label">Denominación</label>
                                         <div class="input-group">
                                             @Html.EditorFor(model => model.DenominacionPrograma, new { htmlAttributes = new { @class = "form-control" } })
@@ -55,6 +63,14 @@
 
                                         </div>
                                         @Html.ValidationMessageFor(model => model.VersionPrograma, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="mb-3 m-form__group">
+                                        <label class="form-label">Duración</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(model => model.HorasPrograma, new { htmlAttributes = new { @class = "form-control" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.HorasPrograma, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="mb-3 m-form__group">
                                         <label class="form-label">Nivel</label>
