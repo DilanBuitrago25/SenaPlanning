@@ -126,6 +126,7 @@
           <Property Name="NivelPrograma" Type="varchar" MaxLength="100" />
           <Property Name="EstadoPrograma" Type="bit" Nullable="false" />
           <Property Name="IdArea" Type="int" />
+          <Property Name="codigoPrograma" Type="int" />
         </EntityType>
         <EntityType Name="Red_Conocimiento">
           <Key>
@@ -464,6 +465,7 @@
           <Property Name="IdArea" Type="Int32" />
           <NavigationProperty Name="Area_Conocimiento" Relationship="Self.FK__Programa___IdAre__31EC6D26" FromRole="Programa_Formacion" ToRole="Area_Conocimiento" />
           <NavigationProperty Name="Ficha" Relationship="Self.FK__Ficha__IdProgram__4222D4EF" FromRole="Programa_Formacion" ToRole="Ficha" />
+          <Property Name="codigoPrograma" Type="Int32" />
         </EntityType>
         <EntityType Name="Red_Conocimiento">
           <Key>
@@ -739,6 +741,7 @@
           <EntitySetMapping Name="Programa_Formacion">
             <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
               <MappingFragment StoreEntitySet="Programa_Formacion">
+                <ScalarProperty Name="codigoPrograma" ColumnName="codigoPrograma" />
                 <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
                 <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
                 <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
