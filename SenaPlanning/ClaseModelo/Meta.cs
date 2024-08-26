@@ -21,6 +21,7 @@ namespace ClaseModelo
         }
     
         public int IdMeta { get; set; }
+        public string MetaFecha { get; set; }
         public Nullable<long> MetaFormacion { get; set; }
         public Nullable<long> MetaTecnologia { get; set; }
         public Nullable<long> MetaTecnico { get; set; }

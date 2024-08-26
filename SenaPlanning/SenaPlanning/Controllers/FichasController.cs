@@ -184,8 +184,8 @@ namespace SenaPlanning.Controllers
         {
             var horasPrograma = db.Programa_Formacion
                 .Where(p => p.IdPrograma == idPrograma)
-                .Select(p => p.HorasPrograma
-                .FirstOrDefault());
+                .Select(p => p.HorasPrograma)
+                .FirstOrDefault();
 
             return Json(horasPrograma, JsonRequestBehavior.AllowGet);
         }

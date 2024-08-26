@@ -17,7 +17,6 @@
       <PropertyRef Name="IdArea" />
     </Key>
     <Property Name="IdArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoArea" Type="int" Nullable="false" />
     <Property Name="NombreArea" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="EstadoArea" Type="bit" Nullable="false" />
     <Property Name="IdRed" Type="int" />
@@ -81,6 +80,7 @@
       <PropertyRef Name="IdMeta" />
     </Key>
     <Property Name="IdMeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MetaFecha" Type="varchar" MaxLength="200" />
     <Property Name="MetaFormacion" Type="bigint" />
     <Property Name="MetaTecnologia" Type="bigint" />
     <Property Name="MetaTecnico" Type="bigint" />
@@ -97,19 +97,12 @@
       <PropertyRef Name="IdOferta" />
     </Key>
     <Property Name="IdOferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CodigoOferta" Type="int" />
-    <Property Name="HorasContTrimIOferta" Type="int" />
-    <Property Name="HorasContTrimIIOferta" Type="int" />
-    <Property Name="HorasContTrimIIIOferta" Type="int" />
-    <Property Name="HorasContTrimIVOferta" Type="int" />
-    <Property Name="CantidadInstContratoTrimIOferta" Type="int" />
-    <Property Name="CantidadInstContratoTrimIIOferta" Type="int" />
-    <Property Name="CantidadInstContratoTrimIIIOferta" Type="int" />
-    <Property Name="CantidadInstContratoTrimIVOferta" Type="int" />
     <Property Name="EstadoOferta" Type="bit" Nullable="false" />
+    <Property Name="NombreOferta" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="FechaInicioOferta" Type="varchar" MaxLength="100" />
     <Property Name="IdUsuario" Type="int" />
     <Property Name="IdMetas" Type="int" />
-    <Property Name="IdArea" Type="int" />
+    <Property Name="IdRed" Type="int" />
   </EntityType>
   <EntityType Name="Programa_Formacion">
     <Key>
@@ -130,7 +123,6 @@
     </Key>
     <Property Name="IdRed" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NombreRed" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="CodigoRed" Type="int" />
     <Property Name="EstadoRed" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Usuario">
@@ -183,18 +175,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Oferta__IdArea__37A5467C">
-    <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
-    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Area_Conocimiento">
-        <PropertyRef Name="IdArea" />
-      </Principal>
-      <Dependent Role="Oferta">
-        <PropertyRef Name="IdArea" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Oferta__IdMetas__36B12243">
     <End Role="Meta" Type="Self.Meta" Multiplicity="0..1" />
     <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
@@ -204,6 +184,18 @@
       </Principal>
       <Dependent Role="Oferta">
         <PropertyRef Name="IdMetas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta__IdRed__37A5467C">
+    <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
+    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Red_Conocimiento">
+        <PropertyRef Name="IdRed" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="IdRed" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -303,12 +295,12 @@
       <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
       <End Role="Ficha" EntitySet="Ficha" />
     </AssociationSet>
-    <AssociationSet Name="FK__Oferta__IdArea__37A5467C" Association="Self.FK__Oferta__IdArea__37A5467C">
-      <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
-      <End Role="Oferta" EntitySet="Oferta" />
-    </AssociationSet>
     <AssociationSet Name="FK__Oferta__IdMetas__36B12243" Association="Self.FK__Oferta__IdMetas__36B12243">
       <End Role="Meta" EntitySet="Meta" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta__IdRed__37A5467C" Association="Self.FK__Oferta__IdRed__37A5467C">
+      <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
       <End Role="Oferta" EntitySet="Oferta" />
     </AssociationSet>
     <AssociationSet Name="FK__Oferta__IdUsuari__35BCFE0A" Association="Self.FK__Oferta__IdUsuari__35BCFE0A">
