@@ -81,6 +81,7 @@
       <PropertyRef Name="IdMeta" />
     </Key>
     <Property Name="IdMeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MetaFecha" Type="varchar" MaxLength="200" />
     <Property Name="MetaFormacion" Type="bigint" />
     <Property Name="MetaTecnologia" Type="bigint" />
     <Property Name="MetaTecnico" Type="bigint" />
@@ -123,7 +124,6 @@
     <Property Name="HorasPrograma" Type="varchar" MaxLength="100" />
     <Property Name="EstadoPrograma" Type="bit" Nullable="false" />
     <Property Name="IdArea" Type="int" />
-    <Property Name="codigoPrograma" Type="int" />
   </EntityType>
   <EntityType Name="Red_Conocimiento">
     <Key>

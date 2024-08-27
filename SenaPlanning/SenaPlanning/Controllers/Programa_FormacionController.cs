@@ -140,10 +140,78 @@ namespace SenaPlanning.Controllers
             base.Dispose(disposing);
         }
         [HttpPost]
-        public ActionResult programRegister([Bind(Include = "IdPrograma,DenominacionPrograma,VersionPrograma,NivelPrograma,CodigoPrograma,HorasPrograma,IdArea,EstadoPrograma")] Programa_Formacion programa_Formacion)
+        public ActionResult programRegister([Bind(Include = "IdPrograma,DenominacionPrograma,VersionPrograma,NivelPrograma,CodigoPrograma,HorasPrograma,IdArea,EstadoPrograma,NombreRed,NombreArea")] Programs_Area_Red programs_Area_Red)
         {
-            programa_Formacion.IdPrograma = (programa_Formacion.IdPrograma == 1 ? 100 : 0);
-            return Json(new { code = 200, value = programa_Formacion });
+
+            //Red_Conocimiento red_Conocimiento = new Red_Conocimiento
+            //{
+
+            //};
+
+            //var codigoArea = (new Random().Next(9999, 999999)) + (new DateTime().Second);
+            //Area_Conocimiento area_Conocimiento = new Area_Conocimiento
+            //{
+            //    IdArea = 0,
+            //    CodigoArea = codigoArea,
+            //    NombreArea = programs_Area_Red.NombreArea,
+
+            //};
+
+            var consultaRed = db.Red_Conocimiento.Where(r=>r.NombreRed == programs_Area_Red.NombreRed).ToList();
+
+            if (consultaRed.Count() == 0)
+            {
+                Red_Conocimiento red_Conocimiento = new Red_Conocimiento
+                {
+                    CodigoRed = (new Random().Next(9999, 999999)) + (new DateTime().Second),
+                    NombreRed = programs_Area_Red.NombreRed,
+                    EstadoRed =true,
+                };
+                db.Red_Conocimiento.Add(red_Conocimiento);
+                db.SaveChanges();
+            }
+            var consultaArea = db.Area_Conocimiento.Where(a => a.NombreArea == programs_Area_Red.NombreArea);
+
+            if (consultaArea.Count() == 0)
+            {
+                var codigoRed = db.Red_Conocimiento.Where(r => r.NombreRed == programs_Area_Red.NombreRed).ToList();
+                Area_Conocimiento area_Conocimiento = new Area_Conocimiento
+                {
+                    IdArea = 0,
+                    CodigoArea = (new Random().Next(9999, 999999)) + (new DateTime().Second),
+                    NombreArea = programs_Area_Red.NombreArea,
+                    IdRed= codigoRed[0].IdRed,
+                    EstadoArea = true
+                    
+
+                };
+                db.Area_Conocimiento.Add(area_Conocimiento);
+                db.SaveChanges();
+            }
+
+            var consultaPrograma = db.Programa_Formacion.Where(p=>p.DenominacionPrograma == programs_Area_Red.DenominacionPrograma).ToList();
+
+            if(consultaPrograma.Count == 0)
+            {
+                var codigoArea = db.Area_Conocimiento.Where(r => r.NombreArea== programs_Area_Red.NombreArea).ToList();
+
+                Programa_Formacion programa_Formacion = new Programa_Formacion
+                {
+                    DenominacionPrograma = programs_Area_Red.DenominacionPrograma,
+                    VersionPrograma = programs_Area_Red.VersionPrograma,
+                    NivelPrograma = programs_Area_Red.NivelPrograma,
+                    CodigoPrograma = programs_Area_Red.CodigoPrograma,
+                    HorasPrograma = programs_Area_Red.HorasPrograma,
+                    EstadoPrograma = true,
+                    IdArea = codigoArea[0].IdArea
+                };
+                db.Programa_Formacion.Add(programa_Formacion);
+                db.SaveChanges();
+            }
+
+
+            programs_Area_Red.IdPrograma = (programs_Area_Red.IdPrograma == 1 ? 100 : 0);
+            return Json(new { code = 200, value = programs_Area_Red });
         }
     }
 }

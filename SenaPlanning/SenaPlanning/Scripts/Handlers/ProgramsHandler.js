@@ -9,7 +9,7 @@ let bar_progressBar_files_programs = document.getElementById("bar-progressBar-fi
 let message_progressBar_files_programs = document.getElementById("message-progressBar-files_programs");
 let buttom_progressBar_files_programs = document.getElementById("buttom-progressBar-files_programs");
 
-workerPrograms.onmessage = async (e) => {
+workerPrograms.onmessage = async(e) => {
     if (e.data.type == "loading_read_files") {
         container_progress_bar_programs.style.display = "";
         text_progressBar_files_programs.innerHTML = "Leyendo archivos...";
@@ -26,9 +26,18 @@ workerPrograms.onmessage = async (e) => {
         text_progressBar_files_programs.innerHTML = "Lectura exitosa";
         return
     }
+    if (e.data.type === "userUpload") {
+        container_progress_bar_programs.style.display = "";
+        text_progressBar_files_programs.innerHTML = "Registrando programas...";
+        porcentage_progressBar_files_programs.style.display = "";
+        porcentage_progressBar_files_programs.innerHTML = `${e.data.value.porcentage}%`;
+        bar_progressBar_files_programs.style.width = `${e.data.value.porcentage}%`;
+        message_progressBar_files_programs.style.display = "none";
+        buttom_progressBar_files_programs.style.display = "none";
+    }
 }
 
-document.getElementById("inputFile-programs").addEventListener('change', async (event) => {
+document.getElementById("inputFile-programs").addEventListener('change', async(event) => {
     workerPrograms.postMessage({ type: "read-files", value: event.target.files });
     buttom_progressBar_files_programs.style.display = "none";
     message_progressBar_files_programs.style.display = "none";

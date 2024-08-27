@@ -68,7 +68,7 @@ namespace SenaPlanning.Controllers
             return View(ficha);
         }
 
-      
+
 
         // GET: Fichas/Edit/5
         public ActionResult Edit(int? id)

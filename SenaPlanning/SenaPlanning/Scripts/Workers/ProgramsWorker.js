@@ -3,17 +3,17 @@ importScripts('https://cdn.jsdelivr.net/npm/xlsx@0.17.4/dist/xlsx.full.min.js');
 
 let data = []; //Se almacena los dataos
 let totalForRegister = 0; //Se almacena el total de los registro para registrar
-let count = 0; //Conste de los registrados
-let totalData = 0;
+let fileCount = 0; //Conteo de los archivo leidos
+let programsCount = 1;
 
 let corructedFiles = [];
 
 try {
-    onmessage = async(e) => {
+    onmessage = async (e) => {
         if (e.data.type === "read-files") {
             data = [];
             totalForRegister = 0;
-            count = 0;
+            fileCount = 0;
             let files = e.data.value;
             let file = null;
             for (file of files) {
@@ -22,21 +22,22 @@ try {
             for (const file of files) {
                 const reader = new FileReader();
                 const promise = new Promise((resolve, reject) => {
-                    reader.onload = async(e) => {
+                    reader.onload = async (e) => {
                         try {
                             const workbook = XLSX.read(e.target.result, { type: "binary" });
                             const sheetName = workbook.SheetNames[0];
                             const worksheet = workbook.Sheets[sheetName];
                             data = data.concat(XLSX.utils.sheet_to_json(worksheet));
                             let tempData = data.concat(XLSX.utils.sheet_to_json(worksheet));
-                            let columns = ["PRF_CODIGO", "PRF_VERSION", "PRF_DENOMINACION", "NIVEL DE FORMACION", true];
+                            let columns = ["PRF_CODIGO", "PRF_VERSION", "PRF_DENOMINACION", "NIVEL DE FORMACION","PRF_DURACION_MAXIMA"];
+                            console.log(tempData[0]);
                             if (!tempData[0].hasOwnProperty(columns)) corructedFiles.push(file.name);
-                            count++;
+                            fileCount++;
                             postMessage({
                                 type: "loading_read_files",
                                 value: {
-                                    porcentage: calculatePorcentage(count, totalForRegister),
-                                    textValue: `${count} de ${totalForRegister} ${totalForRegister === 1 ? "archivo" : "archivos"}`
+                                    porcentage: calculatePorcentage(fileCount, totalForRegister),
+                                    textValue: `${fileCount} de ${totalForRegister} ${totalForRegister === 1 ? "archivo" : "archivos"}`
                                 }
                             });
                             resolve();
@@ -48,40 +49,44 @@ try {
                 });
                 await promise;
             }
-            if (totalForRegister === count) {
+            if (totalForRegister === fileCount) {
                 postMessage({ type: "ok_read_files" });
                 console.log(corructedFiles)
             }
         }
         if (e.data.type === "register") {
-            console.log(data)
-            for (var element of data) {
+            programsCount = 1;
+
+            for (var program of data) {
                 const res = await fetch("https://localhost:44309/Programa_Formacion/programRegister", {
                     method: "POST",
                     headers: { "Content-type": "application/json" },
                     body: JSON.stringify({
-                        DenominacionPrograma: "",
-                        VersionPrograma: "",
-                        NivelPrograma: "",
-                        CodigoPrograma: "",
-                        HorasPrograma: "",
+                        NombreArea:program["Red Tecnológica"],
+                        NombreRed:program["Red de Conocimiento"],
+                        DenominacionPrograma: program["PRF_DENOMINACION"],
+                        VersionPrograma: program["PRF_VERSION"],
+                        NivelPrograma: program["NIVEL DE FORMACION"],
+                        CodigoPrograma: program["PRF_CODIGO"],
+                        HorasPrograma: program["PRF_DURACION_MAXIMA"],
                         EstadoPrograma: ""
                     })
                 })
                 res.json().then(json => {
                     console.log(json);
+                    postMessage({
+                        type: "userUpload",
+                        value: {
+                            porcentage: calculatePorcentage(programsCount, data.length)
+                        }
+    
+                    });
+                    programsCount++;
                 })
 
                 /* res.then(json=>{
                     
                 }) */
-                postMessage({
-                    type: "loading_read_files",
-                    value: {
-                        porcentage: calculatePorcentage(count, totalForRegister),
-                        textValue: `${count} de ${totalForRegister} ${totalForRegister === 1 ? "archivo" : "archivos"}`
-                    }
-                });
             }
         }
     }

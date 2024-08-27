@@ -123,7 +123,7 @@ namespace SenaPlanning.Controllers
 
             ViewBag.RedId = id;
             ViewBag.NombreRed = db.Red_Conocimiento.Find(id)?.NombreRed;
-            return View(areas); 
+            return View(areas);
         }
 
         public ActionResult Programa_Area_Red(int idRed, int id)

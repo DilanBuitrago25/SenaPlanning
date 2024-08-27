@@ -31,6 +31,7 @@ namespace ClaseModelo
         public Nullable<long> MetaTCOApPasan { get; set; }
         public Nullable<long> MetaETApPasan { get; set; }
         public Nullable<long> MetaOTROApPasan { get; set; }
+        public string MetaFecha { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }

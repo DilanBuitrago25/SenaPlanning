@@ -134,7 +134,7 @@ namespace SenaPlanning.Controllers
         public ActionResult Ficha_Programa_Area(int idArea, int id)
         {
             var areas = db.Ficha
-         .Where(a => a.Programa_Formacion.IdArea == idArea && a.IdPrograma == id) 
+         .Where(a => a.Programa_Formacion.IdArea == idArea && a.IdPrograma == id)
          .ToList();
 
             ViewBag.AreaId = idArea;

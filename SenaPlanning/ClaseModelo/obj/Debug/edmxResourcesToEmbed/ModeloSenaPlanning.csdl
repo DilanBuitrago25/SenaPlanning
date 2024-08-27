@@ -85,6 +85,7 @@
     <Property Name="MetaETApPasan" Type="Int64" />
     <Property Name="MetaOTROApPasan" Type="Int64" />
     <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdMetas__36B12243" FromRole="Meta" ToRole="Oferta" />
+    <Property Name="MetaFecha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Oferta">
     <Key>

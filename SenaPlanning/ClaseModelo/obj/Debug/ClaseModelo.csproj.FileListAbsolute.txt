@@ -67,6 +67,6 @@ C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\EntityFramew
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.SqlServer.xml
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.AssemblyReference.cache
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.CoreCompileInputs.cache
-C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.CopyComplete
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.dll
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.pdb
+C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseMod.C92F3FEF.Up2Date
