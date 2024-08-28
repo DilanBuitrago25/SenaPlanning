@@ -197,6 +197,7 @@ namespace SenaPlanning.Controllers
 
                 Programa_Formacion programa_Formacion = new Programa_Formacion
                 {
+                    IdPrograma = 0,
                     DenominacionPrograma = programs_Area_Red.DenominacionPrograma,
                     VersionPrograma = programs_Area_Red.VersionPrograma,
                     NivelPrograma = programs_Area_Red.NivelPrograma,
@@ -206,11 +207,16 @@ namespace SenaPlanning.Controllers
                     IdArea = codigoArea[0].IdArea
                 };
                 db.Programa_Formacion.Add(programa_Formacion);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex) {
+                    return Json(new { code = 200, value = ex });
+                }
+                
             }
 
-
-            programs_Area_Red.IdPrograma = (programs_Area_Red.IdPrograma == 1 ? 100 : 0);
             return Json(new { code = 200, value = programs_Area_Red });
         }
     }
