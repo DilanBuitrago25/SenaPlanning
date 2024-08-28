@@ -208,7 +208,7 @@ namespace SenaPlanning.Controllers
                     DenominacionPrograma = programs_Area_Red.DenominacionPrograma,
                     VersionPrograma = programs_Area_Red.VersionPrograma,
                     NivelPrograma = programs_Area_Red.NivelPrograma,
-                    CodigoPrograma = programs_Area_Red.CodigoPrograma,
+                    CodigoPrograma = programs_Area_Red.CodigoPrograma.ToString(),
                     HorasPrograma = programs_Area_Red.HorasPrograma,
                     EstadoPrograma = true,
                     IdArea = codigoArea[0].IdArea

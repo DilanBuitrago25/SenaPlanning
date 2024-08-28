@@ -28,8 +28,8 @@ MetaTCOApPasan bigint,
 MetaETApPasan bigint,
 MetaOTROApPasan bigint
 primary key (IdMeta));
-go
 
+go
 
 create table Usuario(
 IdUsuario int identity (1,1) not null,
@@ -74,7 +74,7 @@ IdPrograma int identity (1,1) not null,
 DenominacionPrograma varchar (100) not null,
 VersionPrograma varchar (100) not null,
 NivelPrograma varchar (100),
-CodigoPrograma int,
+CodigoPrograma varchar(100),
 HorasPrograma varchar (100),
 EstadoPrograma bit default (1) not null,
 primary key (IdPrograma),
@@ -87,6 +87,7 @@ IdOferta int identity (1,1) not null,
 EstadoOferta bit default (1) not null,
 NombreOferta varchar(250) not null,
 FechaInicioOferta varchar(100),
+MetaOferta varchar(150),
 primary key (IdOferta),
 IdUsuario int references Usuario(IdUsuario),
 IdMetas int references Meta(IdMeta),

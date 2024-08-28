@@ -82,33 +82,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Oferta">
-      <EntityTypeMapping TypeName="SenaPlanningModel.Oferta">
-        <MappingFragment StoreEntitySet="Oferta">
-          <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
-          <ScalarProperty Name="EstadoOferta" ColumnName="EstadoOferta" />
-          <ScalarProperty Name="NombreOferta" ColumnName="NombreOferta" />
-          <ScalarProperty Name="FechaInicioOferta" ColumnName="FechaInicioOferta" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-          <ScalarProperty Name="IdMetas" ColumnName="IdMetas" />
-          <ScalarProperty Name="IdRed" ColumnName="IdRed" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Programa_Formacion">
-      <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
-        <MappingFragment StoreEntitySet="Programa_Formacion">
-          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
-          <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
-          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
-          <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
-          <ScalarProperty Name="CodigoPrograma" ColumnName="CodigoPrograma" />
-          <ScalarProperty Name="HorasPrograma" ColumnName="HorasPrograma" />
-          <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
-          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Red_Conocimiento">
       <EntityTypeMapping TypeName="SenaPlanningModel.Red_Conocimiento">
         <MappingFragment StoreEntitySet="Red_Conocimiento">
@@ -149,5 +122,33 @@
         <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Oferta">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Oferta">
+        <MappingFragment StoreEntitySet="Oferta">
+          <ScalarProperty Name="IdRed" ColumnName="IdRed" />
+          <ScalarProperty Name="IdMetas" ColumnName="IdMetas" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="MetaOferta" ColumnName="MetaOferta" />
+          <ScalarProperty Name="FechaInicioOferta" ColumnName="FechaInicioOferta" />
+          <ScalarProperty Name="NombreOferta" ColumnName="NombreOferta" />
+          <ScalarProperty Name="EstadoOferta" ColumnName="EstadoOferta" />
+          <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programa_Formacion">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
+        <MappingFragment StoreEntitySet="Programa_Formacion">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
+          <ScalarProperty Name="HorasPrograma" ColumnName="HorasPrograma" />
+          <ScalarProperty Name="CodigoPrograma" ColumnName="CodigoPrograma" />
+          <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
+          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
+          <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
+          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

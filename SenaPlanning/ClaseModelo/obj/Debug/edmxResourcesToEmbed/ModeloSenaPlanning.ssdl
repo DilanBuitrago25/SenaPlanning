@@ -100,6 +100,7 @@
     <Property Name="EstadoOferta" Type="bit" Nullable="false" />
     <Property Name="NombreOferta" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="FechaInicioOferta" Type="varchar" MaxLength="100" />
+    <Property Name="MetaOferta" Type="varchar" MaxLength="150" />
     <Property Name="IdUsuario" Type="int" />
     <Property Name="IdMetas" Type="int" />
     <Property Name="IdRed" Type="int" />
@@ -112,7 +113,7 @@
     <Property Name="DenominacionPrograma" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="VersionPrograma" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="NivelPrograma" Type="varchar" MaxLength="100" />
-    <Property Name="CodigoPrograma" Type="int" />
+    <Property Name="CodigoPrograma" Type="varchar" MaxLength="100" />
     <Property Name="HorasPrograma" Type="varchar" MaxLength="100" />
     <Property Name="EstadoPrograma" Type="bit" Nullable="false" />
     <Property Name="IdArea" Type="int" />

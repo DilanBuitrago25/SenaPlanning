@@ -24,6 +24,7 @@ namespace ClaseModelo
         public bool EstadoOferta { get; set; }
         public string NombreOferta { get; set; }
         public string FechaInicioOferta { get; set; }
+        public string MetaOferta { get; set; }
         public Nullable<int> IdUsuario { get; set; }
         public Nullable<int> IdMetas { get; set; }
         public Nullable<int> IdRed { get; set; }

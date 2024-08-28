@@ -24,7 +24,7 @@ namespace ClaseModelo
         public string DenominacionPrograma { get; set; }
         public string VersionPrograma { get; set; }
         public string NivelPrograma { get; set; }
-        public Nullable<int> CodigoPrograma { get; set; }
+        public string CodigoPrograma { get; set; }
         public string HorasPrograma { get; set; }
         public bool EstadoPrograma { get; set; }
         public Nullable<int> IdArea { get; set; }
