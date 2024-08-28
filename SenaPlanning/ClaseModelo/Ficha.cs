@@ -31,8 +31,8 @@ namespace ClaseModelo
         public Nullable<int> IdOferta { get; set; }
     
         public virtual Oferta Oferta { get; set; }
+        public virtual Programa_Formacion Programa_Formacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ambiente> Ambiente { get; set; }
-        public virtual Programa_Formacion Programa_Formacion { get; set; }
     }
 }

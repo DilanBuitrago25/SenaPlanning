@@ -18,14 +18,16 @@ namespace ClaseModelo
         public Red_Conocimiento()
         {
             this.Area_Conocimiento = new HashSet<Area_Conocimiento>();
+            this.Oferta = new HashSet<Oferta>();
         }
     
         public int IdRed { get; set; }
         public string NombreRed { get; set; }
-        public Nullable<int> CodigoRed { get; set; }
         public bool EstadoRed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Area_Conocimiento> Area_Conocimiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Oferta> Oferta { get; set; }
     }
 }

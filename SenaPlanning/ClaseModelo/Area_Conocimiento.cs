@@ -17,23 +17,19 @@ namespace ClaseModelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Area_Conocimiento()
         {
-            this.Oferta = new HashSet<Oferta>();
-            this.Instructor = new HashSet<Instructor>();
             this.Programa_Formacion = new HashSet<Programa_Formacion>();
+            this.Instructor = new HashSet<Instructor>();
         }
     
         public int IdArea { get; set; }
-        public int CodigoArea { get; set; }
         public string NombreArea { get; set; }
         public bool EstadoArea { get; set; }
         public Nullable<int> IdRed { get; set; }
     
         public virtual Red_Conocimiento Red_Conocimiento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oferta> Oferta { get; set; }
+        public virtual ICollection<Programa_Formacion> Programa_Formacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Instructor> Instructor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Programa_Formacion> Programa_Formacion { get; set; }
     }
 }

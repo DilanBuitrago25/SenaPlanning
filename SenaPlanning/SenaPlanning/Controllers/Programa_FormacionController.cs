@@ -163,7 +163,7 @@ namespace SenaPlanning.Controllers
             {
                 Red_Conocimiento red_Conocimiento = new Red_Conocimiento
                 {
-                    CodigoRed = (new Random().Next(9999, 999999)) + (new DateTime().Second),
+                    //CodigoRed = (new Random().Next(9999, 999999)) + (new DateTime().Second),
                     NombreRed = programs_Area_Red.NombreRed,
                     EstadoRed =true,
                 };
@@ -178,7 +178,7 @@ namespace SenaPlanning.Controllers
                 Area_Conocimiento area_Conocimiento = new Area_Conocimiento
                 {
                     IdArea = 0,
-                    CodigoArea = (new Random().Next(9999, 999999)) + (new DateTime().Second),
+                    //CodigoArea = (new Random().Next(9999, 999999)) + (new DateTime().Second),
                     NombreArea = programs_Area_Red.NombreArea,
                     IdRed= codigoRed[0].IdRed,
                     EstadoArea = true

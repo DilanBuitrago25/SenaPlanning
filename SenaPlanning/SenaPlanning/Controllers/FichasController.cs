@@ -45,7 +45,7 @@ namespace SenaPlanning.Controllers
             ViewBag.Programa = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
             ViewBag.Red = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
             ViewBag.Area = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
-            ViewBag.Oferta = new SelectList(db.Oferta, "IdOferta", "EstadoOferta");
+            ViewBag.Oferta = new SelectList(db.Oferta, "IdOferta", "NombreOferta");
             return View();
         }
 
@@ -132,16 +132,16 @@ namespace SenaPlanning.Controllers
         }
 
 
-        public ActionResult ObtenerAreasPorRedes(int idRed)
+        public ActionResult ObtenerOfertaPorRedes(int idRed)
         {
             var areas = db.Red_Conocimiento
                 .Where(R => R.IdRed == idRed)
                 .Select(R => new
                 {
-                    Areas = R.Area_Conocimiento.Select(a => new { Value = a.IdArea, Text = a.NombreArea })
+                    Ofertas = R.Oferta.Select(a => new { Value = a.IdOferta, Text = a.NombreOferta })
                 })
                 .FirstOrDefault()?
-                .Areas;
+                .Ofertas;
 
             return Json(areas, JsonRequestBehavior.AllowGet);
         }

@@ -40,14 +40,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Red de Conocimiento</label>
-                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarAreas()" })
+                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarOfertas()" })
                                 <br />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Area de Conocimiento</label>
-                                @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarProgramas()" })
+                                @Html.DropDownList("Oferta", null, "Selecciona una Oferta", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarProgramas()" })
                                 <br />
                             </div>
                         </div>
@@ -159,17 +159,17 @@
 <script src="~/Scripts/jquery-3.7.1.min.js"></script>
 
 <script>
-        function cargarAreas() {
+        function cargarOfertas() {
     var redId = $("#Red").val();
     $.ajax({
-        url: '@Url.Action("ObtenerAreasPorRedes", "Fichas")',
+        url: '@Url.Action("ObtenerOfertaPorRedes", "Fichas")',
         type: 'GET',
         data: { idRed: redId },
         success: function (data) {
-            var selectArea = $("#Area");
-            selectArea.empty();
-            $.each(data, function (index, area) {
-                selectArea.append($('<option></option>').val(area.Value).text(area.Text));
+            var selectOferta = $("#Oferta");
+            selectOferta.empty();
+            $.each(data, function (index, oferta) {
+                selectOferta.append($('<option></option>').val(oferta.Value).text(oferta.Text));
             });
         }
     });

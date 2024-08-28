@@ -9,7 +9,6 @@ go
 create table Red_Conocimiento(
 IdRed int identity (1,1)not null,
 NombreRed varchar (150) not null,
-CodigoRed int,
 EstadoRed bit default (1) not null,
 primary key (IdRed));
 
@@ -63,7 +62,6 @@ go
 
 create table Area_Conocimiento(
 IdArea int identity (1,1) not null,
-CodigoArea int not null,
 NombreArea varchar (255) not null,
 EstadoArea bit default (1) not null,
 primary key (IdArea),
@@ -86,20 +84,13 @@ go
 
 create table Oferta(
 IdOferta int identity (1,1) not null,
-CodigoOferta int,
-HorasContTrimIOferta int,
-HorasContTrimIIOferta int,
-HorasContTrimIIIOferta int,
-HorasContTrimIVOferta int,
-CantidadInstContratoTrimIOferta int,
-CantidadInstContratoTrimIIOferta int,
-CantidadInstContratoTrimIIIOferta int,
-CantidadInstContratoTrimIVOferta int,
 EstadoOferta bit default (1) not null,
+NombreOferta varchar(250) not null,
+FechaInicioOferta varchar(100),
 primary key (IdOferta),
 IdUsuario int references Usuario(IdUsuario),
 IdMetas int references Meta(IdMeta),
-IdArea int references Area_Conocimiento(IdArea));
+IdRed int references Red_Conocimiento(IdRed));
 
 go
 
@@ -170,5 +161,3 @@ CONSTRAINT PK_Ficha_has_Ambiente PRIMARY KEY (IdFicha, IdAmbiente),
 CONSTRAINT FK_Ficha_has_Ambiente_IdFicha FOREIGN KEY (IdFicha) references Ficha(IdFicha),
 CONSTRAINT FK_Ficha_has_Ambiente_IdAmbiente FOREIGN KEY (IdAmbiente) references Ambiente(IdAmbiente)
 );
-
-
