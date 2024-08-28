@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClaseModelo;
+using static SenaPlanning.Controllers.LoginController;
 
 namespace SenaPlanning.Controllers
 {
@@ -15,12 +16,14 @@ namespace SenaPlanning.Controllers
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
         // GET: Red_Conocimiento
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
             return View(db.Red_Conocimiento.ToList());
         }
 
         // GET: Red_Conocimiento/Details/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +39,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Red_Conocimiento/Create
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +63,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Red_Conocimiento/Edit/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +95,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Red_Conocimiento/Delete/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,6 +121,7 @@ namespace SenaPlanning.Controllers
             return RedirectToAction("Index");
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Area_Red(int id)
         {
             var areas = db.Area_Conocimiento
@@ -126,6 +133,7 @@ namespace SenaPlanning.Controllers
             return View(areas);
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Programa_Area_Red(int idRed, int id)
         {
             var areas = db.Programa_Formacion
@@ -139,6 +147,7 @@ namespace SenaPlanning.Controllers
             return View(areas);
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Ficha_Programa_Area_Red(int idRed, int idArea, int id)
         {
             var areas = db.Ficha

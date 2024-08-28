@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClaseModelo;
+using static SenaPlanning.Controllers.LoginController;
 
 namespace SenaPlanning.Controllers
 {
@@ -15,6 +16,7 @@ namespace SenaPlanning.Controllers
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
         // GET: Area_Conocimiento
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
             var area_Conocimiento = db.Area_Conocimiento.Include(a => a.Red_Conocimiento);
@@ -22,6 +24,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Area_Conocimiento/Details/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Area_Conocimiento/Create
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Create()
         {
             ViewBag.IdRed = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
@@ -62,6 +66,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Area_Conocimiento/Edit/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +100,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Area_Conocimiento/Delete/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,6 +126,7 @@ namespace SenaPlanning.Controllers
             return RedirectToAction("Index");
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Programa_Area(int id)
         {
             var areas = db.Programa_Formacion
@@ -131,6 +138,7 @@ namespace SenaPlanning.Controllers
             return View(areas);
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Ficha_Programa_Area(int idArea, int id)
         {
             var areas = db.Ficha

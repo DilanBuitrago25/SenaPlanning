@@ -4351,13 +4351,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Create.cshtml" />
-    <Content Include="Views\Login\Delete.cshtml" />
-    <Content Include="Views\Login\Details.cshtml" />
-    <Content Include="Views\Login\Edit.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Red_Conocimiento\Create.cshtml" />
     <Content Include="Views\Red_Conocimiento\Delete.cshtml" />
@@ -4546,7 +4540,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49753</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44309/</IISUrl>
+          <IISUrl>https://localhost:44310/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

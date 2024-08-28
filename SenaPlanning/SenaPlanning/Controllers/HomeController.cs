@@ -7,30 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClaseModelo;
+using static SenaPlanning.Controllers.LoginController;
 
 namespace SenaPlanning.Controllers
 {
     public class HomeController : Controller
     {
         private SenaPlanningEntities db = new SenaPlanningEntities();
-
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
             return View(db.Meta.ToList());
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+      
     }
 }

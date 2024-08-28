@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClaseModelo;
+using static SenaPlanning.Controllers.LoginController;
 
 namespace SenaPlanning.Controllers
 {
@@ -15,6 +16,7 @@ namespace SenaPlanning.Controllers
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
         // GET: Programa_Formacion
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
             var programa_Formacion = db.Programa_Formacion.Include(p => p.Area_Conocimiento);
@@ -22,6 +24,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Programa_Formacion/Details/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Programa_Formacion/Create
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Create()
         {
             ViewBag.IdArea = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
@@ -62,6 +66,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Programa_Formacion/Edit/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +100,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Programa_Formacion/Delete/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,6 +126,7 @@ namespace SenaPlanning.Controllers
             return RedirectToAction("Index");
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Ficha_Programa(int id)
         {
             var areas = db.Ficha
@@ -211,10 +218,17 @@ namespace SenaPlanning.Controllers
                 {
                     db.SaveChanges();
                 }
+<<<<<<< Updated upstream
                 catch (Exception ex) {
                     return Json(new { code = 200, value = ex });
                 }
                 
+=======
+                catch (Exception ex)
+                {
+                    return Json(new { code = 200, value = programs_Area_Red });
+                }
+>>>>>>> Stashed changes
             }
 
             return Json(new { code = 200, value = programs_Area_Red });

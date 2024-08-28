@@ -127,7 +127,7 @@ namespace SenaPlanning.Controllers
             protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
             {
                 var urlHelper = new UrlHelper(filterContext.RequestContext);
-                var url = urlHelper.Action("Error401", "Home");
+                var url = urlHelper.Action("Index", "Login");
                 filterContext.Result = new RedirectResult(url);
             }
         }

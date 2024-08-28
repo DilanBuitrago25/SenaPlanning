@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClaseModelo;
+using static SenaPlanning.Controllers.LoginController;
 
 namespace SenaPlanning.Controllers
 {
@@ -15,6 +16,7 @@ namespace SenaPlanning.Controllers
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
         // GET: Planeacion
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
             var oferta = db.Oferta.Include(o => o.Meta).Include(o => o.Usuario);
@@ -22,6 +24,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Planeacion/Details/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Planeacion/Create
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Create()
         {
             ViewBag.Programa = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
@@ -67,6 +71,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Planeacion/Edit/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -102,6 +107,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Planeacion/Delete/5
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
