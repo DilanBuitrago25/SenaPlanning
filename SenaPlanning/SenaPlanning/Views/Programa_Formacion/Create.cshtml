@@ -25,10 +25,9 @@
     </div>
 </div>
 <br />
-
-<div class="container-fluid">
-    @using (Html.BeginForm())
-    {
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -92,7 +91,7 @@
                                     <div class="mb-3 m-form__group">
                                         <label class="form-label">Area de Conocimiento</label>
                                         <div class="input-group">
-                                            @Html.DropDownList("IdArea", null, "Selecciona un Area de Conocimiento", htmlAttributes: new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                            @Html.DropDownList("IdArea", null, "Selecciona un Area de Conocimiento", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
                                         </div>
                                         @Html.ValidationMessageFor(model => model.IdArea, "", new { @class = "text-danger" })
                                     </div>
@@ -110,44 +109,41 @@
                 </div>
             </div>
         </div>
-    }
-    <div class="card-body d-flex justify-content-end">
-
-        <form class="Form-RegisterByFiles">
-            <!-- <div class="container-loading">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Cargando los archivos...</span>
-                </div>
-            </div> -->
-            <h4>Registrar usuarios por Excel</h4>
-            <label for="inputFile-programs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                     viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor"
-                          stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m14-7l-5-5l-5 5m5-5v12" />
-                </svg>
-                <input style="display: none;" type="file" name="inputFile-programs"
-                       id="inputFile-programs"
-                       accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-                       multiple>
-            </label>
-            <div style="display: none;" id="container-progress-bar_programs" class="container-progress-bar">
-                <p id="text-progressBar-files_programs">Leyendo archivos...</p>
-                <div class="progress" role="progressbar"
-                     aria-label="Animated striped example" aria-valuenow="75"
-                     aria-valuemin="0" aria-valuemax="100">
-                    <div id="bar-progressBar-files_programs" class="progress-bar progress-bar-striped progress-bar-animated"></div>
-                </div>
-                <label id="porcentage-progressBar-files_programs">0%</label>
+        <div class="card-body d-flex justify-content-end">
+            <form class="Form-RegisterByFiles">
+                <!-- <div class="container-loading">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Cargando los archivos...</span>
             </div>
-            <p id="message-progressBar-files_programs">Seleciones los archivos en formato ".xlxs"</p>
-            <button type="button" style="display: none;" id="buttom-progressBar-files_programs">Registrar</button>
-        </form>
-
+        </div> -->
+                <h4>Registrar usuarios por Excel</h4>
+                <label for="inputFile-programs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                         viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor"
+                              stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m14-7l-5-5l-5 5m5-5v12" />
+                    </svg>
+                    <input style="display: none;" type="file" name="inputFile-programs"
+                           id="inputFile-programs"
+                           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                           multiple>
+                </label>
+                <div style="display: none;" id="container-progress-bar_programs" class="container-progress-bar">
+                    <p id="text-progressBar-files_programs">Leyendo archivos...</p>
+                    <div class="progress" role="progressbar"
+                         aria-label="Animated striped example" aria-valuenow="75"
+                         aria-valuemin="0" aria-valuemax="100">
+                        <div id="bar-progressBar-files_programs" class="progress-bar progress-bar-striped progress-bar-animated"></div>
+                    </div>
+                    <label id="porcentage-progressBar-files_programs">0%</label>
+                </div>
+                <p id="message-progressBar-files_programs">Seleciones los archivos en formato ".xlxs"</p>
+                <button type="button" style="display: none;" id="buttom-progressBar-files_programs">Registrar</button>
+            </form>
+        </div>
     </div>
-</div>
-
+}
 <script src="~/Scripts/Handlers/ProgramsHandler.js"></script>
 @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>*@

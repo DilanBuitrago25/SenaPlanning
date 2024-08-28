@@ -218,17 +218,10 @@ namespace SenaPlanning.Controllers
                 {
                     db.SaveChanges();
                 }
-<<<<<<< Updated upstream
                 catch (Exception ex) {
                     return Json(new { code = 200, value = ex });
                 }
                 
-=======
-                catch (Exception ex)
-                {
-                    return Json(new { code = 200, value = programs_Area_Red });
-                }
->>>>>>> Stashed changes
             }
 
             return Json(new { code = 200, value = programs_Area_Red });

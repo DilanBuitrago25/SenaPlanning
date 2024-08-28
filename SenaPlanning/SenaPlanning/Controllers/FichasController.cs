@@ -111,7 +111,7 @@ namespace SenaPlanning.Controllers
         }
 
         // GET: Fichas/Delete/5
-
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
