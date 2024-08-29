@@ -46,7 +46,7 @@ namespace SenaPlanning.Controllers
             ViewBag.Red = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
             ViewBag.Metas = new SelectList(db.Meta, "IdMeta", "MetaFecha");
 
-            ViewBag.Usuario = new SelectList(db.Usuario, "IdUsuario", "TipoDocumentoUsuario");
+            ViewBag.Usuario = new SelectList(db.Usuario, "IdUsuario", "NombreUsuario");
             return View();
         }
 
