@@ -29,8 +29,7 @@ try {
                             const worksheet = workbook.Sheets[sheetName];
                             data = data.concat(XLSX.utils.sheet_to_json(worksheet));
                             let tempData = data.concat(XLSX.utils.sheet_to_json(worksheet));
-                            let columns = ["PRF_CODIGO", "PRF_VERSION", "PRF_DENOMINACION", "NIVEL DE FORMACION","PRF_DURACION_MAXIMA"];
-                            console.log(tempData[0]);
+                            let columns = ["PRF_CODIGO", "PRF_VERSION", "PRF_DENOMINACION", "NIVEL DE FORMACION", "PRF_DURACION_MAXIMA"];
                             if (!tempData[0].hasOwnProperty(columns)) corructedFiles.push(file.name);
                             fileCount++;
                             postMessage({
@@ -51,19 +50,19 @@ try {
             }
             if (totalForRegister === fileCount) {
                 postMessage({ type: "ok_read_files" });
-                console.log(corructedFiles)
+                //console.log(corructedFiles)
             }
         }
         if (e.data.type === "register") {
             programsCount = 1;
 
             for (var program of data) {
-                const res = await fetch("https://localhost:44309/Programa_Formacion/programRegister", {
+                const res = await fetch("/Programa_Formacion/programRegister", {
                     method: "POST",
                     headers: { "Content-type": "application/json" },
                     body: JSON.stringify({
-                        NombreArea:program["Red Tecnológica"],
-                        NombreRed:program["Red de Conocimiento"],
+                        NombreArea: program["Red Tecnológica"],
+                        NombreRed: program["Red de Conocimiento"].toUpperCase(),
                         DenominacionPrograma: program["PRF_DENOMINACION"],
                         VersionPrograma: program["PRF_VERSION"],
                         NivelPrograma: program["NIVEL DE FORMACION"],
@@ -73,20 +72,19 @@ try {
                     })
                 })
                 res.json().then(json => {
-                    console.log(json);
                     postMessage({
                         type: "userUpload",
                         value: {
                             porcentage: calculatePorcentage(programsCount, data.length)
                         }
-    
+
                     });
                     programsCount++;
                 })
-
-                /* res.then(json=>{
-                    
-                }) */
+            }
+            if (data.length === programsCount) {
+                postMessage({ type: "ok_register" })
+                console.log(data.length, programsCount)
             }
         }
     }

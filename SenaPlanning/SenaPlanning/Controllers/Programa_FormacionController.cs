@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Http;
 using ClaseModelo;
 using static SenaPlanning.Controllers.LoginController;
 
@@ -147,9 +148,8 @@ namespace SenaPlanning.Controllers
             base.Dispose(disposing);
         }
         [HttpPost]
-        public ActionResult programRegister([Bind(Include = "IdPrograma,DenominacionPrograma,VersionPrograma,NivelPrograma,CodigoPrograma,HorasPrograma,IdArea,EstadoPrograma,NombreRed,NombreArea")] Programs_Area_Red programs_Area_Red)
+        public ActionResult programRegister([Bind(Include = "DenominacionPrograma,VersionPrograma,NivelPrograma,CodigoPrograma,HorasPrograma,NombreRed,NombreArea")] Programs_Area_Red programs_Area_Red)
         {
-
             //Red_Conocimiento red_Conocimiento = new Red_Conocimiento
             //{
 
@@ -164,7 +164,7 @@ namespace SenaPlanning.Controllers
 
             //};
 
-            var consultaRed = db.Red_Conocimiento.Where(r=>r.NombreRed == programs_Area_Red.NombreRed).ToList();
+            var consultaRed = db.Red_Conocimiento.Where(r => r.NombreRed == programs_Area_Red.NombreRed).ToList();
 
             if (consultaRed.Count() == 0)
             {
@@ -172,7 +172,7 @@ namespace SenaPlanning.Controllers
                 {
                     //CodigoRed = (new Random().Next(9999, 999999)) + (new DateTime().Second),
                     NombreRed = programs_Area_Red.NombreRed,
-                    EstadoRed =true,
+                    EstadoRed = true,
                 };
                 db.Red_Conocimiento.Add(red_Conocimiento);
                 db.SaveChanges();
@@ -187,44 +187,45 @@ namespace SenaPlanning.Controllers
                     IdArea = 0,
                     //CodigoArea = (new Random().Next(9999, 999999)) + (new DateTime().Second),
                     NombreArea = programs_Area_Red.NombreArea,
-                    IdRed= codigoRed[0].IdRed,
+                    IdRed = codigoRed[0].IdRed,
                     EstadoArea = true
-                    
+
 
                 };
                 db.Area_Conocimiento.Add(area_Conocimiento);
                 db.SaveChanges();
             }
 
-            var consultaPrograma = db.Programa_Formacion.Where(p=>p.DenominacionPrograma == programs_Area_Red.DenominacionPrograma).ToList();
+            var consultaPrograma = db.Programa_Formacion.Where(p => p.DenominacionPrograma == programs_Area_Red.DenominacionPrograma).ToList();
 
-            if(consultaPrograma.Count == 0)
+            if (consultaPrograma.Count() == 0)
             {
-                var codigoArea = db.Area_Conocimiento.Where(r => r.NombreArea== programs_Area_Red.NombreArea).ToList();
+                var codigoArea = db.Area_Conocimiento.Where(r => r.NombreArea == programs_Area_Red.NombreArea).ToList();
 
                 Programa_Formacion programa_Formacion = new Programa_Formacion
                 {
                     IdPrograma = 0,
-                    DenominacionPrograma = programs_Area_Red.DenominacionPrograma,
-                    VersionPrograma = programs_Area_Red.VersionPrograma,
-                    NivelPrograma = programs_Area_Red.NivelPrograma,
+                    DenominacionPrograma = programs_Area_Red.DenominacionPrograma.ToString(),
+                    VersionPrograma = programs_Area_Red.VersionPrograma.ToString(),
+                    NivelPrograma = programs_Area_Red.NivelPrograma.ToString(),
                     CodigoPrograma = programs_Area_Red.CodigoPrograma.ToString(),
-                    HorasPrograma = programs_Area_Red.HorasPrograma,
-                    EstadoPrograma = true,
+                    HorasPrograma = programs_Area_Red.HorasPrograma.ToString(),
                     IdArea = codigoArea[0].IdArea
                 };
                 db.Programa_Formacion.Add(programa_Formacion);
+
                 try
                 {
-                    db.SaveChanges();
+                   db.SaveChanges();
                 }
-                catch (Exception ex) {
-                    return Json(new { code = 200, value = ex });
+                catch (Exception ex)
+                {
+                    return Json(new { code = 200 });
                 }
-                
-            }
 
-            return Json(new { code = 200, value = programs_Area_Red });
+
+            }
+            return Json(new { code = 500 });
         }
     }
 }

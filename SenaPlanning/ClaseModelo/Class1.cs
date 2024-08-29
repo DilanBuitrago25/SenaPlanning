@@ -14,7 +14,7 @@ namespace ClaseModelo
         public string NivelPrograma { get; set; }
         public string CodigoPrograma { get; set; }
         public string HorasPrograma { get; set; }
-        public bool EstadoPrograma { get; set; }
+        public bool EstadoPrograma { get; set; } = true;
         public string NombreArea { get; set; }
         public string NombreRed { get; set; }
     }

@@ -26,6 +26,13 @@ workerPrograms.onmessage = async(e) => {
         text_progressBar_files_programs.innerHTML = "Lectura exitosa";
         return
     }
+    if (e.data.type === "ok_register") {
+        porcentage_progressBar_files_programs.style.display = "none";
+        buttom_progressBar_files_programs.style.display = "";
+        text_progressBar_files_programs.innerHTML = "Registro exitoso";
+        console.log("brr")
+        return
+    }
     if (e.data.type === "userUpload") {
         container_progress_bar_programs.style.display = "";
         text_progressBar_files_programs.innerHTML = "Registrando programas...";
@@ -34,6 +41,7 @@ workerPrograms.onmessage = async(e) => {
         bar_progressBar_files_programs.style.width = `${e.data.value.porcentage}%`;
         message_progressBar_files_programs.style.display = "none";
         buttom_progressBar_files_programs.style.display = "none";
+        return
     }
 }
 
