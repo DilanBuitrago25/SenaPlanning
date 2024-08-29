@@ -61,61 +61,40 @@
                 </div>
             </div>
 
-            <div class="row text-center">
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaOtros, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaOtros, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaOtros, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-sm-3" hidden>
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.EstadoMeta, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            <div class="checkbox">
-                                @Html.EditorFor(model => model.EstadoMeta)
-                                @Html.ValidationMessageFor(model => model.EstadoMeta, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MetaOtros, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MetaOtros, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MetaOtros, "", new { @class = "text-danger" })
                 </div>
+            </div>
 
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTGOApPasan, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTGOApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTGOApPasan, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTCOApPasan, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTCOApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTCOApPasan, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaOTROApPasan, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaOTROApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaOTROApPasan, "", new { @class = "text-danger" })
-                        </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EstadoMeta, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.EstadoMeta)
+                        @Html.ValidationMessageFor(model => model.EstadoMeta, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
 
+            <div class="form-group">
+                @Html.LabelFor(model => model.MetaTGOApPasan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MetaTGOApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MetaTGOApPasan, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
+            <div class="form-group">
+                @Html.LabelFor(model => model.MetaTCOApPasan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MetaTCOApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MetaTCOApPasan, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
             @*<div class="form-group">
                   @Html.LabelFor(model => model.MetaETApPasan, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -125,13 +104,22 @@
                   </div>
                 </div>*@
 
-
-            <div class="form-block text-end">
-                <div class="bcol-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                    <a href="/Metas" class="btn btn-default">Volver</a>
-                    @*@Html.ActionLink("Volver", "Index")*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.MetaOTROApPasan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MetaOTROApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MetaOTROApPasan, "", new { @class = "text-danger" })
                 </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.ActionLink("Volver", "Index")
             </div>
         </div>
     </div>
