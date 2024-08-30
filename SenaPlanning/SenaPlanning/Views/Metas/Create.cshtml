@@ -10,10 +10,10 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-6">
-                <h3>Planeacion - Ofertas</h3>
+                <h3>Planeacion - Meta</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li class="breadcrumb-item">Planeación</li>
+                    <li class="breadcrumb-item">Meta</li>
                     <li class="breadcrumb-item">General</li>
                     <li class="breadcrumb-item active">Registrar</li>
                 </ol>
@@ -34,44 +34,75 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5>Registrar Oferta</h5>
+                        <h5>Registrar Meta</h5>
                     </div>
 
                     <div class="card-body">
                         @Html.AntiForgeryToken()
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <label for="estadoFiltro">Nombre Indicativo - Oferta</label>
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Año - Meta</label>
                                 @Html.EditorFor(model => model.MetaFecha, new { htmlAttributes = new { @class = "form-control" } })
                                 <br />
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Red de Conocimiento</label>
-                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control" })
-                                <br />
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
-                                <input type="text" class="js-flatpickr form-control" id="example-flatpickr-custom" name="example-flatpickr-custom" placeholder="d/m/Y" data-date-format="d/m/Y">
+
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Año de Meta a Indicar</label>
-                                @Html.DropDownList("Metas", null, "Selecciona una Meta", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                <label for="estadoFiltro">Meta Tecnologías - Presencial</label>
+                                @Html.EditorFor(model => model.MetaTecnPresencial, new { htmlAttributes = new { @class = "form-control" } })
                                 <br />
                             </div>
-                            
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Coordinador Responsable</label>
-                                @Html.DropDownList("Usuario", null, "Selecciona un Coordinador", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                <label for="estadoFiltro">Meta Tecnologías - Virtual</label>
+                                @Html.EditorFor(model => model.MetaTecnVirtual, new { htmlAttributes = new { @class = "form-control" } })
                                 <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Meta Tecnicos - Presencial</label>
+                                @Html.EditorFor(model => model.MetaTecPresencial, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Meta Tecnicos - Virtual</label>
+                                @Html.EditorFor(model => model.MetaTecVirtual, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Meta Especialidades Tecnicas - Presencial</label>
+                                @Html.EditorFor(model => model.MetaETPresencial, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Meta Especialidades Tecnicas - Virtual</label>
+                                @Html.EditorFor(model => model.MetaETVirtual, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Meta Otros</label>
+                                @Html.EditorFor(model => model.MetaOtros, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                            </div>
+                            <div class="col-md-6">
+
                             </div>
                         </div>
 
+                        @Html.HiddenFor(model => model.EstadoMeta, new { Value = "True" })
+
+                        @Html.HiddenFor(model => model.MetaTGOApPasan, new { Value = 0 })
+                        @Html.HiddenFor(model => model.MetaTCOApPasan, new { Value = 0 })
+                        @Html.HiddenFor(model => model.MetaETApPasan, new { Value = 0 })
+                        @Html.HiddenFor(model => model.MetaOTROApPasan, new { Value = 0 })
 
 
                     </div>
@@ -81,7 +112,7 @@
             <div class="card-footer">
                 <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
                 <button class="btn btn-light" type="button">
-                    <a href="@Url.Action("Index","Programa_formacion")">Cancelar</a>
+                    <a href="@Url.Action("Index","Meta")">Cancelar</a>
                 </button>
             </div>
         </div>
