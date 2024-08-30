@@ -67,24 +67,6 @@
     <Property Name="EstadoInstructor" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Area_Conocimiento" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Instructor" ToRole="Area_Conocimiento" />
   </EntityType>
-  <EntityType Name="Meta">
-    <Key>
-      <PropertyRef Name="IdMeta" />
-    </Key>
-    <Property Name="IdMeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MetaFecha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="MetaFormacion" Type="Int64" />
-    <Property Name="MetaTecnologia" Type="Int64" />
-    <Property Name="MetaTecnico" Type="Int64" />
-    <Property Name="MetaET" Type="Int64" />
-    <Property Name="MetaOtros" Type="Int64" />
-    <Property Name="EstadoMeta" Type="Boolean" Nullable="false" />
-    <Property Name="MetaTGOApPasan" Type="Int64" />
-    <Property Name="MetaTCOApPasan" Type="Int64" />
-    <Property Name="MetaETApPasan" Type="Int64" />
-    <Property Name="MetaOTROApPasan" Type="Int64" />
-    <NavigationProperty Name="Oferta" Relationship="SenaPlanningModel.FK__Oferta__IdMetas__36B12243" FromRole="Meta" ToRole="Oferta" />
-  </EntityType>
   <EntityType Name="Red_Conocimiento">
     <Key>
       <PropertyRef Name="IdRed" />
@@ -135,7 +117,6 @@
     <EntitySet Name="Area_Conocimiento" EntityType="Self.Area_Conocimiento" />
     <EntitySet Name="Ficha" EntityType="Self.Ficha" />
     <EntitySet Name="Instructor" EntityType="Self.Instructor" />
-    <EntitySet Name="Meta" EntityType="Self.Meta" />
     <EntitySet Name="Red_Conocimiento" EntityType="Self.Red_Conocimiento" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" />
     <AssociationSet Name="FK__Area_Cono__IdRed__2E1BDC42" Association="Self.FK__Area_Cono__IdRed__2E1BDC42">
@@ -155,10 +136,6 @@
       <End Role="Oferta" EntitySet="Oferta" />
       <End Role="Ficha" EntitySet="Ficha" />
     </AssociationSet>
-    <AssociationSet Name="FK__Oferta__IdMetas__36B12243" Association="SenaPlanningModel.FK__Oferta__IdMetas__36B12243">
-      <End Role="Meta" EntitySet="Meta" />
-      <End Role="Oferta" EntitySet="Oferta" />
-    </AssociationSet>
     <AssociationSet Name="FK__Oferta__IdRed__37A5467C" Association="SenaPlanningModel.FK__Oferta__IdRed__37A5467C">
       <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
       <End Role="Oferta" EntitySet="Oferta" />
@@ -176,6 +153,11 @@
       <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
       <End Role="Ficha" EntitySet="Ficha" />
     </AssociationSet>
+    <EntitySet Name="Meta" EntityType="SenaPlanningModel.Meta" />
+    <AssociationSet Name="FK__Oferta__IdMetas__36B12243" Association="SenaPlanningModel.FK__Oferta__IdMetas__36B12243">
+      <End Role="Meta" EntitySet="Meta" />
+      <End Role="Oferta" EntitySet="Oferta" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Oferta">
     <Key>
@@ -190,9 +172,9 @@
     <Property Name="IdMetas" Type="Int32" />
     <Property Name="IdRed" Type="Int32" />
     <NavigationProperty Name="Ficha" Relationship="SenaPlanningModel.FK__Ficha__IdOferta__4316F928" FromRole="Oferta" ToRole="Ficha" />
-    <NavigationProperty Name="Meta" Relationship="SenaPlanningModel.FK__Oferta__IdMetas__36B12243" FromRole="Oferta" ToRole="Meta" />
     <NavigationProperty Name="Red_Conocimiento" Relationship="SenaPlanningModel.FK__Oferta__IdRed__37A5467C" FromRole="Oferta" ToRole="Red_Conocimiento" />
     <NavigationProperty Name="Usuario" Relationship="SenaPlanningModel.FK__Oferta__IdUsuari__35BCFE0A" FromRole="Oferta" ToRole="Usuario" />
+    <NavigationProperty Name="Meta" Relationship="SenaPlanningModel.FK__Oferta__IdMetas__36B12243" FromRole="Oferta" ToRole="Meta" />
   </EntityType>
   <Association Name="FK__Ficha__IdOferta__4316F928">
     <End Type="SenaPlanningModel.Oferta" Role="Oferta" Multiplicity="0..1" />
@@ -203,18 +185,6 @@
       </Principal>
       <Dependent Role="Ficha">
         <PropertyRef Name="IdOferta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Oferta__IdMetas__36B12243">
-    <End Type="SenaPlanningModel.Meta" Role="Meta" Multiplicity="0..1" />
-    <End Type="SenaPlanningModel.Oferta" Role="Oferta" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Meta">
-        <PropertyRef Name="IdMeta" />
-      </Principal>
-      <Dependent Role="Oferta">
-        <PropertyRef Name="IdMetas" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -278,6 +248,38 @@
       </Principal>
       <Dependent Role="Ficha">
         <PropertyRef Name="IdPrograma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Meta">
+    <Key>
+      <PropertyRef Name="IdMeta" />
+    </Key>
+    <Property Name="IdMeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MetaFecha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MetaTecnPresencial" Type="Int32" />
+    <Property Name="MetaTecnVirtual" Type="Int32" />
+    <Property Name="MetaTecPresencial" Type="Int32" />
+    <Property Name="MetaTecVirtual" Type="Int32" />
+    <Property Name="MetaETPresencial" Type="Int32" />
+    <Property Name="MetaETVirtual" Type="Int32" />
+    <Property Name="MetaOtros" Type="Int32" />
+    <Property Name="EstadoMeta" Type="Boolean" Nullable="false" />
+    <Property Name="MetaTGOApPasan" Type="Int32" />
+    <Property Name="MetaTCOApPasan" Type="Int32" />
+    <Property Name="MetaETApPasan" Type="Int32" />
+    <Property Name="MetaOTROApPasan" Type="Int32" />
+    <NavigationProperty Name="Oferta" Relationship="SenaPlanningModel.FK__Oferta__IdMetas__36B12243" FromRole="Meta" ToRole="Oferta" />
+  </EntityType>
+  <Association Name="FK__Oferta__IdMetas__36B12243">
+    <End Type="SenaPlanningModel.Meta" Role="Meta" Multiplicity="0..1" />
+    <End Type="SenaPlanningModel.Oferta" Role="Oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meta">
+        <PropertyRef Name="IdMeta" />
+      </Principal>
+      <Dependent Role="Oferta">
+        <PropertyRef Name="IdMetas" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

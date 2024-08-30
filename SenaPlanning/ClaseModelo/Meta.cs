@@ -22,16 +22,18 @@ namespace ClaseModelo
     
         public int IdMeta { get; set; }
         public string MetaFecha { get; set; }
-        public Nullable<long> MetaFormacion { get; set; }
-        public Nullable<long> MetaTecnologia { get; set; }
-        public Nullable<long> MetaTecnico { get; set; }
-        public Nullable<long> MetaET { get; set; }
-        public Nullable<long> MetaOtros { get; set; }
+        public Nullable<int> MetaTecnPresencial { get; set; }
+        public Nullable<int> MetaTecnVirtual { get; set; }
+        public Nullable<int> MetaTecPresencial { get; set; }
+        public Nullable<int> MetaTecVirtual { get; set; }
+        public Nullable<int> MetaETPresencial { get; set; }
+        public Nullable<int> MetaETVirtual { get; set; }
+        public Nullable<int> MetaOtros { get; set; }
         public bool EstadoMeta { get; set; }
-        public Nullable<long> MetaTGOApPasan { get; set; }
-        public Nullable<long> MetaTCOApPasan { get; set; }
-        public Nullable<long> MetaETApPasan { get; set; }
-        public Nullable<long> MetaOTROApPasan { get; set; }
+        public Nullable<int> MetaTGOApPasan { get; set; }
+        public Nullable<int> MetaTCOApPasan { get; set; }
+        public Nullable<int> MetaETApPasan { get; set; }
+        public Nullable<int> MetaOTROApPasan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }
