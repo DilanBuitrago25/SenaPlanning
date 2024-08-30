@@ -5,138 +5,218 @@
 }
 
 
-<div class="card-body">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal gap-2">
-            <div class="col col-md-10">
-                <h4>Meta</h4>
-                <hr />
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Planeacion - Ofertas</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item">Planeación</li>
+                    <li class="breadcrumb-item">General</li>
+                    <li class="breadcrumb-item active">Registrar</li>
+                </ol>
             </div>
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="row row-cols-2">
-                <div class="form-group col col-md-6 d-none">
-                    @Html.LabelFor(model => model.MetaFormacion, htmlAttributes: new { @class = "control-label col col-md-9 p-1" })
-                        @Html.EditorFor(model => model.MetaFormacion, new
-                            {
-                                htmlAttributes = new { @class = "form-control" }
-                            })
-                        @Html.ValidationMessageFor(model => model.MetaFormacion, "", new { @class = "text-danger" })
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h5>Registrar Oferta</h5>
+                    </div>
+
+                    <div class="card-body">
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="estadoFiltro">Nombre Indicativo - Oferta</label>
+                                @Html.EditorFor(model => model.MetaFecha, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Red de Conocimiento</label>
+                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                <br />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
+                                <input type="text" class="js-flatpickr form-control" id="example-flatpickr-custom" name="example-flatpickr-custom" placeholder="d/m/Y" data-date-format="d/m/Y">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Año de Meta a Indicar</label>
+                                @Html.DropDownList("Metas", null, "Selecciona una Meta", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                <br />
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Coordinador Responsable</label>
+                                @Html.DropDownList("Usuario", null, "Selecciona un Coordinador", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                <br />
+                            </div>
+                        </div>
+
+
+
+                    </div>
                 </div>
+            </div>
+
+            <div class="card-footer">
+                <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
+                <button class="btn btn-light" type="button">
+                    <a href="@Url.Action("Index","Programa_formacion")">Cancelar</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@*
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal gap-2">
+                <div class="col col-md-10">
+                    <h4>Meta</h4>
+                    <hr />
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row row-cols-2">
+                    <div class="form-group col col-md-6 d-none">
+                        @Html.LabelFor(model => model.MetaFormacion, htmlAttributes: new { @class = "control-label col col-md-9 p-1" })
+                            @Html.EditorFor(model => model.MetaFormacion, new
+                                {
+                                    htmlAttributes = new { @class = "form-control" }
+                                })
+                            @Html.ValidationMessageFor(model => model.MetaFormacion, "", new { @class = "text-danger" })
+                    </div>
+
+                        <div class="form-group col col-md-6 ">
+                            <label class="control-label col-md col col-md-9">Técnologia</label>
+
+                                @Html.EditorFor(model => model.MetaTecnologia, new
+                                    {
+                                        htmlAttributes = new
+                                        {
+                                            @class = "form-control"
+                                        }
+                                    })
+                                @Html.ValidationMessageFor(model => model.MetaTecnologia, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group col col-md-6 ">
+                            <label class="control-label col col-md-9 p-1">Técnica</label>
+
+                                @Html.EditorFor(model => model.MetaTecnico, new
+                                    {
+                                        htmlAttributes = new { @class = "form-control" }
+                                    })
+                                @Html.ValidationMessageFor(model => model.MetaTecnico, "", new { @class = "text-danger" })
+
+                        </div>
 
                     <div class="form-group col col-md-6 ">
-                        <label class="control-label col-md col col-md-9">Técnologia</label>
-                        
-                            @Html.EditorFor(model => model.MetaTecnologia, new
+                        <label class="control-label col col-md-9 p-1">Expecialista Técnico</label>
+
+                            @Html.EditorFor(model => model.MetaET, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MetaET, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group col col-md-6 ">
+                        <label class="control-label col col-md-9 p-1">Otros</label>
+                            @Html.EditorFor(model => model.MetaOtros, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MetaOtros, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col col-md-6 d-none">
+                        @Html.LabelFor(model => model.EstadoMeta, htmlAttributes: new { @class = "control-label col col-md-9 p-1" })
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.EstadoMeta)
+                                @Html.ValidationMessageFor(model => model.EstadoMeta, "", new { @class = "text-danger" })
+                            </div>
+                    </div>
+    @*
+
+                    <div class="form-group col col-md-6 ">
+                        <label class="control-label col col-md-9 p-1">Aprendices Técnologos Pasan</label>
+                            @Html.EditorFor(model => model.MetaTGOApPasan, new
                                 {
                                     htmlAttributes = new
                                     {
                                         @class = "form-control"
                                     }
                                 })
-                            @Html.ValidationMessageFor(model => model.MetaTecnologia, "", new { @class = "text-danger" })
-                        
+                            @Html.ValidationMessageFor(model => model.MetaTGOApPasan, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col col-md-6 ">
-                        <label class="control-label col col-md-9 p-1">Técnica</label>
-                        
-                            @Html.EditorFor(model => model.MetaTecnico, new
+                        <label class="control-label col col-md-9 p-1" for="">Aprendices Técnicos Pasan</label>
+                            @Html.EditorFor(model => model.MetaTCOApPasan, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control"
+                                    }
+                                })
+                            @Html.ValidationMessageFor(model => model.MetaTCOApPasan, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col col-md-6 ">
+                        <label class="control-label col col-md-9 p-1" for="">Aprendices Expecialista Técnologos Pasan</label>
+                            @Html.EditorFor(model => model.MetaETApPasan, new
                                 {
                                     htmlAttributes = new { @class = "form-control" }
                                 })
-                            @Html.ValidationMessageFor(model => model.MetaTecnico, "", new { @class = "text-danger" })
-                        
+                            @Html.ValidationMessageFor(model => model.MetaETApPasan, "", new { @class = "text-danger" })
                     </div>
 
-                <div class="form-group col col-md-6 ">
-                    <label class="control-label col col-md-9 p-1">Expecialista Técnico</label>
-                    
-                        @Html.EditorFor(model => model.MetaET, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.MetaET, "", new { @class = "text-danger" })
-                    
-                </div>
-
-                <div class="form-group col col-md-6 ">
-                    <label class="control-label col col-md-9 p-1">Otros</label>
-                        @Html.EditorFor(model => model.MetaOtros, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.MetaOtros, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group col col-md-6 d-none">
-                    @Html.LabelFor(model => model.EstadoMeta, htmlAttributes: new { @class = "control-label col col-md-9 p-1" })
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.EstadoMeta)
-                            @Html.ValidationMessageFor(model => model.EstadoMeta, "", new { @class = "text-danger" })
-                        </div>
-                </div>
-@*                 <div class="form-group col col-md-6">
-                    <label class="control-label col col-md-9 p-1" for="">Estado</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Activo
-                        </label>
+                    <div class="form-group col col-md-6 ">
+                        @Html.LabelFor(model => model.MetaOTROApPasan, htmlAttributes: new
+                            {
+                                @class = "control-label col col-md-9 p-1"
+                            })
+                            @Html.EditorFor(model => model.MetaOTROApPasan, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "form-control"
+                                    }
+                                })
+                            @Html.ValidationMessageFor(model => model.MetaOTROApPasan, "", new { @class = "text-danger" })
                     </div>
-                </div>
- *@
-                <div class="form-group col col-md-6 ">
-                    <label class="control-label col col-md-9 p-1">Aprendices Técnologos Pasan</label>
-                        @Html.EditorFor(model => model.MetaTGOApPasan, new
-                            {
-                                htmlAttributes = new
-                                {
-                                    @class = "form-control"
-                                }
-                            })
-                        @Html.ValidationMessageFor(model => model.MetaTGOApPasan, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group col col-md-6 ">
-                    <label class="control-label col col-md-9 p-1" for="">Aprendices Técnicos Pasan</label>
-                        @Html.EditorFor(model => model.MetaTCOApPasan, new
-                            {
-                                htmlAttributes = new
-                                {
-                                    @class = "form-control"
-                                }
-                            })
-                        @Html.ValidationMessageFor(model => model.MetaTCOApPasan, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group col col-md-6 ">
-                    <label class="control-label col col-md-9 p-1" for="">Aprendices Expecialista Técnologos Pasan</label>
-                        @Html.EditorFor(model => model.MetaETApPasan, new
-                            {
-                                htmlAttributes = new { @class = "form-control" }
-                            })
-                        @Html.ValidationMessageFor(model => model.MetaETApPasan, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group col col-md-6 ">
-                    @Html.LabelFor(model => model.MetaOTROApPasan, htmlAttributes: new
-                        {
-                            @class = "control-label col col-md-9 p-1"
-                        })
-                        @Html.EditorFor(model => model.MetaOTROApPasan, new
-                            {
-                                htmlAttributes = new
-                                {
-                                    @class = "form-control"
-                                }
-                            })
-                        @Html.ValidationMessageFor(model => model.MetaOTROApPasan, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
-        <div class="form-group" width="100%">
-             <input type="submit" value="Create" class="btn btn-outline-dark mt-2" />
-        </div>
-    }
-</div>
+            <div class="form-group" width="100%">
+                 <input type="submit" value="Create" class="btn btn-outline-dark mt-2" />
+            </div>
+        }
+    </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+*@

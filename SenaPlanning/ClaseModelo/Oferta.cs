@@ -31,8 +31,8 @@ namespace ClaseModelo
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ficha> Ficha { get; set; }
-        public virtual Meta Meta { get; set; }
         public virtual Red_Conocimiento Red_Conocimiento { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public virtual Meta Meta { get; set; }
     }
 }

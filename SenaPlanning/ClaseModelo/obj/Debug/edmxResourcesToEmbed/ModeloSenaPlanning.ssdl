@@ -81,16 +81,18 @@
     </Key>
     <Property Name="IdMeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MetaFecha" Type="varchar" MaxLength="200" />
-    <Property Name="MetaFormacion" Type="bigint" />
-    <Property Name="MetaTecnologia" Type="bigint" />
-    <Property Name="MetaTecnico" Type="bigint" />
-    <Property Name="MetaET" Type="bigint" />
-    <Property Name="MetaOtros" Type="bigint" />
+    <Property Name="MetaTecnPresencial" Type="int" />
+    <Property Name="MetaTecnVirtual" Type="int" />
+    <Property Name="MetaTecPresencial" Type="int" />
+    <Property Name="MetaTecVirtual" Type="int" />
+    <Property Name="MetaETPresencial" Type="int" />
+    <Property Name="MetaETVirtual" Type="int" />
+    <Property Name="MetaOtros" Type="int" />
     <Property Name="EstadoMeta" Type="bit" Nullable="false" />
-    <Property Name="MetaTGOApPasan" Type="bigint" />
-    <Property Name="MetaTCOApPasan" Type="bigint" />
-    <Property Name="MetaETApPasan" Type="bigint" />
-    <Property Name="MetaOTROApPasan" Type="bigint" />
+    <Property Name="MetaTGOApPasan" Type="int" />
+    <Property Name="MetaTCOApPasan" Type="int" />
+    <Property Name="MetaETApPasan" Type="int" />
+    <Property Name="MetaOTROApPasan" Type="int" />
   </EntityType>
   <EntityType Name="Oferta">
     <Key>

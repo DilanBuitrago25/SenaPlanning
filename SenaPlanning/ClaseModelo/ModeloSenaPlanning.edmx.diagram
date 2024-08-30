@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="SenaPlanningModel.Area_Conocimiento" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Ficha" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Instructor" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenaPlanningModel.Meta" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Red_Conocimiento" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Usuario" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
         <AssociationConnector Association="SenaPlanningModel.FK__Area_Cono__IdRed__2E1BDC42" ManuallyRouted="false" />
@@ -17,12 +16,13 @@
         <AssociationConnector Association="SenaPlanningModel.Ficha_has_Ambiente" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SenaPlanningModel.Oferta" Width="1.5" PointX="8.125" PointY="4.875" />
         <AssociationConnector Association="SenaPlanningModel.FK__Ficha__IdOferta__4316F928" />
-        <AssociationConnector Association="SenaPlanningModel.FK__Oferta__IdMetas__36B12243" />
         <AssociationConnector Association="SenaPlanningModel.FK__Oferta__IdRed__37A5467C" />
         <AssociationConnector Association="SenaPlanningModel.FK__Oferta__IdUsuari__35BCFE0A" />
         <EntityTypeShape EntityType="SenaPlanningModel.Programa_Formacion" Width="1.5" PointX="5.25" PointY="9.5" />
         <AssociationConnector Association="SenaPlanningModel.FK__Programa___IdAre__31EC6D26" />
         <AssociationConnector Association="SenaPlanningModel.FK__Ficha__IdProgram__4222D4EF" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Meta" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="SenaPlanningModel.FK__Oferta__IdMetas__36B12243" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

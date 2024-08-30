@@ -17,16 +17,18 @@ go
 create table Meta(
 IdMeta int identity (1,1) not null,
 MetaFecha varchar (200),
-MetaFormacion bigint,
-MetaTecnologia bigint,
-MetaTecnico bigint,
-MetaET bigint,
-MetaOtros bigint,
+MetaTecnPresencial int,
+MetaTecnVirtual int,
+MetaTecPresencial int,
+MetaTecVirtual int,
+MetaETPresencial int,
+MetaETVirtual int,
+MetaOtros int,
 EstadoMeta bit default (1) not null,
-MetaTGOApPasan bigint,
-MetaTCOApPasan bigint,
-MetaETApPasan bigint,
-MetaOTROApPasan bigint
+MetaTGOApPasan int,
+MetaTCOApPasan int,
+MetaETApPasan int,
+MetaOTROApPasan int
 primary key (IdMeta));
 
 go
