@@ -3,96 +3,133 @@
 @{
     ViewBag.Title = "Details";
 }
+<main id="main-container">
+    <div class="content">
+        <div class="d-flex text-center">
+            <div class="flex-grow-1 mb-1 mb-md-0">
+                <h1 class="h3 fw-bold mb-2">
+                    Detalles de la meta
+                </h1>
+            </div>
+        </div>
+    </div>
 
-<h2>Details</h2>
 
-<div>
-    <h4>Meta</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaFormacion)
-        </dt>
+    <div class="content row text-center">
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaFormacion)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaFormacion)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaTecnologia)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaTecnologia)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaTecnico)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaTecnico)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaET)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaET)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaOtros)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaOtros)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaTGOApPasan)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaTGOApPasan)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaTCOApPasan)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaTCOApPasan)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaETApPasan)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaETApPasan)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="block block-rounded">
+                <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaOTROApPasan)</h6></div>
+                <div class="block-content">
+                    <p>
+                        <code>
+                            @Html.DisplayFor(model => model.MetaOTROApPasan)
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MetaFormacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaTecnologia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaTecnologia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaTecnico)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaTecnico)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaET)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaET)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaOtros)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaOtros)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EstadoMeta)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EstadoMeta)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaTGOApPasan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaTGOApPasan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaTCOApPasan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaTCOApPasan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaETApPasan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaETApPasan)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MetaOTROApPasan)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MetaOTROApPasan)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdMeta }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        <div class="form-block">
+            <div class="bcol-md-10">
+                <a href="/Metas" class="btn btn-default">Volver</a>
+                @*@Html.ActionLink("Volver", "Index")*@
+            </div>
+        </div>
+    </div>
+</main>
