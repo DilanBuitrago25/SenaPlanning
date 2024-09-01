@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "Details";
 }
-<main id="main-container">
-    <div class="content">
-        <div class="d-flex text-center">
+<div class="container">
+    <div class="content text-center">
+        <div class="d-flex">
             <div class="flex-grow-1 mb-1 mb-md-0">
                 <h1 class="h3 fw-bold mb-2">
                     Detalles de la meta
@@ -15,7 +15,7 @@
     </div>
 
 
-    <div class="content row text-center">
+    <div class="block block-rounded content row text-center">
         <div class="col-sm-3">
             <div class="block block-rounded">
                 <div class="block-header block-header-default"><h6 class="block-title">@Html.DisplayNameFor(model => model.MetaFecha)</h6></div>
@@ -169,4 +169,4 @@
             </div>
         </div>
     </div>
-</main>
+</div>

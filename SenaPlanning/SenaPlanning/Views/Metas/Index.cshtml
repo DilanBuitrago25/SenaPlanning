@@ -71,96 +71,14 @@
 
                         <div class="col-md-2">
                             <br />
-                            <br />
-                            |
-                            @Html.ActionLink("Edit", "Edit", new { id = item.IdMeta }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.IdMeta }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.IdMeta }) |
+                            @Html.ActionLink("Editar", "Edit", new { id = item.IdMeta }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.IdMeta }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMeta })
                         </div>
 
                     </div>
                </div>
             }
-
-
-@*<h2>Index</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaFormacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaTecnologia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaTecnico)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaET)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaOtros)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EstadoMeta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaTGOApPasan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaTCOApPasan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaETApPasan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaOTROApPasan)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaFormacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaTecnologia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaTecnico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaET)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaOtros)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstadoMeta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaTGOApPasan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaTCOApPasan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaETApPasan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaOTROApPasan)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdMeta }) |
-                @Html.ActionLink("Details", "Details", new { id=item.IdMeta }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.IdMeta })
-            </td>
-        </tr>
-    }
-
-    </table>*@
+        </div>
+    </div>
+</div>
