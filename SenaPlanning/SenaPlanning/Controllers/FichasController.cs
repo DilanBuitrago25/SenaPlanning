@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using Antlr.Runtime.Tree;
 using ClaseModelo;
 using static SenaPlanning.Controllers.LoginController;
 
@@ -138,19 +139,23 @@ namespace SenaPlanning.Controllers
         }
 
 
-        public ActionResult ObtenerOfertaPorRedes(int idRed)
+        public ActionResult ObtenerAreasPorOferta(int idOferta)
         {
-            var areas = db.Red_Conocimiento
-                .Where(R => R.IdRed == idRed)
-                .Select(R => new
-                {
-                    Ofertas = R.Oferta.Select(a => new { Value = a.IdOferta, Text = a.NombreOferta })
-                })
-                .FirstOrDefault()?
-                .Ofertas;
+            var idRed = db.Oferta.Where(o => o.IdOferta == idOferta).Select(o => o.IdRed).FirstOrDefault();
 
-            return Json(areas, JsonRequestBehavior.AllowGet);
+            if (idRed.HasValue)
+            {
+                var areas = db.Area_Conocimiento.Where(a => a.IdRed == idRed.Value)
+                                               .Select(a => new { Value = a.IdArea, Text = a.NombreArea }) 
+                                               .ToList();
+                return Json(areas, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new List<object>(), JsonRequestBehavior.AllowGet);
+            }
         }
+
 
         public ActionResult ObtenerProgramasPorAreas(int idArea)
         {
@@ -165,6 +170,14 @@ namespace SenaPlanning.Controllers
 
             return Json(programas, JsonRequestBehavior.AllowGet);
         }
+
+        //public ActionResult ObtenerProgramasPorArea(int idArea)
+        //{
+        //    var programas = db.Programa_Formacion.Where(p => p.IdArea == idArea)
+        //                                         .Select(p => new { Value = p.IdPrograma, Text = p.DenominacionPrograma })
+        //                                         .ToList();
+        //    return Json(programas, JsonRequestBehavior.AllowGet);
+        //}
 
         public ActionResult ObtenerNivelPrograma(int idPrograma)
         {
@@ -190,10 +203,20 @@ namespace SenaPlanning.Controllers
         {
             var horasPrograma = db.Programa_Formacion
                 .Where(p => p.IdPrograma == idPrograma)
-                .Select(p => p.HorasPrograma
-                .FirstOrDefault());
+                .Select(p => p.HorasPrograma)
+                .FirstOrDefault();
 
             return Json(horasPrograma, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ObtenerEstadoOferta(int idOferta)
+        {
+            var estadoOferta = db.Oferta
+                .Where(p => p.IdOferta == idOferta)
+                .Select(p => p.EstadoOferta
+                .ToString());
+
+            return Json(estadoOferta, JsonRequestBehavior.AllowGet);
         }
 
         //public ActionResult ObtenerCompetenciasPorFicha(int idFicha)
@@ -210,6 +233,7 @@ namespace SenaPlanning.Controllers
         //    return Json(competencias, JsonRequestBehavior.AllowGet);
         //}
 
+       
         protected override void Dispose(bool disposing)
         {
             if (disposing)

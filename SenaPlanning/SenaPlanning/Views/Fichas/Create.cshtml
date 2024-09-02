@@ -39,22 +39,22 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Red de Conocimiento</label>
-                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarOfertas()" })
+                                <label for="estadoFiltro">Oferta</label>
+                                @Html.DropDownList("IdOferta", null, "Selecciona una Oferta", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarOfertas()" })
                                 <br />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Oferta</label>
-                                @Html.DropDownList("IdOferta", null, "Selecciona una Oferta", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarProgramas()" })
+                                <label for="estadoFiltro">Area de Conocimiento</label>
+                                 @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarProgramas()" })
                                 <br />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Programa de Formación</label>
-                                @Html.DropDownList("IdPrograma", null, "Selecciona un Programa", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                @Html.DropDownList("IdPrograma",null , "Selecciona un Programa", new { @class = "js-select2 form-select col-sm-12 form-control" })
                             </div>
                             <div class="col-md-5">
                                 <label class="form-label">Nivel Programa</label>
@@ -67,22 +67,22 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
-                                @Html.EditorFor(model => model.FechaInFicha, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y" } })
+                                @Html.EditorFor(model => model.FechaInFicha, new { htmlAttributes = new{ @class = "js-flatpickr form-control",placeholder = "d/m/Y",data_date_format = "d/m/Y"}})
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label" for="example-flatpickr-custom">Fecha Fin</label>
-                                @Html.EditorFor(model => model.FechaFinFicha, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y" } })
+                                @Html.EditorFor(model => model.FechaFinFicha, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y", data_date_format = "d/m/Y" } })
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label">No Aprendices</label>
-                                <input type="text" readonly class="form-control" id="codigoProgramaInput" name="example-static-input-readonly" value="30">
+                                @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { @class = "form-control"} })
                                 @Html.HiddenFor(model => model.NumAprenFicha, new { Value = 30 })
-                                
+
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label">Codigo Programa</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="codigoProgramaInput"name="example-static-input-readonly" value="0">
+                                <input type="text" readonly class="form-control" id="codigoProgramaInput"name="example-static-input-readonly" value="">
                                 <br />
                             </div>
 
@@ -140,7 +140,7 @@
                             <div class="col-md-3">
                                 <label class="form-label">Estado Oferta</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="Activa">
+                                <input type="text" class="form-control form-control-alt" id="estadoOfertaInput" name="example-text-input-alt" placeholder="">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Meta</label>
@@ -168,23 +168,63 @@
 <script src="~/Scripts/jquery-3.7.1.min.js"></script>
 
 <script>
-        function cargarOfertas() {
-    var redId = $("#Red").val();
-    $.ajax({
-        url: '@Url.Action("ObtenerOfertaPorRedes", "Fichas")',
-        type: 'GET',
-        data: { idRed: redId },
-        success: function (data) {
-            var selectOferta = $("#Oferta");
-            selectOferta.empty();
-            $.each(data, function (index, oferta) {
-                selectOferta.append($('<option></option>').val(oferta.Value).text(oferta.Text));
-            });
-        }
+
+    $(document).ready(function () {
+        $("#NumAprenFicha").val(30);
     });
+
+    function cargarOfertas() {
+    var selectedOfertaId = $("#IdOferta").val();
+    if (selectedOfertaId) {
+        $.ajax({
+            url: '@Url.Action("ObtenerAreasPorOferta", "Fichas")',
+            type: 'GET',
+            data: { idOferta: selectedOfertaId },
+            success: function (data) {
+                var areasSelect = $("#Area");
+                areasSelect.empty();
+                areasSelect.append($('<option></option>').val("").text("Selecciona una Area")); // Opción por defecto
+                $.each(data, function (index, area) {
+                    areasSelect.append($('<option></option>').val(area.Value).text(area.Text));
+                });
+
+                // Limpiar el select de Programas cuando se cambia la Oferta
+                $("#IdPrograma").empty();
+                $("#IdPrograma").append($('<option></option>').val("").text("Selecciona un Programa"));
+            }
+        });
+    } else {
+        // Limpiar ambos selects si no se selecciona una Oferta
+        $("#Area").empty();
+        $("#IdPrograma").empty();
+        $("#Area").append($('<option></option>').val("").text("Selecciona una Area"));
+        $("#IdPrograma").append($('<option></option>').val("").text("Selecciona un Programa"));
+    }
+}
+
+    function cargarProgramas() {
+        var selectedAreaId = $("#Area").val();
+        if (selectedAreaId) {
+            $.ajax({
+                url: '@Url.Action("ObtenerProgramasPorArea", "Fichas")',
+                type: 'GET',
+                data: { idArea: selectedAreaId },
+                success: function (data) {
+                    var programasSelect = $("#IdPrograma");
+                    programasSelect.empty();
+                    programasSelect.append($('<option></option>').val("").text("Selecciona un Programa")); 
+                    $.each(data, function (index, programa) {
+                        programasSelect.append($('<option></option>').val(programa.Value).text(programa.Text));
+                    });
+                }
+            });
+        } else {
+            $("#IdPrograma").empty();
+            $("#IdPrograma").append($('<option></option>').val("").text("Selecciona un Programa"));
+        }
     }
 
-            function cargarProgramas() {
+                @*function cargarProgramas() {
     var areaId = $("#Area").val();
     $.ajax({
         url: '@Url.Action("ObtenerProgramasPorAreas", "Fichas")',
@@ -198,26 +238,10 @@
             });
         }
     });
-    }
-
-                function cargarProgramas() {
-    var areaId = $("#Area").val();
-    $.ajax({
-        url: '@Url.Action("ObtenerProgramasPorAreas", "Fichas")',
-        type: 'GET',
-        data: { idArea: areaId },
-        success: function (data) {
-            var selectPrograma = $("#Programa");
-            selectPrograma.empty();
-            $.each(data, function (index, programa) {
-                selectPrograma.append($('<option></option>').val(programa.Value).text(programa.Text));
-            });
-        }
-    });
-    }
+    }*@
 
     $(document).ready(function() {
-    $("#Programa").change(function() {
+    $("#IdPrograma").change(function() {
         var selectedProgramaId = $(this).val();
 
         $.ajax({
@@ -235,7 +259,7 @@
     });
 
         $(document).ready(function() {
-    $("#Programa").change(function() {
+            $("#IdPrograma").change(function() {
         var selectedProgramaId = $(this).val();
 
         $.ajax({
@@ -253,7 +277,7 @@
         });
 
             $(document).ready(function() {
-    $("#Programa").change(function() {
+                $("#IdPrograma").change(function() {
         var selectedProgramaId = $(this).val();
 
         $.ajax({
@@ -268,6 +292,27 @@
             }
         });
     });
+            });
+
+                $(document).ready(function() {
+        $("#IdOferta").change(function() {
+    var selectedOfertaId = $(this).val();
+
+    $.ajax({
+        url: '@Url.Action("ObtenerEstadoOferta", "Fichas")',
+        type: 'GET',
+        data: { idOferta: selectedOfertaId },
+        success: function (data) {
+            $("#estadoOfertaInput").val(data);
+        },
+        error: function() {
+            alert("Error al obtener estado de la oferta.");
+        }
+    });
 });
+    });
+
+
+
 </script>
 
