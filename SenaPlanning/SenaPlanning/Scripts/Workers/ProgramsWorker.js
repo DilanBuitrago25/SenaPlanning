@@ -55,7 +55,6 @@ try {
         }
         if (e.data.type === "register") {
             programsCount = 1;
-
             for (var program of data) {
                 const res = await fetch("/Programa_Formacion/programRegister", {
                     method: "POST",
@@ -77,14 +76,13 @@ try {
                         value: {
                             porcentage: calculatePorcentage(programsCount, data.length)
                         }
-
                     });
                     programsCount++;
                 })
             }
             if (data.length === programsCount) {
                 postMessage({ type: "ok_register" })
-                console.log(data.length, programsCount)
+                console.log(programsCount)
             }
         }
     }

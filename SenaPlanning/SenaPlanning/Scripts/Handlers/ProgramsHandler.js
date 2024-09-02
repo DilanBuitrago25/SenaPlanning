@@ -8,8 +8,9 @@ let porcentage_progressBar_files_programs = document.getElementById("porcentage-
 let bar_progressBar_files_programs = document.getElementById("bar-progressBar-files_programs");
 let message_progressBar_files_programs = document.getElementById("message-progressBar-files_programs");
 let buttom_progressBar_files_programs = document.getElementById("buttom-progressBar-files_programs");
+let inputFile_programs = document.getElementById("inputFile-programs");
 
-workerPrograms.onmessage = async(e) => {
+workerPrograms.onmessage = async (e) => {
     if (e.data.type == "loading_read_files") {
         container_progress_bar_programs.style.display = "";
         text_progressBar_files_programs.innerHTML = "Leyendo archivos...";
@@ -26,13 +27,6 @@ workerPrograms.onmessage = async(e) => {
         text_progressBar_files_programs.innerHTML = "Lectura exitosa";
         return
     }
-    if (e.data.type === "ok_register") {
-        porcentage_progressBar_files_programs.style.display = "none";
-        buttom_progressBar_files_programs.style.display = "";
-        text_progressBar_files_programs.innerHTML = "Registro exitoso";
-        console.log("brr")
-        return
-    }
     if (e.data.type === "userUpload") {
         container_progress_bar_programs.style.display = "";
         text_progressBar_files_programs.innerHTML = "Registrando programas...";
@@ -43,9 +37,13 @@ workerPrograms.onmessage = async(e) => {
         buttom_progressBar_files_programs.style.display = "none";
         return
     }
+    if (e.data.type === "ok_register") {
+        window.location.href ="/Programa_Formacion"
+        return
+    }
 }
 
-document.getElementById("inputFile-programs").addEventListener('change', async(event) => {
+inputFile_programs.addEventListener('change', async (event) => {
     workerPrograms.postMessage({ type: "read-files", value: event.target.files });
     buttom_progressBar_files_programs.style.display = "none";
     message_progressBar_files_programs.style.display = "none";

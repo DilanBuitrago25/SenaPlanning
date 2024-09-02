@@ -1,0 +1,152 @@
+﻿@model ClaseModelo.Meta
+
+@{
+    ViewBag.Title = "Details";
+
+    double META_TGO = long.Parse(Model.MetaTecnPresencial.ToString()) + long.Parse(Model.MetaTecnVirtual.ToString());
+    double META_TCO = long.Parse(Model.MetaTecPresencial.ToString()) + long.Parse(Model.MetaTecVirtual.ToString());
+    double META_ET = long.Parse(Model.MetaETPresencial.ToString()) + long.Parse(Model.MetaETVirtual.ToString());
+    double META_OTROS = long.Parse(Model.MetaOtros.ToString());
+
+    double META_TGO_AP_PASAN = long.Parse(Model.MetaTGOApPasan.ToString());
+    double META_TCO_AP_PASAN = long.Parse(Model.MetaTCOApPasan.ToString());
+    double META_ET_AP_PASAN = long.Parse(Model.MetaETApPasan.ToString());
+    double META_OTRO_AP_PASAN = long.Parse(Model.MetaOTROApPasan.ToString());
+
+    double APRENDICES_POR_CURSOS = 30;
+    double APRENDICES_POR_CURSOS_OTROS = 35;
+
+
+    //APRENDICES_POR_CURSOS = long.Parse(item.APorCurso.ToString());
+    //APRENDICES_POR_CURSOS_OTROS = long.Parse(item.APorCursoOtros.ToString());
+
+
+    double RESULT_META_TGO_AP_PROG = (META_TGO - META_TGO_AP_PASAN);
+    double RESULT_META_TCO_AP_PROG = (META_TCO - META_TCO_AP_PASAN);
+    double RESULT_META_ET_AP_PROG = (META_ET - META_ET_AP_PASAN);
+    double RESULT_META_OTROS_AP_PROG = (META_OTROS - META_OTRO_AP_PASAN);
+
+    double CURSO_META_TGO = dividir(RESULT_META_TGO_AP_PROG, APRENDICES_POR_CURSOS);
+    double CURSO_META_TCO = dividir(RESULT_META_TCO_AP_PROG, APRENDICES_POR_CURSOS);
+    double CURSO_META_ET = dividir(RESULT_META_ET_AP_PROG, APRENDICES_POR_CURSOS_OTROS);
+    double CURSO_META_OTROS = dividir(RESULT_META_OTROS_AP_PROG, APRENDICES_POR_CURSOS_OTROS);
+
+    //double META_GENERAL = CURSO_META_TGO + CURSO_META_TCO + CURSO_META_ET + CURSO_META_OTROS;
+
+    double dividir(double dividendo, double divisor)
+    {
+        if (dividendo < 0) return 0;
+        if (divisor < 0) return 0;
+        return Math.Round((dividendo / divisor) == 0 ? 0 : (dividendo / divisor));
+    }
+}
+
+<div class="card-body">
+
+    <div class="content text-center">
+        <div class="d-flex">
+            <div class="flex-grow-1 mb-1 mb-md-0">
+                <h1 class="h3 fw-bold mb-2">
+                    Detalles de la meta <a class="fw-semibold">@Html.DisplayFor(model => model.MetaFecha)</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="row items-push">
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold text-primary">Tecnólogo</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecnPresencial)</dd>
+                        </dl>
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Virtual</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecnVirtual)</dd>
+                        </dl>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaTGOApPasan)</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_TGO</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold">Técnico</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecPresencial)</dd>
+                        </dl>
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Virtual</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecVirtual)</dd>
+                        </dl>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaTCOApPasan)</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_TCO</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold" style="color: #CB7766 !important;">Expecialista Técnico</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaETPresencial)</dd>
+                        </dl>
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Virtual</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaETVirtual)</dd>
+                        </dl>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaETApPasan)</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_ET</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold" style="color: #6A6A6A !important;">Otros</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center ">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center ">@Html.DisplayFor(model => model.MetaOtros)</dd>
+                        </dl>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaOTROApPasan)</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_OTROS</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+        </div>
+    </div>
+
+    <div class="block block-rounded content py-3 d-flex justify-content-between align-items-center">
+        <a href="/Home" class="btn btn-default">Volver</a>
+        <a href="@Url.Action("Edit","Metas",new {id = Model.IdMeta})">Editar</a>
+    </div>
+</div>

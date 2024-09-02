@@ -3,57 +3,48 @@
 
     ViewBag.Title = "Home Page";
 
-    long META_TGO = 2980;
-    long META_TCO = 1567;
-    long META_ET = 0 ;
-    long META_OTROS = 205;
+    double META_TGO = 0;
+    double META_TCO = 0;
+    double META_ET = 0 ;
+    double META_OTROS = 0;
 
-    long META_TGO_AP_PASAN = 2071;
-    long META_TCO_AP_PASAN = 902;
-    long META_ET_AP_PASAN = 0;
-    long META_OTRO_AP_PASAN = 70;
+    double META_TGO_AP_PASAN = 0;
+    double META_TCO_AP_PASAN = 0;
+    double META_ET_AP_PASAN = 0;
+    double META_OTRO_AP_PASAN = 0;
 
-    long APRENDICES_POR_CURSOS = 30;
-    long APRENDICES_POR_CURSOS_OTROS = 35;
+    double APRENDICES_POR_CURSOS = 30;
+    double APRENDICES_POR_CURSOS_OTROS = 35;
+
+    long id = 0;
 
     foreach (var item in Model)
     {
-        META_TGO = long.Parse(item.MetaTecnPresencial.ToString());
-        META_TCO = long.Parse(item.MetaTecPresencial.ToString());
-        META_ET = long.Parse(item.MetaETPresencial.ToString());
-        META_OTROS = long.Parse(item.MetaOtros.ToString());
+        id = item.IdMeta;
 
-        META_TGO_AP_PASAN = long.Parse(item.MetaTGOApPasan.ToString());
-        META_TCO_AP_PASAN = long.Parse(item.MetaTCOApPasan.ToString());
-        META_ET_AP_PASAN = long.Parse(item.MetaETApPasan.ToString());
-        META_OTRO_AP_PASAN = long.Parse(item.MetaOTROApPasan.ToString());
+        META_TGO = int.Parse(item.MetaTecnPresencial.ToString())  + int.Parse(item.MetaTecnVirtual.ToString());
+        META_TCO = int.Parse(item.MetaTecPresencial.ToString()) + int.Parse(item.MetaTecVirtual.ToString());
+        META_ET = int.Parse(item.MetaETPresencial.ToString()) + int.Parse(item.MetaETVirtual.ToString());
+        META_OTROS = int.Parse(item.MetaOtros.ToString());
+
+        META_TGO_AP_PASAN = int.Parse(item.MetaTGOApPasan.ToString());
+        META_TCO_AP_PASAN = int.Parse(item.MetaTCOApPasan.ToString());
+        META_ET_AP_PASAN = int.Parse(item.MetaETApPasan.ToString());
+        META_OTRO_AP_PASAN = int.Parse(item.MetaOTROApPasan.ToString());
 
         //APRENDICES_POR_CURSOS = long.Parse(item.APorCurso.ToString());
         //APRENDICES_POR_CURSOS_OTROS = long.Parse(item.APorCursoOtros.ToString());
     }
+    double RESULT_META_TGO_AP_PROG = Math.Round((META_TGO_AP_PASAN / META_TGO) * 100, 2);
+    double RESULT_META_TCO_AP_PROG = Math.Round((META_TCO_AP_PASAN / META_TCO) * 100, 2);
+    double RESULT_META_ET_AP_PROG = Math.Round((META_ET_AP_PASAN / META_ET) * 100, 2);
+    double RESULT_META_OTROS_AP_PROG = Math.Round((META_OTRO_AP_PASAN / META_OTROS) * 2);
 
-    double RESULT_META_TGO_AP_PROG = (META_TGO - META_TGO_AP_PASAN);
-    double RESULT_META_TCO_AP_PROG = (META_TCO - META_TCO_AP_PASAN);
-    double RESULT_META_ET_AP_PROG = (META_ET - META_ET_AP_PASAN);
-    double RESULT_META_OTROS_AP_PROG = (META_OTROS - META_OTRO_AP_PASAN);
 
-    double CURSO_META_TGO = dividir(RESULT_META_TGO_AP_PROG, APRENDICES_POR_CURSOS);
-    double CURSO_META_TCO = dividir(RESULT_META_TCO_AP_PROG, APRENDICES_POR_CURSOS);
-    double CURSO_META_ET = dividir(RESULT_META_ET_AP_PROG, APRENDICES_POR_CURSOS_OTROS);
-    double CURSO_META_OTROS = dividir(RESULT_META_OTROS_AP_PROG, APRENDICES_POR_CURSOS_OTROS);
-
-    double META_GENERAL = CURSO_META_TGO + CURSO_META_TCO + CURSO_META_ET + CURSO_META_OTROS;
-
-    double dividir(double dividendo, double divisor)
-    {
-        if (dividendo < 0) return 0;
-        if (divisor < 0) return 0;
-        return Math.Round((dividendo / divisor) == 0 ? 0 : (dividendo / divisor));
-    }
+    double META_GENERAL = Math.Round((RESULT_META_TGO_AP_PROG + RESULT_META_TCO_AP_PROG + RESULT_META_ET_AP_PROG + RESULT_META_OTROS_AP_PROG) / 4,2);
 
 
 }
-
 
 
 <div class="content">
@@ -87,18 +78,12 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">@CURSO_META_TGO%</dt>
+                        <dt class="fs-3 fw-bold">@RESULT_META_TGO_AP_PROG%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Tecnológo</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
                         <i class="fa fa-2x fa-user-tie text-primary"></i>
                     </div>
-                </div>
-                <div class="bg-body-light rounded-bottom">
-                    <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        <span>Detalles</span>
-                        <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                    </a>
                 </div>
             </div>
             <!-- END Pending Orders -->
@@ -108,18 +93,12 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">@CURSO_META_TCO%</dt>
+                        <dt class="fs-3 fw-bold">@RESULT_META_TCO_AP_PROG%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Técnico</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
                         <i class="fa fa-2x fa-user-tie text-primary" style="color: #00324D !important;"></i>
                     </div>
-                </div>
-                <div class="bg-body-light rounded-bottom">
-                    <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        <span>Detalles</span>
-                        <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                    </a>
                 </div>
             </div>
             <!-- END New Customers -->
@@ -129,18 +108,12 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">@CURSO_META_ET%</dt>
+                        <dt class="fs-3 fw-bold">@RESULT_META_ET_AP_PROG%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Expecialista Técnico</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
                         <i class="fa fa-2x fa-user-tie text-primary" style="color: #CB7766 !important;"></i>
                     </div>
-                </div>
-                <div class="bg-body-light rounded-bottom">
-                    <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        <span>Detalles</span>
-                        <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                    </a>
                 </div>
             </div>
             <!-- END Messages -->
@@ -150,24 +123,23 @@
             <div class="block block-rounded d-flex flex-column h-100 mb-0">
                 <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                     <dl class="mb-0">
-                        <dt class="fs-3 fw-bold">@CURSO_META_OTROS%</dt>
+                        <dt class="fs-3 fw-bold">@RESULT_META_OTROS_AP_PROG%</dt>
                         <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Meta de Otros</dd>
                     </dl>
                     <div class="item item-rounded-lg bg-body-light">
                         <i class="fa fa-2x fa-user-tie text-primary" style="color: #6A6A6A !important;"></i>
                     </div>
                 </div>
-                <div class="bg-body-light rounded-bottom">
-                    <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        <span>Detalles</span>
-                        <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                    </a>
-                </div>
             </div>
             <!-- END Conversion Rate-->
         </div>
     </div>
-
+    <div class="bg-body-light rounded-bottom">
+        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="@Url.Action("Details","Home",new {id = id})">
+            <span>Detalles</span>
+            <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
+        </a>
+    </div>
 </div>
 <!-- END Page Content -->
 <div class="content">
@@ -350,7 +322,7 @@
                 labels: ["META TGO", "META TCO", "META ET", "META OTROS"],
                 datasets: [
                     {
-                        data: [@CURSO_META_TGO,@CURSO_META_TCO,@CURSO_META_ET,@CURSO_META_OTROS],
+                        data: [@RESULT_META_TGO_AP_PROG,@RESULT_META_TCO_AP_PROG,@RESULT_META_ET_AP_PROG,@RESULT_META_OTROS_AP_PROG],
                         backgroundColor: [
                             "rgb(57, 169, 0,1)",
                             "rgb(0, 50, 77,1)",
