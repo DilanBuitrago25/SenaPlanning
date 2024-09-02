@@ -44,7 +44,7 @@ namespace SenaPlanning.Controllers
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Create()
         {
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta");
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "NombreOferta");
             ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
             ViewBag.Programa = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma");
             ViewBag.Red = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");

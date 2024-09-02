@@ -43,10 +43,9 @@ namespace SenaPlanning.Controllers
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Create()
         {
-            ViewBag.Red = new SelectList(db.Area_Conocimiento, "IdArea", "NombreArea");
-            ViewBag.Metas = new SelectList(db.Meta, "IdMeta", "MetaFecha");
-
-            ViewBag.Usuario = new SelectList(db.Usuario, "IdUsuario", "NombreUsuario");
+            ViewBag.IdRed = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed");
+            ViewBag.IdMetas = new SelectList(db.Meta, "IdMeta", "MetaFecha");
+            ViewBag.IdUsuario = new SelectList(db.Usuario, "IdUsuario", "NombreUsuario");
             return View();
         }
 
@@ -63,9 +62,9 @@ namespace SenaPlanning.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.IdMetas = new SelectList(db.Meta, "IdMeta", "IdMeta", oferta.IdMetas);
-            ViewBag.IdUsuario = new SelectList(db.Usuario, "IdUsuario", "TipoDocumentoUsuario", oferta.IdUsuario);
+            ViewBag.IdRed = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed", oferta.IdRed);
+            ViewBag.IdMetas = new SelectList(db.Meta, "IdMeta", "MetaFecha", oferta.IdMetas);
+            ViewBag.IdUsuario = new SelectList(db.Usuario, "Usuario", "NombreUsuario", oferta.IdUsuario);
             return View(oferta);
         }
 
