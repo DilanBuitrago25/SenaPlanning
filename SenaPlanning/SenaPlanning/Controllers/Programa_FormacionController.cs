@@ -150,6 +150,20 @@ namespace SenaPlanning.Controllers
         [HttpPost]
         public ActionResult programRegister([Bind(Include = "DenominacionPrograma,VersionPrograma,NivelPrograma,CodigoPrograma,HorasPrograma,NombreRed,NombreArea")] Programs_Area_Red programs_Area_Red)
         {
+            //Red_Conocimiento red_Conocimiento = new Red_Conocimiento
+            //{
+
+            //};
+
+            //var codigoArea = (new Random().Next(9999, 999999)) + (new DateTime().Second);
+            //Area_Conocimiento area_Conocimiento = new Area_Conocimiento
+            //{
+            //    IdArea = 0,
+            //    CodigoArea = codigoArea,
+            //    NombreArea = programs_Area_Red.NombreArea,
+
+            //};
+
             var consultaRed = db.Red_Conocimiento.Where(r => r.NombreRed == programs_Area_Red.NombreRed).ToList();
 
             if (consultaRed.Count() == 0)

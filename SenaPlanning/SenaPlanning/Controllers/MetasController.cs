@@ -83,7 +83,7 @@ namespace SenaPlanning.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdMeta,MetaFecha,MetaTecnPresencial,MetaTecnVirtual,MetaTecPresencial,MetaTecVirtual,MetaETPresencial,MetaETVirtual,MetaOtros,EstadoMeta,MetaTGOApPasan,MetaTCOApPasan,MetaETApPasan,MetaOTROApPasan")] Meta meta)
+        public ActionResult Edit([Bind(Include = "IdMeta,MetaFormacion,MetaTecnologia,MetaTecnico,MetaET,MetaOtros,EstadoMeta,MetaTGOApPasan,MetaTCOApPasan,MetaETApPasan,MetaOTROApPasan")] Meta meta)
         {
             if (ModelState.IsValid)
             {
