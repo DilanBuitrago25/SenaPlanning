@@ -132,5 +132,30 @@ namespace SenaPlanning.Controllers
             }
             base.Dispose(disposing);
         }
+        [HttpPost]
+        public ActionResult instructorRegister([Bind(Include = "IdInstructor,DocumentoInstructor,NombreCompletoInstructor,CodRegionalInstructor,RegionalInstructor,CodCCOS,DependenciaInstructor,CargoInstructor,TipoCargoInstructor,CorreoSENAInstructor,RedInstructor,AreaInstructor,RutaInstructor,CodMunicipioInstructor,MunicipioInstructor,FechaNacimientoInstructor,FechaIngreso,SexoInstructor,EstadoInstructor")] Instructor instructor)
+        {
+
+            var consultaInstructor = db.Instructor.Where(p => p.DocumentoInstructor == instructor.DocumentoInstructor).ToList();
+
+            if (consultaInstructor.Count() == 0)
+            {
+                var codigoArea = db.Instructor.Where(r => r.RedInstructor == instructor.RedInstructor).ToList();
+
+                db.Instructor.Add(instructor);
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { code = 200 });
+                }
+
+
+            }
+            return Json(new { code = 500 });
+        }
     }
 }

@@ -6,21 +6,11 @@
 
     <title>SenaPlanning</title>
 
-    <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
 
-
-    <meta property="og:title" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework">
-    <meta property="og:site_name" content="OneUI">
-    <meta property="og:description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-
     <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/media/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/media/favicons/svgLogo.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/media/favicons/svgLogo.svg">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" id="css-main" href="~/assets/css/oneui.min.css">
@@ -60,7 +50,7 @@
 
                 <div>
 
-                    <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="dark_mode_toggle">
+                    <button id="btn-mode" type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="dark_mode_toggle">
                         <i class="far fa-moon"></i>
                     </button>
 
@@ -256,6 +246,18 @@
         resetTimer();
         $(document).on('mousemove keydown click', resetTimer); // Reiniciar el temporizador con cualquier actividad
     });
+        document.getElementById("btn-mode").addEventListener("click", () => {
+            let body = document.getElementById("page-container");
+            console.log(body.className)
+
+            if (body.className === "sidebar-o enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled sidebar-dark page-header-dark dark-mode") {
+                body.className = "sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow";
+                localStorage.setItem("mode", "dark");
+                return
+            }
+            body.className = "sidebar-o enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled sidebar-dark page-header-dark dark-mode";
+            localStorage.setItem("mode", "light");
+        })
     </script>
 </body>
 </html>
