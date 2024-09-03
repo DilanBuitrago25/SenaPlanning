@@ -38,7 +38,7 @@
     double RESULT_META_TGO_AP_PROG = Math.Round((META_TGO_AP_PASAN / META_TGO) * 100, 2);
     double RESULT_META_TCO_AP_PROG = Math.Round((META_TCO_AP_PASAN / META_TCO) * 100, 2);
     double RESULT_META_ET_AP_PROG = Math.Round((META_ET_AP_PASAN / META_ET) * 100, 2);
-    double RESULT_META_OTROS_AP_PROG = Math.Round((META_OTRO_AP_PASAN / META_OTROS) * 2);
+    double RESULT_META_OTROS_AP_PROG = Math.Round((META_OTRO_AP_PASAN / META_OTROS) * 100, 2);
 
 
     double META_GENERAL = Math.Round((RESULT_META_TGO_AP_PROG + RESULT_META_TCO_AP_PROG + RESULT_META_ET_AP_PROG + RESULT_META_OTROS_AP_PROG) / 4,2);
@@ -62,7 +62,7 @@
 <!-- END Hero -->
 <div class="content">
     <h4>Meta general vigente del año <a class="fw-semibold"><span data-toggle="year-copy"></span></a></h4>
-    <div class="progress push">
+    <div class="progress push border shadow-sm">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: @META_GENERAL%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
             <span class="fs-sm fw-semibold">@META_GENERAL%</span>
         </div>

@@ -38,7 +38,7 @@ namespace ClaseModelo
         public Nullable<System.DateTime> FechaNacimientoInstructor { get; set; }
         public Nullable<System.DateTime> FechaIngreso { get; set; }
         public string SexoInstructor { get; set; }
-        public bool EstadoInstructor { get; set; }
+        public bool EstadoInstructor { get; set; } = true;
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Area_Conocimiento> Area_Conocimiento { get; set; }

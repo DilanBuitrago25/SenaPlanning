@@ -3,28 +3,14 @@
 @{
     ViewBag.Title = "Details";
 
-    double META_TGO = long.Parse(Model.MetaTecnPresencial.ToString()) + long.Parse(Model.MetaTecnVirtual.ToString());
-    double META_TCO = long.Parse(Model.MetaTecPresencial.ToString()) + long.Parse(Model.MetaTecVirtual.ToString());
-    double META_ET = long.Parse(Model.MetaETPresencial.ToString()) + long.Parse(Model.MetaETVirtual.ToString());
-    double META_OTROS = long.Parse(Model.MetaOtros.ToString());
-
-    double META_TGO_AP_PASAN = long.Parse(Model.MetaTGOApPasan.ToString());
-    double META_TCO_AP_PASAN = long.Parse(Model.MetaTCOApPasan.ToString());
-    double META_ET_AP_PASAN = long.Parse(Model.MetaETApPasan.ToString());
-    double META_OTRO_AP_PASAN = long.Parse(Model.MetaOTROApPasan.ToString());
-
     double APRENDICES_POR_CURSOS = 30;
     double APRENDICES_POR_CURSOS_OTROS = 35;
 
 
-    //APRENDICES_POR_CURSOS = long.Parse(item.APorCurso.ToString());
-    //APRENDICES_POR_CURSOS_OTROS = long.Parse(item.APorCursoOtros.ToString());
-
-
-    double RESULT_META_TGO_AP_PROG = (META_TGO - META_TGO_AP_PASAN);
-    double RESULT_META_TCO_AP_PROG = (META_TCO - META_TCO_AP_PASAN);
-    double RESULT_META_ET_AP_PROG = (META_ET - META_ET_AP_PASAN);
-    double RESULT_META_OTROS_AP_PROG = (META_OTROS - META_OTRO_AP_PASAN);
+    double RESULT_META_TGO_AP_PROG = (long.Parse(Model.MetaTecnPresencial.ToString()) + long.Parse(Model.MetaTecnVirtual.ToString()) - long.Parse(Model.MetaTGOApPasan.ToString()));
+    double RESULT_META_TCO_AP_PROG = (long.Parse(Model.MetaTecPresencial.ToString()) + long.Parse(Model.MetaTecVirtual.ToString()) - long.Parse(Model.MetaTCOApPasan.ToString()));
+    double RESULT_META_ET_AP_PROG = (long.Parse(Model.MetaETPresencial.ToString()) + long.Parse(Model.MetaETVirtual.ToString()) - long.Parse(Model.MetaETApPasan.ToString()));
+    double RESULT_META_OTROS_AP_PROG = (long.Parse(Model.MetaOtros.ToString()) - long.Parse(Model.MetaOTROApPasan.ToString()));
 
     double CURSO_META_TGO = dividir(RESULT_META_TGO_AP_PROG, APRENDICES_POR_CURSOS);
     double CURSO_META_TCO = dividir(RESULT_META_TCO_AP_PROG, APRENDICES_POR_CURSOS);

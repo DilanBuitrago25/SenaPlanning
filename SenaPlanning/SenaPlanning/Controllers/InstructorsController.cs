@@ -132,5 +132,43 @@ namespace SenaPlanning.Controllers
             }
             base.Dispose(disposing);
         }
+        [HttpPost]
+        public ActionResult instructorRegister([Bind(Include = "IdInstructor,DocumentoInstructor,NombreCompletoInstructor,CodRegionalInstructor,RegionalInstructor,CodCCOS,DependenciaInstructor,CargoInstructor,TipoCargoInstructor,CorreoSENAInstructor,RedInstructor,AreaInstructor,RutaInstructor,CodMunicipioInstructor,MunicipioInstructor,FechaNacimientoInstructor,FechaIngreso,SexoInstructor,EstadoInstructor")] Instructor instructor)
+        {
+            //var consultaRed = db.Red_Conocimiento.Where(r => r.NombreRed == instructor.RedInstructor).ToList();
+
+            //if (consultaRed.Count() == 0)
+            //{
+            //    Red_Conocimiento red_Conocimiento = new Red_Conocimiento
+            //    {
+            //        //CodigoRed = (new Random().Next(9999, 999999)) + (new DateTime().Second),
+            //        NombreRed = instructor.RedInstructor,
+            //        EstadoRed = true,
+            //    };
+            //    db.Red_Conocimiento.Add(red_Conocimiento);
+            //    db.SaveChanges();
+            //}
+
+            var consultaInstructor = db.Instructor.Where(p => p.DocumentoInstructor == instructor.DocumentoInstructor).ToList();
+
+            if (consultaInstructor.Count() == 0)
+            {
+                var codigoArea = db.Instructor.Where(r => r.RedInstructor == instructor.RedInstructor).ToList();
+
+                db.Instructor.Add(instructor);
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { code = 200 });
+                }
+
+
+            }
+            return Json(new { code = 500 });
+        }
     }
 }
