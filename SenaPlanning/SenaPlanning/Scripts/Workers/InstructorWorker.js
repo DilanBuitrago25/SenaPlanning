@@ -91,7 +91,6 @@ try {
             }
             if (data.length === instructorsCount) {
                 postMessage({ type: "ok_register" })
-                console.log(instructorsCount)
             }
         }
     }
@@ -99,8 +98,6 @@ try {
 } catch (e) {
     console.log(e)
 }
-
-
 //Se calcular el porcentage el progreso 
 function calculatePorcentage(number, maxLenght) {
     return Math.trunc((number / maxLenght) * 100)

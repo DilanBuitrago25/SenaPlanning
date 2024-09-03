@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\views\\metas\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\metas\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\senaplanning\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\scripts\\handlers\\instructorhandler.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\scripts\\handlers\\instructorhandler.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A307F2-BA68-4B89-B308-D1214A9FB55B}|ClaseModelo\\ClaseModelo.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\clasemodelo\\modelosenaplanning.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{C2A307F2-BA68-4B89-B308-D1214A9FB55B}|ClaseModelo\\ClaseModelo.csproj|solutionrelative:clasemodelo\\modelosenaplanning.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2A307F2-BA68-4B89-B308-D1214A9FB55B}|ClaseModelo\\ClaseModelo.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\clasemodelo\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C2A307F2-BA68-4B89-B308-D1214A9FB55B}|ClaseModelo\\ClaseModelo.csproj|solutionrelative:clasemodelo\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\scripts\\workers\\instructorworker.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\scripts\\workers\\instructorworker.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\githubrepositive\\senaplanning\\senaplanning\\senaplanning\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +54,124 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InstructorsController.cs",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\InstructorsController.cs",
+              "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\InstructorsController.cs",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\InstructorsController.cs",
+              "RelativeToolTip": "SenaPlanning\\Controllers\\InstructorsController.cs",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAAAJMAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T20:21:15.336Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "SenaPlanning\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T22:02:28.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAACkAAAAAAAAAAAAgwDgAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-03T22:01:39.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Details.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Details.cshtml",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Details.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Metas\\Details.cshtml",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAAFsAAACUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-03T21:37:49.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Details.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Home\\Details.cshtml",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Details.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Home\\Details.cshtml",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAFUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-03T21:37:35.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Instructor.cs",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\ClaseModelo\\Instructor.cs",
+              "RelativeDocumentMoniker": "ClaseModelo\\Instructor.cs",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\ClaseModelo\\Instructor.cs",
+              "RelativeToolTip": "ClaseModelo\\Instructor.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAA9wBoAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T20:49:05.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ModeloSenaPlanning.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\ClaseModelo\\ModeloSenaPlanning.edmx",
+              "RelativeDocumentMoniker": "ClaseModelo\\ModeloSenaPlanning.edmx",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\ClaseModelo\\ModeloSenaPlanning.edmx [Diagram1]",
+              "RelativeToolTip": "ClaseModelo\\ModeloSenaPlanning.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-09-03T20:47:53.826Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InstructorWorker.js",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Scripts\\Workers\\InstructorWorker.js",
+              "RelativeDocumentMoniker": "SenaPlanning\\Scripts\\Workers\\InstructorWorker.js",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Scripts\\Workers\\InstructorWorker.js",
+              "RelativeToolTip": "SenaPlanning\\Scripts\\Workers\\InstructorWorker.js",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAuwFAAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-03T20:42:22.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InstructorHandler.js",
+              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Scripts\\Handlers\\InstructorHandler.js",
+              "RelativeDocumentMoniker": "SenaPlanning\\Scripts\\Handlers\\InstructorHandler.js",
+              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Scripts\\Handlers\\InstructorHandler.js",
+              "RelativeToolTip": "SenaPlanning\\Scripts\\Handlers\\InstructorHandler.js",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-03T20:42:20.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\HomeController.cs",
@@ -30,19 +179,7 @@
               "RelativeToolTip": "SenaPlanning\\Controllers\\HomeController.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAgwCQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T20:24:29.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "InstructorsController.cs",
-              "DocumentMoniker": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\InstructorsController.cs",
-              "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\InstructorsController.cs",
-              "ToolTip": "C:\\GitHubRepositive\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\InstructorsController.cs",
-              "RelativeToolTip": "SenaPlanning\\Controllers\\InstructorsController.cs",
-              "ViewState": "AQIAAHwAAAAAAAAAAAAqwJMAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T20:21:15.336Z",
+              "WhenOpened": "2024-09-03T20:24:29.169Z",
               "EditorCaption": ""
             }
           ]

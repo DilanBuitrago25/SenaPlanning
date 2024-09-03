@@ -401,8 +401,8 @@
           <Property Name="RutaInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="CodMunicipioInstructor" Type="Int32" />
           <Property Name="MunicipioInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="FechaNacimientoInstructor" Type="DateTime" Precision="0" />
-          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="FechaNacimientoInstructor" Type="DateTime" />
+          <Property Name="FechaIngreso" Type="DateTime" />
           <Property Name="SexoInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="EstadoInstructor" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Area_Conocimiento" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Instructor" ToRole="Area_Conocimiento" />

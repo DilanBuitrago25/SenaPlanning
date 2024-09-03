@@ -21,7 +21,6 @@ workerInstructor.onmessage = async (e) => {
         buttom_progressBar_files_Instructor.style.display = "none";
         return
     }
-    console.log(e.data.type)
     if (e.data.type === "ok_read_files") {
         porcentage_progressBar_files_Instructor.style.display = "none";
         buttom_progressBar_files_Instructor.style.display = "";
