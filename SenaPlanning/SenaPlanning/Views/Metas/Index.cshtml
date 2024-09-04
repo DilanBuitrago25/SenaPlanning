@@ -53,39 +53,78 @@
 
             <br />
 
-            @foreach (var item in Model)
+            @if (Model.Any())
             {
-                double APRENDICES_POR_CURSOS = 30;
-                double APRENDICES_POR_CURSOS_OTROS = 35;
+                foreach (var item in Model)
+                {
+                    double APRENDICES_POR_CURSOS = 30;
+                    double APRENDICES_POR_CURSOS_OTROS = 35;
 
-                double RESULT_META_TGO_AP_PROG = Math.Round(double.Parse(item.MetaTGOApPasan.ToString()) / (double.Parse(item.MetaTecnPresencial.ToString()) + double.Parse(item.MetaTecnVirtual.ToString())) * 100, 2);
-                double RESULT_META_TCO_AP_PROG = Math.Round(double.Parse(item.MetaTCOApPasan.ToString()) / (double.Parse(item.MetaTecPresencial.ToString()) + double.Parse(item.MetaTecVirtual.ToString())) * 100, 2);
-                double RESULT_META_ET_AP_PROG = Math.Round(double.Parse(item.MetaETApPasan.ToString()) / (double.Parse(item.MetaETPresencial.ToString()) + double.Parse(item.MetaETVirtual.ToString()) ) * 100, 2);
-                double RESULT_META_OTROS_AP_PROG = Math.Round(double.Parse(item.MetaOTROApPasan.ToString()) / (double.Parse(item.MetaOtros.ToString())) * 100, 2);
+                    double RESULT_META_TGO_AP_PROG = 0;
+                    double RESULT_META_TCO_AP_PROG = 0;
+                    double RESULT_META_ET_AP_PROG = 0;
+                    double RESULT_META_OTROS_AP_PROG = 0;
 
+                    if (double.TryParse(item.MetaTGOApPasan.ToString(), out double metaTGOApPasan) &&
+                        double.TryParse(item.MetaTecnPresencial.ToString(), out double metaTecnPresencial) &&
+                        double.TryParse(item.MetaTecnVirtual.ToString(), out double metaTecnVirtual))
+                    {
+                        RESULT_META_TGO_AP_PROG = Math.Round(metaTGOApPasan / (metaTecnPresencial + metaTecnVirtual) * 100, 2);
+                    }
 
-                double META_GENERAL = Math.Round((RESULT_META_TGO_AP_PROG + RESULT_META_TCO_AP_PROG + RESULT_META_ET_AP_PROG + RESULT_META_OTROS_AP_PROG) / 4, 2);
+                    if (double.TryParse(item.MetaTCOApPasan.ToString(), out double metaTCOApPasan) &&
+                        double.TryParse(item.MetaTecPresencial.ToString(), out double metaTecPresencial) &&
+                        double.TryParse(item.MetaTecVirtual.ToString(), out double metaTecVirtual))
+                    {
+                        RESULT_META_TCO_AP_PROG = Math.Round(metaTCOApPasan / (metaTecPresencial + metaTecVirtual) * 100, 2);
+                    }
 
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <h4>Meta general vigente del año <a class="fw-semibold"><span>@Html.DisplayFor(modelItem => item.MetaFecha)</span></a></h4>
-                            <div class="progress push">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: @META_GENERAL%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="fs-sm fw-semibold">@META_GENERAL%</span>
+                    if (double.TryParse(item.MetaETApPasan.ToString(), out double metaETApPasan) &&
+                        double.TryParse(item.MetaETPresencial.ToString(), out double metaETPresencial) &&
+                        double.TryParse(item.MetaETVirtual.ToString(), out double metaETVirtual))
+                    {
+                        RESULT_META_ET_AP_PROG = Math.Round(metaETApPasan / (metaETPresencial + metaETVirtual) * 100, 2);
+                    }
+
+                    if (double.TryParse(item.MetaOTROApPasan.ToString(), out double metaOTROApPasan) &&
+                        double.TryParse(item.MetaOtros.ToString(), out double metaOtros))
+                    {
+                        RESULT_META_OTROS_AP_PROG = Math.Round(metaOTROApPasan / metaOtros * 100, 2);
+                    }
+
+                    double META_GENERAL = Math.Round((RESULT_META_TGO_AP_PROG + RESULT_META_TCO_AP_PROG + RESULT_META_ET_AP_PROG + RESULT_META_OTROS_AP_PROG) / 4, 2);
+
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Meta general vigente del año <a class="fw-semibold"><span>@Html.DisplayFor(modelItem => item.MetaFecha)</span></a></h4>
+                                <div class="progress push">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: @META_GENERAL%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="fs-sm fw-semibold">@META_GENERAL%</span>
+                                    </div>
+
                                 </div>
 
                             </div>
-
-                        </div>
-                        <div class="col-md-2">
-                            <br />
-                            @Html.ActionLink("Editar", "Edit", new { id = item.IdMeta }) |
-                            @Html.ActionLink("Detalles", "Details", new { id = item.IdMeta }) |
-                            @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMeta })
+                            <div class="col-md-2">
+                                <br />
+                                @Html.ActionLink("Editar", "Edit", new { id = item.IdMeta }) |
+                                @Html.ActionLink("Detalles", "Details", new { id = item.IdMeta }) |
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdMeta })
+                            </div>
                         </div>
                     </div>
-               </div>
+                }
+            }
+            else
+            {
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>No hay metas registradas</h4>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
     </div>

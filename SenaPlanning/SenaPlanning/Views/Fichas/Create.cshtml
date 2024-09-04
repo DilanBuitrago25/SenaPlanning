@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "Create";
 }
-
+@{
+    var fechaInFichaId = Html.IdFor(model => model.FechaInFicha);
+    var fechaFinFichaId = Html.IdFor(model => model.FechaFinFicha);
+}
 <br />
 <div class="container-fluid">
     <div class="page-header">
@@ -31,7 +34,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h5>Registrar Oferta</h5>
+                        <h5>Registrar Ficha</h5>
                     </div>
 
                     <div class="card-body">
@@ -39,22 +42,39 @@
 
                         <div class="row">
                             <div class="col-md-6">
+                                <label for="estadoFiltro">Red</label>
+                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarAreas()" })
+                                <br />
+                            </div>
+                            <div class="col-md-6">
                                 <label for="estadoFiltro">Oferta</label>
-                                @Html.DropDownList("IdOferta", null, "Selecciona una Oferta", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarOfertas()" })
+                                @Html.DropDownList("IdOferta", null, "Selecciona una Oferta", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarProgramas()" })
                                 <br />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Area de Conocimiento</label>
-                                 @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarProgramas()" })
+                                @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                <br />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="estadoFiltro">Tipo de Meta a Indicar</label>
+                                @Html.DropDownListFor(model => model.MetaOferta, new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "", Value = "" },
+                                    new SelectListItem { Text = "Meta Tecnologia", Value = "MetaTecnologia" },
+                                    new SelectListItem { Text = "Meta Tecnico", Value = "MetaTecnico " },
+                                    new SelectListItem { Text = "Meta Especializacion Tecnica", Value = "MetaET" },
+                                    new SelectListItem { Text = "Meta Otros", Value = "MetaOtros" }
+                                }, new { @class = "form-control" })
                                 <br />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Programa de Formación</label>
-                                @Html.DropDownList("IdPrograma",null , "Selecciona un Programa", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                @Html.DropDownList("IdPrograma", null, "Selecciona un Programa", new { @class = "js-select2 form-select col-sm-12 form-control" })
                             </div>
                             <div class="col-md-5">
                                 <label class="form-label">Nivel Programa</label>
@@ -64,25 +84,44 @@
                             </div>
                             @Html.HiddenFor(model => model.EstadoFicha, new { Value = "True" })
                         </div>
+
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
-                                @Html.EditorFor(model => model.FechaInFicha, new { htmlAttributes = new{ @class = "js-flatpickr form-control",placeholder = "d/m/Y",data_date_format = "d/m/Y"}})
+                                @Html.EditorFor(model => model.FechaInFicha, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "js-flatpickr form-control",
+                                        placeholder = "d/m/Y",
+                                        data_date_format = "d/m/Y",
+                               id = fechaInFichaId
+                           }
+                           })
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label" for="example-flatpickr-custom">Fecha Fin</label>
-                                @Html.EditorFor(model => model.FechaFinFicha, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y", data_date_format = "d/m/Y" } })
+                                @Html.EditorFor(model => model.FechaFinFicha, new
+                                {
+                                    htmlAttributes = new
+                                    {
+                                        @class = "js-flatpickr form-control",
+                                        placeholder = "d/m/Y",
+                                        data_date_format = "d/m/Y",
+                               id = fechaFinFichaId
+                           }
+                                })
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label">No Aprendices</label>
-                                @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { @class = "form-control"} })
+                                @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.HiddenFor(model => model.NumAprenFicha, new { Value = 30 })
 
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label">Codigo Programa</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="codigoProgramaInput"name="example-static-input-readonly" value="">
+                                <input type="text" readonly class="form-control" id="codigoProgramaInput" name="example-static-input-readonly" value="">
                                 <br />
                             </div>
 
@@ -135,17 +174,17 @@
                                 <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="2/6">
                             </div>
                             <div class="col-md-2">
-                               
+
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Estado Oferta</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" class="form-control form-control-alt" id="estadoOfertaInput" name="example-text-input-alt" placeholder="">
+                                <input type="text" readonly class="form-control" id="estadoOfertaInput" name="example-static-input-readonly" value="">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Meta</label>
                                 @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" class="form-control" id="example-text-input" name="example-text-input" placeholder="2024">
+                                <input type="text" readonly class="form-control" id="metaOfertaInput" name="example-static-input-readonly" value="">
                                 <br />
                             </div>
 
@@ -173,58 +212,23 @@
         $("#NumAprenFicha").val(30);
     });
 
-    function cargarOfertas() {
-    var selectedOfertaId = $("#IdOferta").val();
-    if (selectedOfertaId) {
-        $.ajax({
-            url: '@Url.Action("ObtenerAreasPorOferta", "Fichas")',
-            type: 'GET',
-            data: { idOferta: selectedOfertaId },
-            success: function (data) {
-                var areasSelect = $("#Area");
-                areasSelect.empty();
-                areasSelect.append($('<option></option>').val("").text("Selecciona una Area")); // Opción por defecto
-                $.each(data, function (index, area) {
-                    areasSelect.append($('<option></option>').val(area.Value).text(area.Text));
-                });
-
-                // Limpiar el select de Programas cuando se cambia la Oferta
-                $("#IdPrograma").empty();
-                $("#IdPrograma").append($('<option></option>').val("").text("Selecciona un Programa"));
-            }
-        });
-    } else {
-        // Limpiar ambos selects si no se selecciona una Oferta
-        $("#Area").empty();
-        $("#IdPrograma").empty();
-        $("#Area").append($('<option></option>').val("").text("Selecciona una Area"));
-        $("#IdPrograma").append($('<option></option>').val("").text("Selecciona un Programa"));
-    }
-}
-
-    function cargarProgramas() {
-        var selectedAreaId = $("#Area").val();
-        if (selectedAreaId) {
-            $.ajax({
-                url: '@Url.Action("ObtenerProgramasPorArea", "Fichas")',
-                type: 'GET',
-                data: { idArea: selectedAreaId },
-                success: function (data) {
-                    var programasSelect = $("#IdPrograma");
-                    programasSelect.empty();
-                    programasSelect.append($('<option></option>').val("").text("Selecciona un Programa")); 
-                    $.each(data, function (index, programa) {
-                        programasSelect.append($('<option></option>').val(programa.Value).text(programa.Text));
-                    });
-                }
+     function cargarAreas() {
+    var redId = $("#Red").val();
+    $.ajax({
+        url: '@Url.Action("ObtenerAreasPorRedes", "Fichas")',
+        type: 'GET',
+        data: { idRed: redId },
+        success: function (data) {
+            var selectArea = $("#Area");
+            selectArea.empty();
+            $.each(data, function (index, area) {
+                selectArea.append($('<option></option>').val(area.Value).text(area.Text));
             });
-        } else {
-            $("#IdPrograma").empty();
-            $("#IdPrograma").append($('<option></option>').val("").text("Selecciona un Programa"));
         }
+    });
     }
 
-                @*function cargarProgramas() {
+            function cargarProgramas() {
     var areaId = $("#Area").val();
     $.ajax({
         url: '@Url.Action("ObtenerProgramasPorAreas", "Fichas")',
@@ -238,7 +242,7 @@
             });
         }
     });
-    }*@
+    }
 
     $(document).ready(function() {
     $("#IdPrograma").change(function() {
@@ -310,9 +314,43 @@
         }
     });
 });
+                });
+
+                                $(document).ready(function() {
+        $("#IdOferta").change(function() {
+    var selectedOfertaId = $(this).val();
+
+    $.ajax({
+        url: '@Url.Action("ObtenerMetaOferta", "Fichas")',
+        type: 'GET',
+        data: { idOferta: selectedOfertaId },
+        success: function (data) {
+            $("#metaOfertaInput").val(data);
+        },
+        error: function() {
+            alert("Error al obtener la fecha de la meta.");
+        }
+    });
+});
     });
 
+    flatpickr("#@fechaInFichaId", { // Inicializa Flatpickr para FechaInFicha
+        dateFormat: "d/m/Y",
+        onChange: function(selectedDates, dateStr, instance) {
+            if (selectedDates.length > 0) {
+                var fechaInicio = selectedDates[0];
+                var fechaFin = new Date(fechaInicio);
+                fechaFin.setMonth(fechaFin.getMonth() + 18); // Suma 18 meses
 
+                flatpickr("#@fechaFinFichaId", { // Inicializa Flatpickr para FechaFinFicha
+                    dateFormat: "d/m/Y",
+                    defaultDate: fechaFin // Establece la fecha calculada como valor por defecto
+                });
+            } else {
+                flatpickr("#@fechaFinFichaId").clear(); // Limpia FechaFinFicha si FechaInFicha está vacía
+            }
+        }
+    });
 
 </script>
 

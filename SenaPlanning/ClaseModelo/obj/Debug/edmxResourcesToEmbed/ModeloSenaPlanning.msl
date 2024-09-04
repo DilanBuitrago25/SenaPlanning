@@ -33,6 +33,7 @@
           <ScalarProperty Name="FechaFinFicha" ColumnName="FechaFinFicha" />
           <ScalarProperty Name="NumAprenFicha" ColumnName="NumAprenFicha" />
           <ScalarProperty Name="JornadaFicha" ColumnName="JornadaFicha" />
+          <ScalarProperty Name="MetaOferta" ColumnName="MetaOferta" />
           <ScalarProperty Name="EstadoFicha" ColumnName="EstadoFicha" />
           <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
           <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
@@ -61,6 +62,52 @@
           <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
           <ScalarProperty Name="SexoInstructor" ColumnName="SexoInstructor" />
           <ScalarProperty Name="EstadoInstructor" ColumnName="EstadoInstructor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meta">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Meta">
+        <MappingFragment StoreEntitySet="Meta">
+          <ScalarProperty Name="IdMeta" ColumnName="IdMeta" />
+          <ScalarProperty Name="MetaFecha" ColumnName="MetaFecha" />
+          <ScalarProperty Name="MetaTecnPresencial" ColumnName="MetaTecnPresencial" />
+          <ScalarProperty Name="MetaTecnVirtual" ColumnName="MetaTecnVirtual" />
+          <ScalarProperty Name="MetaTecPresencial" ColumnName="MetaTecPresencial" />
+          <ScalarProperty Name="MetaTecVirtual" ColumnName="MetaTecVirtual" />
+          <ScalarProperty Name="MetaETPresencial" ColumnName="MetaETPresencial" />
+          <ScalarProperty Name="MetaETVirtual" ColumnName="MetaETVirtual" />
+          <ScalarProperty Name="MetaOtros" ColumnName="MetaOtros" />
+          <ScalarProperty Name="EstadoMeta" ColumnName="EstadoMeta" />
+          <ScalarProperty Name="MetaTGOApPasan" ColumnName="MetaTGOApPasan" />
+          <ScalarProperty Name="MetaTCOApPasan" ColumnName="MetaTCOApPasan" />
+          <ScalarProperty Name="MetaETApPasan" ColumnName="MetaETApPasan" />
+          <ScalarProperty Name="MetaOTROApPasan" ColumnName="MetaOTROApPasan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oferta">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Oferta">
+        <MappingFragment StoreEntitySet="Oferta">
+          <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
+          <ScalarProperty Name="EstadoOferta" ColumnName="EstadoOferta" />
+          <ScalarProperty Name="NombreOferta" ColumnName="NombreOferta" />
+          <ScalarProperty Name="FechaInicioOferta" ColumnName="FechaInicioOferta" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdMetas" ColumnName="IdMetas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programa_Formacion">
+      <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
+        <MappingFragment StoreEntitySet="Programa_Formacion">
+          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
+          <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
+          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
+          <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
+          <ScalarProperty Name="CodigoPrograma" ColumnName="CodigoPrograma" />
+          <ScalarProperty Name="HorasPrograma" ColumnName="HorasPrograma" />
+          <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -104,53 +151,5 @@
         <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="Oferta">
-      <EntityTypeMapping TypeName="SenaPlanningModel.Oferta">
-        <MappingFragment StoreEntitySet="Oferta">
-          <ScalarProperty Name="IdRed" ColumnName="IdRed" />
-          <ScalarProperty Name="IdMetas" ColumnName="IdMetas" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-          <ScalarProperty Name="MetaOferta" ColumnName="MetaOferta" />
-          <ScalarProperty Name="FechaInicioOferta" ColumnName="FechaInicioOferta" />
-          <ScalarProperty Name="NombreOferta" ColumnName="NombreOferta" />
-          <ScalarProperty Name="EstadoOferta" ColumnName="EstadoOferta" />
-          <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Programa_Formacion">
-      <EntityTypeMapping TypeName="SenaPlanningModel.Programa_Formacion">
-        <MappingFragment StoreEntitySet="Programa_Formacion">
-          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
-          <ScalarProperty Name="EstadoPrograma" ColumnName="EstadoPrograma" />
-          <ScalarProperty Name="HorasPrograma" ColumnName="HorasPrograma" />
-          <ScalarProperty Name="CodigoPrograma" ColumnName="CodigoPrograma" />
-          <ScalarProperty Name="NivelPrograma" ColumnName="NivelPrograma" />
-          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
-          <ScalarProperty Name="DenominacionPrograma" ColumnName="DenominacionPrograma" />
-          <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Meta">
-      <EntityTypeMapping TypeName="SenaPlanningModel.Meta">
-        <MappingFragment StoreEntitySet="Meta">
-          <ScalarProperty Name="MetaOTROApPasan" ColumnName="MetaOTROApPasan" />
-          <ScalarProperty Name="MetaETApPasan" ColumnName="MetaETApPasan" />
-          <ScalarProperty Name="MetaTCOApPasan" ColumnName="MetaTCOApPasan" />
-          <ScalarProperty Name="MetaTGOApPasan" ColumnName="MetaTGOApPasan" />
-          <ScalarProperty Name="EstadoMeta" ColumnName="EstadoMeta" />
-          <ScalarProperty Name="MetaOtros" ColumnName="MetaOtros" />
-          <ScalarProperty Name="MetaETVirtual" ColumnName="MetaETVirtual" />
-          <ScalarProperty Name="MetaETPresencial" ColumnName="MetaETPresencial" />
-          <ScalarProperty Name="MetaTecVirtual" ColumnName="MetaTecVirtual" />
-          <ScalarProperty Name="MetaTecPresencial" ColumnName="MetaTecPresencial" />
-          <ScalarProperty Name="MetaTecnVirtual" ColumnName="MetaTecnVirtual" />
-          <ScalarProperty Name="MetaTecnPresencial" ColumnName="MetaTecnPresencial" />
-          <ScalarProperty Name="MetaFecha" ColumnName="MetaFecha" />
-          <ScalarProperty Name="IdMeta" ColumnName="IdMeta" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

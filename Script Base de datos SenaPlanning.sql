@@ -89,11 +89,11 @@ IdOferta int identity (1,1) not null,
 EstadoOferta bit default (1) not null,
 NombreOferta varchar(250) not null,
 FechaInicioOferta varchar(100),
-MetaOferta varchar(150),
+--MetaOferta varchar(150),
 primary key (IdOferta),
 IdUsuario int references Usuario(IdUsuario),
-IdMetas int references Meta(IdMeta),
-IdRed int references Red_Conocimiento(IdRed));
+IdMetas int references Meta(IdMeta));
+--IdRed int references Red_Conocimiento(IdRed)
 
 go
 
@@ -138,6 +138,7 @@ FechaInFicha date,
 FechaFinFicha date,
 NumAprenFicha int,
 JornadaFicha Varchar (100),
+MetaOferta varchar(150),
 primary key (IdFicha),
 EstadoFicha bit default (1) not null,
 IdPrograma int references Programa_Formacion(IdPrograma),

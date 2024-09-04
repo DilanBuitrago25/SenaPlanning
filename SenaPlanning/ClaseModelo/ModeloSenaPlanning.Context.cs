@@ -29,10 +29,10 @@ namespace ClaseModelo
         public virtual DbSet<Area_Conocimiento> Area_Conocimiento { get; set; }
         public virtual DbSet<Ficha> Ficha { get; set; }
         public virtual DbSet<Instructor> Instructor { get; set; }
-        public virtual DbSet<Red_Conocimiento> Red_Conocimiento { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Meta> Meta { get; set; }
         public virtual DbSet<Oferta> Oferta { get; set; }
         public virtual DbSet<Programa_Formacion> Programa_Formacion { get; set; }
-        public virtual DbSet<Meta> Meta { get; set; }
+        public virtual DbSet<Red_Conocimiento> Red_Conocimiento { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

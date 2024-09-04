@@ -39,6 +39,7 @@
     <Property Name="FechaFinFicha" Type="date" />
     <Property Name="NumAprenFicha" Type="int" />
     <Property Name="JornadaFicha" Type="varchar" MaxLength="100" />
+    <Property Name="MetaOferta" Type="varchar" MaxLength="150" />
     <Property Name="EstadoFicha" Type="bit" Nullable="false" />
     <Property Name="IdPrograma" Type="int" />
     <Property Name="IdOferta" Type="int" />
@@ -102,10 +103,8 @@
     <Property Name="EstadoOferta" Type="bit" Nullable="false" />
     <Property Name="NombreOferta" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="FechaInicioOferta" Type="varchar" MaxLength="100" />
-    <Property Name="MetaOferta" Type="varchar" MaxLength="150" />
     <Property Name="IdUsuario" Type="int" />
     <Property Name="IdMetas" Type="int" />
-    <Property Name="IdRed" Type="int" />
   </EntityType>
   <EntityType Name="Programa_Formacion">
     <Key>
@@ -154,7 +153,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ficha__IdOferta__4316F928">
+  <Association Name="FK__Ficha__IdOferta__4222D4EF">
     <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
     <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
     <ReferentialConstraint>
@@ -166,7 +165,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Ficha__IdProgram__4222D4EF">
+  <Association Name="FK__Ficha__IdProgram__412EB0B6">
     <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="0..1" />
     <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
     <ReferentialConstraint>
@@ -187,18 +186,6 @@
       </Principal>
       <Dependent Role="Oferta">
         <PropertyRef Name="IdMetas" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Oferta__IdRed__37A5467C">
-    <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
-    <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Red_Conocimiento">
-        <PropertyRef Name="IdRed" />
-      </Principal>
-      <Dependent Role="Oferta">
-        <PropertyRef Name="IdRed" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -290,20 +277,16 @@
       <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
       <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ficha__IdOferta__4316F928" Association="Self.FK__Ficha__IdOferta__4316F928">
+    <AssociationSet Name="FK__Ficha__IdOferta__4222D4EF" Association="Self.FK__Ficha__IdOferta__4222D4EF">
       <End Role="Oferta" EntitySet="Oferta" />
       <End Role="Ficha" EntitySet="Ficha" />
     </AssociationSet>
-    <AssociationSet Name="FK__Ficha__IdProgram__4222D4EF" Association="Self.FK__Ficha__IdProgram__4222D4EF">
+    <AssociationSet Name="FK__Ficha__IdProgram__412EB0B6" Association="Self.FK__Ficha__IdProgram__412EB0B6">
       <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
       <End Role="Ficha" EntitySet="Ficha" />
     </AssociationSet>
     <AssociationSet Name="FK__Oferta__IdMetas__36B12243" Association="Self.FK__Oferta__IdMetas__36B12243">
       <End Role="Meta" EntitySet="Meta" />
-      <End Role="Oferta" EntitySet="Oferta" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Oferta__IdRed__37A5467C" Association="Self.FK__Oferta__IdRed__37A5467C">
-      <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
       <End Role="Oferta" EntitySet="Oferta" />
     </AssociationSet>
     <AssociationSet Name="FK__Oferta__IdUsuari__35BCFE0A" Association="Self.FK__Oferta__IdUsuari__35BCFE0A">
