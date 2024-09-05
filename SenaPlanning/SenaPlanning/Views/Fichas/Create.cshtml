@@ -114,7 +114,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label class="form-label">No Aprendices</label>
-                                @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new {id= "NumAprenFicha", @class = "form-control" } })
                                 @Html.HiddenFor(model => model.NumAprenFicha, new { Value = 30 })
 
                             </div>
@@ -148,7 +148,7 @@
                                     new SelectListItem { Text = "Virtual", Value = "Virtual" },
                                     new SelectListItem { Text = "A Distancia", Value = "Distancia" },
                                     new SelectListItem { Text = "Otro", Value = "Otro" }
-                                }, new { @class = "form-control" })
+                                }, new { id= "JornadaFicha", @class = "form-control" })
                             </div>
 
                         </div>

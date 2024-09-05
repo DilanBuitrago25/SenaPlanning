@@ -18,4 +18,5 @@ namespace ClaseModelo
         public string NombreArea { get; set; }
         public string NombreRed { get; set; }
     }
+
 }

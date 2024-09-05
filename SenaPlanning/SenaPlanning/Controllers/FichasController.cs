@@ -59,10 +59,35 @@ namespace SenaPlanning.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,TrimestreFicha,JornadaFicha,IdPrograma,EstadoFicha")] Ficha ficha)
+        public ActionResult Create([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,TrimestreFicha,JornadaFicha,IdPrograma,EstadoFicha,IdOferta,NumAprenFicha")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {
+                var programa_Formacion = db.Programa_Formacion.Find(ficha.IdPrograma);
+                var oferta = db.Oferta.Where(o => o.IdOferta == ficha.IdOferta).ToList();
+                var meta = db.Meta.Find(oferta[0].IdMetas);
+
+                List<string> nivel = new List<string>() { "Tecnólogo", "Técnico", "Especialización tecnológica" };
+
+                if (programa_Formacion.NivelPrograma == nivel[0])
+                {
+                    meta.MetaTGOApPasan = meta.MetaTGOApPasan + ficha.NumAprenFicha;
+                }
+
+                if (programa_Formacion.NivelPrograma == nivel[1])
+                {
+                    meta.MetaTCOApPasan = meta.MetaTCOApPasan + ficha.NumAprenFicha;
+                }
+
+                if (programa_Formacion.NivelPrograma == nivel[2])
+                {
+                    meta.MetaETApPasan = meta.MetaETApPasan + ficha.NumAprenFicha;
+                }
+                if (!nivel.Contains(programa_Formacion.NivelPrograma))
+                {
+                    meta.MetaOTROApPasan = meta.MetaTCOApPasan + ficha.NumAprenFicha;
+                }
+
                 db.Ficha.Add(ficha);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -133,6 +158,32 @@ namespace SenaPlanning.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Ficha ficha = db.Ficha.Find(id);
+
+            var programa_Formacion = db.Programa_Formacion.Find(ficha.IdPrograma);
+            var oferta = db.Oferta.Where(o => o.IdOferta == ficha.IdOferta).ToList();
+            var meta = db.Meta.Find(oferta[0].IdMetas);
+
+            List<string> nivel = new List<string>() { "Tecnólogo", "Técnico", "Especialización tecnológica" };
+
+            if (programa_Formacion.NivelPrograma == nivel[0])
+            {
+                meta.MetaTGOApPasan = meta.MetaTGOApPasan - ficha.NumAprenFicha;
+            }
+
+            if (programa_Formacion.NivelPrograma == nivel[1])
+            {
+                meta.MetaTCOApPasan = meta.MetaTCOApPasan - ficha.NumAprenFicha;
+            }
+
+            if (programa_Formacion.NivelPrograma == nivel[2])
+            {
+                meta.MetaETApPasan = meta.MetaETApPasan - ficha.NumAprenFicha;
+            }
+            if (!nivel.Contains(programa_Formacion.NivelPrograma))
+            {
+                meta.MetaOTROApPasan = meta.MetaTCOApPasan - ficha.NumAprenFicha;
+            }
+
             db.Ficha.Remove(ficha);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,7 +1,13 @@
-﻿@model IEnumerable<ClaseModelo.Oferta>
+﻿@model IEnumerable<ClaseModelo.Ficha>
 
 @{
     ViewBag.Title = "Index";
+
+    int HORAS_TRIMESTRES_NOCTURNA = 220;
+
+    int HORAS_TRIMESTRE_DIURNA = 440;
+
+
 }
 
 
@@ -86,8 +92,7 @@
                         <th>Nombre del programa</th>
                         <th>Jornada</th>
                         <th>Nivel</th>
-                        <th>Version</th>
-                        <th>Trimestre III</th>
+                        <th>Trimestre @(new[] { "", "I", "II", "III", "IV" }[(DateTime.Now.Month - 1) / 3 + 1])</th>
                         <th>Fecha inicio</th>
                         <th>Fecha fin</th>
                         <th>No. Aprendices</th>
@@ -102,9 +107,6 @@
                             <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">TGO</span>
                         </td>
                         <td>
-                            <span class="text-muted fs-sm">1</span>
-                        </td>
-                        <td>
                             <span class="text-muted fs-sm">7/7</span>
                         </td>
                         <td>
@@ -117,6 +119,29 @@
                             <span class="text-muted fs-sm">16</span>
                         </td>
                     </tr>
+                    @foreach (var item in Model)
+                    {
+                       <tr>
+                           <td class="text-center fs-sm">@item.CodigoFicha</td>
+                           <td class="fw-semibold fs-sm">@item.Programa_Formacion.DenominacionPrograma</td>
+                           <td class="fs-sm">@item.JornadaFicha</td>
+                           <td>
+                               <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">@item.Programa_Formacion.NivelPrograma</span>
+                           </td>
+                           <td>
+                               <span class="text-muted fs-sm">7/7</span>
+                           </td>
+                           <td>
+                               23/01/2023
+                           </td>
+                           <td>
+                               23/03/2025
+                           </td>
+                           <td>
+                               <span class="text-muted fs-sm">16</span>
+                           </td>
+                       </tr>
+                    }
                 </tbody>
                 <tfoot>
                     <tr>

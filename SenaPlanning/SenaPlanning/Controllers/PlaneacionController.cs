@@ -19,8 +19,8 @@ namespace SenaPlanning.Controllers
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
-            var oferta = db.Oferta.Include(o => o.Meta).Include(o => o.Usuario);
-            return View(oferta.ToList());
+            var ficha = db.Ficha.Where(m => m.Oferta.Meta.MetaFecha == DateTime.Now.Year.ToString() || m.Oferta.Meta.MetaFecha == (DateTime.Now.Year - 1).ToString());
+            return View(ficha.ToList());
         }
 
         // GET: Planeacion/Details/5
