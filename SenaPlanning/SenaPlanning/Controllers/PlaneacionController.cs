@@ -131,6 +131,44 @@ namespace SenaPlanning.Controllers
             return RedirectToAction("Index");
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
+        public ActionResult Instructores_Contratar(int año)
+        {
+            ViewBag.AñoActual = año;
+            return View(año);   
+        }
+
+        //public static Tuple<DateTime, DateTime> ObtenerRangoFechasPorTrimestre(int trimestre, int año)
+        //{
+        //    DateTime inicioTrimestre;
+        //    DateTime finTrimestre;
+
+        //    switch (trimestre)
+        //    {
+        //        case 1:
+        //            inicioTrimestre = new DateTime(año, 1, 1);
+        //            finTrimestre = new DateTime(año, 3, 31);
+        //            break;
+        //        case 2:
+        //            inicioTrimestre = new DateTime(año, 4, 1);
+        //            finTrimestre = new DateTime(año, 6, 30);
+        //            break;
+        //        case 3:
+        //            inicioTrimestre = new DateTime(año, 7, 1);
+        //            finTrimestre = new DateTime(año, 9, 30);
+        //            break;
+        //        case 4:
+        //            inicioTrimestre = new DateTime(año, 10, 1);
+        //            finTrimestre = new DateTime(año, 12, 31);
+        //            break;
+                
+        //        default:
+        //            throw new ArgumentOutOfRangeException(nameof(trimestre), "El trimestre debe estar entre 1 y 4");
+        //    }
+
+        //    return new Tuple<DateTime, DateTime>(inicioTrimestre, finTrimestre);
+        //}
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

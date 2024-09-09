@@ -35,8 +35,8 @@ namespace ClaseModelo
         public string RutaInstructor { get; set; }
         public Nullable<int> CodMunicipioInstructor { get; set; }
         public string MunicipioInstructor { get; set; }
-        public Nullable<System.DateTime> FechaNacimientoInstructor { get; set; }
-        public Nullable<System.DateTime> FechaIngreso { get; set; }
+        public string FechaNacimientoInstructor { get; set; }
+        public string FechaIngreso { get; set; }
         public string SexoInstructor { get; set; }
         public bool EstadoInstructor { get; set; }
     

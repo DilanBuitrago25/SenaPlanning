@@ -44,7 +44,6 @@
           <Property Name="FechaFinFicha" Type="date" />
           <Property Name="NumAprenFicha" Type="int" />
           <Property Name="JornadaFicha" Type="varchar" MaxLength="100" />
-          <Property Name="MetaOferta" Type="varchar" MaxLength="150" />
           <Property Name="EstadoFicha" Type="bit" Nullable="false" />
           <Property Name="IdPrograma" Type="int" />
           <Property Name="IdOferta" Type="int" />
@@ -76,8 +75,8 @@
           <Property Name="RutaInstructor" Type="varchar" MaxLength="150" />
           <Property Name="CodMunicipioInstructor" Type="int" />
           <Property Name="MunicipioInstructor" Type="varchar" MaxLength="150" />
-          <Property Name="FechaNacimientoInstructor" Type="date" />
-          <Property Name="FechaIngreso" Type="date" />
+          <Property Name="FechaNacimientoInstructor" Type="varchar" MaxLength="150" />
+          <Property Name="FechaIngreso" Type="varchar" MaxLength="150" />
           <Property Name="SexoInstructor" Type="varchar" MaxLength="150" />
           <Property Name="EstadoInstructor" Type="bit" Nullable="false" />
         </EntityType>
@@ -359,7 +358,6 @@
           <Property Name="FechaFinFicha" Type="DateTime" Precision="0" />
           <Property Name="NumAprenFicha" Type="Int32" />
           <Property Name="JornadaFicha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="MetaOferta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="EstadoFicha" Type="Boolean" Nullable="false" />
           <Property Name="IdPrograma" Type="Int32" />
           <Property Name="IdOferta" Type="Int32" />
@@ -386,8 +384,8 @@
           <Property Name="RutaInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="CodMunicipioInstructor" Type="Int32" />
           <Property Name="MunicipioInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="FechaNacimientoInstructor" Type="DateTime" Precision="0" />
-          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="FechaNacimientoInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FechaIngreso" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="SexoInstructor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="EstadoInstructor" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Area_Conocimiento" Relationship="Self.Area_conocimiento_has_Instructor" FromRole="Instructor" ToRole="Area_Conocimiento" />
@@ -626,7 +624,6 @@
                 <ScalarProperty Name="FechaFinFicha" ColumnName="FechaFinFicha" />
                 <ScalarProperty Name="NumAprenFicha" ColumnName="NumAprenFicha" />
                 <ScalarProperty Name="JornadaFicha" ColumnName="JornadaFicha" />
-                <ScalarProperty Name="MetaOferta" ColumnName="MetaOferta" />
                 <ScalarProperty Name="EstadoFicha" ColumnName="EstadoFicha" />
                 <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
                 <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />
