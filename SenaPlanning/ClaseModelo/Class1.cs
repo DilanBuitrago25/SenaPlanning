@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,12 @@ namespace ClaseModelo
         public bool EstadoPrograma { get; set; } = true;
         public string NombreArea { get; set; }
         public string NombreRed { get; set; }
+    }
+
+    public class MetaAndOferta
+    {
+        public List<Meta> Metas { get; set; }
+        public  List<Oferta> Ofertas { get; set; }
     }
 
 }

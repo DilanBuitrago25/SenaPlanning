@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,6 +18,13 @@ namespace SenaPlanning.Controllers
 
         public ActionResult Index()
         {
+            MetaAndOferta metaAndOferta = new MetaAndOferta
+            {
+                Metas = db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList(),
+                Ofertas = db.Oferta.Where(o => o.Meta.MetaFecha == DateTime.Now.Year.ToString()).ToList()
+
+            };
+
             return View(db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList());
         }
         [AutorizarTipoUsuario("Coordinador", "Administrador")]

@@ -8,6 +8,54 @@
     int HORAS_TRIMESTRE_DIURNA = 440;
 
 
+
+    string GetTrimestreActual(DateTime fechaInicio, int totalTrimestres)
+    {
+        // Obtenemos la fecha actual
+        DateTime fechaActual = DateTime.Now;
+
+        // Si la fecha actual es anterior a la fecha de inicio, devuelve "0"
+        if (fechaActual < fechaInicio)
+        {
+            return $"0";
+        }
+
+        // Calculamos los meses transcurridos desde la fecha de inicio hasta la fecha actual
+        int mesesTranscurridos = (fechaActual.Year - fechaInicio.Year) * 12 + fechaActual.Month - fechaInicio.Month;
+
+        // Calculamos los trimestres transcurridos (dividiendo los meses transcurridos entre 3)
+        int trimestresTranscurridos = mesesTranscurridos / 3;
+
+        // Calculamos los trimestres restantes (total de trimestres - trimestres transcurridos)
+        int trimestresRestantes = totalTrimestres - trimestresTranscurridos;
+
+        // Si el número de trimestres transcurridos más 1 es menor o igual al total de trimestres,
+        // devuelve el número de trimestre actual (trimestres transcurridos + 1) y el total de trimestres
+        if (trimestresTranscurridos + 1 <= totalTrimestres)
+        {
+            return $"{trimestresTranscurridos + 1}/{totalTrimestres}";
+        }
+
+        // Si no, devuelve "EP" que significa Etapa Practica
+        return $"EP";
+    }
+
+    int getTotalTrimestres(string total)
+    {
+
+        if (total.Length == 1)
+        {
+            return int.Parse(total);
+        }
+        else
+        {
+            return (int)Math.Floor((double.Parse(total) / HORAS_TRIMESTRE_DIURNA)-2);
+        }
+
+        return 0;
+    }
+
+
 }
 
 
@@ -96,10 +144,11 @@
                         <th>Fecha inicio</th>
                         <th>Fecha fin</th>
                         <th>No. Aprendices</th>
+                        <th>Año de creación</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    @*<tr>
                         <td class="text-center fs-sm">2693606</td>
                         <td class="fw-semibold fs-sm">ANALISIS Y DESARROLLO DE SOFTWARE</td>
                         <td class="fs-sm">Mixta</td>
@@ -118,7 +167,7 @@
                         <td>
                             <span class="text-muted fs-sm">16</span>
                         </td>
-                    </tr>
+                    </tr>*@
                     @foreach (var item in Model)
                     {
                        <tr>
@@ -129,25 +178,29 @@
                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">@item.Programa_Formacion.NivelPrograma</span>
                            </td>
                            <td>
-                               <span class="text-muted fs-sm">7/7</span>
+                               <span class="text-muted fs-sm">@GetTrimestreActual(DateTime.Parse(item.FechaInFicha.ToString()), getTotalTrimestres(item.Programa_Formacion.HorasPrograma))  </span>
                            </td>
                            <td>
-                               23/01/2023
+                               @(DateTime.Parse(item.FechaInFicha.ToString()).ToString("dd/MM/yyyy"))
                            </td>
                            <td>
-                               23/03/2025
+                               @(DateTime.Parse(item.FechaFinFicha.ToString()).ToString("dd/MM/yyyy"))
                            </td>
                            <td>
-                               <span class="text-muted fs-sm">16</span>
+                               <span class="text-muted fs-sm">@item.NumAprenFicha</span>
+                           </td>
+                           <td>
+                               @item.Oferta.Meta.MetaFecha
                            </td>
                        </tr>
                     }
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="7"></td>
+                        <td colspan="6"></td>
                         <td class="fw-semibold" colspan="1">No. Aprendices:</td>
                         <td>16</td>
+                        <td></td>
                     </tr>
                 </tfoot>
             </table>
