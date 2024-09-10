@@ -1,51 +1,20 @@
-﻿@model IEnumerable<ClaseModelo.Meta>
+﻿@model IEnumerable<ClaseModelo.Oferta>
 @{
 
     ViewBag.Title = "Home Page";
 
-    double META_TGO = 0;
-    double META_TCO = 0;
-    double META_ET = 0 ;
-    double META_OTROS = 0;
-
-    double META_TGO_AP_PASAN = 0;
-    double META_TCO_AP_PASAN = 0;
-    double META_ET_AP_PASAN = 0;
-    double META_OTRO_AP_PASAN = 0;
-
-    double APRENDICES_POR_CURSOS = 30;
-    double APRENDICES_POR_CURSOS_OTROS = 35;
-
-    long id = 0;
-
-    foreach (var item in Model)
-    {
-        id = item.IdMeta;
-
-        META_TGO = int.Parse(item.MetaTecnPresencial.ToString())  + int.Parse(item.MetaTecnVirtual.ToString());
-        META_TCO = int.Parse(item.MetaTecPresencial.ToString()) + int.Parse(item.MetaTecVirtual.ToString());
-        META_ET = int.Parse(item.MetaETPresencial.ToString()) + int.Parse(item.MetaETVirtual.ToString());
-        META_OTROS = int.Parse(item.MetaOtros.ToString());
-
-        META_TGO_AP_PASAN = int.Parse(item.MetaTGOApPasan.ToString());
-        META_TCO_AP_PASAN = int.Parse(item.MetaTCOApPasan.ToString());
-        META_ET_AP_PASAN = int.Parse(item.MetaETApPasan.ToString());
-        META_OTRO_AP_PASAN = int.Parse(item.MetaOTROApPasan.ToString());
-
-        //APRENDICES_POR_CURSOS = long.Parse(item.APorCurso.ToString());
-        //APRENDICES_POR_CURSOS_OTROS = long.Parse(item.APorCursoOtros.ToString());
-    }
-    double RESULT_META_TGO_AP_PROG = Math.Round((META_TGO_AP_PASAN / META_TGO) * 100, 2);
-    double RESULT_META_TCO_AP_PROG = Math.Round((META_TCO_AP_PASAN / META_TCO) * 100, 2);
-    double RESULT_META_ET_AP_PROG = Math.Round((META_ET_AP_PASAN / META_ET) * 100, 2);
-    double RESULT_META_OTROS_AP_PROG = Math.Round((META_OTRO_AP_PASAN / META_OTROS) * 100, 2);
 
 
-    double META_GENERAL = Math.Round((RESULT_META_TGO_AP_PROG + RESULT_META_TCO_AP_PROG + RESULT_META_ET_AP_PROG + RESULT_META_OTROS_AP_PROG) / 4,2);
+    double RESULT_META_TGO_AP_PROG = (double)ViewData["RESULT_META_TGO_AP_PROG"];
+    double RESULT_META_TCO_AP_PROG = (double)ViewData["RESULT_META_TCO_AP_PROG"];
+    double RESULT_META_ET_AP_PROG = (double)ViewData["RESULT_META_ET_AP_PROG"];
+    double RESULT_META_OTROS_AP_PROG = (double)ViewData["RESULT_META_OTROS_AP_PROG"];
 
 
+    double META_GENERAL = (double)ViewData["META_GENERAL"];
+
+    long id = (long)ViewData["idMeta"];
 }
-
 
 <div class="content">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-2 text-center text-md-start">
@@ -135,7 +104,7 @@
         </div>
     </div>
     <div class="bg-body-light rounded-bottom">
-        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="@Url.Action("Details","Home",new {id = id})">
+        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="@Url.Action("Details","Home",new {id = id })">
             <span>Detalles</span>
             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
         </a>
@@ -250,6 +219,33 @@
                         </tr>
                     </thead>
                     <tbody class="fs-sm">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    2693606
+                                </td>
+                                <td class="d-none d-xl-table-cell">
+                                    ANLISIS Y DESARROLLO DE SOFTWARE
+                                </td>
+                                <td>
+                                    TECNOLOGO
+                                </td>
+                                <td>
+                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">Etapa Lectiva</span>
+                                </td>
+                                <td class="d-none d-sm-table-cell">
+                                    <div class="progress mb-1" style="height: 5px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 24%;" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="fs-xs fw-semibold mb-0">24%</p>
+                                </td>
+                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">7/7</td>
+                                <td class="d-none d-sm-table-cell text-end">
+                                    <strong>16</strong>
+                                </td>
+                            </tr>
+                        }
                         <tr>
                             <td>
                                 2693606
