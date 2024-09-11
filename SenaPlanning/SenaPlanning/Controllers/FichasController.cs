@@ -72,6 +72,10 @@ namespace SenaPlanning.Controllers
                 if (programa_Formacion.NivelPrograma == nivel[0])
                 {
                     meta.MetaTGOApPasan = meta.MetaTGOApPasan + ficha.NumAprenFicha;
+                    if (ficha.FechaFinFicha == null)
+                    {
+                        ficha.FechaFinFicha = DateTime.Parse(ficha.FechaInFicha.ToString()).AddMonths(9);
+                    }
                 }
 
                 if (programa_Formacion.NivelPrograma == nivel[1])
@@ -306,6 +310,11 @@ namespace SenaPlanning.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Oferta_Fichas(int ?id)
+        {
+            return View(db.Ficha.Where(f => f.Oferta.IdOferta == id).ToList());
         }
     }
 }

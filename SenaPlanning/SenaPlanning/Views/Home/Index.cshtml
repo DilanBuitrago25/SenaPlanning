@@ -31,10 +31,10 @@
 <!-- END Hero -->
 <div class="content">
     <h4>Meta general vigente del año <a class="fw-semibold"><span data-toggle="year-copy"></span></a></h4>
-    <div class="progress push border shadow-sm" style="height:2rem">
+    <div class="progress push border shadow-sm position-relative" style="height:2rem">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: @META_GENERAL%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
         </div>
-        <span class="fs-4 fw-semibold m-auto">@META_GENERAL%</span>
+        <span class="fs-4 fw-semibold position-absolute w-100 text-center">@META_GENERAL%</span>
     </div>
 
 </div>
@@ -209,13 +209,10 @@
                 <table class="table table-hover table-striped table-vcenter js-dataTable-resposive">
                     <thead>
                         <tr>
-                            <th># Ficha</th>
-                            <th class="d-none d-xl-table-cell">Programa de formación </th>
-                            <th class="d-none d-xl-table-cell">Nivel </th>
-                            <th>Estado</th>
-                            <th class="d-none d-sm-table-cell text-center">Progreso</th>
-                            <th class="d-none d-sm-table-cell text-end">Trimestre</th>
-                            <th class="d-none d-sm-table-cell text-end"># Aprendices</th>
+                            <th>Nombre</th>
+                            <th class="d-none d-xl-table-cell">Fecha inicio</th>
+                            <th class="d-none d-sm-table-cell text-end"># Fichas</th>
+                            <th style="width: 15%;">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="fs-sm">
@@ -223,54 +220,19 @@
                         {
                             <tr>
                                 <td>
-                                    2693606
+                                    @item.NombreOferta
                                 </td>
                                 <td class="d-none d-xl-table-cell">
-                                    ANLISIS Y DESARROLLO DE SOFTWARE
+                                    @(DateTime.Parse(item.FechaInicioOferta).ToString("dd/MM/yyyy"))
                                 </td>
-                                <td>
-                                    TECNOLOGO
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">Etapa Lectiva</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 24%;" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <p class="fs-xs fw-semibold mb-0">24%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">7/7</td>
                                 <td class="d-none d-sm-table-cell text-end">
-                                    <strong>16</strong>
+                                    <strong>@item.Ficha.Count()</strong>
+                                </td>
+                                <td>
+                                    <a href="/Fichas/Oferta_Fichas/@item.IdOferta">Fichas</a>
                                 </td>
                             </tr>
                         }
-                        <tr>
-                            <td>
-                                2693606
-                            </td>
-                            <td class="d-none d-xl-table-cell">
-                                ANLISIS Y DESARROLLO DE SOFTWARE
-                            </td>
-                            <td>
-                                TECNOLOGO
-                            </td>
-                            <td>
-                                <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">Etapa Lectiva</span>
-                            </td>
-                            <td class="d-none d-sm-table-cell">
-                                <div class="progress mb-1" style="height: 5px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 24%;" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="fs-xs fw-semibold mb-0">24%</p>
-                            </td>
-                            <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">7/7</td>
-                            <td class="d-none d-sm-table-cell text-end">
-                                <strong>16</strong>
-                            </td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>

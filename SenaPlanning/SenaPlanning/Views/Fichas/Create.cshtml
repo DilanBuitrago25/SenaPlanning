@@ -214,19 +214,19 @@
 
      function cargarAreas() {
     var redId = $("#Red").val();
-    $.ajax({
-        url: '@Url.Action("ObtenerAreasPorRedes", "Fichas")',
-        type: 'GET',
-        data: { idRed: redId },
-        success: function (data) {
-            var selectArea = $("#Area");
-            selectArea.empty();
-            $.each(data, function (index, area) {
-                selectArea.append($('<option></option>').val(area.Value).text(area.Text));
-            });
-        }
-    });
-    }
+         $.ajax({
+             url: '@Url.Action("ObtenerAreasPorRedes", "Fichas")',
+             type: 'GET',
+             data: { idRed: redId },
+             success: function (data) {
+                 var selectArea = $("#Area");
+                 selectArea.empty();
+                 $.each(data, function (index, area) {
+                     selectArea.append($('<option></option>').val(area.Value).text(area.Text));
+                 });
+             }
+         });
+    };
 
             function cargarProgramas() {
     var areaId = $("#Area").val();
@@ -242,106 +242,107 @@
             });
         }
     });
-    }
+    };
 
-    $(document).ready(function() {
-    $("#IdPrograma").change(function() {
-        var selectedProgramaId = $(this).val();
+    $(document).ready(function () {
+        $("#IdPrograma").change(function () {
+            var selectedProgramaId = $(this).val();
 
-        $.ajax({
-            url: '@Url.Action("ObtenerNivelPrograma", "Fichas")',
-            type: 'GET',
-            data: { idPrograma: selectedProgramaId },
-            success: function (data) {
-                $("#nivelProgramaInput").val(data);
-            },
-            error: function() {
-                alert("Error al obtener el nivel del programa.");
-            }
-        });
-    });
-    });
-
-        $(document).ready(function() {
-            $("#IdPrograma").change(function() {
-        var selectedProgramaId = $(this).val();
-
-        $.ajax({
-            url: '@Url.Action("ObtenerCodigoPrograma", "Fichas")',
-            type: 'GET',
-            data: { idPrograma: selectedProgramaId },
-            success: function (data) {
-                $("#codigoProgramaInput").val(data);
-            },
-            error: function() {
-                alert("Error al obtener el codigo del programa.");
-            }
-        });
-    });
-        });
-
-            $(document).ready(function() {
-                $("#IdPrograma").change(function() {
-        var selectedProgramaId = $(this).val();
-
-        $.ajax({
-            url: '@Url.Action("ObtenerHorasPrograma", "Fichas")',
-            type: 'GET',
-            data: { idPrograma: selectedProgramaId },
-            success: function (data) {
-                $("#horasProgramaInput").val(data);
-            },
-            error: function() {
-                alert("Error al obtener las horas del programa.");
-            }
-        });
-    });
+            $.ajax({
+                url: '@Url.Action("ObtenerNivelPrograma", "Fichas")',
+                type: 'GET',
+                data: { idPrograma: selectedProgramaId },
+                success: function (data) {
+                    $("#nivelProgramaInput").val(data);
+                },
+                error: function () {
+                    alert("Error al obtener el nivel del programa.");
+                }
             });
-
-                $(document).ready(function() {
-        $("#IdOferta").change(function() {
-    var selectedOfertaId = $(this).val();
-
-    $.ajax({
-        url: '@Url.Action("ObtenerEstadoOferta", "Fichas")',
-        type: 'GET',
-        data: { idOferta: selectedOfertaId },
-        success: function (data) {
-            $("#estadoOfertaInput").val(data);
-        },
-        error: function() {
-            alert("Error al obtener estado de la oferta.");
-        }
+        });
     });
-});
-                });
 
-                                $(document).ready(function() {
-        $("#IdOferta").change(function() {
-    var selectedOfertaId = $(this).val();
+    $(document).ready(function () {
+        $("#IdPrograma").change(function () {
+            var selectedProgramaId = $(this).val();
 
-    $.ajax({
-        url: '@Url.Action("ObtenerMetaOferta", "Fichas")',
-        type: 'GET',
-        data: { idOferta: selectedOfertaId },
-        success: function (data) {
-            $("#metaOfertaInput").val(data);
-        },
-        error: function() {
-            alert("Error al obtener la fecha de la meta.");
-        }
+            $.ajax({
+                url: '@Url.Action("ObtenerCodigoPrograma", "Fichas")',
+                type: 'GET',
+                data: { idPrograma: selectedProgramaId },
+                success: function (data) {
+                    $("#codigoProgramaInput").val(data);
+                },
+                error: function () {
+                    alert("Error al obtener el codigo del programa.");
+                }
+            });
+        });
     });
-});
+
+    $(document).ready(function () {
+        $("#IdPrograma").change(function () {
+            var selectedProgramaId = $(this).val();
+
+            $.ajax({
+                url: '@Url.Action("ObtenerHorasPrograma", "Fichas")',
+                type: 'GET',
+                data: { idPrograma: selectedProgramaId },
+                success: function (data) {
+                    $("#horasProgramaInput").val(data);
+                },
+                error: function () {
+                    alert("Error al obtener las horas del programa.");
+                }
+            });
+        });
     });
+
+    $(document).ready(function () {
+        $("#IdOferta").change(function () {
+            var selectedOfertaId = $(this).val();
+
+            $.ajax({
+                url: '@Url.Action("ObtenerEstadoOferta", "Fichas")',
+                type: 'GET',
+                data: { idOferta: selectedOfertaId },
+                success: function (data) {
+                    $("#estadoOfertaInput").val(data);
+                },
+                error: function () {
+                    alert("Error al obtener estado de la oferta.");
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#IdOferta").change(function () {
+            var selectedOfertaId = $(this).val();
+
+            $.ajax({
+                url: '@Url.Action("ObtenerMetaOferta", "Fichas")',
+                type: 'GET',
+                data: { idOferta: selectedOfertaId },
+                success: function (data) {
+                    $("#metaOfertaInput").val(data);
+                },
+                error: function () {
+                    alert("Error al obtener la fecha de la meta.");
+                }
+            });
+        });
+    });
+
+
 
     flatpickr("#@fechaInFichaId", { // Inicializa Flatpickr para FechaInFicha
         dateFormat: "d/m/Y",
         onChange: function(selectedDates, dateStr, instance) {
             if (selectedDates.length > 0) {
-                var fechaInicio = selectedDates[0];
-                var fechaFin = new Date(fechaInicio);
-                fechaFin.setMonth(fechaFin.getMonth() + 18); // Suma 18 meses
-
+                var fechaInicio = new Date(selectedDates[0]);
+                var fechaFin = fechaInicio.setMonth(9); // Suma 18 meses
+                console.log(fechaFin)
                 flatpickr("#@fechaFinFichaId", { // Inicializa Flatpickr para FechaFinFicha
                     dateFormat: "d/m/Y",
                     defaultDate: fechaFin // Establece la fecha calculada como valor por defecto

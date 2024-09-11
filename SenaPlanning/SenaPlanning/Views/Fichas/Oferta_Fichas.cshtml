@@ -1,0 +1,185 @@
+﻿@model IEnumerable<ClaseModelo.Ficha>
+
+@{
+    ViewBag.Title = "Index";
+
+    int HORAS_TRIMESTRES_NOCTURNA = 220;
+
+    int HORAS_TRIMESTRE_DIURNA = 440;
+
+
+
+    string GetTrimestreActual(DateTime fechaInicio, int totalTrimestres)
+    {
+        // Obtenemos la fecha actual
+        DateTime fechaActual = DateTime.Now;
+
+        // Si la fecha actual es anterior a la fecha de inicio, devuelve "0"
+        if (fechaActual < fechaInicio)
+        {
+            return $"0";
+        }
+
+        // Calculamos los meses transcurridos desde la fecha de inicio hasta la fecha actual
+        int mesesTranscurridos = (fechaActual.Year - fechaInicio.Year) * 12 + fechaActual.Month - fechaInicio.Month;
+
+        // Calculamos los trimestres transcurridos (dividiendo los meses transcurridos entre 3)
+        int trimestresTranscurridos = mesesTranscurridos / 3;
+
+        // Calculamos los trimestres restantes (total de trimestres - trimestres transcurridos)
+        int trimestresRestantes = totalTrimestres - trimestresTranscurridos;
+
+        // Si el número de trimestres transcurridos más 1 es menor o igual al total de trimestres,
+        // devuelve el número de trimestre actual (trimestres transcurridos + 1) y el total de trimestres
+        if (trimestresTranscurridos + 1 <= totalTrimestres)
+        {
+            return $"{trimestresTranscurridos + 1}/{totalTrimestres}";
+        }
+
+        // Si no, devuelve "EP" que significa Etapa Practica
+        return $"EP";
+    }
+
+    int getTotalTrimestres(string total)
+    {
+
+        if (total.Length == 1)
+        {
+            return int.Parse(total);
+        }
+        else
+        {
+            return (int)Math.Floor((double.Parse(total) / HORAS_TRIMESTRE_DIURNA) - 2);
+        }
+
+        return 0;
+    }
+
+
+}
+
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Fichas</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item">Ficha</li>
+                    <li class="breadcrumb-item">General</li>
+                    <li class="breadcrumb-item active">Consultar</li>
+                </ol>
+            </div>
+            <div class="col-sm-6">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="card-body">
+    <div class="block block-rounded">
+        <div class="col-sm-12">
+            <div class="block-header block-header-default d-flex align-items-center">
+                <div class="col-sm-4">
+                    <br />
+                    <h5>Tabla de Ficha</h5>
+                    <br />
+                    @using (Html.BeginForm("Index", "UsuariosAprendiz", FormMethod.Get))
+                    {
+                        <div class="d-flex align-items-center">
+                            <label for="estadoFiltro" class="me-2">Estado:</label>
+                            <select class="form-select me-2" id="estadoFiltro" name="estadoFiltro">
+                                <option value="" @(ViewBag.EstadoFiltro == "" ? "selected" : "")>Todos</option>
+                                <option value="true" @(ViewBag.EstadoFiltro == "true" ? "selected" : "")>Activo</option>
+                                <option value="false" @(ViewBag.EstadoFiltro == "false" ? "selected" : "")>No Activo</option>
+                            </select>
+                            <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
+                        </div>
+                    }
+                </div>
+                <div class="col-sm-8 d-flex justify-content-end">
+                    <button class="btn btn-light"><a href="@Url.Action("Create","Fichas")">Crear</a></button>
+                </div>
+            </div>
+
+            <br />
+            <div class="block-content block-content-full">
+                <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                    <thead>
+                        <tr>
+                            <th>Ficha</th>
+                            <th>Nombre del programa</th>
+                            <th>Jornada</th>
+                            <th>Nivel</th>
+                            <th>Trimestre @(new[] { "", "I", "II", "III", "IV" }[(DateTime.Now.Month - 1) / 3 + 1])</th>
+                            <th>Fecha inicio</th>
+                            <th>Fecha fin</th>
+                            <th>No. Aprendices</th>
+                            <th>Año de creación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*<tr>
+                                <td class="text-center fs-sm">2693606</td>
+                                <td class="fw-semibold fs-sm">ANALISIS Y DESARROLLO DE SOFTWARE</td>
+                                <td class="fs-sm">Mixta</td>
+                                <td>
+                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">TGO</span>
+                                </td>
+                                <td>
+                                    <span class="text-muted fs-sm">7/7</span>
+                                </td>
+                                <td>
+                                    23/01/2023
+                                </td>
+                                <td>
+                                    23/03/2025
+                                </td>
+                                <td>
+                                    <span class="text-muted fs-sm">16</span>
+                                </td>
+                            </tr>*@
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center fs-sm">@item.CodigoFicha</td>
+                                <td class="fw-semibold fs-sm">@item.Programa_Formacion.DenominacionPrograma</td>
+                                <td class="fs-sm">@item.JornadaFicha</td>
+                                <td>
+                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">@item.Programa_Formacion.NivelPrograma</span>
+                                </td>
+                                <td>
+                                    <span class="text-muted fs-sm">@GetTrimestreActual(DateTime.Parse(item.FechaInFicha.ToString()), getTotalTrimestres(item.Programa_Formacion.HorasPrograma))  </span>
+                                </td>
+                                <td>
+                                    @(DateTime.Parse(item.FechaInFicha.ToString()).ToString("dd/MM/yyyy"))
+                                </td>
+                                <td>
+                                    @(DateTime.Parse(item.FechaFinFicha.ToString()).ToString("dd/MM/yyyy"))
+                                </td>
+                                <td>
+                                    <span class="text-muted fs-sm">@item.NumAprenFicha</span>
+                                </td>
+                                <td>
+                                    @item.Oferta.Meta.MetaFecha
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6"></td>
+                            <td class="fw-semibold" colspan="1">No. Aprendices:</td>
+                            <td>16</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
