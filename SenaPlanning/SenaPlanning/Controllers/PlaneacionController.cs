@@ -18,9 +18,8 @@ namespace SenaPlanning.Controllers
         // GET: Planeacion
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
-        {
-            var ficha = db.Ficha.Where(m => m.Oferta.Meta.MetaFecha == DateTime.Now.Year.ToString() || m.Oferta.Meta.MetaFecha == (DateTime.Now.Year - 1).ToString() || m.Oferta.Meta.MetaFecha == (DateTime.Now.Year - 2).ToString());
-            return View(ficha.ToList());
+        { 
+            return View(db.Oferta.ToList());
         }
 
         // GET: Planeacion/Details/5
@@ -90,7 +89,7 @@ namespace SenaPlanning.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]  
         public ActionResult Edit([Bind(Include = "IdOferta,CodigoOferta,HoraReqTrimIOferta,HoraReqTrimIIOferta,HoraReqTrimIIIOferta,HoraReqTrimIVOferta,CanInstPlantaOferta,HorasContTrimIOferta,HorasContTrimIIOferta,HorasContTrimIIIOferta,HorasContTrimIVOferta,CantidadInstContratoTrimIOferta,CantidadInstContratoTrimIIOferta,CantidadInstContratoTrimIIIOferta,CantidadInstContratoTrimIVOferta,TrimestreProgramadosOferta,TotalAprendicesOferta,TotalCursosNuevosOferta,TotalCursosEPtrimestreOferta,TotalCursosCursosNuevosOferta,TotalCursosOferta,CantidadTrimProgramadosOferta,CantidadTrimEPOferta,TotalInstaContratarOferta,AprenPasanOferta,AprenProgOferta,CursoOferta,IdUsuario,IdMetas,EstadoOferta")] Oferta oferta)
         {
             if (ModelState.IsValid)
@@ -124,7 +123,7 @@ namespace SenaPlanning.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
+        {   
             Oferta oferta = db.Oferta.Find(id);
             db.Oferta.Remove(oferta);
             db.SaveChanges();
@@ -132,41 +131,73 @@ namespace SenaPlanning.Controllers
         }
 
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
-        public ActionResult Instructores_Contratar(int año)
+        public ActionResult Instructores_ContratarITrim()
         {
-            ViewBag.AñoActual = año;
-            return View(año);   
+            ViewBag.Metas = db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList().ToString();
+
+            
+
+
+            return View();   
         }
 
-        //public static Tuple<DateTime, DateTime> ObtenerRangoFechasPorTrimestre(int trimestre, int año)
-        //{
-        //    DateTime inicioTrimestre;
-        //    DateTime finTrimestre;
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
+        public ActionResult Instructores_ContratarIITrim()
+        {
+            return View();
+        }
 
-        //    switch (trimestre)
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
+        public ActionResult Instructores_ContratarIIITrim()
+        {
+            return View();
+        }
+
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
+        public ActionResult Instructores_ContratarVITrim()
+        {
+            return View();
+        }
+
+        //public ActionResult ResumenPorAño(int año)
+        //{
+        //    var añoActual = DateTime.Now.Year;
+        //    var totalTrimestres = 4;
+
+        //    var trimestres = new List<ResumenTrimestre>();
+        //    for (int trimestre = 1; trimestre <= totalTrimestres; trimestre++)
         //    {
-        //        case 1:
-        //            inicioTrimestre = new DateTime(año, 1, 1);
-        //            finTrimestre = new DateTime(año, 3, 31);
-        //            break;
-        //        case 2:
-        //            inicioTrimestre = new DateTime(año, 4, 1);
-        //            finTrimestre = new DateTime(año, 6, 30);
-        //            break;
-        //        case 3:
-        //            inicioTrimestre = new DateTime(año, 7, 1);
-        //            finTrimestre = new DateTime(año, 9, 30);
-        //            break;
-        //        case 4:
-        //            inicioTrimestre = new DateTime(año, 10, 1);
-        //            finTrimestre = new DateTime(año, 12, 31);
-        //            break;
-                
-        //        default:
-        //            throw new ArgumentOutOfRangeException(nameof(trimestre), "El trimestre debe estar entre 1 y 4");
+        //        var rangoFechas = ObtenerRangoFechasPorTrimestre(trimestre, añoActual);
+
+        //        var resumenTrimestre = db.Ficha
+        //            .Where(f => f.Oferta.Meta.MetaFecha >= rangoFechas.Item1 && f.Oferta.Meta.MetaFecha <= rangoFechas.Item2 && !EsTrimestreEP(f.Oferta.Meta.MetaFecha))
+        //            .GroupBy(f => new { f.Programa.AreaConocimiento.NombreArea, f.Programa.AreaConocimiento.RedConocimiento })
+        //            .Select(g => new ResumenAreaConocimiento
+        //            {
+        //                RedConocimiento = g.Key.RedConocimiento,
+        //                AreaConocimiento = g.Key.NombreArea,
+        //                NumeroFichas = g.Count(),
+        //                // ... otros cálculos
+        //            })
+        //            .ToList();
+
+        //        trimestres.Add(new ResumenTrimestre { Trimestre = trimestre, Datos = resumenTrimestre });
         //    }
 
-        //    return new Tuple<DateTime, DateTime>(inicioTrimestre, finTrimestre);
+        //    return View(trimestres);
+        //}
+
+        //private bool EsTrimestreEP(DateTime fecha)
+        //{
+        //    // Lógica para determinar si la fecha corresponde al trimestre EP
+        //    // Por ejemplo, si "EP" representa el último trimestre del año:
+        //    return fecha.Month >= 10;
+        //}
+
+        //// Método para obtener el rango de fechas por trimestre (ya definido anteriormente)
+        //public static Tuple<DateTime, DateTime> ObtenerRangoFechasPorTrimestre(int trimestre, int año)
+        //{
+        //    // ... implementación del método ...
         //}
 
         protected override void Dispose(bool disposing)

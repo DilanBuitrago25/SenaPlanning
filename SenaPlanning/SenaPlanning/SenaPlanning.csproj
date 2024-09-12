@@ -4409,7 +4409,10 @@
     <Content Include="Views\Metas\Index.cshtml" />
     <Content Include="Views\Login\View.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Planeacion\Instructores_Contratar.cshtml" />
+    <Content Include="Views\Planeacion\Instructores_ContratarITrim.cshtml" />
+    <Content Include="Views\Planeacion\Instructores_ContratarIITrim.cshtml" />
+    <Content Include="Views\Planeacion\Instructores_ContratarIIITrim.cshtml" />
+    <Content Include="Views\Planeacion\Instructores_ContratarVITrim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

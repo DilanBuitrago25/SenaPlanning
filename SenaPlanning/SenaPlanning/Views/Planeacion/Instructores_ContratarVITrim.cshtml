@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "Instructores_ContratarVITrim";
+}
+
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Instructores a Contratar - Detalles</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item active">Planeación</li>
+                    <li class="breadcrumb-item active">Instructores a Contratar - <span data-toggle="year-copy"></span></li>
+                    <li class="breadcrumb-item active">VI Trimestre</li>
+                </ol>
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+
+<br />
+<div class="card-body">
+    <div>
+
+    </div>
+    <br />
+    <div class="block block-rounded">
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <div class="block-option">
+                    <h3 class="block-title">Instructores a contratar - VI Trimestre</h3>
+                    <small>28</small>
+                </div>
+
+            </div>
+        </div>
+        <div class="block-content block-content-full">
+            <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
+            <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                <thead>
+                    <tr>
+                        <th>Red de Conocimiento</th>
+                        <th>Area de Conocimiento</th>
+                        <th>No. Fichas</th>
+                        <th>Horas Requeridas</th>
+                        <th>Horas Contratos</th>
+                        <th>No. Instructores - Planta</th>
+                        <th>No. Instructores - Contrato</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center fs-sm">INFORMATICA, DISEÑO Y DESARROLLO DE SOFWARE</td>
+                        <td class="fw-semibold fs-sm">Software</td>
+                        <td class="fs-sm">5</td>
+                        <td>
+                            1760
+                        </td>
+                        <td>
+                            880
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">3</span>
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">2</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center fs-sm">Red de mantenimiento electronico</td>
+                        <td class="fw-semibold fs-sm">Mantenimiento Electronico</td>
+                        <td class="fs-sm">5</td>
+                        <td>
+                            1760
+                        </td>
+                        <td>
+                            880
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">3</span>
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">2</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center fs-sm">INFORMATICA, DISEÑO Y DESARROLLO DE SOFWARE</td>
+                        <td class="fw-semibold fs-sm">Infraestructura</td>
+                        <td class="fs-sm">5</td>
+                        <td>
+                            1760
+                        </td>
+                        <td>
+                            880
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">3</span>
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">2</span>
+                        </td>
+                    </tr>
+
+                    <!--<tr>-->
+                    @*<td class="fw-semibold fs-sm">@item.Programa_Formacion.Area_Conocimiento.Red_Conocimiento.NombreRed</td>
+                        <td class="fw-semibold fs-sm">@item.Programa_Formacion.Area_Conocimiento.NombreArea</td>*@
+                    <!--<td>
+                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success"></span>
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">7/7</span>
+                        </td>
+                        <td>
+                            23/01/2023
+                        </td>
+                        <td>
+                            23/03/2025
+                        </td>
+                        <td>
+                            <span class="text-muted fs-sm">16</span>
+                        </td>
+                    </tr>-->
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
