@@ -70,3 +70,15 @@ C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.dll
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.pdb
 C:\GitHubRepositive\SenaPlanning\SenaPlanning\ClaseModelo\obj\Debug\ClaseMod.C92F3FEF.Up2Date
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\bin\Debug\ClaseModelo.dll.config
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\bin\Debug\ClaseModelo.dll
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\bin\Debug\ClaseModelo.pdb
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.dll
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.xml
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.AssemblyReference.cache
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\obj\Debug\ClaseMod.C92F3FEF.Up2Date
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.dll
+C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\ClaseModelo\obj\Debug\ClaseModelo.pdb
