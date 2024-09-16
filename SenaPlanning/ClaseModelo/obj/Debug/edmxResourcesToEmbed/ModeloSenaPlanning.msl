@@ -33,7 +33,6 @@
           <ScalarProperty Name="FechaFinFicha" ColumnName="FechaFinFicha" />
           <ScalarProperty Name="NumAprenFicha" ColumnName="NumAprenFicha" />
           <ScalarProperty Name="JornadaFicha" ColumnName="JornadaFicha" />
-          <ScalarProperty Name="MetaOferta" ColumnName="MetaOferta" />
           <ScalarProperty Name="EstadoFicha" ColumnName="EstadoFicha" />
           <ScalarProperty Name="IdPrograma" ColumnName="IdPrograma" />
           <ScalarProperty Name="IdOferta" ColumnName="IdOferta" />

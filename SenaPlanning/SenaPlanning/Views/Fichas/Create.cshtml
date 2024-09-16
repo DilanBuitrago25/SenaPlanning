@@ -42,8 +42,8 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Red</label>
-                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarAreas()" })
+                                @*<label for="estadoFiltro">Red</label>
+                                @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarAreas()" })*@
                                 <br />
                             </div>
                             <div class="col-md-6">
@@ -54,12 +54,12 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Area de Conocimiento</label>
-                                @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                @*<label for="estadoFiltro">Area de Conocimiento</label>
+                                @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control" })*@
                                 <br />
                             </div>
                             <div class="col-md-6">
-                                <label for="estadoFiltro">Tipo de Meta a Indicar</label>
+                                @*<label for="estadoFiltro">Tipo de Meta a Indicar</label>
                                 @Html.DropDownListFor(model => model.MetaOferta, new List<SelectListItem>
                                 {
                                     new SelectListItem { Text = "", Value = "" },
@@ -67,7 +67,7 @@
                                     new SelectListItem { Text = "Meta Tecnico", Value = "MetaTecnico " },
                                     new SelectListItem { Text = "Meta Especializacion Tecnica", Value = "MetaET" },
                                     new SelectListItem { Text = "Meta Otros", Value = "MetaOtros" }
-                                }, new { @class = "form-control" })
+                                }, new { @class = "form-control" })*@
                                 <br />
                             </div>
                         </div>

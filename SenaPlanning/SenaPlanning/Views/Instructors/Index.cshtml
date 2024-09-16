@@ -60,14 +60,12 @@
                             <tr>
                                 <th>Documento</th>
                                 <th>Nombre Completo</th>
-                                <th>Cod Regional</th>
                                 <th>Regional</th>
-                                <th>Cod CCOS</th>
                                 <th>Dependencia</th>
                                 <th>Cargo</th>
-                                <th>Tipo Cargo</th>
                                 <th>Correo SENA</th>
                                 <th>Red de Conocimiento</th>
+                                <th>Area de Conocimiento</th>
                                 <th style="width: 15%;">Acciones</th>
                             </tr>
                         </thead>
@@ -80,14 +78,8 @@
                                         @Html.DisplayFor(modelItem => item.NombreCompletoInstructor)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.CodRegionalInstructor)
-                                    </td>
-                                    <td>
                                         @Html.DisplayFor(modelItem => item.RegionalInstructor)
                                     </td>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.CodCCOS)
-                                    </th>
                                     <th>
                                         @Html.DisplayFor(modelItem => item.DependenciaInstructor)
                                     </th>
@@ -95,13 +87,13 @@
                                         @Html.DisplayFor(modelItem => item.CargoInstructor)
                                     </th>
                                     <th>
-                                        @Html.DisplayFor(modelItem => item.TipoCargoInstructor)
-                                    </th>
-                                    <th>
                                         @Html.DisplayFor(modelItem => item.CorreoSENAInstructor)
                                     </th>
                                     <th>
                                         @Html.DisplayFor(modelItem => item.RedInstructor)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.AreaInstructor)
                                     </th>
                                     <td>
                                         @Html.ActionLink("Editar", "Edit", new { id = item.IdInstructor }) |

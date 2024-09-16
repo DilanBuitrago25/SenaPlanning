@@ -39,7 +39,6 @@
     <Property Name="FechaFinFicha" Type="date" />
     <Property Name="NumAprenFicha" Type="int" />
     <Property Name="JornadaFicha" Type="varchar" MaxLength="100" />
-    <Property Name="MetaOferta" Type="varchar" MaxLength="150" />
     <Property Name="EstadoFicha" Type="bit" Nullable="false" />
     <Property Name="IdPrograma" Type="int" />
     <Property Name="IdOferta" Type="int" />
@@ -71,8 +70,8 @@
     <Property Name="RutaInstructor" Type="varchar" MaxLength="150" />
     <Property Name="CodMunicipioInstructor" Type="int" />
     <Property Name="MunicipioInstructor" Type="varchar" MaxLength="150" />
-    <Property Name="FechaNacimientoInstructor" Type="date" />
-    <Property Name="FechaIngreso" Type="date" />
+    <Property Name="FechaNacimientoInstructor" Type="varchar" MaxLength="150" />
+    <Property Name="FechaIngreso" Type="varchar" MaxLength="150" />
     <Property Name="SexoInstructor" Type="varchar" MaxLength="150" />
     <Property Name="EstadoInstructor" Type="bit" Nullable="false" />
   </EntityType>

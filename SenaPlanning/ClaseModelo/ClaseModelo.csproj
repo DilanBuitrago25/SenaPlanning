@@ -97,6 +97,7 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>ModeloSenaPlanning.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
