@@ -17,6 +17,7 @@ namespace SenaPlanning.Controllers
     {
         private SenaPlanningEntities db = new SenaPlanningEntities();
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
             var metas = db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList();

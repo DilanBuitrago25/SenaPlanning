@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<ClaseModelo.Ficha>
 @{
-    ViewBag.Title = "Ficha_Programa_Area_Red";
-}
+    ViewBag.Title = "Red de conocimiento";
 
+}
 <br />
 <div class="container-fluid">
     <div class="page-header">
@@ -10,7 +10,7 @@
             <div class="col-sm-6">
                 <h3>Programas Asociadas al Area: @ViewBag.NombreArea</h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
                     <li class="breadcrumb-item">Red de Conocimiento</li>
                     <li class="breadcrumb-item">@ViewBag.NombreRed</li>
                     <li class="breadcrumb-item">@ViewBag.NombreArea</li>
@@ -29,8 +29,7 @@
         <div class="card-header d-flex align-items-center">
             <div class="col-sm-4">
                 <h5>Tabla de datos - Areas de Conocimiento</h5>
-                <br />
-                @using (Html.BeginForm("Index", "Fichas", FormMethod.Get))
+                @*@using (Html.BeginForm("Index", "Fichas", FormMethod.Get))
                 {
                     <div class="d-flex align-items-center">
                         <label for="estadoFiltro" class="me-2">Estado:</label>
@@ -41,7 +40,7 @@
                         </select>
                         <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
                     </div>
-                }
+                }*@
             </div>
             @*<div class="col-sm-8 d-flex justify-content-end">
                     @if (@Session["TipoUsuario"].ToString() == "InstructorAdmin")
@@ -62,7 +61,7 @@
 
 
             <div class="table-responsive">
-                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive js-dataTable-buttons">
                     <thead>
                         <tr>
                             <th>Codigo</th>
@@ -71,7 +70,7 @@
                             <th>Trimestre en curso</th>
                             <th>Jornada</th>
                             <th>Programa de Formación</th>
-                            <th style="width: 15%;">Acciones</th>
+                            <th class="ignorar-columna" style="width: 15%;">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

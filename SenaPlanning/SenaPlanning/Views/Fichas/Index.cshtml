@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ClaseModelo.Ficha>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Fichas";
 
     int HORAS_TRIMESTRES_NOCTURNA = 220;
 
@@ -85,9 +85,8 @@
             <div class="block-header block-header-default d-flex align-items-center">
                 <div class="col-sm-4">
                     <br />
-                    <h5>Tabla de Ficha</h5>
-                    <br />
-                    @using (Html.BeginForm("Index", "UsuariosAprendiz", FormMethod.Get))
+                    <h2 class="content-heading">Tabla de Ficha</h2>
+                    @*@using (Html.BeginForm("Index", "UsuariosAprendiz", FormMethod.Get))
                     {
                         <div class="d-flex align-items-center">
                             <label for="estadoFiltro" class="me-2">Estado:</label>
@@ -98,7 +97,7 @@
                             </select>
                             <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
                         </div>
-                    }
+                    }*@
                 </div>
                 <div class="col-sm-8 d-flex justify-content-end">
                     <button class="btn btn-light"><a href="@Url.Action("Create","Fichas")">Crear</a></button>
@@ -108,7 +107,7 @@
             <br />
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
-                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table-responsive">
                     <thead>
                         <tr>
                             <th>Ficha</th>

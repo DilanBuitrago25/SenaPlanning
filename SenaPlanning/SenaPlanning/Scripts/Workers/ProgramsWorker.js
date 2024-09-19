@@ -56,29 +56,32 @@ try {
         if (e.data.type === "register") {
             programsCount = 1;
             for (var program of data) {
-                const res = await fetch("/Programa_Formacion/programRegister", {
-                    method: "POST",
-                    headers: { "Content-type": "application/json" },
-                    body: JSON.stringify({
-                        NombreArea: program["Red Tecnológica"],
-                        NombreRed: program["Red de Conocimiento"].toUpperCase(),
-                        DenominacionPrograma: program["PRF_DENOMINACION"],
-                        VersionPrograma: program["PRF_VERSION"],
-                        NivelPrograma: program["NIVEL DE FORMACION"],
-                        CodigoPrograma: program["PRF_CODIGO"],
-                        HorasPrograma: program["PRF_DURACION_MAXIMA"],
-                        EstadoPrograma: ""
+
+                if ((program["Area"]).trim() !== "") {
+                    const res = await fetch("/Programa_Formacion/programRegister", {
+                        method: "POST",
+                        headers: { "Content-type": "application/json" },
+                        body: JSON.stringify({
+                            NombreArea: program["Area"],
+                            NombreRed: program["Red de Conocimiento"].toUpperCase(),
+                            DenominacionPrograma: program["PRF_DENOMINACION"],
+                            VersionPrograma: program["PRF_VERSION"],
+                            NivelPrograma: program["NIVEL DE FORMACION"],
+                            CodigoPrograma: program["PRF_CODIGO"],
+                            HorasPrograma: program["PRF_DURACION_MAXIMA"],
+                            EstadoPrograma: ""
+                        })
                     })
-                })
-                res.json().then(json => {
-                    postMessage({
-                        type: "userUpload",
-                        value: {
-                            porcentage: calculatePorcentage(programsCount, data.length)
-                        }
-                    });
-                    programsCount++;
-                })
+                    res.json().then(json => {
+                        postMessage({
+                            type: "userUpload",
+                            value: {
+                                porcentage: calculatePorcentage(programsCount, data.length)
+                            }
+                        });
+                        programsCount++;
+                    })
+                }
             }
             if (data.length === programsCount) {
                 postMessage({ type: "ok_register" })

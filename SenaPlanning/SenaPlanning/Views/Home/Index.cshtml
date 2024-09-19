@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ClaseModelo.Oferta>
 @{
 
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Inicio";
 
 
 
@@ -112,8 +112,6 @@
 </div>
 <!-- END Page Content -->
 <div class="content">
-    <!-- Chart.js Charts are initialized in js/pages/be_comp_charts.min.js which was auto compiled from _js/pages/be_comp_charts.js -->
-    <!-- For more info and examples you can check out http://www.chartjs.org/docs/ -->
     <h2 class="content-heading">Graficos</h2>
     <div class="row">
         <div class="col-xl-6">
@@ -206,7 +204,7 @@
         <div class="block-content block-content-full">
             <!-- Recent Orders Table -->
             <div class="table-responsive">
-                <table class="table table-hover table-striped table-vcenter js-dataTable-resposive">
+                <table class="table table-hover table-striped table-vcenter js-dataTable-resposive js-dataTable-buttons">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -244,7 +242,7 @@
                 <ul class="pagination pagination-sm justify-content-end mb-0">
                     <li class="page-item">
                         <a class="page-link" href="javascript:void(0)" tabindex="-1" aria-label="Previous">
-                            Prev
+                            <i class="fa fa-angle-double-left"></i>
                         </a>
                     </li>
                     <li class="page-item active">
@@ -261,7 +259,7 @@
                     </li>
                     <li class="page-item">
                         <a class="page-link" href="javascript:void(0)" aria-label="Next">
-                            Next
+                            <i class="fa fa-angle-double-right"></i>
                         </a>
                     </li>
                 </ul>
@@ -280,15 +278,15 @@
                 labels: ["META TGO", "META TCO", "META ET", "META OTROS"],
                 datasets: [
                     {
-                        data: [@RESULT_META_TGO_AP_PROG,@RESULT_META_TCO_AP_PROG,@RESULT_META_ET_AP_PROG,@RESULT_META_OTROS_AP_PROG],
+                        data: [parseFloat(@RESULT_META_TGO_AP_PROG), parseFloat(@RESULT_META_TCO_AP_PROG), parseFloat(@RESULT_META_ET_AP_PROG), parseFloat(@RESULT_META_OTROS_AP_PROG)],
                         backgroundColor: [
-                            "rgb(57, 169, 0,1)",
+                            "rgb(76 120 221)",
                             "rgb(0, 50, 77,1)",
                             "rgb(203, 119, 102,1)",
                             "rgb(106, 106, 106,1)",
                         ],
                         hoverBackgroundColor: [
-                            "rgb(57, 169, 0,.75)",
+                            "rgb(76, 120, 221,0.75)",
                             "rgb(0, 50, 77,.75)",
                             "rgb(203, 119, 102,.75)",
                             "rgb(106, 106, 106,.75)",
