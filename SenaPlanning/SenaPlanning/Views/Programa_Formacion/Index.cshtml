@@ -12,7 +12,7 @@
             <div class="col-sm-6">
                 <h3>Programa de Formación</h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
                     <li class="breadcrumb-item">Area</li>
                     <li class="breadcrumb-item">General</li>
                     <li class="breadcrumb-item active">Consultar</li>
@@ -60,6 +60,7 @@
                                 <th>Versión</th>
                                 <th>Nivel</th>
                                 <th>Area de Conocimiento</th>
+                                <th>Red de conocimiento</th>
                                 <th style="width: 15%;">Acciones</th>
                             </tr>
                         </thead>
@@ -79,6 +80,9 @@
                                     </td>
                                     <th>
                                         @Html.DisplayFor(modelItem => item.Area_Conocimiento.NombreArea)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.Area_Conocimiento.Red_Conocimiento.NombreRed)
                                     </th>
                                     <td>
                                         @Html.ActionLink("Editar", "Edit", new { id = item.IdArea }) |

@@ -18,7 +18,6 @@
     @Styles.Render("~/Content/assets");
 </head>
 <body>
-
     <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
 
         <aside id="side-overlay">
@@ -248,15 +247,16 @@
     });
         document.getElementById("btn-mode").addEventListener("click", () => {
             let body = document.getElementById("page-container");
-            console.log(body.className)
-
-            if (body.className === "sidebar-o enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled sidebar-dark page-header-dark dark-mode") {
-                body.className = "sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow";
-                localStorage.setItem("mode", "dark");
-                return
+            if (body.className === "sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled page-header-dark dark-mode") {
+                console.log("dark")
+                return;
+            } else if (body.className === "sidebar-o enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled") {
+                console.log("dark")
+                return;
+            } else {
+                console.log("light")
+                return;
             }
-            body.className = "sidebar-o enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled sidebar-dark page-header-dark dark-mode";
-            localStorage.setItem("mode", "light");
         })
     </script>
 </body>
