@@ -11,12 +11,13 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-6">
-                <h3>Gestionar Competencias</h3>
+                <h3>Gestionar Red de conocimiento</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
                     <li class="breadcrumb-item">Red de Conocimiento</li>
                     <li class="breadcrumb-item">General</li>
-                    <li class="breadcrumb-item active">Registrar</li>
+                    <li class="breadcrumb-item active">Regi
+                    strar</li>
                 </ol>
             </div>
             <div class="col-sm-6">
@@ -31,7 +32,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="">
                     <div class="card-header pb-0">
                         <h5>Registrar Red de Conocimiento</h5>
                     </div>
@@ -45,7 +46,7 @@
                                     <div class="mb-3 m-form__group">
                                         <label class="form-label">Nombre</label>
                                         <div class="input-group">
-                                            @Html.EditorFor(model => model.NombreRed, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.EditorFor(model => model.NombreRed, new { htmlAttributes = new { @class = "form-control", required = "required" } })
 
                                         </div>
                                         @Html.ValidationMessageFor(model => model.NombreRed, "", new { @class = "text-danger" })
@@ -88,7 +89,22 @@
 
                 if (!isValid) {
                     e.preventDefault();
-                    alert('Por favor, complete todos los campos obligatorios.');
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Por favor, complete todos los campos."
+                    });
+                }
                 }
             });
         });

@@ -108,6 +108,22 @@
 
   
     <script src="~/assets/js/pages/op_auth_signin.min.js"></script>
+    <script>
+        const modeChanger = () => {
+            let body = document.getElementById("page-container");
+            if (localStorage.getItem("mode") === "dark") {
+                body.className = "sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled page-header-dark dark-mode";
+                return;
+            }
+            if (localStorage.getItem("mode") === "light") {
+                body.className = "enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled";
+                return;
+            }
+        }
+        document.addEventListener("DOMContentLoaded", (event) => {
+            modeChanger();
+        });
+    </script>
 </body>
 </html>
 

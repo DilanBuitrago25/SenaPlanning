@@ -38,7 +38,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="">
                     <div class="card-header pb-0">
                         <h5>Registrar Meta</h5>
                     </div>
@@ -154,7 +154,21 @@
 
                 if (!isValid) {
                     e.preventDefault();
-                    alert('Por favor, complete todos los campos.');
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Por favor, complete todos los campos."
+                    });
                 }
             });
     });</script>

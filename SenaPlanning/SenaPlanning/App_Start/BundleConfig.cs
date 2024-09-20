@@ -37,7 +37,9 @@ namespace SenaPlanning
             "~/assets/js/pages/be_tables_datatables.min.js",
             "~/assets/js/plugins/select2/js/select2.full.min.js",
             "~/assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js",
-            "~/assets/js/plugins/flatpickr/flatpickr.min.js"
+            "~/assets/js/plugins/flatpickr/flatpickr.min.js",
+            "~/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js",
+            "~/assets/js/plugins/bootstrap-notify/bootstrap-notify.js"
             ));
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));

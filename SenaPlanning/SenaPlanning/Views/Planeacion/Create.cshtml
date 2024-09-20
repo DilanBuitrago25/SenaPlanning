@@ -34,7 +34,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="">
                     <div class="card-header pb-0">
                         <h5>Registrar Oferta</h5>
                     </div>
@@ -45,13 +45,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Nombre Indicativo - Oferta</label>
-                                @Html.EditorFor(model => model.NombreOferta, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.NombreOferta, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                                 @Html.ValidationMessageFor(m => m.NombreOferta)
                                 <br />
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
-                                @Html.EditorFor(model => model.FechaInicioOferta, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y" } })
+                                @Html.EditorFor(model => model.FechaInicioOferta, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y", required = "required" } })
                                 @Html.ValidationMessageFor(m => m.FechaInicioOferta)
 
                                 @*<input type="text" class="js-flatpickr form-control" id="example-flatpickr-custom" name="example-flatpickr-custom" placeholder="d/m/Y" data-date-format="d/m/Y">*@
@@ -68,7 +68,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Año de Meta a Indicar</label>
-                                @Html.DropDownList("IdMetas", null, "Selecciona una Meta", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                @Html.DropDownList("IdMetas", null, "Selecciona una Meta", new { @class = "js-select2 form-select col-sm-12 form-control", required = "required" })
                                 @Html.ValidationMessageFor(m => m.IdMetas)
 
                                 <br />
@@ -87,7 +87,7 @@
                                 </div>*@
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Coordinador Responsable</label>
-                                @Html.DropDownList("IdUsuario", null, "Selecciona un Coordinador", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                @Html.DropDownList("IdUsuario", null, "Selecciona un Coordinador", new { @class = "js-select2 form-select col-sm-12 form-control", required = "required" })
 
                                 <br />
                             </div>
@@ -126,6 +126,8 @@
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+
+        One.helpersOnLoad(['jq-notify']);
         $(document).ready(function () {
             $('form').on('submit', function (e) {
                 let isValid = true;
@@ -149,7 +151,21 @@
 
                 if (!isValid) {
                     e.preventDefault();
-                    alert('Por favor, complete todos los campos.');
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Por favor, complete todos los campos."
+                    });
                 }
             });
         });

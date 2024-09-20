@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" id="css-main" href="~/assets/css/oneui.min.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @Styles.Render("~/Content/assets");
 
 
@@ -222,8 +222,7 @@
     @Scripts.Render("~/bundles/assets");
     @RenderSection("Scripts", required: false)
 
-    <script>One.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-maxlength', 'jq-select2', 'jq-masked-inputs', 'jq-rangeslider', 'jq-colorpicker']);</script>
-
+    <script>One.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-maxlength', 'jq-select2', 'jq-masked-inputs', 'jq-rangeslider', 'jq-colorpicker', 'jq-notify']);</script>
     <script>
     var timeout = @(Session.Timeout * 180000); // Convertir minutos a milisegundos
     var timer;
@@ -244,20 +243,33 @@
         document.getElementById("btn-mode").addEventListener("click", () => {
             let body = document.getElementById("page-container");
             if (body.className === "sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled page-header-dark dark-mode") {
-                console.log("dark")
-                return;
+                localStorage.setItem("mode", "dark");
             } else if (body.className === "sidebar-o enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled") {
-                console.log("dark")
-                return;
+                localStorage.setItem("mode", "light");
             } else {
-                console.log("light")
+                localStorage.setItem("mode", "dark");
+            }
+            modeChanger();
+        })
+
+        const modeChanger = () => {
+            let body = document.getElementById("page-container");
+            if (localStorage.getItem("mode") === "dark") {
+                body.className = "sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled page-header-dark dark-mode";
                 return;
             }
-        })
+            if (localStorage.getItem("mode") === "light") {
+                body.className = "sidebar-o enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled";
+                return;
+            }
+        }
+        document.addEventListener("DOMContentLoaded", (event) => {
+            modeChanger();
+        });
+
     </script>
 </body>
 </html>
-
 @*
         @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")

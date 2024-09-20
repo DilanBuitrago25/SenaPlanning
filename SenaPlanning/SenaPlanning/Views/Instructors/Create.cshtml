@@ -30,7 +30,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="">
                     <div class="card-header pb-0">
                         <h5>Registrar Instructor</h5>
                     </div>
@@ -259,8 +259,21 @@
 
                 if (!isValid) {
                     e.preventDefault();
-                    One.helpers('jq-notify', { type: 'warning', icon: 'fa fa-exclamation me-1', message: 'Your message!' });
-                    alert('Por favor, completa todos los campos obligatorios.');
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Por favor, complete todos los campos."
+                    });
                 }
             });
         });
