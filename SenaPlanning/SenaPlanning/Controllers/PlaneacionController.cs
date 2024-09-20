@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -55,17 +56,20 @@ namespace SenaPlanning.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdOferta,EstadoOferta,NombreOferta,FechaInicioOferta,MetaOferta,IdUsuario,IdMetas,IdRed")] Oferta oferta)
         {
+
             if (ModelState.IsValid)
             {
                 db.Oferta.Add(oferta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.IdRed = new SelectList(db.Red_Conocimiento, "IdRed", "NombreRed", oferta.IdRed);
+
+            // Cargar los datos necesarios para la vista en caso de error
             ViewBag.IdMetas = new SelectList(db.Meta, "IdMeta", "MetaFecha", oferta.IdMetas);
             ViewBag.IdUsuario = new SelectList(db.Usuario, "Usuario", "NombreUsuario", oferta.IdUsuario);
             return View(oferta);
         }
+
 
         // GET: Planeacion/Edit/5
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
@@ -138,7 +142,7 @@ namespace SenaPlanning.Controllers
             
 
 
-            return View();   
+            return View(); 
         }
 
         [AutorizarTipoUsuario("Coordinador", "Administrador")]

@@ -25,6 +25,12 @@
     </div>
 </div>
 
+<style>
+    .is-invalid {
+        border-color: red;
+    }
+</style>
+
 <br />
 
 @using (Html.BeginForm())
@@ -119,6 +125,39 @@
     </div>
 
 
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>$(document).ready(function () {
+            $('form').on('submit', function (e) {
+                let isValid = true;
+                const fields = [
+                    $('#MetaFecha'),
+                    $('#MetaTecnPresencial'),
+                    $('#MetaTecnVirtual'),
+                    $('#MetaTecPresencial'),
+                    $('#MetaTecVirtual'),
+                    $('#MetaETPresencial'),
+                    $('#MetaETVirtual'),
+                    $('#MetaOtros')
+                ];
+
+                fields.forEach(function (field) {
+                    if (field.val().trim() === '') {
+                        isValid = false;
+                        field.addClass('is-invalid');
+                    } else {
+                        field.removeClass('is-invalid');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, complete todos los campos.');
+                }
+            });
+    });</script>
 }
 
 @*

@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Programa_Formacion</h4>
         <hr />
@@ -65,6 +65,42 @@
         </div>
     </div>
 }
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const fields = [
+                { selector: '#DenominacionPrograma', message: 'Este campo es obligatorio.' },
+                { selector: '#VersionPrograma', message: 'Este campo es obligatorio.' },
+                { selector: '#NivelPrograma', message: 'Este campo es obligatorio.' },
+                { selector: '#IdArea', message: 'Selecciona un área de conocimiento.' }
+            ];
+
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                fields.forEach(field => {
+                    const input = $(field.selector);
+                    if (input.val().trim() === '') {
+                        isValid = false;
+                        input.addClass('is-invalid');
+                        input.next('.text-danger').text(field.message);
+                    } else {
+                        input.removeClass('is-invalid');
+                        input.next('.text-danger').text('');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, completa todos los campos obligatorios.');
+                }
+            });
+        });
+    </script>
+}
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

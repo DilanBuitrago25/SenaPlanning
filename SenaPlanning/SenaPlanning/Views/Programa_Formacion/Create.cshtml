@@ -146,5 +146,44 @@
         </div>
     </div>
 }
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const fields = [
+                { selector: '#CodigoPrograma', message: 'Este campo es obligatorio.' },
+                { selector: '#DenominacionPrograma', message: 'Este campo es obligatorio.' },
+                { selector: '#VersionPrograma', message: 'Este campo es obligatorio.' },
+                { selector: '#HorasPrograma', message: 'Este campo es obligatorio.' },
+                { selector: '#NivelPrograma', message: 'Selecciona un nivel.' },
+                { selector: '#IdArea', message: 'Selecciona un área de conocimiento.' }
+            ];
+
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                fields.forEach(field => {
+                    const input = $(field.selector);
+                    if (field.selector === '#IdArea' ? input.val() === null : input.val().trim() === '') {
+                        isValid = false;
+                        input.addClass('is-invalid');
+                        input.next('.text-danger').text(field.message);
+                    } else {
+                        input.removeClass('is-invalid');
+                        input.next('.text-danger').text('');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, completa todos los campos obligatorios.');
+                }
+            });
+        });
+    </script>
+}
+
+
 <script src="~/Scripts/Handlers/ProgramsHandler.js"></script>
-@*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>*@
+@*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-yvpcryf0ty3lhb60nnkmxc5s9fdvzlesaaa55ndzoxhy9gkcidslk1en7n6jiehz" crossorigin="anonymous"></script>*@

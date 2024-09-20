@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Instructor</h4>
         <hr />
@@ -168,6 +168,55 @@
             </div>
         </div>
     </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const fields = [
+                { selector: '#DocumentoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#NombreCompletoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CodRegionalInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#RegionalInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CodCCOS', message: 'Este campo es obligatorio.' },
+                { selector: '#DependenciaInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CargoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#TipoCargoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CorreoSENAInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#RedInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#AreaInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#RutaInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CodMunicipioInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#MunicipioInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#FechaNacimientoInstructor', message: 'Seleccione una fecha de nacimiento.' },
+                { selector: '#FechaIngreso', message: 'Seleccione una fecha de ingreso.' },
+                { selector: '#SexoInstructor', message: 'Este campo es obligatorio.' }
+            ];
+
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                fields.forEach(field => {
+                    const input = $(field.selector);
+                    if (input.val().trim() === '') {
+                        isValid = false;
+                        input.addClass('is-invalid');
+                        input.next('.text-danger').text(field.message);
+                    } else {
+                        input.removeClass('is-invalid');
+                        input.next('.text-danger').text('');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    One.helpers('jq-notify', { type: 'warning', icon: 'fa fa-exclamation me-1', message: 'Your message!' });
+                    alert('Por favor, completa todos los campos obligatorios.');
+                }
+            });
+        });
+    </script>
 }
 
 <div>

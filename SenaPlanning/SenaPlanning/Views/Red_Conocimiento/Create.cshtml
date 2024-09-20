@@ -41,7 +41,7 @@
 
                                 @Html.AntiForgeryToken()
                                 <form>
-                                    
+
                                     <div class="mb-3 m-form__group">
                                         <label class="form-label">Nombre</label>
                                         <div class="input-group">
@@ -52,7 +52,7 @@
                                     </div>
 
                                     @Html.HiddenFor(model => model.EstadoRed, new { Value = "True" })
-   
+
                                 </form>
                             </div>
                         </div>
@@ -66,3 +66,32 @@
         </div>
     </div>
 }
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                const nombreInput = $('#NombreRed');
+                if (nombreInput.val().trim() === '') {
+                    isValid = false;
+                    nombreInput.addClass('is-invalid');
+                    nombreInput.next('.text-danger').text('Este campo es obligatorio.');
+                } else {
+                    nombreInput.removeClass('is-invalid');
+                    nombreInput.next('.text-danger').text('');
+                }
+
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, complete todos los campos obligatorios.');
+                }
+            });
+        });
+    </script>
+}
+

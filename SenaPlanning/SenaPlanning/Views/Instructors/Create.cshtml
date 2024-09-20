@@ -185,10 +185,10 @@
         <div class="card-body d-flex justify-content-end">
             <form class="Form-RegisterByFiles">
                 <!-- <div class="container-loading">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Cargando los archivos...</span>
-                </div>
-            </div> -->
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Cargando los archivos...</span>
+                    </div>
+                </div> -->
                 <h4>Registrar Instructores por Excel</h4>
                 <label for="inputFile-Instructor">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
@@ -219,4 +219,53 @@
     </div>
 }
 
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const fields = [
+                { selector: '#DocumentoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#NombreCompletoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CodRegionalInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#RegionalInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CodCCOS', message: 'Este campo es obligatorio.' },
+                { selector: '#DependenciaInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CargoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#TipoCargoInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CorreoSENAInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#RedInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#AreaInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#RutaInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#CodMunicipioInstructor', message: 'Este campo es obligatorio.' },
+                { selector: '#FechaNacimientoInstructor', message: 'Seleccione una fecha de nacimiento.' },
+                { selector: '#FechaIngreso', message: 'Seleccione una fecha de ingreso.' },
+                { selector: '#SexoInstructor', message: 'Este campo es obligatorio.' }
+            ];
+
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                fields.forEach(field => {
+                    const input = $(field.selector);
+                    if (input.val().trim() === '') {
+                        isValid = false;
+                        input.addClass('is-invalid');
+                        input.next('.text-danger').text(field.message);
+                    } else {
+                        input.removeClass('is-invalid');
+                        input.next('.text-danger').text('');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    One.helpers('jq-notify', { type: 'warning', icon: 'fa fa-exclamation me-1', message: 'Your message!' });
+                    alert('Por favor, completa todos los campos obligatorios.');
+                }
+            });
+        });
+    </script>
+}
+
 <script src="~/Scripts/Handlers/InstructorHandler.js"></script>
+<script src="assets/js/oneui.app.min.js"></script>

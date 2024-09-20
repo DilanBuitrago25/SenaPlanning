@@ -59,11 +59,11 @@
                         </div>
                         <div class="row">
                             @*<div class="col-md-6">
-                                <label for="estadoFiltro">Red de Conocimiento</label>
-                                @Html.DropDownList("IdRed", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control"})
-                                <br />
-                            </div>*@
-                           
+                                    <label for="estadoFiltro">Red de Conocimiento</label>
+                                    @Html.DropDownList("IdRed", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control"})
+                                    <br />
+                                </div>*@
+
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -74,17 +74,17 @@
                                 <br />
                             </div>
                             @*<div class="col-md-6">
-                                <label for="estadoFiltro">Tipo de Meta a Indicar</label>
-                                @Html.DropDownListFor(model => model.MetaOferta, new List<SelectListItem>
-                                {
-                                    new SelectListItem { Text = "", Value = "" },
-                                    new SelectListItem { Text = "Meta Tecnologia", Value = "MetaTecnologia" },
-                                    new SelectListItem { Text = "Meta Tecnico", Value = "MetaTecnico " },
-                                    new SelectListItem { Text = "Meta Especializacion Tecnica", Value = "MetaET" },
-                                    new SelectListItem { Text = "Meta Otros", Value = "MetaOtros" }
-                                }, new { @class = "form-control" })
-                                <br />
-                            </div>*@
+                                    <label for="estadoFiltro">Tipo de Meta a Indicar</label>
+                                    @Html.DropDownListFor(model => model.MetaOferta, new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Text = "", Value = "" },
+                                        new SelectListItem { Text = "Meta Tecnologia", Value = "MetaTecnologia" },
+                                        new SelectListItem { Text = "Meta Tecnico", Value = "MetaTecnico " },
+                                        new SelectListItem { Text = "Meta Especializacion Tecnica", Value = "MetaET" },
+                                        new SelectListItem { Text = "Meta Otros", Value = "MetaOtros" }
+                                    }, new { @class = "form-control" })
+                                    <br />
+                                </div>*@
                             <div class="col-md-6">
                                 <label for="estadoFiltro">Coordinador Responsable</label>
                                 @Html.DropDownList("IdUsuario", null, "Selecciona un Coordinador", new { @class = "js-select2 form-select col-sm-12 form-control" })
@@ -96,17 +96,17 @@
                         @Html.HiddenFor(model => model.EstadoOferta, new { Value = "True" })
 
                     </div>
-                    </div>
-                </div>
-
-                <div class="card-footer">
-                    <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
-                    <button class="btn btn-light" type="button">
-                        <a href="@Url.Action("Index","Planeacion")">Cancelar</a>
-                    </button>
                 </div>
             </div>
+
+            <div class="card-footer">
+                <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
+                <button class="btn btn-light" type="button">
+                    <a href="@Url.Action("Index","Planeacion")">Cancelar</a>
+                </button>
+            </div>
         </div>
+    </div>
 
 
 }
@@ -122,6 +122,39 @@
         });
     });
 </script>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                const fieldsToValidate = [
+                    'NombreOferta',
+                    'FechaInicioOferta',
+                    'IdMetas',
+                    'IdUsuario'
+                ];
+
+                fieldsToValidate.forEach(function (field) {
+                    const input = $(`#${field}`);
+                    if (input.val().trim() === '') {
+                        isValid = false;
+                        input.addClass('is-invalid');
+                    } else {
+                        input.removeClass('is-invalid');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, complete todos los campos.');
+                }
+            });
+        });
+    </script>
+}
 
 
 

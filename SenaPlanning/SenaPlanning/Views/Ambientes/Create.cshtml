@@ -47,7 +47,7 @@
                                         </div>
                                         @Html.ValidationMessageFor(model => model.NombreAmbiente, "", new { @class = "text-danger" })
                                     </div>
-                                   
+
 
                                     @Html.HiddenFor(model => model.EstadoAmbiente, new { Value = "True" })
 
@@ -65,3 +65,34 @@
     </div>
 }
 
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const fields = [
+                { selector: '#NombreAmbiente', message: 'Este campo es obligatorio.' }
+            ];
+
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                fields.forEach(field => {
+                    const input = $(field.selector);
+                    if (input.val().trim() === '') {
+                        isValid = false;
+                        input.addClass('is-invalid');
+                        input.next('.text-danger').text(field.message);
+                    } else {
+                        input.removeClass('is-invalid');
+                        input.next('.text-danger').text('');
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, completa todos los campos obligatorios.');
+                }
+            });
+        });
+    </script>
+}

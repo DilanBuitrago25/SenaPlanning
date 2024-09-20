@@ -9,166 +9,208 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<div class="content">
+    <div class="content">
 
-    <div class="content text-center">
-        <div class="d-flex">
-            <div class="flex-grow-1 mb-1 mb-md-0">
-                <h1 class="h3 fw-bold mb-2">
-                    Editar información de la meta
-                </h1>
+        <div class="content text-center">
+            <div class="d-flex">
+                <div class="flex-grow-1 mb-1 mb-md-0">
+                    <h1 class="h3 fw-bold mb-2">
+                        Editar información de la meta
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal block block-rounded">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IdMeta)
+
+            <div class="block-content block-content-full">
+
+                <div class="row text-center">
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaFecha, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaFecha, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaFecha, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaTecnPresencial, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaTecnPresencial, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaTecnPresencial, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaTecnVirtual, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaTecnVirtual, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaTecnVirtual, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaTecPresencial, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaTecPresencial, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaTecPresencial, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaTecVirtual, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaTecVirtual, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaTecVirtual, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaETPresencial, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaETPresencial, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaETPresencial, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaETVirtual, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaETVirtual, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaETVirtual, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaOtros, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaOtros, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaOtros, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaTGOApPasan, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaTGOApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaTGOApPasan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaTCOApPasan, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaTCOApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaTCOApPasan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaETApPasan, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaETApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaETApPasan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="block block-rounded">
+                            @Html.LabelFor(model => model.MetaOTROApPasan, htmlAttributes: new { @class = "control-label block-content" })
+                            <div class="block-content">
+                                @Html.EditorFor(model => model.MetaOTROApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MetaOTROApPasan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @*<div class="form-group">
+                      @Html.LabelFor(model => model.MetaETApPasan, htmlAttributes: new { @class = "control-label col-md-2" })
+                      <div class="col-md-10">
+                      @Html.EditorFor(model => model.MetaETApPasan, new { htmlAttributes = new { @class = "form-control" } })
+                      @Html.ValidationMessageFor(model => model.MetaETApPasan, "", new { @class = "text-danger" })
+                      </div>
+                    </div>*@
+
+
+                <div class="form-block text-end">
+                    <div class="bcol-md-10">
+                        <input type="submit" value="Guardar" class="btn btn-default" />
+                        <a href="/Metas" class="btn btn-default">Volver</a>
+                        @*@Html.ActionLink("Volver", "Index")*@
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="form-horizontal block block-rounded">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdMeta)
+}
 
-        <div class="block-content block-content-full">
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                let isValid = true;
 
-            <div class="row text-center">
+                // Campos a validar
+                const fieldsToValidate = [
+                    'MetaFecha',
+                    'MetaTecnPresencial',
+                    'MetaTecnVirtual',
+                    'MetaTecPresencial',
+                    'MetaTecVirtual',
+                    'MetaETPresencial',
+                    'MetaETVirtual',
+                    'MetaOtros',
+                    'MetaTGOApPasan',
+                    'MetaTCOApPasan',
+                    'MetaETApPasan',
+                    'MetaOTROApPasan'
+                ];
 
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaFecha, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaFecha, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaFecha, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
+                fieldsToValidate.forEach(function (field) {
+                    const input = $(`#${field}`);
+                    if (input.val().trim() === '') {
+                        isValid = false;
+                        input.addClass('is-invalid');
+                    } else {
+                        input.removeClass('is-invalid');
+                    }
+                });
 
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTecnPresencial, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTecnPresencial, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTecnPresencial, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTecnVirtual, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTecnVirtual, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTecnVirtual, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTecPresencial, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTecPresencial, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTecPresencial, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTecVirtual, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTecVirtual, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTecVirtual, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaETPresencial, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaETPresencial, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaETPresencial, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaETVirtual, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaETVirtual, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaETVirtual, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaOtros, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaOtros, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaOtros, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTGOApPasan, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTGOApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTGOApPasan, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaTCOApPasan, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaTCOApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaTCOApPasan, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaETApPasan, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaETApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaETApPasan, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="block block-rounded">
-                        @Html.LabelFor(model => model.MetaOTROApPasan, htmlAttributes: new { @class = "control-label block-content" })
-                        <div class="block-content">
-                            @Html.EditorFor(model => model.MetaOTROApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MetaOTROApPasan, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            @*<div class="form-group">
-                  @Html.LabelFor(model => model.MetaETApPasan, htmlAttributes: new { @class = "control-label col-md-2" })
-                  <div class="col-md-10">
-                  @Html.EditorFor(model => model.MetaETApPasan, new { htmlAttributes = new { @class = "form-control" } })
-                  @Html.ValidationMessageFor(model => model.MetaETApPasan, "", new { @class = "text-danger" })
-                  </div>
-                </div>*@
-
-
-            <div class="form-block text-end">
-                <div class="bcol-md-10">
-                    <input type="submit" value="Guardar" class="btn btn-default" />
-                    <a href="/Metas" class="btn btn-default">Volver</a>
-                    @*@Html.ActionLink("Volver", "Index")*@
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, complete todos los campos.');
+                }
+            });
+        });
+    </script>
 }

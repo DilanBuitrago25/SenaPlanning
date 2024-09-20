@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Area_Conocimiento</h4>
         <hr />
@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IdRed, "IdRed", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Id_Red", null, "Selecciona una Red de Conocimiento", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
+                @Html.DropDownList("IdRed", null, "Selecciona una Red de Conocimiento", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
                 @Html.ValidationMessageFor(model => model.IdRed, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,6 +49,40 @@
             </div>
         </div>
     </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>$(document).ready(function () {
+            $('form').on('submit', function (e) {
+                let isValid = true;
+
+                const nombreInput = $('#NombreArea');
+                if (nombreInput.val().trim() === '') {
+                    isValid = false;
+                    nombreInput.addClass('is-invalid');
+                    nombreInput.next('.text-danger').text('Este campo es obligatorio.');
+                } else {
+                    nombreInput.removeClass('is-invalid');
+                    nombreInput.next('.text-danger').text('');
+                }
+
+                const redInput = $('#IdRed');
+                if (redInput.val() === null) {
+                    isValid = false;
+                    redInput.addClass('is-invalid');
+                    redInput.next('.text-danger').text('Selecciona una Red de Conocimiento.');
+                } else {
+                    redInput.removeClass('is-invalid');
+                    redInput.next('.text-danger').text('');
+                }
+
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Por favor, complete todos los campos obligatorios.');
+                }
+            });
+        });</script>
 }
 
 <div>

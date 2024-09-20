@@ -16,7 +16,10 @@
     <link rel="stylesheet" id="css-main" href="~/assets/css/oneui.min.css">
 
     @Styles.Render("~/Content/assets");
+
+
 </head>
+
 <body>
     <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
 
@@ -162,16 +165,8 @@
                                 <p class="mb-0 text-muted fs-sm fw-medium">@Session["TipoUsuario"].ToString()</p>
                             </div>
                             <div class="p-2">
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="@Url.Action("Index", "")">
-                                    <span class="fs-sm fw-medium">Inbox</span>
-                                    <span class="badge rounded-pill bg-primary ms-2">3</span>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_profile.html">
-                                    <span class="fs-sm fw-medium">Profile</span>
-                                    <span class="badge rounded-pill bg-primary ms-2">1</span>
-                                </a>
                                 <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                    <span class="fs-sm fw-medium">Settings</span>
+                                    <span class="fs-sm fw-medium">Ajustes</span>
                                 </a>
                             </div>
                             <div role="separator" class="dropdown-divider m-0"></div>
@@ -207,11 +202,11 @@
 
         </header>
 
-        <main id="main-container">
+        <main id="main-container" class="mb-5">
             @RenderBody()
         </main>
 
-        <footer id="page-footer" class="bg-body-light">
+        <footer id="page-footer" class="bg-body-light fixed-bottom">
             <div class="content py-3">
                 <div class="row fs-sm">
                     <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
@@ -225,6 +220,7 @@
         </footer>
     </div>
     @Scripts.Render("~/bundles/assets");
+    @RenderSection("Scripts", required: false)
 
     <script>One.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-maxlength', 'jq-select2', 'jq-masked-inputs', 'jq-rangeslider', 'jq-colorpicker']);</script>
 
