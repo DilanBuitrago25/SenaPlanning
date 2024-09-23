@@ -70,6 +70,17 @@ namespace SenaPlanning.Controllers
             return View(oferta);
         }
 
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
+        public ActionResult Planeacion_Ficha(int id)
+        {
+            var ofertas = db.Ficha
+         .Where(a => a.IdOferta == id)
+         .ToList();
+            ViewBag.OfertaId = id;
+            ViewBag.NombreOferta = db.Oferta.Find(id)?.NombreOferta;
+            return View(ofertas);
+        }
+
 
         // GET: Planeacion/Edit/5
         [AutorizarTipoUsuario("Coordinador", "Administrador")]

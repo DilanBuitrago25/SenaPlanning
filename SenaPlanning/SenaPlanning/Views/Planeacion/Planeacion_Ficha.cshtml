@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Planeacion_Ficha";
+}
+
+<br />
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Fichas Asociadas a la Oferta: @ViewBag.NombreOferta</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="breadcrumb-item">Planeación</li>
+                    <li class="breadcrumb-item">@ViewBag.NombreOferta</li>
+                    <li class="breadcrumb-item active">Consultar Fichas</li>
+                </ol>
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header d-flex align-items-center">
+            <div class="col-sm-4">
+                <h5>Tabla de datos - Fichas</h5>
+                <br />
+                @using (Html.BeginForm("Index", "Fichas", FormMethod.Get))
+                {
+                    <div class="d-flex align-items-center">
+                        <label for="estadoFiltro" class="me-2">Estado:</label>
+                        <select class="form-select me-2" id="estadoFiltro" name="estadoFiltro">
+                            <option value="" @(ViewBag.EstadoFiltro == "" ? "selected" : "")>Todos</option>
+                            <option value="true" @(ViewBag.EstadoFiltro == "true" ? "selected" : "")>Activo</option>
+                            <option value="false" @(ViewBag.EstadoFiltro == "false" ? "selected" : "")>No Activo</option>
+                        </select>
+                        <input class="btn btn-success btn-sm" type="submit" value="Filtrar" />
+                    </div>
+                }
+            </div>
+            @*<div class="col-sm-8 d-flex justify-content-end">
+                    @if (@Session["TipoUsuario"].ToString() == "InstructorAdmin")
+                    {
+                        <button class="btn btn-primary" onclick="window.location.href='@Url.Action("Asociar_Aprendiz_Ficha", "Fichas", new { idFicha = ViewBag.FichaId })'">
+                            Agregar Aprendiz
+                        </button>
+                    }
+                </div>*@
+        </div>
+        <div class="card-body">
+            @*@using (Html.BeginForm("GenerarReportePDFAprendiz", "Fichas", FormMethod.Post))
+                {
+                    <input type="hidden" name="id" value="@ViewBag.FichaId" />
+                    <button type="submit" class="btn btn-primary">Generar Reporte PDF</button>
+                }*@
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Red de Conocimiento</th>
+                            <th style="width: 15%;">Acciones</th>
+                        </tr>
+                    </thead>
+                    @*<tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fs-sm">@Html.DisplayFor(modelItem => item.IdRed)</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NombreArea)
+                                    </td>
+                                    <td>
+                                        @if (item.EstadoArea == true)
+                                        {
+                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">Activo</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">Inactivo</span>
+                                        }
+                                    </td>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.Red_Conocimiento.NombreRed)
+                                    </th>
+                                    <td>
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.IdArea }) |
+                                        @Html.ActionLink("Programas", "Programa_Area_Red", new { id = item.IdArea, idRed = ViewBag.RedId }) |
+                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdArea })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>*@
+                </table>
+            </div>
+            <div class="col-sm-12 d-flex justify-content-end">
+                <button class="btn btn-light" type="button" style="margin-top: 15px;"><a href="@Url.Action("Index","Red_Conocimiento")">Volver</a></button>
+            </div>
+        </div>
+    </div>
+</div>
