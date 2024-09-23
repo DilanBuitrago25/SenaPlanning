@@ -3,7 +3,7 @@ Create database SenaPlanning
 go
 
 use SenaPlanning
-
+ 
 go
 
 create table Red_Conocimiento(
