@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<ClaseModelo.ResumenAreaConocimiento>
 @{
     ViewBag.Title = "Instructores_ContratarIITrim";
 }
@@ -56,77 +56,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center fs-sm">INFORMATICA, DISEÑO Y DESARROLLO DE SOFWARE</td>
-                        <td class="fw-semibold fs-sm">Software</td>
-                        <td class="fs-sm">5</td>
-                        <td>
-                            1760
-                        </td>
-                        <td>
-                            880
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">3</span>
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">2</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center fs-sm">Red de mantenimiento electronico</td>
-                        <td class="fw-semibold fs-sm">Mantenimiento Electronico</td>
-                        <td class="fs-sm">5</td>
-                        <td>
-                            1760
-                        </td>
-                        <td>
-                            880
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">3</span>
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">2</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center fs-sm">INFORMATICA, DISEÑO Y DESARROLLO DE SOFWARE</td>
-                        <td class="fw-semibold fs-sm">Infraestructura</td>
-                        <td class="fs-sm">5</td>
-                        <td>
-                            1760
-                        </td>
-                        <td>
-                            880
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">3</span>
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">2</span>
-                        </td>
-                    </tr>
-
-                    <!--<tr>-->
-                    @*<td class="fw-semibold fs-sm">@item.Programa_Formacion.Area_Conocimiento.Red_Conocimiento.NombreRed</td>
-                        <td class="fw-semibold fs-sm">@item.Programa_Formacion.Area_Conocimiento.NombreArea</td>*@
-                    <!--<td>
-                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success"></span>
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">7/7</span>
-                        </td>
-                        <td>
-                            23/01/2023
-                        </td>
-                        <td>
-                            23/03/2025
-                        </td>
-                        <td>
-                            <span class="text-muted fs-sm">16</span>
-                        </td>
-                    </tr>-->
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.RedConocimiento</td>
+                            <td>@item.AreaConocimiento</td>
+                            <td>@item.NumeroFichas</td>
+                            <td>@item.HorasRequeridas</td>
+                            <td>@item.HorasContrato</td>
+                            <td>@item.NumeroInstructoresPlanta</td>
+                            <td>@item.NumeroInstructoresContrato</td>
+                        </tr>
+                    }
 
                 </tbody>
 

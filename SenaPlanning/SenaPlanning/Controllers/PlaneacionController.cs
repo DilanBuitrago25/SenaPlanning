@@ -156,7 +156,27 @@ namespace SenaPlanning.Controllers
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Instructores_ContratarIITrim()
         {
-            return View();
+            const int HORAS_INST_PLANTA = 403;
+            const int HORAS_INST_CONTRATO = 440;
+
+            var fichasByArea = (from f in db.Ficha
+                                join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
+                                join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
+                                join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
+                                group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
+                                select new ResumenAreaConocimiento
+                                {
+                                    AreaConocimiento = groupedFichas.Key.NombreArea,
+                                    NumeroFichas = groupedFichas.Count(),
+                                    RedConocimiento = groupedFichas.FirstOrDefault().r.NombreRed,
+                                    HorasRequeridas = groupedFichas.Count() * 440,
+                                    NumeroInstructoresPlanta = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea && i.EstadoInstructor)),
+                                    HorasContrato = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea && i.EstadoInstructor)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440,
+                                    NumeroInstructoresContrato = (int)(groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea && i.EstadoInstructor)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440) / HORAS_INST_CONTRATO
+                                })
+                                 .ToList();
+
+            return View(fichasByArea);
         }
 
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
