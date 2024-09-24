@@ -65,6 +65,7 @@ namespace SenaPlanning.Controllers
                 var programa_Formacion = db.Programa_Formacion.Find(ficha.IdPrograma);
                 var oferta = db.Oferta.Where(o => o.IdOferta == ficha.IdOferta).ToList();
                 var meta = db.Meta.Find(oferta[0].IdMetas);
+                var fechafin = ficha.FechaFinFicha;
 
                 List<string> nivel = new List<string>() { "Tecnólogo", "Técnico", "Especialización tecnológica" };
 
@@ -90,9 +91,35 @@ namespace SenaPlanning.Controllers
                 {
                     meta.MetaOTROApPasan = meta.MetaTCOApPasan + ficha.NumAprenFicha;
                 }
+                if (programa_Formacion.NivelPrograma == "Curso especial" || programa_Formacion.NivelPrograma == "Complementaria virtual")
+                {
+                    ficha.FechaFinFicha = ficha.FechaInFicha.Value.AddMonths(1);
+                }
+                if (programa_Formacion.NivelPrograma == "Tecnólogo")
+                {
+                    ficha.FechaFinFicha = ficha.FechaInFicha.Value.AddMonths(21);
+                }
+                if (programa_Formacion.NivelPrograma == "Técnico")
+                {
+                    ficha.FechaFinFicha = ficha.FechaInFicha.Value.AddMonths(15);
+                }
+                if (programa_Formacion.NivelPrograma == "Especialización tecnológica")
+                {
+                    ficha.FechaFinFicha = ficha.FechaInFicha.Value.AddMonths(6);
+                }
+                if (programa_Formacion.NivelPrograma == "Auxiliar")
+                {
+                    ficha.FechaFinFicha = ficha.FechaInFicha.Value.AddMonths(3);
+                }
 
-                db.Ficha.Add(ficha);
-                db.SaveChanges();
+                if(ModelState.IsValid)
+                {
+                    db.Ficha.Add(ficha);
+                    db.SaveChanges();
+                }
+
+
+
                 return RedirectToAction("Index");
             }
 
