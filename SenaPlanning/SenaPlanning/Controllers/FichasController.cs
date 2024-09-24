@@ -21,8 +21,7 @@ namespace SenaPlanning.Controllers
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
-            var ficha = db.Ficha.Where(m => m.Oferta.Meta.MetaFecha == DateTime.Now.Year.ToString() || m.Oferta.Meta.MetaFecha == (DateTime.Now.Year - 1).ToString() || m.Oferta.Meta.MetaFecha == (DateTime.Now.Year - 2).ToString());
-            return View(ficha.ToList());
+            return View(db.Ficha.ToList());
         }
 
         // GET: Fichas/Details/5
@@ -59,7 +58,7 @@ namespace SenaPlanning.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,TrimestreFicha,JornadaFicha,IdPrograma,EstadoFicha,IdOferta,NumAprenFicha")] Ficha ficha)
+        public ActionResult Create([Bind(Include = "IdFicha,CodigoFicha,FechaInFicha,FechaFinFicha,TrimestreFicha,JornadaFicha,IdPrograma,EstadoFicha,IdOferta,NumAprenFicha")] Ficha ficha)
         {
             if (ModelState.IsValid)
             {

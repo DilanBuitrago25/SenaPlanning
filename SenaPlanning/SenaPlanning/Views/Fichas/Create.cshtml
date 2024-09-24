@@ -14,7 +14,7 @@
             <div class="col-sm-6">
                 <h3>Gestionar Fichas</h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li class="breadcrumb-item">Fichas</li>
                     <li class="breadcrumb-item">General</li>
                     <li class="breadcrumb-item active">Registrar</li>
@@ -32,7 +32,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="">
+                <div class="card">
                     <div class="card-header pb-0">
                         <h5>Registrar Ficha</h5>
                     </div>
@@ -195,7 +195,7 @@
                 <div class="card-footer">
                     <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
                     <button class="btn btn-light" type="button">
-                        <a href="@Url.Action("Index","Fichas")">Cancelar</a>
+                        <a href="@Url.Action("Index","Programa_formacion")">Cancelar</a>
                     </button>
                 </div>
             </div>
@@ -203,59 +203,6 @@
     </div>
 
 }
-
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            const fields = [
-                { selector: '#CodigoFicha', message: 'Este campo es obligatorio.' },
-                { selector: '#IdOferta', message: 'Selecciona una oferta.' },
-                { selector: '#IdPrograma', message: 'Selecciona un programa.' },
-                { selector: '#NumAprenFicha', message: 'Este campo es obligatorio.' },
-                { selector: '#JornadaFicha', message: 'Selecciona una jornada.' },
-                { selector: '#FechaInFicha', message: 'Seleccione la fecha de inicio.' },
-                { selector: '#FechaFinFicha', message: 'Seleccione la fecha de fin.' }
-            ];
-
-            $('form').on('submit', function (e) {
-                let isValid = true;
-
-                fields.forEach(field => {
-                    const input = $(field.selector);
-                    if (input.val().trim() === '') {
-                        isValid = false;
-                        input.addClass('is-invalid');
-                        input.next('.text-danger').text(field.message);
-                    } else {
-                        input.removeClass('is-invalid');
-                        input.next('.text-danger').text('');
-                    }
-                });
-
-                if (!isValid) {
-                    e.preventDefault();
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.onmouseenter = Swal.stopTimer;
-                            toast.onmouseleave = Swal.resumeTimer;
-                        }
-                    });
-                    Toast.fire({
-                        icon: "error",
-                        title: "Por favor, complete todos los campos."
-                    });
-                }
-            });
-        });
-    </script>
-}
-
 
 <script src="~/Scripts/jquery-3.7.1.min.js"></script>
 
@@ -267,19 +214,19 @@
 
      function cargarAreas() {
     var redId = $("#Red").val();
-         $.ajax({
-             url: '@Url.Action("ObtenerAreasPorRedes", "Fichas")',
-             type: 'GET',
-             data: { idRed: redId },
-             success: function (data) {
-                 var selectArea = $("#Area");
-                 selectArea.empty();
-                 $.each(data, function (index, area) {
-                     selectArea.append($('<option></option>').val(area.Value).text(area.Text));
-                 });
-             }
-         });
-    };
+    $.ajax({
+        url: '@Url.Action("ObtenerAreasPorRedes", "Fichas")',
+        type: 'GET',
+        data: { idRed: redId },
+        success: function (data) {
+            var selectArea = $("#Area");
+            selectArea.empty();
+            $.each(data, function (index, area) {
+                selectArea.append($('<option></option>').val(area.Value).text(area.Text));
+            });
+        }
+    });
+    }
 
             function cargarProgramas() {
     var areaId = $("#Area").val();
@@ -295,107 +242,106 @@
             });
         }
     });
-    };
+    }
 
-    $(document).ready(function () {
-        $("#IdPrograma").change(function () {
-            var selectedProgramaId = $(this).val();
+    $(document).ready(function() {
+    $("#IdPrograma").change(function() {
+        var selectedProgramaId = $(this).val();
 
-            $.ajax({
-                url: '@Url.Action("ObtenerNivelPrograma", "Fichas")',
-                type: 'GET',
-                data: { idPrograma: selectedProgramaId },
-                success: function (data) {
-                    $("#nivelProgramaInput").val(data);
-                },
-                error: function () {
-                    alert("Error al obtener el nivel del programa.");
-                }
-            });
+        $.ajax({
+            url: '@Url.Action("ObtenerNivelPrograma", "Fichas")',
+            type: 'GET',
+            data: { idPrograma: selectedProgramaId },
+            success: function (data) {
+                $("#nivelProgramaInput").val(data);
+            },
+            error: function() {
+                alert("Error al obtener el nivel del programa.");
+            }
         });
     });
-
-    $(document).ready(function () {
-        $("#IdPrograma").change(function () {
-            var selectedProgramaId = $(this).val();
-
-            $.ajax({
-                url: '@Url.Action("ObtenerCodigoPrograma", "Fichas")',
-                type: 'GET',
-                data: { idPrograma: selectedProgramaId },
-                success: function (data) {
-                    $("#codigoProgramaInput").val(data);
-                },
-                error: function () {
-                    alert("Error al obtener el codigo del programa.");
-                }
-            });
-        });
     });
 
-    $(document).ready(function () {
-        $("#IdPrograma").change(function () {
-            var selectedProgramaId = $(this).val();
+        $(document).ready(function() {
+            $("#IdPrograma").change(function() {
+        var selectedProgramaId = $(this).val();
 
-            $.ajax({
-                url: '@Url.Action("ObtenerHorasPrograma", "Fichas")',
-                type: 'GET',
-                data: { idPrograma: selectedProgramaId },
-                success: function (data) {
-                    $("#horasProgramaInput").val(data);
-                },
-                error: function () {
-                    alert("Error al obtener las horas del programa.");
-                }
-            });
+        $.ajax({
+            url: '@Url.Action("ObtenerCodigoPrograma", "Fichas")',
+            type: 'GET',
+            data: { idPrograma: selectedProgramaId },
+            success: function (data) {
+                $("#codigoProgramaInput").val(data);
+            },
+            error: function() {
+                alert("Error al obtener el codigo del programa.");
+            }
         });
     });
+        });
 
-    $(document).ready(function () {
-        $("#IdOferta").change(function () {
-            var selectedOfertaId = $(this).val();
+            $(document).ready(function() {
+                $("#IdPrograma").change(function() {
+        var selectedProgramaId = $(this).val();
 
-            $.ajax({
-                url: '@Url.Action("ObtenerEstadoOferta", "Fichas")',
-                type: 'GET',
-                data: { idOferta: selectedOfertaId },
-                success: function (data) {
-                    $("#estadoOfertaInput").val(data);
-                },
-                error: function () {
-                    alert("Error al obtener estado de la oferta.");
-                }
-            });
+        $.ajax({
+            url: '@Url.Action("ObtenerHorasPrograma", "Fichas")',
+            type: 'GET',
+            data: { idPrograma: selectedProgramaId },
+            success: function (data) {
+                $("#horasProgramaInput").val(data);
+            },
+            error: function() {
+                alert("Error al obtener las horas del programa.");
+            }
         });
     });
-
-    $(document).ready(function () {
-        $("#IdOferta").change(function () {
-            var selectedOfertaId = $(this).val();
-
-            $.ajax({
-                url: '@Url.Action("ObtenerMetaOferta", "Fichas")',
-                type: 'GET',
-                data: { idOferta: selectedOfertaId },
-                success: function (data) {
-                    $("#metaOfertaInput").val(data);
-                },
-                error: function () {
-                    alert("Error al obtener la fecha de la meta.");
-                }
             });
-        });
+
+                $(document).ready(function() {
+        $("#IdOferta").change(function() {
+    var selectedOfertaId = $(this).val();
+
+    $.ajax({
+        url: '@Url.Action("ObtenerEstadoOferta", "Fichas")',
+        type: 'GET',
+        data: { idOferta: selectedOfertaId },
+        success: function (data) {
+            $("#estadoOfertaInput").val(data);
+        },
+        error: function() {
+            alert("Error al obtener estado de la oferta.");
+        }
     });
+});
+                });
 
+                                $(document).ready(function() {
+        $("#IdOferta").change(function() {
+    var selectedOfertaId = $(this).val();
 
+    $.ajax({
+        url: '@Url.Action("ObtenerMetaOferta", "Fichas")',
+        type: 'GET',
+        data: { idOferta: selectedOfertaId },
+        success: function (data) {
+            $("#metaOfertaInput").val(data);
+        },
+        error: function() {
+            alert("Error al obtener la fecha de la meta.");
+        }
+    });
+});
+    });
 
     flatpickr("#@fechaInFichaId", { // Inicializa Flatpickr para FechaInFicha
         dateFormat: "d/m/Y",
         onChange: function(selectedDates, dateStr, instance) {
             if (selectedDates.length > 0) {
-                var fechaInicio = new Date(selectedDates[0]);
-                var fechaFin = fechaInicio.setMonth(9); // Suma 18 meses
-                console.log(fechaFin)
+                var fechaInicio = selectedDates[0];
+                var fechaFin = new Date(fechaInicio);
+                fechaFin.setMonth(fechaFin.getMonth() + 18); // Suma 18 meses
+
                 flatpickr("#@fechaFinFichaId", { // Inicializa Flatpickr para FechaFinFicha
                     dateFormat: "d/m/Y",
                     defaultDate: fechaFin // Establece la fecha calculada como valor por defecto
@@ -407,4 +353,3 @@
     });
 
 </script>
-

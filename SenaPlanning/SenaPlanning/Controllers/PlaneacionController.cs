@@ -149,10 +149,6 @@ namespace SenaPlanning.Controllers
         public ActionResult Instructores_ContratarITrim()
         {
             ViewBag.Metas = db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList().ToString();
-
-            
-
-
             return View(); 
         }
 
@@ -173,9 +169,9 @@ namespace SenaPlanning.Controllers
                                     NumeroFichas = groupedFichas.Count(),
                                     RedConocimiento = groupedFichas.FirstOrDefault().r.NombreRed,
                                     HorasRequeridas = groupedFichas.Count() * 440,
-                                    NumeroInstructoresPlanta = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea && i.EstadoInstructor)),
-                                    HorasContrato = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea && i.EstadoInstructor)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440,
-                                    NumeroInstructoresContrato = (int)(groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea && i.EstadoInstructor)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440) / HORAS_INST_CONTRATO
+                                    NumeroInstructoresPlanta = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea)),
+                                    HorasContrato = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440,
+                                    NumeroInstructoresContrato = (int)(groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440) / HORAS_INST_CONTRATO
                                 })
                                  .ToList();
 
@@ -193,47 +189,6 @@ namespace SenaPlanning.Controllers
         {
             return View();
         }
-
-        //public ActionResult ResumenPorAño(int año)
-        //{
-        //    var añoActual = DateTime.Now.Year;
-        //    var totalTrimestres = 4;
-
-        //    var trimestres = new List<ResumenTrimestre>();
-        //    for (int trimestre = 1; trimestre <= totalTrimestres; trimestre++)
-        //    {
-        //        var rangoFechas = ObtenerRangoFechasPorTrimestre(trimestre, añoActual);
-
-        //        var resumenTrimestre = db.Ficha
-        //            .Where(f => f.Oferta.Meta.MetaFecha >= rangoFechas.Item1 && f.Oferta.Meta.MetaFecha <= rangoFechas.Item2 && !EsTrimestreEP(f.Oferta.Meta.MetaFecha))
-        //            .GroupBy(f => new { f.Programa.AreaConocimiento.NombreArea, f.Programa.AreaConocimiento.RedConocimiento })
-        //            .Select(g => new ResumenAreaConocimiento
-        //            {
-        //                RedConocimiento = g.Key.RedConocimiento,
-        //                AreaConocimiento = g.Key.NombreArea,
-        //                NumeroFichas = g.Count(),
-        //                // ... otros cálculos
-        //            })
-        //            .ToList();
-
-        //        trimestres.Add(new ResumenTrimestre { Trimestre = trimestre, Datos = resumenTrimestre });
-        //    }
-
-        //    return View(trimestres);
-        //}
-
-        //private bool EsTrimestreEP(DateTime fecha)
-        //{
-        //    // Lógica para determinar si la fecha corresponde al trimestre EP
-        //    // Por ejemplo, si "EP" representa el último trimestre del año:
-        //    return fecha.Month >= 10;
-        //}
-
-        //// Método para obtener el rango de fechas por trimestre (ya definido anteriormente)
-        //public static Tuple<DateTime, DateTime> ObtenerRangoFechasPorTrimestre(int trimestre, int año)
-        //{
-        //    // ... implementación del método ...
-        //}
 
         protected override void Dispose(bool disposing)
         {
