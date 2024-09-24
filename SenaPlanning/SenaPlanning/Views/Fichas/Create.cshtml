@@ -52,14 +52,30 @@
                                 <br />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                @*<label for="estadoFiltro">Area de Conocimiento</label>
-                                    @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control" })*@
-                                <br />
+
+                        <div class="card-body">
+                            @Html.AntiForgeryToken()
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @*<label for="estadoFiltro">Red</label>
+                                    @Html.DropDownList("Red", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarAreas()" })*@
+                                    <br />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="estadoFiltro">Oferta</label>
+                                    @Html.DropDownList("IdOferta", null, "Selecciona una Oferta", new { @class = "js-select2 form-select col-sm-12 form-control", onchange = "cargarProgramas()" })
+                                    <br />
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                @*<label for="estadoFiltro">Tipo de Meta a Indicar</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @*<label for="estadoFiltro">Area de Conocimiento</label>
+                                    @Html.DropDownList("Area", null, "Selecciona un Area", new { @class = "js-select2 form-select col-sm-12 form-control" })*@
+                                    <br />
+                                </div>
+                                <div class="col-md-6">
+                                    @*<label for="estadoFiltro">Tipo de Meta a Indicar</label>
                                     @Html.DropDownListFor(model => model.MetaOferta, new List<SelectListItem>
                                     {
                                         new SelectListItem { Text = "", Value = "" },
@@ -68,140 +84,137 @@
                                         new SelectListItem { Text = "Meta Especializacion Tecnica", Value = "MetaET" },
                                         new SelectListItem { Text = "Meta Otros", Value = "MetaOtros" }
                                     }, new { @class = "form-control" })*@
-                                <br />
+                                    <br />
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="estadoFiltro">Programa de Formación</label>
-                                @Html.DropDownList("IdPrograma", null, "Selecciona un Programa", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="estadoFiltro">Programa de Formación</label>
+                                    @Html.DropDownList("IdPrograma", null, "Selecciona un Programa", new { @class = "js-select2 form-select col-sm-12 form-control" })
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="form-label">Nivel Programa</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" readonly class="form-control" id="nivelProgramaInput" name="example-static-input-readonly" value="">
+                                    <br />
+                                </div>
+                                @Html.HiddenFor(model => model.EstadoFicha, new { Value = "True" })
                             </div>
-                            <div class="col-md-5">
-                                <label class="form-label">Nivel Programa</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="nivelProgramaInput" name="example-static-input-readonly" value="">
-                                <br />
-                            </div>
-                            @Html.HiddenFor(model => model.EstadoFicha, new { Value = "True" })
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
-                                @Html.EditorFor(model => model.FechaInFicha, new
-                                {
-                                    htmlAttributes = new
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
+                                    @Html.EditorFor(model => model.FechaInFicha, new
                                     {
-                                        @class = "js-flatpickr form-control",
-                                        placeholder = "d/m/Y",
-                                        data_date_format = "d/m/Y",
-                               id = fechaInFichaId
-                           }
-                           })
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label" for="example-flatpickr-custom">Fecha Fin</label>
-                                @Html.EditorFor(model => model.FechaFinFicha, new
-                                {
-                                    htmlAttributes = new
+                                        htmlAttributes = new
+                                        {
+                                            @class = "js-flatpickr form-control",
+                                            placeholder = "d/m/Y",
+                                            data_date_format = "d/m/Y",
+                                   id = fechaInFichaId
+                               }
+                               })
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="example-flatpickr-custom">Fecha Fin</label>
+                                    @Html.EditorFor(model => model.FechaFinFicha, new
                                     {
-                                        @class = "js-flatpickr form-control",
-                                        placeholder = "d/m/Y",
-                                        data_date_format = "d/m/Y",
-                               id = fechaFinFichaId
-                           }
-                                })
-                            </div>
-                            <div class="col-md-2">
-                                <label class="form-label">No Aprendices</label>
-                                @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { id = "NumAprenFicha", @class = "form-control" } })
-                                @Html.HiddenFor(model => model.NumAprenFicha, new { Value = 30 })
+                                        htmlAttributes = new
+                                        {
+                                            @class = "js-flatpickr form-control",
+                                            placeholder = "d/m/Y",
+                                            data_date_format = "d/m/Y",
+                                   id = fechaFinFichaId
+                               }
+                                    })
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">No Aprendices</label>
+                                    @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { id = "NumAprenFicha", @class = "form-control" } })
+                                    @Html.HiddenFor(model => model.NumAprenFicha, new { Value = 30 })
+
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Codigo Programa</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" readonly class="form-control" id="codigoProgramaInput" name="example-static-input-readonly" value="">
+                                    <br />
+                                </div>
 
                             </div>
-                            <div class="col-md-2">
-                                <label class="form-label">Codigo Programa</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="codigoProgramaInput" name="example-static-input-readonly" value="">
-                                <br />
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label class="form-label">Cantidad de Horas Programa</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="horasProgramaInput" name="example-static-input-readonly" value="">
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Codigo Ficha</label>
-                                @Html.EditorFor(model => model.CodigoFicha, new { htmlAttributes = new { @class = "form-control", placeholder = "Ej: 2693606" } })
-                                <br />
-                            </div>
-                            <div class="col-md-6">
-                                <label for="estadoFiltro">Jornada</label>
-                                @Html.DropDownListFor(model => model.JornadaFicha, new List<SelectListItem>
-                                {
-                                    new SelectListItem { Text = "", Value = "" },
-                                    new SelectListItem { Text = "Diurna", Value = "Diurna" },
-                                    new SelectListItem { Text = "Mixta", Value = "Mixta " },
-                                    new SelectListItem { Text = "Nocturna", Value = "Nocturna" },
-                                    new SelectListItem { Text = "Virtual", Value = "Virtual" },
-                                    new SelectListItem { Text = "A Distancia", Value = "Distancia" },
-                                    new SelectListItem { Text = "Otro", Value = "Otro" }
-                                }, new { id = "JornadaFicha", @class = "form-control" })
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1">
-                                <label class="form-label">Trim I</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="0">
-                            </div>
-                            <div class="col-md-1">
-                                <label class="form-label">Trim II</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="0">
-                            </div>
-                            <div class="col-md-1">
-                                <label class="form-label">Trim III</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="1/6">
-                            </div>
-                            <div class="col-md-1">
-                                <label class="form-label">Trim VI</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="2/6">
-                            </div>
-                            <div class="col-md-2">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Cantidad de Horas Programa</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" readonly class="form-control" id="horasProgramaInput" name="example-static-input-readonly" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Codigo Ficha</label>
+                                    @Html.EditorFor(model => model.CodigoFicha, new { htmlAttributes = new { @class = "form-control", placeholder = "Ej: 2693606" } })
+                                    <br />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="estadoFiltro">Jornada</label>
+                                    @Html.DropDownListFor(model => model.JornadaFicha, new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Text = "", Value = "" },
+                                        new SelectListItem { Text = "Diurna", Value = "Diurna" },
+                                        new SelectListItem { Text = "Mixta", Value = "Mixta " },
+                                        new SelectListItem { Text = "Nocturna", Value = "Nocturna" },
+                                        new SelectListItem { Text = "Virtual", Value = "Virtual" },
+                                        new SelectListItem { Text = "A Distancia", Value = "Distancia" },
+                                        new SelectListItem { Text = "Otro", Value = "Otro" }
+                                    }, new { id = "JornadaFicha", @class = "form-control" })
+                                </div>
 
                             </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Estado Oferta</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="estadoOfertaInput" name="example-static-input-readonly" value="">
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Meta</label>
-                                @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="text" readonly class="form-control" id="metaOfertaInput" name="example-static-input-readonly" value="">
-                                <br />
-                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <label class="form-label">Trim I</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="0">
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="form-label">Trim II</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="0">
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="form-label">Trim III</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="1/6">
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="form-label">Trim VI</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" class="form-control form-control-alt" id="example-text-input-alt" name="example-text-input-alt" placeholder="2/6">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Estado Oferta</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" readonly class="form-control" id="estadoOfertaInput" name="example-static-input-readonly" value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Meta</label>
+                                    @*@Html.EditorFor(model => model.duracion, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <input type="text" readonly class="form-control" id="metaOfertaInput" name="example-static-input-readonly" value="">
+                                    <br />
+                                </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card-footer">
-                    <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
-                    <button class="btn btn-light" type="button">
-                        <a href="@Url.Action("Index","Programa_formacion")">Cancelar</a>
-                    </button>
+                    <div class="card-footer">
+                        <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
+                        <button class="btn btn-light" type="button">
+                            <a href="@Url.Action("Index","Fichas")">Cancelar</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 }
 
 <script src="~/Scripts/jquery-3.7.1.min.js"></script>

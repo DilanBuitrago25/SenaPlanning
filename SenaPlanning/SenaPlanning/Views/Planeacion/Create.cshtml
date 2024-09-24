@@ -31,74 +31,54 @@
 
 @using (Html.BeginForm())
 {
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="">
-                    <div class="card-header pb-0">
-                        <h5>Registrar Oferta</h5>
-                    </div>
-
-                    <div class="card-body">
-                        @Html.AntiForgeryToken()
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="estadoFiltro">Nombre Indicativo - Oferta</label>
-                                @Html.EditorFor(model => model.NombreOferta, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                                @Html.ValidationMessageFor(m => m.NombreOferta)
-                                <br />
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
-                                @Html.EditorFor(model => model.FechaInicioOferta, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y", required = "required" } })
-                                @Html.ValidationMessageFor(m => m.FechaInicioOferta)
-
-                                @*<input type="text" class="js-flatpickr form-control" id="example-flatpickr-custom" name="example-flatpickr-custom" placeholder="d/m/Y" data-date-format="d/m/Y">*@
-                            </div>
-                        </div>
-                        <div class="row">
-                            @*<div class="col-md-6">
-                                    <label for="estadoFiltro">Red de Conocimiento</label>
-                                    @Html.DropDownList("IdRed", null, "Selecciona una Red", new { @class = "js-select2 form-select col-sm-12 form-control"})
+    <div class="card-body">
+        <div class="block block-bordered">
+            <div class="card-header pb-0">
+                <h5>Registrar Oferta</h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="">
+                        <div class="card-body">
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="estadoFiltro">Nombre Indicativo - Oferta</label>
+                                    @Html.EditorFor(model => model.NombreOferta, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                    @Html.ValidationMessageFor(m => m.NombreOferta)
                                     <br />
-                                </div>*@
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="example-flatpickr-custom">Fecha Inicio</label>
+                                    @Html.EditorFor(model => model.FechaInicioOferta, new { htmlAttributes = new { @class = "js-flatpickr form-control", placeholder = "d/m/Y", required = "required" } })
+                                    @Html.ValidationMessageFor(m => m.FechaInicioOferta)
 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="estadoFiltro">Año de Meta a Indicar</label>
-                                @Html.DropDownList("IdMetas", null, "Selecciona una Meta", new { @class = "js-select2 form-select col-sm-12 form-control", required = "required" })
-                                @Html.ValidationMessageFor(m => m.IdMetas)
-
-                                <br />
+                                    @*<input type="text" class="js-flatpickr form-control" id="example-flatpickr-custom" name="example-flatpickr-custom" placeholder="d/m/Y" data-date-format="d/m/Y">*@
+                                </div>
                             </div>
-                            @*<div class="col-md-6">
-                                    <label for="estadoFiltro">Tipo de Meta a Indicar</label>
-                                    @Html.DropDownListFor(model => model.MetaOferta, new List<SelectListItem>
-                                    {
-                                        new SelectListItem { Text = "", Value = "" },
-                                        new SelectListItem { Text = "Meta Tecnologia", Value = "MetaTecnologia" },
-                                        new SelectListItem { Text = "Meta Tecnico", Value = "MetaTecnico " },
-                                        new SelectListItem { Text = "Meta Especializacion Tecnica", Value = "MetaET" },
-                                        new SelectListItem { Text = "Meta Otros", Value = "MetaOtros" }
-                                    }, new { @class = "form-control" })
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="estadoFiltro">Año de Meta a Indicar</label>
+                                    @Html.DropDownList("IdMetas", null, "Selecciona una Meta", new { @class = "js-select2 form-select col-sm-12 form-control", required = "required" })
+                                    @Html.ValidationMessageFor(m => m.IdMetas)
+
                                     <br />
-                                </div>*@
-                            <div class="col-md-6">
-                                <label for="estadoFiltro">Coordinador Responsable</label>
-                                @Html.DropDownList("IdUsuario", null, "Selecciona un Coordinador", new { @class = "js-select2 form-select col-sm-12 form-control", required = "required" })
+                                </div>
 
-                                <br />
+                                <div class="col-md-6">
+                                    <label for="estadoFiltro">Coordinador Responsable</label>
+                                    @Html.DropDownList("IdUsuario", null, "Selecciona un Coordinador", new { @class = "js-select2 form-select col-sm-12 form-control", required = "required" })
+
+                                    <br />
+                                </div>
                             </div>
+
+                            @Html.HiddenFor(model => model.EstadoOferta, new { Value = "True" })
+
                         </div>
-
-                        @Html.HiddenFor(model => model.EstadoOferta, new { Value = "True" })
-
                     </div>
                 </div>
             </div>
-
             <div class="card-footer">
                 <button class="btn btn-primary m-r-15" type="submit">Registrar</button>
                 <button class="btn btn-light" type="button">
@@ -107,8 +87,6 @@
             </div>
         </div>
     </div>
-
-
 }
 <script>
     // Elimina el atributo 'readonly' al cargar la página
