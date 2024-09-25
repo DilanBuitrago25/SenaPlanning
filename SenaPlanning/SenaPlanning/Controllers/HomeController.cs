@@ -20,26 +20,28 @@ namespace SenaPlanning.Controllers
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
-            var metas = db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList();
-
-            if (metas.Count == 0)
+            try
             {
-                return View(db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList());
-            }
+                var metas = db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList();
 
-            double META_TGO = 0;
-            double META_TCO = 0;
-            double META_ET = 0;
-            double META_OTROS = 0;
+                if (metas.Count == 0)
+                {
+                    return View(db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList());
+                }
 
-            double META_TGO_AP_PASAN = 0;
-            double META_TCO_AP_PASAN = 0;
-            double META_ET_AP_PASAN = 0;
-            double META_OTRO_AP_PASAN = 0;
+                double META_TGO = 0;
+                double META_TCO = 0;
+                double META_ET = 0;
+                double META_OTROS = 0;
 
-            double APRENDICES_POR_CURSOS = 30;
-            double APRENDICES_POR_CURSOS_OTROS = 35;
-            long id = 0;
+                double META_TGO_AP_PASAN = 0;
+                double META_TCO_AP_PASAN = 0;
+                double META_ET_AP_PASAN = 0;
+                double META_OTRO_AP_PASAN = 0;
+
+                double APRENDICES_POR_CURSOS = 30;
+                double APRENDICES_POR_CURSOS_OTROS = 35;
+                long id = 0;
 
                 id = metas[0].IdMeta;
 
@@ -55,22 +57,27 @@ namespace SenaPlanning.Controllers
 
                 //APRENDICES_POR_CURSOS = long.Parse(item.APorCurso.ToString());
                 //APRENDICES_POR_CURSOS_OTROS = long.Parse(item.APorCursoOtros.ToString());
-            double RESULT_META_TGO_AP_PROG = Math.Round((META_TGO_AP_PASAN / META_TGO) * 100, 2);
-            double RESULT_META_TCO_AP_PROG = Math.Round((META_TCO_AP_PASAN / META_TCO) * 100, 2);
-            double RESULT_META_ET_AP_PROG = Math.Round((META_ET_AP_PASAN / META_ET) * 100, 2);
-            double RESULT_META_OTROS_AP_PROG = Math.Round((META_OTRO_AP_PASAN / META_OTROS) * 100, 2);
+                double RESULT_META_TGO_AP_PROG = Math.Round((META_TGO_AP_PASAN / META_TGO) * 100, 2);
+                double RESULT_META_TCO_AP_PROG = Math.Round((META_TCO_AP_PASAN / META_TCO) * 100, 2);
+                double RESULT_META_ET_AP_PROG = Math.Round((META_ET_AP_PASAN / META_ET) * 100, 2);
+                double RESULT_META_OTROS_AP_PROG = Math.Round((META_OTRO_AP_PASAN / META_OTROS) * 100, 2);
 
 
-            double META_GENERAL = Math.Round((RESULT_META_TGO_AP_PROG + RESULT_META_TCO_AP_PROG + RESULT_META_ET_AP_PROG + RESULT_META_OTROS_AP_PROG) / 4, 2);
+                double META_GENERAL = Math.Round((RESULT_META_TGO_AP_PROG + RESULT_META_TCO_AP_PROG + RESULT_META_ET_AP_PROG + RESULT_META_OTROS_AP_PROG) / 4, 2);
 
-            ViewData["RESULT_META_TGO_AP_PROG"] = RESULT_META_TGO_AP_PROG;
-            ViewData["RESULT_META_TCO_AP_PROG"] = RESULT_META_TCO_AP_PROG;
-            ViewData["RESULT_META_ET_AP_PROG"] = RESULT_META_ET_AP_PROG;
-            ViewData["RESULT_META_OTROS_AP_PROG"] = RESULT_META_OTROS_AP_PROG;
+                ViewData["RESULT_META_TGO_AP_PROG"] = RESULT_META_TGO_AP_PROG;
+                ViewData["RESULT_META_TCO_AP_PROG"] = RESULT_META_TCO_AP_PROG;
+                ViewData["RESULT_META_ET_AP_PROG"] = RESULT_META_ET_AP_PROG;
+                ViewData["RESULT_META_OTROS_AP_PROG"] = RESULT_META_OTROS_AP_PROG;
 
-            ViewData["META_GENERAL"] = META_GENERAL;
+                ViewData["META_GENERAL"] = META_GENERAL;
 
-            ViewData["idMeta"] = id;
+                ViewData["idMeta"] = id;
+            }
+            catch
+            {
+                return RedirectToAction("create","Metas");
+            }
 
             return View(db.Oferta.Where(o => o.Meta.MetaFecha == DateTime.Now.Year.ToString()).ToList());
         }
