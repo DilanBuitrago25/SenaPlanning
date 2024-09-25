@@ -163,17 +163,18 @@ namespace SenaPlanning.Controllers
                                 join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
                                 join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
                                 group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
+                                let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
                                 select new ResumenAreaConocimiento
                                 {
                                     AreaConocimiento = groupedFichas.Key.NombreArea,
                                     NumeroFichas = groupedFichas.Count(),
                                     RedConocimiento = groupedFichas.FirstOrDefault().r.NombreRed,
                                     HorasRequeridas = groupedFichas.Count() * 440,
-                                    NumeroInstructoresPlanta = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea)),
-                                    HorasContrato = groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440,
-                                    NumeroInstructoresContrato = (int)(groupedFichas.Sum(g => db.Instructor.Count(i => i.AreaInstructor == g.a.NombreArea)) * HORAS_INST_PLANTA - groupedFichas.Count() * 440) / HORAS_INST_CONTRATO
+                                    NumeroInstructoresPlanta = instructores.Count(),
+                                    HorasContrato = instructores.Count() * HORAS_INST_PLANTA - groupedFichas.Count() * 440,
+                                    NumeroInstructoresContrato = (int)(instructores.Count() * HORAS_INST_PLANTA - groupedFichas.Count() * 440) / HORAS_INST_CONTRATO
                                 })
-                                 .ToList();
+                                .ToList();
 
             return View(fichasByArea);
         }
