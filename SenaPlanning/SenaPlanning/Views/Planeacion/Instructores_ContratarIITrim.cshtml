@@ -65,7 +65,14 @@
                             <td>@item.HorasRequeridas</td>
                             <td>@item.HorasContrato</td>
                             <td>@item.NumeroInstructoresPlanta</td>
-                            <td>@item.NumeroInstructoresContrato</td>
+                            @if (item.NumeroInstructoresContrato < 1)
+                            {
+                                <td>0</td>
+                            }
+                            else
+                            {
+                                <td>@item.NumeroInstructoresContrato</td>
+                            }
                         </tr>
                     }
 

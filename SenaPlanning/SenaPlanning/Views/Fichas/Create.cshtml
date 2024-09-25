@@ -201,27 +201,27 @@
 
 <script>
 
-    $(document).ready(function () {
-        $("form").on("submit", function (event) {
-            event.preventDefault(); 
+    //$(document).ready(function () {
+    //    $("form").on("submit", function (event) {
+    //        event.preventDefault(); 
 
-            $(".error").remove();
-            let isValid = true;
+    //        $(".error").remove();
+    //        let isValid = true;
 
-            $("select, input[type='text']:not(#nivelProgramaInput, #codigoProgramaInput, #horasProgramaInput, #estadoOfertaInput, #metaOfertaInput, #example-text-input-alt)").each(function () {
-                if ($(this).val() === "") {
-                    isValid = false;
+    //        $("select, input[type='text']:not(#nivelProgramaInput, #codigoProgramaInput, #horasProgramaInput, #estadoOfertaInput, #metaOfertaInput, #example-text-input-alt)").each(function () {
+    //            if ($(this).val() === "") {
+    //                isValid = false;
 
-                    const errorMessage = $("<div class='error'>Este campo es obligatorio.</div>");
-                    $(this).after(errorMessage);
-                }
-            });
+    //                const errorMessage = $("<div class='error'>Este campo es obligatorio.</div>");
+    //                $(this).after(errorMessage);
+    //            }
+    //        });
 
-            if (isValid) {
-                this.submit();
-            }
-        });
-    });
+    //        if (isValid) {
+    //            this.submit();
+    //        }
+    //    });
+    //});
 
     $(document).ready(function () {
         $("#NumAprenFicha").val(30);

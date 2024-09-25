@@ -95,8 +95,8 @@ namespace SenaPlanning.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdMetas = new SelectList(db.Meta, "IdMeta", "IdMeta", oferta.IdMetas);
-            ViewBag.IdUsuario = new SelectList(db.Usuario, "IdUsuario", "TipoDocumentoUsuario", oferta.IdUsuario);
+            ViewBag.Metas = new SelectList(db.Meta, "IdMeta", "MetaFecha", oferta.IdMetas);
+            ViewBag.Usuario = new SelectList(db.Usuario, "IdUsuario", "NombreUsuario", oferta.IdUsuario);
             return View(oferta);
         }
 
@@ -105,7 +105,7 @@ namespace SenaPlanning.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]  
-        public ActionResult Edit([Bind(Include = "IdOferta,CodigoOferta,HoraReqTrimIOferta,HoraReqTrimIIOferta,HoraReqTrimIIIOferta,HoraReqTrimIVOferta,CanInstPlantaOferta,HorasContTrimIOferta,HorasContTrimIIOferta,HorasContTrimIIIOferta,HorasContTrimIVOferta,CantidadInstContratoTrimIOferta,CantidadInstContratoTrimIIOferta,CantidadInstContratoTrimIIIOferta,CantidadInstContratoTrimIVOferta,TrimestreProgramadosOferta,TotalAprendicesOferta,TotalCursosNuevosOferta,TotalCursosEPtrimestreOferta,TotalCursosCursosNuevosOferta,TotalCursosOferta,CantidadTrimProgramadosOferta,CantidadTrimEPOferta,TotalInstaContratarOferta,AprenPasanOferta,AprenProgOferta,CursoOferta,IdUsuario,IdMetas,EstadoOferta")] Oferta oferta)
+        public ActionResult Edit([Bind(Include = "IdOferta,EstadoOferta,NombreOferta,FechaInicioOferta,MetaOferta,IdUsuario,IdMetas,IdRed")] Oferta oferta)
         {
             if (ModelState.IsValid)
             {
@@ -113,8 +113,8 @@ namespace SenaPlanning.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdMetas = new SelectList(db.Meta, "IdMeta", "IdMeta", oferta.IdMetas);
-            ViewBag.IdUsuario = new SelectList(db.Usuario, "IdUsuario", "TipoDocumentoUsuario", oferta.IdUsuario);
+            ViewBag.Metas = new SelectList(db.Meta, "IdMeta", "FechaInicioOferta", oferta.IdMetas);
+            ViewBag.Usuario = new SelectList(db.Usuario, "IdUsuario", "NombreUsuario", oferta.IdUsuario);
             return View(oferta);
         }
 

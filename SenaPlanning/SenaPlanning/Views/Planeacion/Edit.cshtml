@@ -32,7 +32,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.IdMetas, "Meta de la oferta", htmlAttributes: new { @class = "control-label col-md-6" })
                     <div class="col-md-10">
-                        @Html.DropDownList("IdMetas", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.DropDownList("Metas", null, htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.IdMetas, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -43,6 +43,16 @@
                         <div class="checkbox">
                             @Html.EditorFor(model => model.NombreOferta, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.NombreOferta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Usuario.NombreUsuario, "Coordinador Responsable", htmlAttributes: new { @class = "control-label col-md-6   " })
+                    <div class="col-md-10">
+                        <div class="col-md-10">
+                            @Html.DropDownList("Usuario", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Usuario.NombreUsuario, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
