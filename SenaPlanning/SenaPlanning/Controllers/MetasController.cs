@@ -30,15 +30,47 @@ namespace SenaPlanning.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Meta meta = db.Meta.Find(id);
             if (meta == null)
             {
                 return HttpNotFound();
             }
 
-            ViewBag.Id = id;
-            return View(meta);
+            //--------------------------------------------------------------------------------------------//
+            var query = from f in db.Ficha
+                        join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
+                        join o in db.Oferta on f.IdOferta equals o.IdOferta
+                        join m in db.Meta on o.IdMetas equals m.IdMeta
+                        where new[] { "Diurna", "Mixta", "Nocturna" }.Contains(f.JornadaFicha)
+                        && m.IdMeta == id
+                        && p.NivelPrograma == "Tecnólogo"
+                        select f;
 
+            var cantCursos = query.Count();
+            var sumAprenFicha = query.Sum(f => f.NumAprenFicha);
+
+            ViewBag.CantCursos = cantCursos;
+            ViewBag.ApPasan = sumAprenFicha;
+
+            //--------------------------------------------------------------------------------------------//
+            var query2 = from f in db.Ficha
+                        join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
+                        join o in db.Oferta on f.IdOferta equals o.IdOferta
+                        join m in db.Meta on o.IdMetas equals m.IdMeta
+                        where new[] { "Virtual" }.Contains(f.JornadaFicha)
+                        && m.IdMeta == id
+                        && p.NivelPrograma == "Tecnólogo"
+                        select f;
+
+            var cantCursosV = query2.Count();
+            var sumAprenFichaV = query2.Sum(f => f.NumAprenFicha);
+
+            ViewBag.CantCursosV = cantCursosV;
+            ViewBag.ApPasanV = sumAprenFichaV;
+
+
+            return View(meta);
         }
 
         // GET: Metas/Create

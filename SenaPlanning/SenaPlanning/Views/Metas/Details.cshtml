@@ -38,6 +38,7 @@
             </div>
         </div>
     </div>
+    <hr />
     <div class="content">
         <div class="row items-push">
             <div class="col-sm-6 col-xxl-3">
@@ -130,12 +131,117 @@
             </div>
         </div>
     </div>
+
+    <div class="content text-center">
+        <div class="d-flex">
+            <div class="flex-grow-1 mb-1 mb-md-0">
+                <h1 class="h3 fw-bold mb-2">
+                    Detalles del progreso de la meta <a class="fw-semibold">@Html.DisplayFor(model => model.MetaFecha)</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="content">
+        <div class="row items-push">
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold text-primary">Tecnólogo</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@ViewBag.ApPasan</dd>
+                        </dl>
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Virtual</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@ViewBag.ApPasanV</dd>
+                        </dl>
+
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@ViewBag.ApPasan</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos (Virt. + Presc.)</h3><small>@ViewBag.CantCursos + @ViewBag.CantCursosV</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold">Técnico</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecPresencial)</dd>
+                        </dl>
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Virtual</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecVirtual)</dd>
+                        </dl>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaTCOApPasan)</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_TCO</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold" style="color: #CB7766 !important;">Especialista Técnico</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaETPresencial)</dd>
+                        </dl>
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center">Virtual</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaETVirtual)</dd>
+                        </dl>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaETApPasan)</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_ET</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+            <div class="col-sm-6 col-xxl-3">
+                <!-- Pending Orders -->
+                <div class="block block-rounded d-flex flex-column h-100 mb-0">
+                    <div class="block-header block-header-default"><h6 class="block-title text-center fw-bold" style="color: #6A6A6A !important;">Otros</h6></div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
+                        <dl class="mb-0">
+                            <dt class="fs-6 fw-bold text-center ">Presencial</dt>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center ">@Html.DisplayFor(model => model.MetaOtros)</dd>
+                        </dl>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaOTROApPasan)</small>
+                    </div>
+                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
+                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_OTROS</small>
+                    </div>
+                </div>
+                <!-- END Pending Orders -->
+            </div>
+        </div>
+    </div>
+
     <div class="card-body">
         <div class="content text-center">
             <div class="d-flex">
                 <div class="flex-grow-1 mb-1 mb-md-0">
                     <h3>Instructores a contratar año  <a class="fw-semibold">@Html.DisplayFor(model => model.MetaFecha)</a></h3>
-                    
+
                 </div>
             </div>
         </div>
@@ -175,7 +281,7 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="@Url.Action("Instructores_ContratarIITrim",   "Metas", new { metaId = Model.IdMeta })">
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="@Url.Action("Instructores_ContratarIITrim", "Metas", new { metaId = Model.IdMeta })">
                             <span>Detalles</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>

@@ -141,8 +141,9 @@
 
                 fields.forEach(function (field) {
                     if (field.val().trim() === '') {
-                        isValid = false;
-                        field.addClass('is-invalid');
+                        //isValid = false;
+                        //field.addClass('is-invalid');
+                        field.val = 0;
                     } else {
                         field.removeClass('is-invalid');
                     }

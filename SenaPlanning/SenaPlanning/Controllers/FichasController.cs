@@ -118,8 +118,6 @@ namespace SenaPlanning.Controllers
                     db.SaveChanges();
                 }
 
-
-
                 return RedirectToAction("Index");
             }
 
@@ -143,7 +141,7 @@ namespace SenaPlanning.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "NombreOferta", ficha.IdOferta);
             ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
             return View(ficha);
         }
@@ -161,7 +159,7 @@ namespace SenaPlanning.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "NombreOferta", ficha.IdOferta);
             ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
             return View(ficha);
         }

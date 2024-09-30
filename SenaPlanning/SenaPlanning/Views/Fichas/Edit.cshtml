@@ -88,6 +88,17 @@
                     </div>
                 </div>
 
+
+                <div class="col-sm-3">
+                    <div class="block block-rounded">
+                        @Html.LabelFor(model => model.NumAprenFicha, htmlAttributes: new { @class = "control-label block-content" })
+                        <div class="block-content">
+                            @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NumAprenFicha, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-sm-3">
                     <div class="block block-rounded">
                         @Html.LabelFor(model => model.EstadoFicha, htmlAttributes: new { @class = "control-label block-content" })
