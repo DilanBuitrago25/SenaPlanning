@@ -123,7 +123,7 @@ namespace SenaPlanning.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "IdOferta", ficha.IdOferta);
+            ViewBag.IdOferta = new SelectList(db.Oferta, "IdOferta", "NombreOferta",  ficha.IdOferta);
             ViewBag.IdPrograma = new SelectList(db.Programa_Formacion, "IdPrograma", "DenominacionPrograma", ficha.IdPrograma);
             return View(ficha);
         }

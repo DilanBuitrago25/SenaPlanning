@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using ClaseModelo;
 using static SenaPlanning.Controllers.LoginController;
 
@@ -148,20 +149,18 @@ namespace SenaPlanning.Controllers
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Instructores_ContratarITrim()
         {
-            ViewBag.Metas = db.Meta.Where(m => m.MetaFecha == DateTime.Now.Year.ToString()).ToList().ToString();
-            return View(); 
-        }
-
-        [AutorizarTipoUsuario("Coordinador", "Administrador")]
-        public ActionResult Instructores_ContratarIITrim()
-        {
             const int HORAS_INST_PLANTA = 403;
             const int HORAS_INST_CONTRATO = 440;
+            DateTime inicioTrimestre = new DateTime(DateTime.Now.Year, 1, 1);
+            DateTime finTrimestre = new DateTime(DateTime.Now.Year, 3, 31);
 
             var fichasByArea = (from f in db.Ficha
                                 join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
                                 join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
                                 join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
+                                // Filtrar fichas activas y dentro del primer trimestre
+                                where f.FechaInFicha <= DateTime.Now && f.FechaFinFicha >= DateTime.Now && // Ficha activa
+                                      f.FechaInFicha >= inicioTrimestre && f.FechaFinFicha <= finTrimestre // Dentro del trimestre
                                 group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
                                 let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
                                 select new ResumenAreaConocimiento
@@ -171,8 +170,8 @@ namespace SenaPlanning.Controllers
                                     RedConocimiento = groupedFichas.FirstOrDefault().r.NombreRed,
                                     HorasRequeridas = groupedFichas.Count() * 440,
                                     NumeroInstructoresPlanta = instructores.Count(),
-                                    HorasContrato = instructores.Count() * HORAS_INST_PLANTA - groupedFichas.Count() * 440,
-                                    NumeroInstructoresContrato = (int)(instructores.Count() * HORAS_INST_PLANTA - groupedFichas.Count() * 440) / HORAS_INST_CONTRATO
+                                    HorasContrato = (groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA),
+                                    NumeroInstructoresContrato = (int)((groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA)) / HORAS_INST_CONTRATO
                                 })
                                 .ToList();
 
@@ -180,15 +179,102 @@ namespace SenaPlanning.Controllers
         }
 
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
+        public ActionResult Instructores_ContratarIITrim()
+        {
+            const int HORAS_INST_PLANTA = 403;
+            const int HORAS_INST_CONTRATO = 440;
+            DateTime inicioTrimestre = new DateTime(DateTime.Now.Year, 4, 1);
+            DateTime finTrimestre = new DateTime(DateTime.Now.Year, 6, 30);
+
+
+            var fichasByArea = (from f in db.Ficha
+                                join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
+                                join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
+                                join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
+                                // Filtrar fichas activas y dentro del primer trimestre
+                                where f.FechaInFicha <= DateTime.Now && f.FechaFinFicha >= DateTime.Now && // Ficha activa
+                                      f.FechaInFicha >= inicioTrimestre && f.FechaInFicha <= finTrimestre // Dentro del trimestre
+                                group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
+                                let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
+                                select new ResumenAreaConocimiento
+                                {
+                                    AreaConocimiento = groupedFichas.Key.NombreArea,
+                                    NumeroFichas = groupedFichas.Count(),
+                                    RedConocimiento = groupedFichas.FirstOrDefault().r.NombreRed,
+                                    HorasRequeridas = groupedFichas.Count() * 440,
+                                    NumeroInstructoresPlanta = instructores.Count(),
+                                    HorasContrato = (groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA),
+                                    NumeroInstructoresContrato = (int)((groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA)) / HORAS_INST_CONTRATO
+                                })
+                                .ToList();
+
+            return View(fichasByArea);
+        }
+
+
+        [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Instructores_ContratarIIITrim()
         {
-            return View();
+            const int HORAS_INST_PLANTA = 403;
+            const int HORAS_INST_CONTRATO = 440;
+            DateTime inicioTrimestre = new DateTime(DateTime.Now.Year, 7, 1);
+            DateTime finTrimestre = new DateTime(DateTime.Now.Year, 9, 30);
+
+
+            var fichasByArea = (from f in db.Ficha
+                                join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
+                                join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
+                                join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
+                                // Filtrar fichas activas y dentro del primer trimestre
+                                where f.FechaInFicha <= DateTime.Now && f.FechaFinFicha >= DateTime.Now && // Ficha activa
+                                      f.FechaInFicha >= inicioTrimestre && f.FechaInFicha <= finTrimestre // Dentro del trimestre
+                                group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
+                                let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
+                                select new ResumenAreaConocimiento
+                                {
+                                    AreaConocimiento = groupedFichas.Key.NombreArea,
+                                    NumeroFichas = groupedFichas.Count(),
+                                    RedConocimiento = groupedFichas.FirstOrDefault().r.NombreRed,
+                                    HorasRequeridas = groupedFichas.Count() * 440,
+                                    NumeroInstructoresPlanta = instructores.Count(),
+                                    HorasContrato = (groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA),
+                                    NumeroInstructoresContrato = (int)((groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA)) / HORAS_INST_CONTRATO
+                                })
+                                .ToList();
+
+            return View(fichasByArea); 
         }
 
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Instructores_ContratarVITrim()
         {
-            return View();
+            const int HORAS_INST_PLANTA = 403;
+            const int HORAS_INST_CONTRATO = 440;
+            DateTime inicioTrimestre = new DateTime(DateTime.Now.Year, 10, 1);
+            DateTime finTrimestre = new DateTime(DateTime.Now.Year, 12, 31);
+
+            var fichasByArea = (from f in db.Ficha
+                                join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
+                                join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
+                                join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
+                                // Filtrar fichas activas y dentro del primer trimestre
+                                where f.FechaInFicha <= DateTime.Now && f.FechaFinFicha >= DateTime.Now && // Ficha activa
+                                      f.FechaInFicha >= inicioTrimestre && f.FechaInFicha <= finTrimestre // Dentro del trimestre
+                                group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
+                                let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
+                                select new ResumenAreaConocimiento
+                                {
+                                    AreaConocimiento = groupedFichas.Key.NombreArea,
+                                    NumeroFichas = groupedFichas.Count(),
+                                    RedConocimiento = groupedFichas.FirstOrDefault().r.NombreRed,
+                                    HorasRequeridas = groupedFichas.Count() * 440,
+                                    NumeroInstructoresPlanta = instructores.Count(),
+                                    HorasContrato = (groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA),
+                                    NumeroInstructoresContrato = (int)((groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA)) / HORAS_INST_CONTRATO
+                                })
+                                .ToList();
+
+            return View(fichasByArea);
         }
 
         protected override void Dispose(bool disposing)
