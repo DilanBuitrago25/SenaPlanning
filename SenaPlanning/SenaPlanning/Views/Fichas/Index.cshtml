@@ -118,6 +118,7 @@
                             <th>Fecha fin</th>
                             <th>No. Aprendices</th>
                             <th>Año Meta a Indicar</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -144,6 +145,10 @@
                                 </td>
                                 <td>
                                     @item.Oferta.Meta.MetaFecha
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.IdFicha }) |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdFicha })
                                 </td>
                             </tr>
                         }
