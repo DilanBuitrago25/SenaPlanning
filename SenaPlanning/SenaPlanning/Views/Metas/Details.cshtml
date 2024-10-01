@@ -175,18 +175,18 @@
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
                         <dl class="mb-0">
                             <dt class="fs-6 fw-bold text-center">Presencial</dt>
-                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecPresencial)</dd>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@ViewBag.ApPasanT</dd>
                         </dl>
                         <dl class="mb-0">
                             <dt class="fs-6 fw-bold text-center">Virtual</dt>
-                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaTecVirtual)</dd>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@ViewBag.ApPasanVT</dd>
                         </dl>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaTCOApPasan)</small>
+                        <h3 class="block-title">Ap Pasan</h3><small>@ViewBag.ApPasanT</small>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_TCO</small>
+                        <h3 class="block-title"># Cursos (Virt. + Presc.)</h3><small>@ViewBag.CantCursosT + @ViewBag.CantCursosVT</small>
                     </div>
                 </div>
                 <!-- END Pending Orders -->
