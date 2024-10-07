@@ -206,6 +206,7 @@ namespace SenaPlanning.Controllers
                                 })
                                 .ToList();
 
+
             return View(fichasByArea);
         }
 

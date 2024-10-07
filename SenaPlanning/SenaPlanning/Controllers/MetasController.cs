@@ -252,6 +252,8 @@ namespace SenaPlanning.Controllers
                                 })
                                 .ToList();
 
+            ViewBag.MetaFecha = db.Meta.Find(metaId)?.MetaFecha;
+
             return View(fichasByArea);
         }
 
@@ -287,6 +289,8 @@ namespace SenaPlanning.Controllers
                                     NumeroInstructoresContrato = (int)((groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA)) / HORAS_INST_CONTRATO
                                 })
                                 .ToList();
+
+            ViewBag.MetaFecha = db.Meta.Find(metaId)?.MetaFecha;
 
             return View(fichasByArea);
         }
@@ -325,6 +329,8 @@ namespace SenaPlanning.Controllers
                                 })
                                 .ToList();
 
+            ViewBag.MetaFecha = db.Meta.Find(metaId)?.MetaFecha;
+
             return View(fichasByArea);
         }
 
@@ -360,6 +366,8 @@ namespace SenaPlanning.Controllers
                                     NumeroInstructoresContrato = (int)((groupedFichas.Count() * 440) - (instructores.Count() * HORAS_INST_PLANTA)) / HORAS_INST_CONTRATO
                                 })
                                 .ToList();
+
+            ViewBag.MetaFecha = db.Meta.Find(metaId)?.MetaFecha;
 
             return View(fichasByArea);
         }

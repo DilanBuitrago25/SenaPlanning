@@ -4411,6 +4411,11 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Fichas\Oferta_Fichas.cshtml" />
     <Content Include="Views\Planeacion\Planeacion_Ficha.cshtml" />
+    <Content Include="Views\Planeacion\Instructores_ContratarVITrim.cshtml" />
+    <Content Include="Views\Metas\Instructores_ContratarITrim.cshtml" />
+    <Content Include="Views\Metas\Instructores_ContratarIITrim.cshtml" />
+    <Content Include="Views\Metas\Instructores_ContratarIIITrim.cshtml" />
+    <Content Include="Views\Metas\Instructores_ContratarVITrim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

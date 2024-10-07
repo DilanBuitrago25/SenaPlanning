@@ -43,7 +43,7 @@
         </div>
         <div class="block-content block-content-full">
             <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+            <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons table-responsive">
                 <thead>
                     <tr>
                         <th>Red de Conocimiento</th>
@@ -58,22 +58,22 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.RedConocimiento</td>
-                            <td>@item.AreaConocimiento</td>
-                            <td>@item.NumeroFichas</td>
-                            <td>@item.HorasRequeridas</td>
-                            <td>@item.HorasContrato</td>
-                            <td>@item.NumeroInstructoresPlanta</td>
-                            @if (item.NumeroInstructoresContrato < 1)
-                            {
-                                <td>0</td>
-                            }
-                            else
-                            {
-                                <td>@item.NumeroInstructoresContrato</td>
-                            }
-                        </tr>
+                    <tr>
+                        <td>@item.RedConocimiento</td>
+                        <td>@item.AreaConocimiento</td>
+                        <td>@item.NumeroFichas</td>
+                        <td>@item.HorasRequeridas</td>
+                        <td>@item.HorasContrato</td>
+                        <td>@item.NumeroInstructoresPlanta</td>
+                        @if (item.NumeroInstructoresContrato < 1)
+                        {
+                        <td>0</td>
+                        }
+                        else
+                        {
+                        <td>@item.NumeroInstructoresContrato</td>
+                        }
+                    </tr>
                     }
 
                 </tbody>
