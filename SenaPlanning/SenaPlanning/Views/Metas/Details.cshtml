@@ -163,7 +163,7 @@
                         <h3 class="block-title">Ap Pasan</h3><small>@ViewBag.ApPasan</small>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title"># Cursos (Virt. + Presc.)</h3><small>@ViewBag.CantCursos + @ViewBag.CantCursosV</small>
+                        <h3 class="block-title"># Cursos (Presc. + Virt.)</h3><small>@ViewBag.CantCursos + @ViewBag.CantCursosV</small>
                     </div>
                 </div>
                 <!-- END Pending Orders -->
@@ -186,7 +186,7 @@
                         <h3 class="block-title">Ap Pasan</h3><small>@ViewBag.ApPasanT</small>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title"># Cursos (Virt. + Presc.)</h3><small>@ViewBag.CantCursosT + @ViewBag.CantCursosVT</small>
+                        <h3 class="block-title"># Cursos (Presc. + Virt.)</h3><small>@ViewBag.CantCursosT + @ViewBag.CantCursosVT</small>
                     </div>
                 </div>
                 <!-- END Pending Orders -->
@@ -198,18 +198,18 @@
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
                         <dl class="mb-0">
                             <dt class="fs-6 fw-bold text-center">Presencial</dt>
-                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaETPresencial)</dd>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@ViewBag.ApPasanEP</dd>
                         </dl>
                         <dl class="mb-0">
                             <dt class="fs-6 fw-bold text-center">Virtual</dt>
-                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@Html.DisplayFor(model => model.MetaETVirtual)</dd>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center">@ViewBag.ApPasanEPV</dd>
                         </dl>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaETApPasan)</small>
+                        <h3 class="block-title">Ap Pasan</h3><small>@ViewBag.ApPasanEP</small>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_ET</small>
+                        <h3 class="block-title"># Cursos (Presc. + Virt.)</h3><small>@ViewBag.CantCursosEP + @ViewBag.CantCursosEPV</small>
                     </div>
                 </div>
                 <!-- END Pending Orders -->
@@ -221,14 +221,14 @@
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center border-bottom">
                         <dl class="mb-0">
                             <dt class="fs-6 fw-bold text-center ">Presencial</dt>
-                            <dd class="fs-3 fw-medium text-muted mb-0 text-center ">@Html.DisplayFor(model => model.MetaOtros)</dd>
+                            <dd class="fs-3 fw-medium text-muted mb-0 text-center ">@ViewBag.ApPasanOT</dd>
                         </dl>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title">Ap Pasan</h3><small>@Html.DisplayFor(model => model.MetaOTROApPasan)</small>
+                        <h3 class="block-title">Ap Pasan</h3><small>@ViewBag.ApPasanOT</small>
                     </div>
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center py-1">
-                        <h3 class="block-title"># Cursos</h3><small>@CURSO_META_OTROS</small>
+                        <h3 class="block-title"># Cursos</h3><small>@ViewBag.cantCursosOT</small>
                     </div>
                 </div>
                 <!-- END Pending Orders -->
