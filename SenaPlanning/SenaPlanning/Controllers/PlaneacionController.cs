@@ -158,8 +158,8 @@ namespace SenaPlanning.Controllers
                                 join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
                                 join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
                                 join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
-                                // Filtrar fichas activas y dentro del primer trimestre
-                                where f.FechaInFicha < inicioTrimestre && f.FechaFinFicha > finTrimestre  // Dentro del trimestre
+                                where (f.FechaInFicha >= inicioTrimestre && f.FechaInFicha <= finTrimestre) ||
+                                (f.FechaFinFicha >= inicioTrimestre && f.FechaFinFicha <= finTrimestre) || f.FechaInFicha < inicioTrimestre && f.FechaFinFicha > finTrimestre
                                 group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
                                 let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
                                 select new ResumenAreaConocimiento
@@ -190,8 +190,8 @@ namespace SenaPlanning.Controllers
                                 join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
                                 join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
                                 join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
-                                // Filtrar fichas activas y dentro del primer trimestre
-                                where f.FechaInFicha < inicioTrimestre && f.FechaFinFicha > finTrimestre   // Dentro del trimestre
+                                where (f.FechaInFicha >= inicioTrimestre && f.FechaInFicha <= finTrimestre) ||
+                                (f.FechaFinFicha >= inicioTrimestre && f.FechaFinFicha <= finTrimestre) || f.FechaInFicha < inicioTrimestre && f.FechaFinFicha > finTrimestre  // Dentro del trimestre
                                 group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
                                 let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
                                 select new ResumenAreaConocimiento
@@ -225,7 +225,8 @@ namespace SenaPlanning.Controllers
                                 join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
                                 join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
                                 // Filtrar fichas activas y dentro del primer trimestre
-                                where f.FechaInFicha < inicioTrimestre && f.FechaFinFicha > finTrimestre // Dentro del trimestre
+                                where (f.FechaInFicha >= inicioTrimestre && f.FechaInFicha <= finTrimestre) ||
+                                (f.FechaFinFicha >= inicioTrimestre && f.FechaFinFicha <= finTrimestre) || f.FechaInFicha < inicioTrimestre && f.FechaFinFicha > finTrimestre // Dentro del trimestre
                                 group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
                                 let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
                                 select new ResumenAreaConocimiento
@@ -256,7 +257,8 @@ namespace SenaPlanning.Controllers
                                 join a in db.Area_Conocimiento on p.IdArea equals a.IdArea
                                 join r in db.Red_Conocimiento on a.IdRed equals r.IdRed
                                 // Filtrar fichas activas y dentro del primer trimestre
-                                where f.FechaFinFicha > finTrimestre  // Dentro del trimestre
+                                where (f.FechaInFicha >= inicioTrimestre && f.FechaInFicha <= finTrimestre) ||
+                                (f.FechaFinFicha >= inicioTrimestre && f.FechaFinFicha <= finTrimestre) || f.FechaInFicha < inicioTrimestre && f.FechaFinFicha > finTrimestre // Dentro del trimestre
                                 group new { f, p, a, r } by new { a.NombreArea } into groupedFichas
                                 let instructores = db.Instructor.Where(i => i.AreaInstructor == groupedFichas.Key.NombreArea).Select(i => i.IdInstructor).Distinct()
                                 select new ResumenAreaConocimiento
