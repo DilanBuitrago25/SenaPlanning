@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -14,11 +15,14 @@ namespace SenaPlanning.Controllers
     public class MetasController : Controller
     {
         private SenaPlanningEntities db = new SenaPlanningEntities();
+        string Conexion = "Data Source=(local);Initial Catalog=SenaPlanning;Integrated Security=True;trustservercertificate=True;";
 
         // GET: Metas
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
         public ActionResult Index()
         {
+           
+
             return View(db.Meta.ToList());
         }
 
@@ -36,6 +40,98 @@ namespace SenaPlanning.Controllers
             {
                 return HttpNotFound();
             }
+
+            var metavar = db.Meta.Find(id);
+            int anoMeta = int.Parse(meta.MetaFecha); // Asegurarse de que MetaFecha sea un string válido
+
+            int TotalFichasActivasITrim;
+
+            using (SqlConnection connection = new SqlConnection(Conexion))
+            {
+
+                string queryI = @"
+                    SELECT COUNT(*) AS TotalFichasActivas
+                    FROM Ficha
+                    WHERE 
+                        (FechaInFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-01-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-03-31'))) OR
+                        (FechaFinFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-01-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-03-31'))) OR
+                        (FechaInFicha < CONVERT(DATE, CONCAT(@anoMeta, '-01-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(@anoMeta, '-03-31')));
+                ";
+
+                SqlCommand comando = new SqlCommand(queryI, connection);
+                comando.Parameters.AddWithValue("@anoMeta", anoMeta);
+                connection.Open();
+                TotalFichasActivasITrim = (int)comando.ExecuteScalar();
+            }
+
+            ViewBag.TotalFichasActivasITrim = TotalFichasActivasITrim;
+
+            int TotalFichasActivasIITrim;
+
+            using (SqlConnection connection = new SqlConnection(Conexion))
+            {
+
+                string queryII = @"
+                    SELECT COUNT(*) AS TotalFichasActivas
+                    FROM Ficha
+                    WHERE 
+                        (FechaInFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-04-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-06-30'))) OR
+                        (FechaFinFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-04-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-06-30'))) OR
+                        (FechaInFicha < CONVERT(DATE, CONCAT(@anoMeta, '-04-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(@anoMeta, '-06-30')));
+                ";
+
+                SqlCommand comando = new SqlCommand(queryII, connection);
+                comando.Parameters.AddWithValue("@anoMeta", anoMeta);
+                connection.Open();
+                TotalFichasActivasIITrim = (int)comando.ExecuteScalar();
+            }
+
+            ViewBag.TotalFichasActivasIITrim = TotalFichasActivasIITrim;
+
+            int TotalFichasActivasIIITrim;
+
+            using (SqlConnection connection = new SqlConnection(Conexion))
+            {
+
+                string queryII = @"
+                    SELECT COUNT(*) AS TotalFichasActivas
+                    FROM Ficha
+                    WHERE 
+                        (FechaInFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-07-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-09-30'))) OR
+                        (FechaFinFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-07-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-09-30'))) OR
+                        (FechaInFicha < CONVERT(DATE, CONCAT(@anoMeta, '-07-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(@anoMeta, '-09-30')));
+                ";
+
+                SqlCommand comando = new SqlCommand(queryII, connection);
+                comando.Parameters.AddWithValue("@anoMeta", anoMeta);
+                connection.Open();
+                TotalFichasActivasIIITrim = (int)comando.ExecuteScalar();
+            }
+
+            ViewBag.TotalFichasActivasIIITrim = TotalFichasActivasIIITrim;
+
+            int TotalFichasActivasVITrim;
+
+            using (SqlConnection connection = new SqlConnection(Conexion))
+            {
+
+                string queryIV = @"
+                    SELECT COUNT(*) AS TotalFichasActivas
+                    FROM Ficha
+                    WHERE 
+                        (FechaInFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-10-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-12-31'))) OR
+                        (FechaFinFicha >= CONVERT(DATE, CONCAT(@anoMeta, '-10-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(@anoMeta, '-12-31'))) OR
+                        (FechaInFicha < CONVERT(DATE, CONCAT(@anoMeta, '-10-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(@anoMeta, '-12-31')));
+                ";
+
+                SqlCommand comando = new SqlCommand(queryIV, connection);
+                comando.Parameters.AddWithValue("@anoMeta", anoMeta);
+                connection.Open();
+                TotalFichasActivasVITrim = (int)comando.ExecuteScalar();
+            }
+
+            ViewBag.TotalFichasActivasVITrim = TotalFichasActivasVITrim;
+
 
             //--------------------------------------------------------------------------------------------//
             var query = from f in db.Ficha
