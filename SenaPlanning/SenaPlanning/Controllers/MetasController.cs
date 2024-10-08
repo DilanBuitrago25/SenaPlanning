@@ -138,7 +138,7 @@ namespace SenaPlanning.Controllers
                          join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
                          join o in db.Oferta on f.IdOferta equals o.IdOferta
                          join m in db.Meta on o.IdMetas equals m.IdMeta
-                         where new[] { "Diurna", "Mixta", "Nocturna", "Virtual" }.Contains(f.JornadaFicha)
+                         where new[] { "Diurna", "Mixta", "Nocturna" }.Contains(f.JornadaFicha)
                          && m.IdMeta == id
                          && p.NivelPrograma == ("Curso especial") || p.NivelPrograma == ("Complementaria virtual") 
                          || p.NivelPrograma == ("Auxiliar")
@@ -149,6 +149,24 @@ namespace SenaPlanning.Controllers
 
             ViewBag.cantCursosOT = cantCursosOT;
             ViewBag.ApPasanOT = sumAprenFichaOT;
+
+            //--------------------------------------------------------------------------------------------//
+            var query8 = from f in db.Ficha
+                         join p in db.Programa_Formacion on f.IdPrograma equals p.IdPrograma
+                         join o in db.Oferta on f.IdOferta equals o.IdOferta
+                         join m in db.Meta on o.IdMetas equals m.IdMeta
+                         where new[] { "Virtual" }.Contains(f.JornadaFicha)
+                         && m.IdMeta == id
+                         && p.NivelPrograma == ("Curso especial") || p.NivelPrograma == ("Complementaria virtual")
+                         || p.NivelPrograma == ("Auxiliar")
+                         select f;
+
+            var cantCursosOTV = query8.Count();
+            var sumAprenFichaOTV = query8.Sum(f => f.NumAprenFicha);
+
+            ViewBag.cantCursosOTV = cantCursosOTV;
+            ViewBag.ApPasanOTV = sumAprenFichaOTV;
+
 
             return View(meta);
         }

@@ -122,6 +122,8 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @{int totalNumAprenFicha = 0;}
+
                         @foreach (var item in Model)
                         {
                             <tr>
@@ -151,13 +153,14 @@
                                     @Html.ActionLink("Eliminar", "Delete", new { id = item.IdFicha })
                                 </td>
                             </tr>
+                            totalNumAprenFicha += item.NumAprenFicha ?? 0;
                         }
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="6"></td>
                             <td class="fw-semibold" colspan="1">No. Aprendices:</td>
-                            <td>16</td>
+                            <td>@totalNumAprenFicha</td>
                             <td></td>
                         </tr>
                     </tfoot>
