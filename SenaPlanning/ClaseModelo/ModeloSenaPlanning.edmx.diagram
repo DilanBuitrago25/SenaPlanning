@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9f3b897bee6e4cde951e20a9062dfd7c" Name="Diagram1">
-        <EntityTypeShape EntityType="SenaPlanningModel.Ambiente" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenaPlanningModel.Area_Conocimiento" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Ambiente" Width="1.5" PointX="9.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Area_Conocimiento" Width="1.5" PointX="9.125" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Ficha" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenaPlanningModel.Instructor" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Instructor" Width="1.5" PointX="12.375" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Meta" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Oferta" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenaPlanningModel.Programa_Formacion" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenaPlanningModel.Red_Conocimiento" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenaPlanningModel.Usuario" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Programa_Formacion" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Red_Conocimiento" Width="1.5" PointX="6.125" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenaPlanningModel.Usuario" Width="2.25" PointX="0.875" PointY="6.625" IsExpanded="true" />
         <AssociationConnector Association="SenaPlanningModel.FK__Area_Cono__IdRed__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="SenaPlanningModel.FK__Programa___IdAre__31EC6D26" ManuallyRouted="false" />
         <AssociationConnector Association="SenaPlanningModel.FK__Ficha__IdOferta__4222D4EF" ManuallyRouted="false" />

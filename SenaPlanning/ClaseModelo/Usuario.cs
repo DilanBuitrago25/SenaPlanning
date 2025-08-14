@@ -22,11 +22,11 @@ namespace ClaseModelo
     
         public int IdUsuario { get; set; }
         public string TipoDocumentoUsuario { get; set; }
-        public Nullable<int> DocumentoUsuario { get; set; }
+        public string DocumentoUsuario { get; set; }
         public string NombreUsuario { get; set; }
         public string ApellidoUsuario { get; set; }
-        public Nullable<int> TelefonoUsuario { get; set; }
-        public string ConstraseñaUsuario { get; set; }
+        public string TelefonoUsuario { get; set; }
+        public string ContraseñaUsuario { get; set; }
         public string TipoUsuario { get; set; }
         public bool EstadoUsuario { get; set; }
     

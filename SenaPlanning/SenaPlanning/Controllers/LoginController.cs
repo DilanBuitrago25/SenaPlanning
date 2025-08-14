@@ -22,9 +22,9 @@ namespace SenaPlanning.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(int documento, string contrasena)
+        public ActionResult Index(string documento, string contrasena)
         {
-            var usuario = db.Usuario.FirstOrDefault(u => u.DocumentoUsuario == documento && u.ConstraseñaUsuario == contrasena);
+            var usuario = db.Usuario.FirstOrDefault(u => u.DocumentoUsuario == documento && u.ContraseñaUsuario == contrasena);
 
             if (usuario != null)
             {
