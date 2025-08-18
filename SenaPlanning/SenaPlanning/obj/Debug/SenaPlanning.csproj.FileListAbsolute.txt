@@ -523,3 +523,5 @@ C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\SenaPlanni
 C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\SenaPlanning\obj\Debug\SenaPlan.7DAA9E38.Up2Date
 C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.dll
 C:\Users\LENOVO\OneDrive\Documentos\GitHub\SenaPlanningi\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.pdb
+C:\Users\Wilber\source\repos\DilanBuitrago25\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.csproj.AssemblyReference.cache
+C:\Users\Wilber\source\repos\DilanBuitrago25\SenaPlanning\SenaPlanning\SenaPlanning\obj\Debug\SenaPlanning.csproj.CoreCompileInputs.cache

@@ -137,15 +137,15 @@
           </Key>
           <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipoDocumentoUsuario" Type="varchar" MaxLength="100" />
-          <Property Name="DocumentoUsuario" Type="varchar" MaxLength="100" />
+          <Property Name="DocumentoUsuario" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="NombreUsuario" Type="varchar" MaxLength="255" />
           <Property Name="ApellidoUsuario" Type="varchar" MaxLength="255" />
-          <Property Name="TelefonoUsuario" Type="varchar" MaxLength="100" />
+          <Property Name="TelefonoUsuario" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="ContraseñaUsuario" Type="varchar" MaxLength="255" />
           <Property Name="TipoUsuario" Type="varchar" MaxLength="255" />
           <Property Name="EstadoUsuario" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Area_Cono__IdRed__534D60F1">
+        <Association Name="FK__Area_Cono__IdRed__66603565">
           <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="*" />
           <ReferentialConstraint>
@@ -157,7 +157,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdOferta__5629CD9C">
+        <Association Name="FK__Ficha__IdOferta__693CA210">
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -169,7 +169,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Ficha__IdProgram__571DF1D5">
+        <Association Name="FK__Ficha__IdProgram__6A30C649">
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="0..1" />
           <End Role="Ficha" Type="Self.Ficha" Multiplicity="*" />
           <ReferentialConstraint>
@@ -181,7 +181,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdMetas__59FA5E80">
+        <Association Name="FK__Oferta__IdMetas__6D0D32F4">
           <End Role="Meta" Type="Self.Meta" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -193,7 +193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Oferta__IdUsuari__5AEE82B9">
+        <Association Name="FK__Oferta__IdUsuari__6E01572D">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -205,7 +205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Programa___IdAre__5BE2A6F2">
+        <Association Name="FK__Programa___IdAre__6EF57B66">
           <End Role="Area_Conocimiento" Type="Self.Area_Conocimiento" Multiplicity="0..1" />
           <End Role="Programa_Formacion" Type="Self.Programa_Formacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -277,27 +277,27 @@
           <EntitySet Name="Programa_Formacion" EntityType="Self.Programa_Formacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Red_Conocimiento" EntityType="Self.Red_Conocimiento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Area_Cono__IdRed__534D60F1" Association="Self.FK__Area_Cono__IdRed__534D60F1">
+          <AssociationSet Name="FK__Area_Cono__IdRed__66603565" Association="Self.FK__Area_Cono__IdRed__66603565">
             <End Role="Red_Conocimiento" EntitySet="Red_Conocimiento" />
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdOferta__5629CD9C" Association="Self.FK__Ficha__IdOferta__5629CD9C">
+          <AssociationSet Name="FK__Ficha__IdOferta__693CA210" Association="Self.FK__Ficha__IdOferta__693CA210">
             <End Role="Oferta" EntitySet="Oferta" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Ficha__IdProgram__571DF1D5" Association="Self.FK__Ficha__IdProgram__571DF1D5">
+          <AssociationSet Name="FK__Ficha__IdProgram__6A30C649" Association="Self.FK__Ficha__IdProgram__6A30C649">
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
             <End Role="Ficha" EntitySet="Ficha" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdMetas__59FA5E80" Association="Self.FK__Oferta__IdMetas__59FA5E80">
+          <AssociationSet Name="FK__Oferta__IdMetas__6D0D32F4" Association="Self.FK__Oferta__IdMetas__6D0D32F4">
             <End Role="Meta" EntitySet="Meta" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Oferta__IdUsuari__5AEE82B9" Association="Self.FK__Oferta__IdUsuari__5AEE82B9">
+          <AssociationSet Name="FK__Oferta__IdUsuari__6E01572D" Association="Self.FK__Oferta__IdUsuari__6E01572D">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Programa___IdAre__5BE2A6F2" Association="Self.FK__Programa___IdAre__5BE2A6F2">
+          <AssociationSet Name="FK__Programa___IdAre__6EF57B66" Association="Self.FK__Programa___IdAre__6EF57B66">
             <End Role="Area_Conocimiento" EntitySet="Area_Conocimiento" />
             <End Role="Programa_Formacion" EntitySet="Programa_Formacion" />
           </AssociationSet>
@@ -458,9 +458,9 @@
           <Property Name="TipoUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="EstadoUsuario" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdUsuari__35BCFE0A" FromRole="Usuario" ToRole="Oferta" />
+          <Property Name="DocumentoUsuario" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoUsuario" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="ContraseñaUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentoUsuario" Type="String" Unicode="false" FixedLength="false" MaxLength="100" />
-          <Property Name="TelefonoUsuario" Type="String" Unicode="false" FixedLength="false" MaxLength="100" />
         </EntityType>
         <Association Name="FK__Area_Cono__IdRed__2E1BDC42">
           <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />
@@ -712,9 +712,9 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="SenaPlanningModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ContraseñaUsuario" ColumnName="ContraseñaUsuario" />
                 <ScalarProperty Name="TelefonoUsuario" ColumnName="TelefonoUsuario" />
                 <ScalarProperty Name="DocumentoUsuario" ColumnName="DocumentoUsuario" />
-                <ScalarProperty Name="ContraseñaUsuario" ColumnName="ContraseñaUsuario" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="TipoDocumentoUsuario" ColumnName="TipoDocumentoUsuario" />
                 <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />

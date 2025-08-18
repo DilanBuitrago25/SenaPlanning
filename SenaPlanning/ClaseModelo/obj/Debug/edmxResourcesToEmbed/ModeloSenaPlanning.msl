@@ -122,13 +122,13 @@
     <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="SenaPlanningModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="ContraseñaUsuario" ColumnName="ContraseñaUsuario" />
+          <ScalarProperty Name="TelefonoUsuario" ColumnName="TelefonoUsuario" />
+          <ScalarProperty Name="DocumentoUsuario" ColumnName="DocumentoUsuario" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="TipoDocumentoUsuario" ColumnName="TipoDocumentoUsuario" />
-          <ScalarProperty Name="DocumentoUsuario" ColumnName="DocumentoUsuario" />
           <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
           <ScalarProperty Name="ApellidoUsuario" ColumnName="ApellidoUsuario" />
-          <ScalarProperty Name="TelefonoUsuario" ColumnName="TelefonoUsuario" />
-          <ScalarProperty Name="ConstraseñaUsuario" ColumnName="ConstraseñaUsuario" />
           <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
           <ScalarProperty Name="EstadoUsuario" ColumnName="EstadoUsuario" />
         </MappingFragment>

@@ -27,9 +27,11 @@
                         @Html.ValidationMessageFor(model => model.NombreArea, "", new { @class = "text-danger" })
                     </div>
                 </div>
+                <br />
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.IdRed, "IdRed", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.IdRed, "Id de Red", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <br />                   
                     <div class="col-md-10">
                         @Html.DropDownList("IdRed", null, "Selecciona una Red de Conocimiento", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
                         @Html.ValidationMessageFor(model => model.IdRed, "", new { @class = "text-danger" })
@@ -38,7 +40,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" /> |@Html.ActionLink("Back to List", "Index")
+                        <input type="submit" value="Guardar" class="btn btn-default" /> |@Html.ActionLink("Regresar", "Index")
                     </div>
                 </div>
             </div>

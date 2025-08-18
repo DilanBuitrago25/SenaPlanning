@@ -1,0 +1,433 @@
+﻿@model ClaseModelo.Usuario
+
+@{
+    ViewBag.Title = "Ajustes de Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ========================================
+     SECCIÓN: ENCABEZADO Y NAVEGACIÓN
+     ======================================== -->
+<div class="bg-body-light">
+    <div class="content content-full">
+        <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-1">
+            <!-- Título de la página -->
+            <div class="flex-grow-1">
+                <h1 class="h4 fw-bold mb-1" style="color: #39a900;">
+                    <i class="fa fa-user-cog me-2"></i>Ajustes de Perfil
+                </h1>
+                <h2 class="fs-sm lh-base fw-medium text-muted mb-0">
+                    Actualiza tu información personal
+                </h2>
+            </div>
+
+            <!-- Breadcrumb de navegación -->
+            <nav class="flex-shrink-0 mt-2 mt-sm-0 ms-sm-3" aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-alt mb-0">
+                    <li class="breadcrumb-item">
+                        <a class="link-fx" href="@Url.Action("Index", "Home")">Inicio</a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page">
+                        Ajustes
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================
+     SECCIÓN: CONTENIDO PRINCIPAL
+     ======================================== -->
+<div class="content">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+
+            <!-- Tarjeta principal del formulario -->
+            <div class="block block-rounded">
+                <div class="block-header block-header-default py-2" style="background: linear-gradient(135deg, #39a900 0%, #2d8000 100%);">
+                    <h3 class="block-title text-white mb-0">
+                        <i class="fa fa-user-edit me-2"></i>Información Personal
+                    </h3>
+                </div>
+
+                <div class="block-content pb-3">
+
+                    <!-- ========================================
+                         SECCIÓN: MENSAJES DE ESTADO
+                         ======================================== -->
+                    @if (TempData["MensajeExito"] != null)
+                    {
+                        <div class="alert alert-success d-flex align-items-center py-2 mb-3" role="alert">
+                            <i class="fa fa-check-circle me-2"></i>
+                            <div>@TempData["MensajeExito"]</div>
+                        </div>
+                    }
+
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger d-flex align-items-center py-2 mb-3" role="alert">
+                            <i class="fa fa-exclamation-triangle me-2"></i>
+                            <div>
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <div>@error.ErrorMessage</div>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <!-- ========================================
+                         SECCIÓN: FORMULARIO DE AJUSTES
+                         ======================================== -->
+                    @using (Html.BeginForm("Ajustes", "Usuarios", FormMethod.Post, new { @class = "js-validation-signin", @id = "ajustesForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <!-- Campos ocultos para mantener datos no editables -->
+                        @Html.HiddenFor(model => model.IdUsuario)
+                        @Html.HiddenFor(model => model.TipoUsuario)
+                        @Html.HiddenFor(model => model.EstadoUsuario)
+
+                        <div class="row">
+
+                            <!-- ========================================
+                                 SUBSECCIÓN: INFORMACIÓN DE IDENTIFICACIÓN (READONLY)
+                                 ======================================== -->
+                            <div class="col-12 mb-2">
+                                <h5 class="h6 mb-2 text-muted border-bottom pb-1">
+                                    <i class="fa fa-id-card me-2"></i>Información de Identificación
+                                </h5>
+                            </div>
+
+                            <!-- Tipo de Documento (Solo lectura) -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label mb-1" for="TipoDocumentoUsuario">
+                                    Tipo de Documento <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.TipoDocumentoUsuario, new
+                                {
+                                    @class = "form-control form-control-sm",
+                                    @readonly = "readonly",
+                                    style = "background-color: #f8f9fa; cursor: not-allowed;"
+                                })
+                                <small class="form-text text-muted">Este campo no se puede modificar</small>
+                            </div>
+
+                            <!-- Número de Documento (Solo lectura) -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label mb-1" for="DocumentoUsuario">
+                                    Número de Documento <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.DocumentoUsuario, new
+                                {
+                                    @class = "form-control form-control-sm",
+                                    @readonly = "readonly",
+                                    style = "background-color: #f8f9fa; cursor: not-allowed;"
+                                })
+                                <small class="form-text text-muted">Este campo no se puede modificar</small>
+                            </div>
+
+                            <!-- ========================================
+                                 SUBSECCIÓN: INFORMACIÓN PERSONAL (EDITABLE)
+                                 ======================================== -->
+                            <div class="col-12 mb-2 mt-2">
+                                <h5 class="h6 mb-2 text-muted border-bottom pb-1">
+                                    <i class="fa fa-user me-2"></i>Información Personal
+                                </h5>
+                            </div>
+
+                            <!-- Nombre y Apellido en la misma fila -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label mb-1" for="NombreUsuario">
+                                    Nombre <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.NombreUsuario, new
+                                {
+                                    @class = "form-control form-control-sm",
+                                    @placeholder = "Ingrese su nombre",
+                                    @required = "required",
+                                    @maxlength = "50"
+                                })
+                                @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger small" })
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label mb-1" for="ApellidoUsuario">
+                                    Apellido <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.ApellidoUsuario, new
+                                {
+                                    @class = "form-control form-control-sm",
+                                    @placeholder = "Ingrese su apellido",
+                                    @required = "required",
+                                    @maxlength = "50"
+                                })
+                                @Html.ValidationMessageFor(model => model.ApellidoUsuario, "", new { @class = "text-danger small" })
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label mb-1" for="TelefonoUsuario">
+                                    Teléfono <span class="text-danger">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.TelefonoUsuario, new
+                                {
+                                    @class = "form-control form-control-sm",
+                                    @placeholder = "10 dígitos",
+                                    @required = "required",
+                                    @pattern = "[0-9]{10}",
+                                    @title = "Debe contener exactamente 10 dígitos",
+                                    @maxlength = "10"
+                                })
+                                @Html.ValidationMessageFor(model => model.TelefonoUsuario, "", new { @class = "text-danger small" })
+                            </div>
+
+                            <!-- ========================================
+                                 SUBSECCIÓN: CAMBIO DE CONTRASEÑA (OPCIONAL)
+                                 ======================================== -->
+                            <div class="col-12 mb-2 mt-2">
+                                <h5 class="h6 mb-1 text-muted border-bottom pb-1">
+                                    <i class="fa fa-lock me-2"></i>Cambiar Contraseña (Opcional)
+                                </h5>
+                                <p class="text-muted small mb-2">
+                                    Deje estos campos vacíos si no desea cambiar su contraseña
+                                </p>
+                            </div>
+
+                            <!-- Nueva Contraseña y Confirmar en la misma fila -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label mb-1" for="nuevaContrasena">
+                                    Nueva Contraseña
+                                </label>
+                                <input type="password"
+                                       class="form-control form-control-sm"
+                                       id="nuevaContrasena"
+                                       name="nuevaContrasena"
+                                       placeholder="Mínimo 6 caracteres"
+                                       minlength="6">
+                                <small class="form-text text-muted">Mínimo 6 caracteres</small>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label mb-1" for="confirmarContrasena">
+                                    Confirmar Contraseña
+                                </label>
+                                <input type="password"
+                                       class="form-control form-control-sm"
+                                       id="confirmarContrasena"
+                                       name="confirmarContrasena"
+                                       placeholder="Repita la contraseña">
+                                <small class="form-text text-muted">Debe coincidir</small>
+                            </div>
+
+                        </div>
+
+                        <!-- ========================================
+                             SECCIÓN: BOTONES DE ACCIÓN
+                             ======================================== -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                                    <!-- Botón Cancelar -->
+                                    <a href="@Url.Action("Index", "Home")" class="btn btn-alt-secondary btn-sm">
+                                        <i class="fa fa-times me-1"></i>Cancelar
+                                    </a>
+
+                                    <!-- Botón Guardar -->
+                                    <button type="submit" class="btn btn-success btn-sm">
+                                        <i class="fa fa-save me-1"></i>Guardar Cambios
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================
+     SECCIÓN: SCRIPTS DE VALIDACIÓN
+     ======================================== -->
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+
+            // ========================================
+            // SUBSECCIÓN: VALIDACIÓN DE FORMULARIO
+            // ========================================
+
+            // Validación en tiempo real para el teléfono (solo números)
+            $('#TelefonoUsuario').on('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+                if (this.value.length > 10) {
+                    this.value = this.value.slice(0, 10);
+                }
+            });
+
+            // Validación de confirmación de contraseña
+            $('#confirmarContrasena').on('input', function() {
+                var nuevaContrasena = $('#nuevaContrasena').val();
+                var confirmarContrasena = $(this).val();
+
+                if (nuevaContrasena !== '' && confirmarContrasena !== '') {
+                    if (nuevaContrasena !== confirmarContrasena) {
+                        $(this).addClass('is-invalid');
+                        if (!$(this).next('.invalid-feedback').length) {
+                            $(this).after('<div class="invalid-feedback">Las contraseñas no coinciden</div>');
+                        }
+                    } else {
+                        $(this).removeClass('is-invalid').addClass('is-valid');
+                        $(this).next('.invalid-feedback').remove();
+                    }
+                }
+            });
+
+            // ========================================
+            // SUBSECCIÓN: VALIDACIÓN AL ENVIAR
+            // ========================================
+
+            $('#ajustesForm').on('submit', function(e) {
+                var isValid = true;
+                var nuevaContrasena = $('#nuevaContrasena').val();
+                var confirmarContrasena = $('#confirmarContrasena').val();
+
+                // Validar que si se ingresa una contraseña, ambos campos estén llenos
+                if (nuevaContrasena !== '' || confirmarContrasena !== '') {
+                    if (nuevaContrasena === '' || confirmarContrasena === '') {
+                        alert('Si desea cambiar la contraseña, debe llenar ambos campos de contraseña.');
+                        isValid = false;
+                    } else if (nuevaContrasena !== confirmarContrasena) {
+                        alert('Las contraseñas no coinciden.');
+                        isValid = false;
+                    } else if (nuevaContrasena.length < 6) {
+                        alert('La contraseña debe tener al menos 6 caracteres.');
+                        isValid = false;
+                    }
+                }
+
+                // Validar campos obligatorios
+                var nombre = $('#NombreUsuario').val().trim();
+                var apellido = $('#ApellidoUsuario').val().trim();
+                var telefono = $('#TelefonoUsuario').val().trim();
+
+                if (nombre === '' || apellido === '' || telefono === '') {
+                    alert('Por favor, complete todos los campos obligatorios.');
+                    isValid = false;
+                }
+
+                if (telefono.length !== 10) {
+                    alert('El teléfono debe tener exactamente 10 dígitos.');
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+
+            // ========================================
+            // SUBSECCIÓN: EFECTOS VISUALES
+            // ========================================
+
+            // Efecto de focus en los campos
+            $('.form-control').on('focus', function() {
+                $(this).parent().addClass('focused');
+            }).on('blur', function() {
+                $(this).parent().removeClass('focused');
+            });
+
+        });
+    </script>
+
+    <style>
+        /* ========================================
+           SECCIÓN: ESTILOS PERSONALIZADOS
+           ======================================== */
+
+        /* Reducir espaciado general para hacer la vista más compacta */
+        .content {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .block-content {
+            padding: 1rem !important;
+        }
+
+        /* Efecto de focus en campos */
+        .focused {
+            transform: translateY(-1px);
+            transition: transform 0.2s ease;
+        }
+
+        /* Estilo para campos readonly */
+        .form-control[readonly] {
+            background-color: #f8f9fa !important;
+            opacity: 0.8;
+        }
+
+        /* Hacer los form-control más pequeños */
+        .form-control-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        /* Estilo para el botón de éxito con color SENA */
+        .btn-success {
+            background-color: #39a900;
+            border-color: #39a900;
+        }
+
+            .btn-success:hover {
+                background-color: #2d8000;
+                border-color: #2d8000;
+            }
+
+        /* Reducir espaciado en labels y textos de ayuda */
+        .form-label {
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .form-text {
+            font-size: 0.75rem;
+            margin-top: 0.125rem;
+        }
+
+        /* Hacer headers más compactos */
+        .h6 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Animación suave para alertas */
+        .alert {
+            animation: slideDown 0.3s ease;
+        }
+
+        keyframes slideDown {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        /* Optimizar espaciado de botones */
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+    </style>
+}
+

@@ -118,7 +118,7 @@
                                 @Html.ValidationMessageFor(model => model.FechaInFicha, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">No Aprendices</label>
+                                <label class="form-label">N° Aprendices</label>
                                 @Html.EditorFor(model => model.NumAprenFicha, new { htmlAttributes = new { id = "NumAprenFicha", @class = "form-control" } })
                                 @Html.HiddenFor(model => model.NumAprenFicha, new { Value = 30 })
                                 @Html.ValidationMessageFor(model => model.NumAprenFicha, "", new { @class = "text-danger" })

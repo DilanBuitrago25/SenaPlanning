@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SenaPlanning",
+    "\\SenaPlanning\\SenaPlanning",
+    "\\SenaPlanning\\SenaPlanning\\Views",
+    "\\SenaPlanning\\SenaPlanning\\Views\\Planeacion"
   ],
+  "SelectedNode": "\\SenaPlanning\\SenaPlanning\\Views\\Planeacion\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

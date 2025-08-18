@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClaseModelo;
+using SenaPlanning.Helpers; // Agregando referencia al helper de contraseñas
 
 namespace SenaPlanning.Controllers
 {
@@ -24,42 +25,75 @@ namespace SenaPlanning.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(string documento, string contrasena)
         {
-            var usuario = db.Usuario.FirstOrDefault(u => u.DocumentoUsuario == documento && u.ContraseñaUsuario == contrasena);
+            var usuario = db.Usuario.FirstOrDefault(u => u.DocumentoUsuario == documento);
 
             if (usuario != null)
             {
-                Session["Idusuario"] = usuario.IdUsuario; // Almacenar el ID en sesión
-                Session["TipoUsuario"] = usuario.TipoUsuario;
-                Session["NombreCompletoUsuario"] = usuario.NombreUsuario + " " + usuario.ApellidoUsuario;
-                Session["NombreUsuario"] = (usuario.NombreUsuario).Split()[0] + " " + usuario.ApellidoUsuario.Split()[0];
-                ViewBag.TipoUsuario = usuario.TipoUsuario;
+                bool contraseñaValida = false;
 
-                if (usuario.TipoUsuario == "Administrador" && usuario.EstadoUsuario == true)
+                if (usuario.ContraseñaUsuario.StartsWith("$2"))
                 {
-                    return RedirectToAction("Index", "Home"); // Vista para Administradores
+                    // Contraseña ya está cifrada con BCrypt
+                    contraseñaValida = PasswordHelper.VerifyPassword(contrasena, usuario.ContraseñaUsuario);
+
+                    if (contraseñaValida && PasswordHelper.NeedsRehash(usuario.ContraseñaUsuario))
+                    {
+                        usuario.ContraseñaUsuario = PasswordHelper.HashPassword(contrasena);
+                        db.Entry(usuario).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
                 }
-                else if (usuario.TipoUsuario == "Coordinador" && usuario.EstadoUsuario == true)
+                else
                 {
-                    return RedirectToAction("Contact", "Home"); // Vista para Coordinadores
+                    if (usuario.ContraseñaUsuario == contrasena)
+                    {
+                        contraseñaValida = true;
+                        // Actualizar a formato cifrado
+                        usuario.ContraseñaUsuario = PasswordHelper.HashPassword(contrasena);
+                        db.Entry(usuario).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+
+                if (contraseñaValida)
+                {
+                    Session["Idusuario"] = usuario.IdUsuario;
+                    Session["TipoUsuario"] = usuario.TipoUsuario;
+                    Session["NombreCompletoUsuario"] = usuario.NombreUsuario + " " + usuario.ApellidoUsuario;
+                    Session["NombreUsuario"] = (usuario.NombreUsuario).Split()[0] + " " + usuario.ApellidoUsuario.Split()[0];
+                    ViewBag.TipoUsuario = usuario.TipoUsuario;
+
+                    if (usuario.TipoUsuario == "Administrador" && usuario.EstadoUsuario == true)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (usuario.TipoUsuario == "Coordinador" && usuario.EstadoUsuario == true)
+                    {
+                        return RedirectToAction("Contact", "Home");
+                    }
                 }
             }
+
             if (usuario == null)
             {
                 ViewData["Mensaje"] = "Correo o contraseña incorrectos";
             }
-            else
+            else if (usuario.EstadoUsuario == false)
             {
                 ViewData["Mensaje"] = "Usuario no Activo";
+            }
+            else
+            {
+                ViewData["Mensaje"] = "Correo o contraseña incorrectos";
             }
 
             ModelState.AddModelError("", "Credenciales inválidas.");
             return View();
-
         }
 
         public ActionResult Logout()
         {
-            Session.Abandon(); // Cerrar sesión
+            Session.Abandon();
             return RedirectToAction("Index");
         }
 
@@ -76,7 +110,7 @@ namespace SenaPlanning.Controllers
                 }
             }
 
-            return RedirectToAction("Index"); // O a donde quieras redirigir si no hay sesión o usuario
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -86,6 +120,11 @@ namespace SenaPlanning.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!string.IsNullOrEmpty(usuario.ContraseñaUsuario))
+                {
+                    usuario.ContraseñaUsuario = PasswordHelper.HashPassword(usuario.ContraseñaUsuario);
+                }
+
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
 
@@ -99,14 +138,12 @@ namespace SenaPlanning.Controllers
                 }
                 else
                 {
-                    // Manejar otros tipos de usuario si es necesario
-                    return RedirectToAction("Index"); // Redirigir al índice actual por defecto
+                    return RedirectToAction("Index");
                 }
             }
 
             return View(usuario);
         }
-
 
         public class AutorizarTipoUsuarioAttribute : AuthorizeAttribute
         {
