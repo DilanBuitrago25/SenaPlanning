@@ -14,7 +14,7 @@ namespace SenaPlanning.Helpers
         /// <returns>Hash de la contraseña cifrada</returns>
         public static string HashPassword(string password)
         {
-            return HashPassword(password);
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
         /// <summary>

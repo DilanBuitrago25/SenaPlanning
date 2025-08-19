@@ -142,12 +142,6 @@
                                 <span class="nav-main-link-name">Instructor</span>
                             </a>
                         </li>
-                        <li class="nav-main-item">
-                            <a class="nav-main-link active" href="@Url.Action("Index", "Usuarios")">
-                                <i class="nav-main-link-icon fa fa-user-group"></i>
-                                <span class="nav-main-link-name">Usuarios</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -208,12 +202,10 @@
 
                             <!-- Opción de cerrar sesión -->
                             <div class="p-2">
-                                <button class="btn btn-primary-light" type="button">
-                                    < href="@Url.Action("Index","Login")">
-                                        <i data-feather="log-out"></i>
-                                        @Html.ActionLink("Cerrar Sesión", "Logout", "Login")
-                                    </>
-                                </button>
+                                <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Logout", "Login")">
+                                    <i class="fa fa-sign-out-alt me-2"></i>
+                                    <span class="fs-sm fw-medium">Cerrar Sesión</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -280,9 +272,9 @@
     <script>One.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-maxlength', 'jq-select2', 'jq-masked-inputs', 'jq-rangeslider', 'jq-colorpicker', 'jq-notify']);</script>
 
     <script>
-       /* <!-- ========================================
+        /* ========================================
              SUBSECCIÓN: GESTIÓN DE SESIÓN Y TIMEOUT
-             ======================================== -->*/
+             ======================================== */
         var timeout = @(Session.Timeout * 180000); // Convertir minutos a milisegundos
         var timer;
 
@@ -300,9 +292,9 @@
             $(document).on('mousemove keydown click', resetTimer); // Reiniciar el temporizador con cualquier actividad
         });
 
-        /*<!-- ========================================
+        /* ========================================
              SUBSECCIÓN: MODO OSCURO/CLARO
-             ======================================== -->*/
+             ======================================== */
         document.getElementById("btn-mode").addEventListener("click", () => {
             let body = document.getElementById("page-container");
             if (body.className === "sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled page-header-dark dark-mode") {
