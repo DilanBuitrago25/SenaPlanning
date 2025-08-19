@@ -39,8 +39,8 @@ namespace SenaPlanning.Controllers
                 double META_ET_AP_PASAN = 0;
                 double META_OTRO_AP_PASAN = 0;
 
-                double APRENDICES_POR_CURSOS = 30;
-                double APRENDICES_POR_CURSOS_OTROS = 35;
+                /*double APRENDICES_POR_CURSOS = 30;
+                double APRENDICES_POR_CURSOS_OTROS = 35;*/
                 long id = 0;
 
                 id = metas[0].IdMeta;

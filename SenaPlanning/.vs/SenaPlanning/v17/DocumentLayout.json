@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\wilber\\source\\repos\\dilanbuitrago25\\senaplanning\\senaplanning\\senaplanning\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\wilber\\source\\repos\\dilanbuitrago25\\senaplanning\\senaplanning\\senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\wilber\\source\\repos\\dilanbuitrago25\\senaplanning\\senaplanning\\senaplanning\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\wilber\\source\\repos\\dilanbuitrago25\\senaplanning\\senaplanning\\senaplanning\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\instructorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\wilber\\source\\repos\\dilanbuitrago25\\senaplanning\\senaplanning\\senaplanning\\helpers\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\helpers\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\senaplanning\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\wilber\\source\\repos\\dilanbuitrago25\\senaplanning\\senaplanning\\senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\wilber\\source\\repos\\dilanbuitrago25\\senaplanning\\senaplanning\\senaplanning\\views\\usuarios\\ajustes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -70,20 +82,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 304,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\ClaseModelo\\Class1.cs",
-              "RelativeDocumentMoniker": "ClaseModelo\\Class1.cs",
-              "ToolTip": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\ClaseModelo\\Class1.cs",
-              "RelativeToolTip": "ClaseModelo\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T22:40:49.862Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Bookmark",
@@ -107,15 +114,67 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Web.config",
+              "RelativeDocumentMoniker": "SenaPlanning\\Web.config",
+              "ToolTip": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Web.config",
+              "RelativeToolTip": "SenaPlanning\\Web.config",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAwEIAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-08-19T00:01:46.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SenaPlanning\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAcwCkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T23:07:39.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InstructorsController.cs",
+              "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\InstructorsController.cs",
+              "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\InstructorsController.cs",
+              "ToolTip": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\InstructorsController.cs",
+              "RelativeToolTip": "SenaPlanning\\Controllers\\InstructorsController.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAowJYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T23:02:19.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\ClaseModelo\\Class1.cs",
+              "RelativeDocumentMoniker": "ClaseModelo\\Class1.cs",
+              "ToolTip": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\ClaseModelo\\Class1.cs",
+              "RelativeToolTip": "ClaseModelo\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T22:40:49.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Ajustes.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Usuarios\\Ajustes.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Usuarios\\Ajustes.cshtml",
@@ -128,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\UsuarioController.cs",
@@ -141,20 +200,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "PasswordHelper.cs",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Helpers\\PasswordHelper.cs",
               "RelativeDocumentMoniker": "SenaPlanning\\Helpers\\PasswordHelper.cs",
               "ToolTip": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Helpers\\PasswordHelper.cs",
               "RelativeToolTip": "SenaPlanning\\Helpers\\PasswordHelper.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwDAAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAwwDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-18T22:09:02.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "ModeloSenaPlanning.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\ClaseModelo\\ModeloSenaPlanning.edmx",
               "RelativeDocumentMoniker": "ClaseModelo\\ModeloSenaPlanning.edmx",
@@ -166,20 +225,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
               "RelativeToolTip": "SenaPlanning\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAcwLUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-14T02:30:25.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\ClaseModelo\\Usuario.cs",
               "RelativeDocumentMoniker": "ClaseModelo\\Usuario.cs",
@@ -192,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Fichas\\Create.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Fichas\\Create.cshtml",
@@ -205,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Shared\\_Layout.cshtml",
@@ -218,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Edit.cshtml",
@@ -231,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Details.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Details.cshtml",
@@ -244,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "MetasController.cs",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\MetasController.cs",
               "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\MetasController.cs",
@@ -257,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Fichas\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Fichas\\Index.cshtml",
@@ -270,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Planeacion\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Planeacion\\Index.cshtml",
@@ -283,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Wilber\\source\\repos\\DilanBuitrago25\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Home\\Index.cshtml",
