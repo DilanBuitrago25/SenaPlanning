@@ -195,6 +195,19 @@
                                 </p>
                             </div>
 
+                            <!-- Contraseña Actual -->
+                            <div class="col-12 mb-3">
+                                <label class="form-label mb-1" for="contrasenaActual">
+                                    Contraseña Actual
+                                </label>
+                                <input type="password"
+                                       class="form-control form-control-sm"
+                                       id="contrasenaActual"
+                                       name="contrasenaActual"
+                                       placeholder="Ingrese su contraseña actual">
+                                <small class="form-text text-muted">Requerida para cambiar la contraseña</small>
+                            </div>
+
                             <!-- Nueva Contraseña y Confirmar en la misma fila -->
                             <div class="col-md-6 mb-3">
                                 <label class="form-label mb-1" for="nuevaContrasena">
@@ -253,14 +266,14 @@
      ======================================== -->
 @section Scripts {
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             // ========================================
             // SUBSECCIÓN: VALIDACIÓN DE FORMULARIO
             // ========================================
 
             // Validación en tiempo real para el teléfono (solo números)
-            $('#TelefonoUsuario').on('input', function() {
+            $('#TelefonoUsuario').on('input', function () {
                 this.value = this.value.replace(/[^0-9]/g, '');
                 if (this.value.length > 10) {
                     this.value = this.value.slice(0, 10);
@@ -268,7 +281,7 @@
             });
 
             // Validación de confirmación de contraseña
-            $('#confirmarContrasena').on('input', function() {
+            $('#confirmarContrasena').on('input', function () {
                 var nuevaContrasena = $('#nuevaContrasena').val();
                 var confirmarContrasena = $(this).val();
 
@@ -289,15 +302,19 @@
             // SUBSECCIÓN: VALIDACIÓN AL ENVIAR
             // ========================================
 
-            $('#ajustesForm').on('submit', function(e) {
+            $('#ajustesForm').on('submit', function (e) {
                 var isValid = true;
+                var contrasenaActual = $('#contrasenaActual').val();
                 var nuevaContrasena = $('#nuevaContrasena').val();
                 var confirmarContrasena = $('#confirmarContrasena').val();
 
-                // Validar que si se ingresa una contraseña, ambos campos estén llenos
-                if (nuevaContrasena !== '' || confirmarContrasena !== '') {
-                    if (nuevaContrasena === '' || confirmarContrasena === '') {
-                        alert('Si desea cambiar la contraseña, debe llenar ambos campos de contraseña.');
+                // Validar que si se ingresa una contraseña, todos los campos estén llenos
+                if (nuevaContrasena !== '' || confirmarContrasena !== '' || contrasenaActual !== '') {
+                    if (contrasenaActual === '') {
+                        alert('Debe ingresar su contraseña actual para cambiar la contraseña.');
+                        isValid = false;
+                    } else if (nuevaContrasena === '' || confirmarContrasena === '') {
+                        alert('Si desea cambiar la contraseña, debe llenar todos los campos de contraseña.');
                         isValid = false;
                     } else if (nuevaContrasena !== confirmarContrasena) {
                         alert('Las contraseñas no coinciden.');
@@ -333,20 +350,21 @@
             // ========================================
 
             // Efecto de focus en los campos
-            $('.form-control').on('focus', function() {
+            $('.form-control').on('focus', function () {
                 $(this).parent().addClass('focused');
-            }).on('blur', function() {
+            }).on('blur', function () {
                 $(this).parent().removeClass('focused');
             });
 
         });
     </script>
+}
 
-    <style>
-        /* ========================================
-           SECCIÓN: ESTILOS PERSONALIZADOS
-           ======================================== */
-
+<!-- ========================================
+     SECCIÓN: ESTILOS PERSONALIZADOS
+     ======================================== -->
+@section Styles {
+    <style type="text/css">
         /* Reducir espaciado general para hacer la vista más compacta */
         .content {
             padding-top: 1rem !important;
@@ -381,10 +399,10 @@
             border-color: #39a900;
         }
 
-            .btn-success:hover {
-                background-color: #2d8000;
-                border-color: #2d8000;
-            }
+        .btn-success:hover {
+            background-color: #2d8000;
+            border-color: #2d8000;
+        }
 
         /* Reducir espaciado en labels y textos de ayuda */
         .form-label {
@@ -408,19 +426,16 @@
             animation: slideDown 0.3s ease;
         }
 
-        keyframes slideDown {
-            from
-
-        {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        /* Keyframes animation properly enclosed in CSS context */
+        @@keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Optimizar espaciado de botones */
@@ -430,4 +445,3 @@
         }
     </style>
 }
-

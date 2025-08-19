@@ -25,7 +25,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" id="css-main" href="~/assets/css/oneui.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @Styles.Render("~/Content/assets");
+    @Styles.Render("~/Content/assets")
+
+    <!-- Agregando sección para renderizar estilos personalizados -->
+    @RenderSection("Styles", required: false)
 </head>
 
 <body>
@@ -268,7 +271,7 @@
     <!-- ========================================
          SECCIÓN: SCRIPTS Y FUNCIONALIDADES
          ======================================== -->
-    @Scripts.Render("~/bundles/assets");
+    @Scripts.Render("~/bundles/assets")
     @RenderSection("Scripts", required: false)
 
     <script>One.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-maxlength', 'jq-select2', 'jq-masked-inputs', 'jq-rangeslider', 'jq-colorpicker', 'jq-notify']);</script>

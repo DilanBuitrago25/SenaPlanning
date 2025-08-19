@@ -173,7 +173,7 @@ namespace SenaPlanning.Controllers
         // POST: Usuarios/Ajustes - Procesa la actualización del perfil del usuario
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Ajustes(Usuario usuarioActualizado, string nuevaContrasena, string confirmarContrasena)
+        public ActionResult Ajustes(Usuario usuarioActualizado, string contrasenaActual, string nuevaContrasena, string confirmarContrasena)
         {
             // Verificar sesión activa
             if (Session["Idusuario"] == null)
@@ -197,8 +197,32 @@ namespace SenaPlanning.Controllers
             usuarioExistente.TelefonoUsuario = usuarioActualizado.TelefonoUsuario;
 
             // Manejar cambio de contraseña si se proporciona
-            if (!string.IsNullOrEmpty(nuevaContrasena))
+            if (!string.IsNullOrEmpty(nuevaContrasena) || !string.IsNullOrEmpty(confirmarContrasena) || !string.IsNullOrEmpty(contrasenaActual))
             {
+                // Validar que se proporcione la contraseña actual
+                if (string.IsNullOrEmpty(contrasenaActual))
+                {
+                    ModelState.AddModelError("", "Debe ingresar su contraseña actual para cambiar la contraseña.");
+                    usuarioActualizado.ContraseñaUsuario = "";
+                    return View(usuarioActualizado);
+                }
+
+                // Verificar que la contraseña actual sea correcta
+                if (!PasswordHelper.VerifyPassword(contrasenaActual, usuarioExistente.ContraseñaUsuario))
+                {
+                    ModelState.AddModelError("", "La contraseña actual es incorrecta.");
+                    usuarioActualizado.ContraseñaUsuario = "";
+                    return View(usuarioActualizado);
+                }
+
+                // Validar que se proporcionen ambos campos de nueva contraseña
+                if (string.IsNullOrEmpty(nuevaContrasena) || string.IsNullOrEmpty(confirmarContrasena))
+                {
+                    ModelState.AddModelError("", "Debe completar todos los campos de contraseña.");
+                    usuarioActualizado.ContraseñaUsuario = "";
+                    return View(usuarioActualizado);
+                }
+
                 if (nuevaContrasena != confirmarContrasena)
                 {
                     ModelState.AddModelError("", "Las contraseñas no coinciden.");
@@ -209,6 +233,14 @@ namespace SenaPlanning.Controllers
                 if (nuevaContrasena.Length < 6)
                 {
                     ModelState.AddModelError("", "La contraseña debe tener al menos 6 caracteres.");
+                    usuarioActualizado.ContraseñaUsuario = "";
+                    return View(usuarioActualizado);
+                }
+
+                // Verificar que la nueva contraseña sea diferente a la actual
+                if (PasswordHelper.VerifyPassword(nuevaContrasena, usuarioExistente.ContraseñaUsuario))
+                {
+                    ModelState.AddModelError("", "La nueva contraseña debe ser diferente a la actual.");
                     usuarioActualizado.ContraseñaUsuario = "";
                     return View(usuarioActualizado);
                 }
