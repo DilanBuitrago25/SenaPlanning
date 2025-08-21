@@ -78,9 +78,9 @@
                                             @Html.DropDownListFor(model => model.NivelPrograma, new List<SelectListItem>
                                             {
                                                 new SelectListItem { Text = "", Value = "" },
-                                                new SelectListItem { Text = "Tecnologo", Value = "Tecnologo" },
-                                                new SelectListItem { Text = "Tecnico", Value = "Tecnico" },
-                                                new SelectListItem { Text = "Especializacion", Value = "Especializacion" },
+                                                new SelectListItem { Text = "Tecnologo", Value = "Técnologo" },
+                                                new SelectListItem { Text = "Tecnico", Value = "Técnico" },
+                                                new SelectListItem { Text = "Especializacion", Value = "Especialización" },
                                                 new SelectListItem { Text = "Curso corto", Value = "Curso corto" },
                                                 new SelectListItem { Text = "Curso Complementario", Value = "Curso Complementario" }
                                             }, new { @class = "form-control" })
@@ -91,7 +91,7 @@
                                     <div class="mb-3 m-form__group">
                                         <label class="form-label">Area de Conocimiento</label>
                                         <div class="input-group">
-                                            @Html.DropDownList("IdArea", null, "Selecciona un Area de Conocimiento", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
+                                            @Html.DropDownList("IdArea", null, "Seleccione un Area de Conocimiento", htmlAttributes: new { @class = "js-example-basic-single col-sm-12 form-control" })
                                         </div>
                                         @Html.ValidationMessageFor(model => model.IdArea, "", new { @class = "text-danger" })
                                     </div>
