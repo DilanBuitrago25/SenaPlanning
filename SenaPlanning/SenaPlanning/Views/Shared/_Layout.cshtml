@@ -1,42 +1,51 @@
-﻿<!doctype html>
+﻿<!-- ========================================
+     SECCIÓN: CONFIGURACIÓN DEL DOCUMENTO
+     ======================================== -->
+<!doctype html>
 <html lang="en">
 <head>
+    <!-- ========================================
+         SUBSECCIÓN: METADATOS BÁSICOS
+         ======================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
     <title>@ViewBag.title - SenaPlanning</title>
-
     <meta name="robots" content="noindex, nofollow">
 
+    <!-- ========================================
+         SUBSECCIÓN: ICONOS Y FAVICONS
+         ======================================== -->
     <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="~/assets/media/favicons/svgLogo.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="~/assets/media/favicons/svgLogo.svg">
 
+    <!-- ========================================
+         SUBSECCIÓN: ESTILOS Y FUENTES
+         ======================================== -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" id="css-main" href="~/assets/css/oneui.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @Styles.Render("~/Content/assets");
+    @Styles.Render("~/Content/assets")
 
-
+    <!-- Agregando sección para renderizar estilos personalizados -->
+    @RenderSection("Styles", required: false)
 </head>
 
 <body>
+    <!-- ========================================
+         SECCIÓN: CONTENEDOR PRINCIPAL DE LA PÁGINA
+         ======================================== -->
     <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow">
 
+        <!-- ========================================
+             SECCIÓN: PANEL LATERAL OVERLAY
+             ======================================== -->
         <aside id="side-overlay">
-
-
-
             <div class="content-side">
-
                 <div class="block block-transparent pull-x pull-t">
-
                     <div class="block-content tab-content overflow-hidden">
-
                         <div class="tab-pane pull-x fade fade-right" id="so-sales" role="tabpanel" aria-labelledby="so-sales-tab">
                             <div class="block block-transparent mb-0">
-
-
                             </div>
                         </div>
                     </div>
@@ -44,38 +53,41 @@
             </div>
         </aside>
 
+        <!-- ========================================
+             SECCIÓN: BARRA LATERAL DE NAVEGACIÓN
+             ======================================== -->
         <nav id="sidebar" aria-label="Main Navigation">
+            <!-- ========================================
+                 SUBSECCIÓN: ENCABEZADO DE LA BARRA LATERAL
+                 ======================================== -->
             <div class="content-header">
                 <a class="fw-semibold text-dual" href="@Url.Action("Index", "Home")">
                     <img src="~/assets/media/favicons/svgLogoSenaBlanco.svg" style="width: 40px;">
                 </a>
 
                 <div>
-
                     <button id="btn-mode" type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="dark_mode_toggle">
                         <i class="far fa-moon"></i>
                     </button>
 
                     <div class="dropdown d-inline-block ms-1">
-
                         <div class="dropdown-menu dropdown-menu-end fs-sm smini-hide border-0" aria-labelledby="sidebar-themes-dropdown">
-
-
-
                         </div>
                     </div>
 
                     <a class="d-lg-none btn btn-sm btn-alt-secondary ms-1" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
                         <i class="fa fa-fw fa-times"></i>
                     </a>
-
                 </div>
-
             </div>
 
+            <!-- ========================================
+                 SUBSECCIÓN: MENÚ DE NAVEGACIÓN PRINCIPAL
+                 ======================================== -->
             <div class="js-sidebar-scroll">
                 <div class="content-side">
                     <ul class="nav-main">
+                        <!-- Enlaces principales del sistema -->
                         <li class="nav-main-item">
                             <a class="nav-main-link active" href="@Url.Action("Index", "Home")">
                                 <i class="nav-main-link-icon si si-speedometer"></i>
@@ -100,6 +112,8 @@
                                 <span class="nav-main-link-name">Fichas</span>
                             </a>
                         </li>
+
+                        <!-- Sección de gestión de datos -->
                         <li class="nav-main-heading">Gestionar Datos</li>
                         <li class="nav-main-item">
                             <a class="nav-main-link active" href="@Url.Action("Index", "Red_Conocimiento")">
@@ -131,15 +145,20 @@
                                 <span class="nav-main-link-name">Instructor</span>
                             </a>
                         </li>
-</div>
+                    </ul>
+                </div>
             </div>
         </nav>
 
+        <!-- ========================================
+             SECCIÓN: ENCABEZADO PRINCIPAL
+             ======================================== -->
         <header id="page-header">
             <div class="content-header" style="width: 100%">
-
+                <!-- ========================================
+                     SUBSECCIÓN: CONTROLES DE NAVEGACIÓN
+                     ======================================== -->
                 <div class="d-flex align-items-center">
-
                     <button type="button" class="btn btn-sm btn-alt-secondary me-2 d-lg-none" data-toggle="layout" data-action="sidebar_toggle">
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
@@ -147,42 +166,64 @@
                     <button type="button" class="btn btn-sm btn-alt-secondary me-10 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
                         <i class="fa fa-fw fa-ellipsis-v"></i>
                     </button>
-
                 </div>
 
+                <!-- ========================================
+                     SUBSECCIÓN: MENÚ DE USUARIO
+                     ======================================== -->
                 <div class="d-flex align-items-center">
-
                     <div class="dropdown d-inline-block ms-2">
+                        <!-- Botón del dropdown del usuario -->
                         <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle" src="~/assets/media/avatars/avatar10.jpg" alt="Header Avatar" style="width: 21px;">
                             <span class="d-none d-sm-inline-block ms-2">@Session["NombreUsuario"].ToString()</span>
                             <i class="fa fa-fw fa-angle-down d-none d-sm-inline-block opacity-50 ms-1 mt-1"></i>
                         </button>
+
+                        <!-- Menú dropdown del usuario -->
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
+                            <!-- Información del usuario -->
                             <div class="p-3 text-center bg-body-light border-bottom rounded-top">
                                 <img class="img-avatar img-avatar48 img-avatar-thumb" src="assets/media/avatars/avatar10.jpg" alt="">
                                 <p class="mt-2 mb-0 fw-medium">@Session["NombreCompletoUsuario"].ToString()</p>
                                 <p class="mb-0 text-muted fs-sm fw-medium">@Session["TipoUsuario"].ToString()</p>
                             </div>
+
+                            <!-- Opciones del menú -->
                             <div class="p-2">
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                    <span class="fs-sm fw-medium">Ajustes</span>
+                                <!-- Corrigiendo enlace de Ajustes para apuntar a Usuarios en lugar de Usuario y agregando icono verde SENA -->
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" href="@Url.Action("Ajustes", "Usuarios")">
+                                    <span class="fs-sm fw-medium">
+                                        <i class="fa fa-user-cog me-2" style="color: #39a900;"></i>
+                                        Ajustes
+                                    </span>
                                 </a>
                             </div>
+
+                            <!-- Separador -->
                             <div role="separator" class="dropdown-divider m-0"></div>
+
+                            <!-- Opción de cerrar sesión -->
                             <div class="p-2">
-                                <button class="btn btn-primary-light" type="button"><a href="@Url.Action("Index","Login")"><i data-feather="log-out"></i>@Html.ActionLink("Cerrar Sesión", "Logout", "Login")</a></button>
+                                <button class="btn btn-primary-light" type="button">
+                                    <a href="@Url.Action("Index","Login")">
+                                        <i data-feather="log-out"></i>
+                                        @Html.ActionLink("Cerrar Sesión", "Logout", "Login")
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- ========================================
+                 SUBSECCIÓN: BARRA DE BÚSQUEDA (OVERLAY)
+                 ======================================== -->
             <div id="page-header-search" class="overlay-header bg-body-extra-light">
                 <div class="content-header">
                     <form class="w-100" action="be_pages_generic_search.html" method="POST">
                         <div class="input-group">
-
                             <button type="button" class="btn btn-alt-danger" data-toggle="layout" data-action="header_search_off">
                                 <i class="fa fa-fw fa-times-circle"></i>
                             </button>
@@ -192,6 +233,9 @@
                 </div>
             </div>
 
+            <!-- ========================================
+                 SUBSECCIÓN: INDICADOR DE CARGA (OVERLAY)
+                 ======================================== -->
             <div id="page-header-loader" class="overlay-header bg-body-extra-light">
                 <div class="content-header">
                     <div class="w-100 text-center">
@@ -199,13 +243,18 @@
                     </div>
                 </div>
             </div>
-
         </header>
 
+        <!-- ========================================
+             SECCIÓN: CONTENIDO PRINCIPAL
+             ======================================== -->
         <main id="main-container" class="mb-5">
             @RenderBody()
         </main>
 
+        <!-- ========================================
+             SECCIÓN: PIE DE PÁGINA
+             ======================================== -->
         <footer id="page-footer" class="bg-body-light fixed-bottom">
             <div class="content py-3">
                 <div class="row fs-sm">
@@ -213,33 +262,44 @@
                         <a class="fw-semibold" href="#" target="_blank">SenaPlanning</a> <span data-toggle="year-copy"></span>
                     </div>
                     <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-
                     </div>
                 </div>
             </div>
         </footer>
     </div>
-    @Scripts.Render("~/bundles/assets");
+
+    <!-- ========================================
+         SECCIÓN: SCRIPTS Y FUNCIONALIDADES
+         ======================================== -->
+    @Scripts.Render("~/bundles/assets")
     @RenderSection("Scripts", required: false)
 
     <script>One.helpersOnLoad(['js-flatpickr', 'jq-datepicker', 'jq-maxlength', 'jq-select2', 'jq-masked-inputs', 'jq-rangeslider', 'jq-colorpicker', 'jq-notify']);</script>
+
     <script>
-    var timeout = @(Session.Timeout * 180000); // Convertir minutos a milisegundos
-    var timer;
+         /*========================================
+             SUBSECCIÓN: GESTIÓN DE SESIÓN Y TIMEOUT
+             ======================================== */
+        var timeout = @(Session.Timeout * 180000); // Convertir minutos a milisegundos
+        var timer;
 
-    function resetTimer() {
-        clearTimeout(timer);
-        timer = setTimeout(logout, timeout);
-    }
+        function resetTimer() {
+            clearTimeout(timer);
+            timer = setTimeout(logout, timeout);
+        }
 
-    function logout() {
-        window.location.href = '@Url.Action("Logout", "Login")';
-    }
+        function logout() {
+            window.location.href = '@Url.Action("Logout", "Login")';
+        }
 
-    $(document).ready(function () {
-        resetTimer();
-        $(document).on('mousemove keydown click', resetTimer); // Reiniciar el temporizador con cualquier actividad
-    });
+        $(document).ready(function () {
+            resetTimer();
+            $(document).on('mousemove keydown click', resetTimer); // Reiniciar el temporizador con cualquier actividad
+        });
+
+        /* ========================================
+             SUBSECCIÓN: MODO OSCURO/CLARO
+             ======================================== */
         document.getElementById("btn-mode").addEventListener("click", () => {
             let body = document.getElementById("page-container");
             if (body.className === "sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow side-trans-enabled page-header-dark dark-mode") {
@@ -263,16 +323,10 @@
                 return;
             }
         }
+
         document.addEventListener("DOMContentLoaded", (event) => {
             modeChanger();
         });
-
     </script>
 </body>
 </html>
-@*
-        @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-       @Scripts.Render("~/bundles/jquery")
-       @Scripts.Render("~/bundles/bootstrap")
-       @RenderSection("scripts", required: false)*@

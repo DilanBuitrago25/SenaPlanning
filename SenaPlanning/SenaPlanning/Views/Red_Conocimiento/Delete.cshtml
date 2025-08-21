@@ -8,7 +8,7 @@
     <div class="content block block-bordered">
         <h2>Eliminar</h2>
 
-        <h3>Quiere eliminar la red <strong>@Html.DisplayFor(model => model.NombreRed)</strong>?</h3>
+        <h3>¿Realmente quiere eliminar la red de conocimiento? <strong>@Html.DisplayFor(model => model.NombreRed)</strong>?</h3>
         <div>
             <hr />
             <dl class="dl-horizontal">
@@ -19,8 +19,8 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-actions no-color">
-                    <input type="submit" value="Delete" class="btn btn-default" /> |
-                    @Html.ActionLink("Back to List", "Index")
+                    <input type="submit" value="Eliminar" class="btn btn-default" /> |
+                    @Html.ActionLink("Volver", "Index")
                 </div>
             }
         </div>

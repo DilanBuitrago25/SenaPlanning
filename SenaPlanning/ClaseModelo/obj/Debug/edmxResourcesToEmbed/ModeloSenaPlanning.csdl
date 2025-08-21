@@ -131,14 +131,14 @@
     </Key>
     <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TipoDocumentoUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="DocumentoUsuario" Type="Int32" />
     <Property Name="NombreUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ApellidoUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="TelefonoUsuario" Type="Int32" />
-    <Property Name="ConstraseñaUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="TipoUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="EstadoUsuario" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__IdUsuari__35BCFE0A" FromRole="Usuario" ToRole="Oferta" />
+    <Property Name="DocumentoUsuario" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="TelefonoUsuario" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ContraseñaUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__Area_Cono__IdRed__2E1BDC42">
     <End Role="Red_Conocimiento" Type="Self.Red_Conocimiento" Multiplicity="0..1" />

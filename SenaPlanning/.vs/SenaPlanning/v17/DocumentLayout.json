@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\senaplanning\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|c:\\users\\adminsena\\source\\repos\\senaplanning\\senaplanning\\senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -167,10 +171,6 @@
       "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\senaplanning\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\senaplanning\\controllers\\programa_formacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96016FAF-84E8-46FC-BAA0-D846962F0D4C}|SenaPlanning\\SenaPlanning.csproj|solutionrelative:senaplanning\\controllers\\programa_formacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -198,7 +198,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 304,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -246,19 +246,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Details.cshtml",
-              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Login\\Details.cshtml",
-              "ToolTip": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Details.cshtml",
-              "RelativeToolTip": "SenaPlanning\\Views\\Login\\Details.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEgAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-21T15:47:28.69Z"
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "SenaPlanning\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwBoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T02:30:25.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Login\\Delete.cshtml",
@@ -270,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Create.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Login\\Create.cshtml",
@@ -282,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Delete.cshtml",
@@ -294,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Programa_Formacion\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Programa_Formacion\\Edit.cshtml",
@@ -306,7 +311,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Web.config",
+              "RelativeDocumentMoniker": "SenaPlanning\\Web.config",
+              "ToolTip": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Web.config",
+              "RelativeToolTip": "SenaPlanning\\Web.config",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAAABAAAAD4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-08-19T00:01:46.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Details.cshtml",
+              "RelativeDocumentMoniker": "SenaPlanning\\Views\\Login\\Details.cshtml",
+              "ToolTip": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Details.cshtml",
+              "RelativeToolTip": "SenaPlanning\\Views\\Login\\Details.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T15:47:28.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Shared\\_Layout.cshtml",
@@ -318,7 +348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Index.cshtml",
@@ -330,20 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "SenaPlanning\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAqwBoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T02:30:25.578Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Login\\Index.cshtml",
@@ -355,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Login\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Login\\Edit.cshtml",
@@ -367,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Programa_Formacion\\Details.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Programa_Formacion\\Details.cshtml",
@@ -379,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Planeacion\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Planeacion\\Index.cshtml",
@@ -391,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Programa_Formacion\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Programa_Formacion\\Delete.cshtml",
@@ -403,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Programa_Formacion\\Create.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Programa_Formacion\\Create.cshtml",
@@ -415,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Ambientes\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Ambientes\\Edit.cshtml",
@@ -427,7 +444,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Red_Conocimiento\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Red_Conocimiento\\Edit.cshtml",
@@ -439,7 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Details.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Details.cshtml",
@@ -451,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Metas\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Metas\\Edit.cshtml",
@@ -463,7 +480,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Ambientes\\Details.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Ambientes\\Details.cshtml",
@@ -475,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Ficha_Programa_Area_Red.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Red_Conocimiento\\Ficha_Programa_Area_Red.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Red_Conocimiento\\Ficha_Programa_Area_Red.cshtml",
@@ -487,7 +504,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Ambientes\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Ambientes\\Delete.cshtml",
@@ -499,7 +516,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Fichas\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Fichas\\Edit.cshtml",
@@ -511,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Fichas\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Fichas\\Delete.cshtml",
@@ -523,7 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Instructors\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Instructors\\Index.cshtml",
@@ -535,7 +552,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Fichas\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Fichas\\Index.cshtml",
@@ -547,7 +564,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Details.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Home\\Details.cshtml",
@@ -559,7 +576,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Home\\Index.cshtml",
@@ -571,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Instructors\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Instructors\\Edit.cshtml",
@@ -583,7 +600,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Instructors\\Details.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Instructors\\Details.cshtml",
@@ -595,7 +612,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Instructors\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Instructors\\Delete.cshtml",
@@ -607,7 +624,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "SenaPlanning\\Controllers\\HomeController.cs",
@@ -619,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Red_Conocimiento\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Red_Conocimiento\\Delete.cshtml",
@@ -631,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Fichas\\Create.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Fichas\\Create.cshtml",
@@ -643,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "Area_Red.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Red_Conocimiento\\Area_Red.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Red_Conocimiento\\Area_Red.cshtml",
@@ -655,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Area_Conocimiento\\Details.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Area_Conocimiento\\Details.cshtml",
@@ -667,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Area_Conocimiento\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Area_Conocimiento\\Delete.cshtml",
@@ -679,7 +696,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Planeacion\\Delete.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Planeacion\\Delete.cshtml",
@@ -691,7 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "be_tables_datatables.js",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\assets\\_js\\pages\\be_tables_datatables.js",
               "RelativeDocumentMoniker": "SenaPlanning\\assets\\_js\\pages\\be_tables_datatables.js",
@@ -703,7 +720,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Views\\Planeacion\\Edit.cshtml",
               "RelativeDocumentMoniker": "SenaPlanning\\Views\\Planeacion\\Edit.cshtml",
@@ -715,7 +732,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "be_tables_datatables.min.js",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\assets\\js\\pages\\be_tables_datatables.min.js",
               "RelativeDocumentMoniker": "SenaPlanning\\assets\\js\\pages\\be_tables_datatables.min.js",
@@ -727,7 +744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "BundleConfig.cs",
               "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\App_Start\\BundleConfig.cs",
               "RelativeDocumentMoniker": "SenaPlanning\\App_Start\\BundleConfig.cs",
@@ -736,19 +753,6 @@
               "ViewState": "AgIAAA4AAAAAAAAAAAAYwDoAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-20T14:58:55.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Web.config",
-              "RelativeDocumentMoniker": "SenaPlanning\\Web.config",
-              "ToolTip": "C:\\Users\\AdminSena\\source\\repos\\SenaPlanning\\SenaPlanning\\SenaPlanning\\Web.config",
-              "RelativeToolTip": "SenaPlanning\\Web.config",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAABAAAAD4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-08-19T00:01:46.031Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
