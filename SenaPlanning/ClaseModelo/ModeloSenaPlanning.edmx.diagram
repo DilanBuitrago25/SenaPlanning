@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9f3b897bee6e4cde951e20a9062dfd7c" Name="Diagram1" ZoomLevel="97">
+      <Diagram DiagramId="9f3b897bee6e4cde951e20a9062dfd7c" Name="Diagram1" ZoomLevel="96">
         <EntityTypeShape EntityType="SenaPlanningModel.Ambiente" Width="1.5" PointX="10.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Area_Conocimiento" Width="1.5" PointX="6.625" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SenaPlanningModel.Ficha" Width="1.5" PointX="6.25" PointY="1.125" IsExpanded="true" />
