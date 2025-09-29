@@ -57,35 +57,48 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         @foreach (var item in Model)
                         {
+                            // Variables auxiliares (SIN @{ } aquí)
+                            var usuarioNombre = (item.Usuario != null && !String.IsNullOrWhiteSpace(item.Usuario.NombreUsuario))
+                                ? item.Usuario.NombreUsuario
+                                : "—";
+
+                            var metaTexto = (item.Meta != null) ? item.Meta.MetaFecha : null;
+                            int metaAnio = 0; // inicializado para evitar CS0165
+                            bool metaValida = !String.IsNullOrWhiteSpace(metaTexto) && Int32.TryParse(metaTexto, out metaAnio);
+
                             <tr>
                                 <td class="fw-semibold fs-sm">@item.IdOferta</td>
                                 <td class="fw-semibold fs-sm">@item.NombreOferta</td>
-                                <td class="fw-semibold fs-sm">@(DateTime.Parse(item.FechaInicioOferta.ToString()).ToString("dd/MM/yyyy"))</td>
-                                <td class="fs-sm">@item.Usuario.NombreUsuario</td>
+                                <td class="fw-semibold fs-sm">@String.Format("{0:dd/MM/yyyy}", item.FechaInicioOferta)</td>
+
+                                <!-- Coord. Responsable -->
+                                <td class="fs-sm">@usuarioNombre</td>
+
+                                <!-- Año Meta -->
                                 <td class="fs-sm">
-                                    @if (int.TryParse(item.Meta.MetaFecha, out int metaFechaInt))
+                                    @if (metaValida)
                                     {
-                                        if (metaFechaInt > DateTime.Now.Year)
+                                        if (metaAnio > DateTime.Now.Year)
                                         {
-                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">@metaFechaInt</span>
+                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">@metaAnio</span>
                                         }
-                                        else if (metaFechaInt < DateTime.Now.Year)
+                                        else if (metaAnio < DateTime.Now.Year)
                                         {
-                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">@metaFechaInt</span>
+                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-danger-light text-danger">@metaAnio</span>
                                         }
                                         else
                                         {
-                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">@metaFechaInt</span>
+                                            <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">@metaAnio</span>
                                         }
                                     }
                                     else
                                     {
-                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-secondary-light text-secondary">Invalid Date</span>
+                                        <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-secondary-light text-secondary">Sin meta</span>
                                     }
                                 </td>
+
                                 <td>
                                     @Html.ActionLink("Editar", "Edit", new { id = item.IdOferta }) |
                                     @Html.ActionLink("Fichas", "Planeacion_Ficha", new { id = item.IdOferta }) |

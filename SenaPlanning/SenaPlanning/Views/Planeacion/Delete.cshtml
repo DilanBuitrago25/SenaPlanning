@@ -1,14 +1,13 @@
 ﻿@model ClaseModelo.Oferta
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Del";
 }
 
 
 <div class="container text-center">
     <div class="content block block-bordered">
         <h2>Eliminar</h2>
-
         <h3>Quiere eliminar la oferta <strong>@Html.DisplayFor(model => model.NombreOferta)</strong>?</h3>
         <div>
             <hr />
@@ -18,9 +17,8 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-
                 <div class="form-actions no-color">
-                    <input type="submit" value="Eliminars" class="btn btn-default" /> |
+                    <input type="submit" value="Eliminar" class="btn btn-default" /> |
                     @Html.ActionLink("Regresar", "Index")
                 </div>
             }
