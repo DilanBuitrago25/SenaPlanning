@@ -217,9 +217,9 @@
                                        class="form-control form-control-sm"
                                        id="nuevaContrasena"
                                        name="nuevaContrasena"
-                                       placeholder="Mínimo 6 caracteres"
-                                       minlength="6">
-                                <small class="form-text text-muted">Mínimo 6 caracteres</small>
+                                       placeholder="Mínimo 8 caracteres"
+                                       minlength="8">
+                                <small class="form-text text-muted">Mínimo 8 caracteres</small>
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -319,8 +319,8 @@
                     } else if (nuevaContrasena !== confirmarContrasena) {
                         alert('Las contraseñas no coinciden.');
                         isValid = false;
-                    } else if (nuevaContrasena.length < 6) {
-                        alert('La contraseña debe tener al menos 6 caracteres.');
+                    } else if (nuevaContrasena.length < 8) {
+                        alert('La contraseña debe tener al menos 8 caracteres.');
                         isValid = false;
                     }
                 }

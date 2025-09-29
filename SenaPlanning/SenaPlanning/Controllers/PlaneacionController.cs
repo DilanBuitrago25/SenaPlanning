@@ -27,82 +27,75 @@ namespace SenaPlanning.Controllers
             using (SqlConnection connection = new SqlConnection(Conexion))
             {
                 string query = @"
-                    SELECT COUNT(*) AS TotalFichasActivas
-                    FROM Ficha
-                    WHERE 
-                        (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-01-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-03-31'))) OR
-                        (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-01-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-03-31'))) OR
-                        (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-01-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-03-31')));
-                ";
-
+            SELECT COUNT(*) AS TotalFichasActivas
+            FROM Ficha
+            WHERE 
+                (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-01-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-03-31'))) OR
+                (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-01-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-03-31'))) OR
+                (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-01-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-03-31')));";
                 SqlCommand comando = new SqlCommand(query, connection);
                 connection.Open();
                 TotalFichasActivasITrim = (int)comando.ExecuteScalar();
             }
-
             ViewBag.TotalFichasActivasITrim = TotalFichasActivasITrim;
 
             int TotalFichasActivasIITrim;
-
             using (SqlConnection connection = new SqlConnection(Conexion))
             {
                 string query = @"
-                    SELECT COUNT(*) AS TotalFichasActivas
-                    FROM Ficha
-                    WHERE 
-                        (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-04-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-06-30'))) OR
-                        (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-04-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-06-30'))) OR
-                        (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-04-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-06-30')));
-                ";
-
+            SELECT COUNT(*) AS TotalFichasActivas
+            FROM Ficha
+            WHERE 
+                (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-04-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-06-30'))) OR
+                (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-04-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-06-30'))) OR
+                (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-04-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-06-30')));";
                 SqlCommand comando = new SqlCommand(query, connection);
                 connection.Open();
                 TotalFichasActivasIITrim = (int)comando.ExecuteScalar();
             }
-
             ViewBag.TotalFichasActivasIITrim = TotalFichasActivasIITrim;
 
             int TotalFichasActivasIIITrim;
-
             using (SqlConnection connection = new SqlConnection(Conexion))
             {
                 string query = @"
-                    SELECT COUNT(*) AS TotalFichasActivas
-                    FROM Ficha
-                    WHERE 
-                        (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-07-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-09-30'))) OR
-                        (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-07-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-09-30'))) OR
-                        (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-07-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-09-30')));
-                ";
-
+            SELECT COUNT(*) AS TotalFichasActivas
+            FROM Ficha
+            WHERE 
+                (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-07-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-09-30'))) OR
+                (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-07-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-09-30'))) OR
+                (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-07-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-09-30')));";
                 SqlCommand comando = new SqlCommand(query, connection);
                 connection.Open();
                 TotalFichasActivasIIITrim = (int)comando.ExecuteScalar();
             }
-
             ViewBag.TotalFichasActivasIIITrim = TotalFichasActivasIIITrim;
 
             int TotalFichasActivasVITrim;
-
             using (SqlConnection connection = new SqlConnection(Conexion))
             {
                 string query = @"
-                    SELECT COUNT(*) AS TotalFichasActivas
-                    FROM Ficha
-                    WHERE 
-                        (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-10-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-12-31'))) OR
-                        (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-10-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-12-31'))) OR
-                        (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-10-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-12-31')));
-                ";
-
+            SELECT COUNT(*) AS TotalFichasActivas
+            FROM Ficha
+            WHERE 
+                (FechaInFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-10-01')) AND FechaInFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-12-31'))) OR
+                (FechaFinFicha >= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-10-01')) AND FechaFinFicha <= CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-12-31'))) OR
+                (FechaInFicha < CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-10-01')) AND FechaFinFicha > CONVERT(DATE, CONCAT(YEAR(GETDATE()), '-12-31')));";
                 SqlCommand comando = new SqlCommand(query, connection);
                 connection.Open();
                 TotalFichasActivasVITrim = (int)comando.ExecuteScalar();
             }
-
             ViewBag.TotalFichasActivasVITrim = TotalFichasActivasVITrim;
-            return View(db.Oferta.ToList());
+
+            // *** CAMBIO CLAVE: incluimos las navegaciones ***
+            var ofertas = db.Oferta
+                .Include(o => o.Usuario)
+                .Include(o => o.Meta)
+                .ToList();
+
+            return View(ofertas);
         }
+
 
         // GET: Planeacion/Details/5
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
@@ -185,7 +178,7 @@ namespace SenaPlanning.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]  
+        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdOferta,EstadoOferta,NombreOferta,FechaInicioOferta,MetaOferta,IdUsuario,IdMetas,IdRed")] Oferta oferta)
         {
             if (ModelState.IsValid)
@@ -194,10 +187,13 @@ namespace SenaPlanning.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Metas = new SelectList(db.Meta, "IdMeta", "FechaInicioOferta", oferta.IdMetas);
+
+            // Corrección en esta parte
+            ViewBag.Metas = new SelectList(db.Meta, "IdMeta", "MetaFecha", oferta.IdMetas);
             ViewBag.Usuario = new SelectList(db.Usuario, "IdUsuario", "NombreUsuario", oferta.IdUsuario);
             return View(oferta);
         }
+
 
         // GET: Planeacion/Delete/5
         [AutorizarTipoUsuario("Coordinador", "Administrador")]
